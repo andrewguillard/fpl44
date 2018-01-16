@@ -451,6 +451,7 @@ GameObject:
   - component: {fileID: 1037085828}
   - component: {fileID: 1037085827}
   - component: {fileID: 1037085826}
+  - component: {fileID: 1037085829}
   m_Layer: 5
   m_Name: QuitButton
   m_TagString: Untagged
@@ -515,7 +516,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1037085827}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1037085829}
+        m_MethodName: quit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1037085827
@@ -551,6 +563,17 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1037085824}
+--- !u!114 &1037085829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1037085824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fb2a45985ce2c2448750c6c2c4cf692, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1149202851
 GameObject:
   m_ObjectHideFlags: 0
@@ -627,6 +650,7 @@ GameObject:
   - component: {fileID: 1167342636}
   - component: {fileID: 1167342635}
   - component: {fileID: 1167342634}
+  - component: {fileID: 1167342637}
   m_Layer: 5
   m_Name: SelectiveTrainingButton
   m_TagString: Untagged
@@ -691,7 +715,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1167342635}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1167342637}
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1167342635
@@ -727,6 +762,17 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1167342632}
+--- !u!114 &1167342637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1167342632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a0b935f22e753f48a8cfb6300864c2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1924035349
 GameObject:
   m_ObjectHideFlags: 0
@@ -868,6 +914,7 @@ GameObject:
   - component: {fileID: 2022062091}
   - component: {fileID: 2022062090}
   - component: {fileID: 2022062089}
+  - component: {fileID: 2022062092}
   m_Layer: 5
   m_Name: RandomizedTrainingButton
   m_TagString: Untagged
@@ -932,7 +979,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2022062090}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2022062092}
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &2022062090
@@ -968,6 +1026,17 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2022062087}
+--- !u!114 &2022062092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2022062087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 245f178b98b342745871c9a43b0775d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2060550644
 GameObject:
   m_ObjectHideFlags: 0
@@ -1053,6 +1122,7 @@ GameObject:
   - component: {fileID: 2068783966}
   - component: {fileID: 2068783965}
   - component: {fileID: 2068783964}
+  - component: {fileID: 2068783967}
   m_Layer: 5
   m_Name: QuizButton
   m_TagString: Untagged
@@ -1153,6 +1223,17 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2068783962}
+--- !u!114 &2068783967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2068783962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d5e1eab5ab476b4e8d5489451f0e67a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2098736039
 GameObject:
   m_ObjectHideFlags: 0
