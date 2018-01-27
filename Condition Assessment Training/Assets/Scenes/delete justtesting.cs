@@ -6,7 +6,8 @@ public class deletejusttesting : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		//nothing
+		//just testing.
+		//deleted this script.
 	}
 	
 	// Update is called once per frame
