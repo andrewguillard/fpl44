@@ -101,16 +101,17 @@ public class PoleSpawner : MonoBehaviour
                 {
 
                     //Spawn the B insulator w/o rotating
+                    Quaternion rotateInsulator = Quaternion.Euler(-180, 0, 0);
                     Vector3 locB = new Vector3(spawnLocationModVerticalB[i].transform.position.x, spawnLocationModVerticalB[i].transform.position.y, spawnLocationModVerticalB[i].transform.position.z);
-                    Instantiate(insulatorMaterial[0], locB, Quaternion.identity);
+                    Instantiate(insulatorMaterial[0], locB, rotateInsulator);
 
                     //Rotate the insulator and spawn
-                    Quaternion rotateInsulator = Quaternion.Euler(90, 0, 0);
+                    Quaternion rotateInsulator2 = Quaternion.Euler(90, 0, 0);
                     Vector3 locA = new Vector3(spawnLocationModVerticalA[i].transform.position.x, spawnLocationModVerticalA[i].transform.position.y, spawnLocationModVerticalA[i].transform.position.z);
-                    Instantiate(insulatorMaterial[0], locA, rotateInsulator);
+                    Instantiate(insulatorMaterial[0], locA, rotateInsulator2);
 
                     Vector3 locC = new Vector3(spawnLocationModVerticalC[i].transform.position.x, spawnLocationModVerticalC[i].transform.position.y, spawnLocationModVerticalC[i].transform.position.z);
-                    Instantiate(insulatorMaterial[0], locC, rotateInsulator);
+                    Instantiate(insulatorMaterial[0], locC, rotateInsulator2);
 
 
                     arrayOfPoles[i] = Instantiate(poleMaterial[getRandom(2)], loc, Quaternion.identity);
@@ -189,18 +190,18 @@ public class PoleSpawner : MonoBehaviour
                 //Modified Vertical: poles 5-9
                 else if ((shuffle[0].Equals(poleTypes[1])))
                 {
-
                     //Spawn the B insulator w/o rotating
+                    Quaternion rotateInsulator = Quaternion.Euler(-180,0,0);
                     Vector3 locB = new Vector3(spawnLocationModVerticalB[i].transform.position.x, spawnLocationModVerticalB[i].transform.position.y, spawnLocationModVerticalB[i].transform.position.z);
-                    Instantiate(insulatorMaterial[0], locB, Quaternion.identity);
+                    Instantiate(insulatorMaterial[0], locB, rotateInsulator);
 
                     //Rotate the insulator and spawn
-                    Quaternion rotateInsulator = Quaternion.Euler(90, 0, 0);
+                    Quaternion rotateInsulator2 = Quaternion.Euler(-90, 0, 0);
                     Vector3 locA = new Vector3(spawnLocationModVerticalA[i].transform.position.x, spawnLocationModVerticalA[i].transform.position.y, spawnLocationModVerticalA[i].transform.position.z);
-                    Instantiate(insulatorMaterial[0], locA, rotateInsulator);
+                    Instantiate(insulatorMaterial[0], locA, rotateInsulator2);
 
                     Vector3 locC = new Vector3(spawnLocationModVerticalC[i].transform.position.x, spawnLocationModVerticalC[i].transform.position.y, spawnLocationModVerticalC[i].transform.position.z);
-                    Instantiate(insulatorMaterial[0], locC, rotateInsulator);
+                    Instantiate(insulatorMaterial[0], locC, rotateInsulator2);
 
 
                     arrayOfPoles[i] = Instantiate(poleMaterial[getRandom(2)], loc, Quaternion.identity);
