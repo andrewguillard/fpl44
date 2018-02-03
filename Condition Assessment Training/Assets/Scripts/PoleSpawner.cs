@@ -106,7 +106,7 @@ public class PoleSpawner : MonoBehaviour
                     Instantiate(insulatorMaterial[0], locB, rotateInsulator);
 
                     //Rotate the insulator and spawn
-                    Quaternion rotateInsulator2 = Quaternion.Euler(90, 0, 0);
+                    Quaternion rotateInsulator2 = Quaternion.Euler(-90, 0, 0);
                     Vector3 locA = new Vector3(spawnLocationModVerticalA[i].transform.position.x, spawnLocationModVerticalA[i].transform.position.y, spawnLocationModVerticalA[i].transform.position.z);
                     Instantiate(insulatorMaterial[0], locA, rotateInsulator2);
 
