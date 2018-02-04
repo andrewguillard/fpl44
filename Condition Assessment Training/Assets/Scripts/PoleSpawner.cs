@@ -57,7 +57,7 @@ public class PoleSpawner : MonoBehaviour
         //The shuffle list is taking our poleTypes List and randomizing it.
         //We probably need to come up with a better shuffle method, this does not check for redundancy
         List<string> shuffle = new List<string>();
-        shuffle.Add(poleTypes[2]);
+        shuffle.Add(poleTypes[3]);
         shuffle.Add(poleTypes[1]);
         shuffle.Add(poleTypes[1]);
         //shuffle.Add(poleTypes[getRandom(4)]);
@@ -235,6 +235,25 @@ public class PoleSpawner : MonoBehaviour
                     newPole[i].poleType = shuffle[0];
                     Debug.Log("shuffle is =" + shuffle[0]);
                 }
+                //Crossarm: poles 5-9
+                else if ((shuffle[0].Equals(poleTypes[3])))
+                {
+                    Quaternion rotateInsulator = Quaternion.Euler(-90, 0, 0);
+                    Vector3 locA = new Vector3(spawnLocationCrossarmA[i].transform.position.x, spawnLocationCrossarmA[i].transform.position.y, spawnLocationCrossarmA[i].transform.position.z);
+                    Instantiate(insulatorMaterial[0], locA, rotateInsulator);
+
+                    Vector3 locB = new Vector3(spawnLocationCrossarmB[i].transform.position.x, spawnLocationCrossarmB[i].transform.position.y, spawnLocationCrossarmB[i].transform.position.z);
+                    Instantiate(insulatorMaterial[0], locB, rotateInsulator);
+
+                    Vector3 locC = new Vector3(spawnLocationCrossarmC[i].transform.position.x, spawnLocationCrossarmC[i].transform.position.y, spawnLocationCrossarmC[i].transform.position.z);
+                    Instantiate(insulatorMaterial[0], locC, rotateInsulator);
+
+                    arrayOfPoles[i] = Instantiate(poleMaterial[getRandom(2)], loc, Quaternion.identity);
+                    newPole[i].PoleObject = arrayOfPoles[i];
+                    newPole[i].poleType = shuffle[0];
+                    Debug.Log("shuffle is =" + shuffle[0]);
+                }
+
             }
             else if (i >= 10 && i <= 14)
             {
