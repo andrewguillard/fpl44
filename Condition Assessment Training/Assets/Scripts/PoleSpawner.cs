@@ -40,6 +40,10 @@ public class PoleSpawner : MonoBehaviour
     public Transform[] spawnTriangularPowerLineB;
     public Transform[] spawnTriangularPowerLineC;
 
+    public Transform[] spawnCrossarmPowerLineA;
+    public Transform[] spawnCrossarmPowerLineB;
+    public Transform[] spawnCrossarmPowerLineC;
+
     public GameObject[] powerLineObject;
     //public Transform[] spawnPowerLineVerticalB;
     //public Transform[] spawnPowerLineVerticalC;
@@ -172,6 +176,42 @@ public class PoleSpawner : MonoBehaviour
             return;
     }
 
+    public void generateCrossarmPowerline(int i, Vector3 loc)
+    {
+        if (i == 0)
+        {
+            //For powerline at position B.
+            Quaternion rotate = Quaternion.Euler(0, -90, 0);
+            Vector3 locB = new Vector3(spawnCrossarmPowerLineB[0].transform.position.x, spawnCrossarmPowerLineB[0].transform.position.y, spawnCrossarmPowerLineB[0].transform.position.z);
+            Instantiate(powerLineObject[0], locB, rotate);
+
+            Vector3 locA = new Vector3(spawnCrossarmPowerLineA[0].transform.position.x, spawnCrossarmPowerLineA[0].transform.position.y, spawnCrossarmPowerLineA[0].transform.position.z);
+            Instantiate(powerLineObject[0], locA, rotate);
+
+            Vector3 locC = new Vector3(spawnCrossarmPowerLineC[0].transform.position.x, spawnCrossarmPowerLineC[0].transform.position.y, spawnCrossarmPowerLineC[0].transform.position.z);
+            Instantiate(powerLineObject[0], locC, rotate);
+        }
+        else if (i == 5)
+        {
+
+            //For powerline at position B.
+            Quaternion rotate = Quaternion.Euler(0, -90, 0);
+            Vector3 locB = new Vector3(spawnCrossarmPowerLineB[1].transform.position.x, spawnCrossarmPowerLineB[1].transform.position.y, spawnCrossarmPowerLineB[1].transform.position.z);
+            Instantiate(powerLineObject[0], locB, rotate);
+
+            Vector3 locA = new Vector3(spawnCrossarmPowerLineA[1].transform.position.x, spawnCrossarmPowerLineA[1].transform.position.y, spawnCrossarmPowerLineA[1].transform.position.z);
+            Instantiate(powerLineObject[0], locA, rotate);
+
+            Vector3 locC = new Vector3(spawnCrossarmPowerLineC[1].transform.position.x, spawnCrossarmPowerLineC[1].transform.position.y, spawnCrossarmPowerLineC[1].transform.position.z);
+            Instantiate(powerLineObject[0], locC, rotate);
+        }
+        else
+            return;
+    }
+
+    //
+    // Insulator generation functions
+    //
 
     public void generateVerticalInsulators(int i, Vector3 loc, List<string> shuffle) {
 
@@ -289,8 +329,8 @@ public class PoleSpawner : MonoBehaviour
         //We probably need to come up with a better shuffle method, this does not check for redundancy
         List<string> shuffle = new List<string>();
         
-        shuffle.Add(poleTypes[2]); //In order to test put 0-3 into here.
-        shuffle.Add(poleTypes[2]);
+        shuffle.Add(poleTypes[3]); //In order to test put 0-3 into here.
+        shuffle.Add(poleTypes[3]);
         shuffle.Add(poleTypes[1]);
         //shuffle.Add(poleTypes[getRandom(4)]);
         shuffle.Add(poleTypes[1]);
@@ -333,6 +373,7 @@ public class PoleSpawner : MonoBehaviour
                 else if ((shuffle[0].Equals(poleTypes[3])))
                 {
                     generateCrossarmInsulators(i, loc, shuffle);
+                    generateCrossarmPowerline(i, loc);
                 }
 
             }
@@ -362,6 +403,7 @@ public class PoleSpawner : MonoBehaviour
                 else if ((shuffle[0].Equals(poleTypes[3]))) {
 
                     generateCrossarmInsulators(i, loc, shuffle);
+                    generateCrossarmPowerline(i, loc);
                 }
             }
             else if (i >= 10 && i <= 14) {
