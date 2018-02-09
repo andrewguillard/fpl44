@@ -36,6 +36,10 @@ public class PoleSpawner : MonoBehaviour
     public Transform[] spawnModVerticalPowerLineB;
     public Transform[] spawnModVerticalPowerLineC;
 
+    public Transform[] spawnTriangularPowerLineA;
+    public Transform[] spawnTriangularPowerLineB;
+    public Transform[] spawnTriangularPowerLineC;
+
     public GameObject[] powerLineObject;
     //public Transform[] spawnPowerLineVerticalB;
     //public Transform[] spawnPowerLineVerticalC;
@@ -133,8 +137,42 @@ public class PoleSpawner : MonoBehaviour
         }
         else
             return;
-
     }
+
+    public void generateTriangularPowerline(int i, Vector3 loc)
+    {
+        if (i == 0)
+        {
+            //For powerline at position B.
+            Quaternion rotate = Quaternion.Euler(0, -90, 0);
+            Vector3 locB = new Vector3(spawnTriangularPowerLineB[0].transform.position.x, spawnTriangularPowerLineB[0].transform.position.y, spawnTriangularPowerLineB[0].transform.position.z);
+            Instantiate(powerLineObject[0], locB, rotate);
+
+            Vector3 locA = new Vector3(spawnTriangularPowerLineA[0].transform.position.x, spawnTriangularPowerLineA[0].transform.position.y, spawnTriangularPowerLineA[0].transform.position.z);
+            Instantiate(powerLineObject[0], locA, rotate);
+
+            Vector3 locC = new Vector3(spawnTriangularPowerLineC[0].transform.position.x, spawnTriangularPowerLineC[0].transform.position.y, spawnTriangularPowerLineC[0].transform.position.z);
+            Instantiate(powerLineObject[0], locC, rotate);
+        }
+        else if (i == 5)
+        {
+
+            //For powerline at position B.
+            Quaternion rotate = Quaternion.Euler(0, -90, 0);
+            Vector3 locB = new Vector3(spawnTriangularPowerLineB[1].transform.position.x, spawnTriangularPowerLineB[1].transform.position.y, spawnTriangularPowerLineB[1].transform.position.z);
+            Instantiate(powerLineObject[0], locB, rotate);
+
+            Vector3 locA = new Vector3(spawnTriangularPowerLineA[1].transform.position.x, spawnTriangularPowerLineA[1].transform.position.y, spawnTriangularPowerLineA[1].transform.position.z);
+            Instantiate(powerLineObject[0], locA, rotate);
+
+            Vector3 locC = new Vector3(spawnTriangularPowerLineC[1].transform.position.x, spawnTriangularPowerLineC[1].transform.position.y, spawnTriangularPowerLineC[1].transform.position.z);
+            Instantiate(powerLineObject[0], locC, rotate);
+        }
+        else
+            return;
+    }
+
+
     public void generateVerticalInsulators(int i, Vector3 loc, List<string> shuffle) {
 
         //if the poles are along the x axis (W->E)
@@ -251,8 +289,8 @@ public class PoleSpawner : MonoBehaviour
         //We probably need to come up with a better shuffle method, this does not check for redundancy
         List<string> shuffle = new List<string>();
         
-        shuffle.Add(poleTypes[1]); //In order to test put 0-3 into here.
-        shuffle.Add(poleTypes[1]);
+        shuffle.Add(poleTypes[2]); //In order to test put 0-3 into here.
+        shuffle.Add(poleTypes[2]);
         shuffle.Add(poleTypes[1]);
         //shuffle.Add(poleTypes[getRandom(4)]);
         shuffle.Add(poleTypes[1]);
@@ -288,6 +326,7 @@ public class PoleSpawner : MonoBehaviour
                 else if ((shuffle[0].Equals(poleTypes[2])))
                 {
                     generateTriangularInsulators(i, loc, shuffle);
+                    generateTriangularPowerline(i, loc);
                 }
 
                 //Crossarm
@@ -300,13 +339,13 @@ public class PoleSpawner : MonoBehaviour
             else if (i >= 5 && i <= 9) {
 
                 //Vertical insulator: poles 5-9
-                if (shuffle[0].Equals(poleTypes[0])) {
+                if (shuffle[0].Equals(poleTypes[1])) {
 
                     generateVerticalInsulators(i, loc, shuffle);
                     generateVerticalPowerline(i, loc);
                 }
                 //Modified Vertical: poles 5-9
-                else if ((shuffle[0].Equals(poleTypes[1]))) {
+                else if ((shuffle[1].Equals(poleTypes[1]))) {
 
                     generateModVerticalInsulators(i, loc, shuffle);
                     generateModVerticalPowerline(i, loc);
@@ -316,6 +355,7 @@ public class PoleSpawner : MonoBehaviour
                 else if ((shuffle[0].Equals(poleTypes[2]))) {
 
                     generateTriangularInsulators(i, loc, shuffle);
+                    generateTriangularPowerline(i, loc);
                 }
 
                 //Crossarm: poles 5-9
