@@ -76,8 +76,8 @@ public class PoleSpawner : MonoBehaviour
 
     public void generateVerticalPowerline(int i, Vector3 loc) {
 
-        if (i == 0) {
-
+        if (i == 0)
+        {
             //For powerline at position B.
             Quaternion rotate = Quaternion.Euler(0, -90, 0);
             Vector3 locB = new Vector3(spawnVerticalPowerLineB[0].transform.position.x, spawnVerticalPowerLineB[0].transform.position.y, spawnVerticalPowerLineB[0].transform.position.z);
@@ -90,7 +90,8 @@ public class PoleSpawner : MonoBehaviour
             Instantiate(powerLineObject[0], locC, rotate);
 
         }
-        else if (i == 5) {
+        else if (i == 5)
+        {
 
             //For powerline at position B.
             Quaternion rotate = Quaternion.Euler(0, -90, 0);
@@ -104,6 +105,35 @@ public class PoleSpawner : MonoBehaviour
             Instantiate(powerLineObject[0], locC, rotate);
 
         }
+        else if (i == 11) {
+
+            //For powerline at position B.
+            Quaternion rotate = Quaternion.Euler(0, -180, 0);
+            Vector3 locB = new Vector3(spawnVerticalPowerLineB[2].transform.position.x, spawnVerticalPowerLineB[2].transform.position.y, spawnVerticalPowerLineB[2].transform.position.z);
+            Instantiate(powerLineObject[0], locB, rotate);
+
+            Vector3 locA = new Vector3(spawnVerticalPowerLineA[2].transform.position.x, spawnVerticalPowerLineA[2].transform.position.y, spawnVerticalPowerLineA[2].transform.position.z);
+            Instantiate(powerLineObject[0], locA, rotate);
+
+            Vector3 locC = new Vector3(spawnVerticalPowerLineC[2].transform.position.x, spawnVerticalPowerLineC[2].transform.position.y, spawnVerticalPowerLineC[2].transform.position.z);
+            Instantiate(powerLineObject[0], locC, rotate);
+
+        }
+        else if (i == 16) {
+
+            //For powerline at position B.
+            Quaternion rotate = Quaternion.Euler(0, -180, 0);
+            Vector3 locB = new Vector3(spawnVerticalPowerLineB[3].transform.position.x, spawnVerticalPowerLineB[3].transform.position.y, spawnVerticalPowerLineB[3].transform.position.z);
+            Instantiate(powerLineObject[0], locB, rotate);
+
+            Vector3 locA = new Vector3(spawnVerticalPowerLineA[3].transform.position.x, spawnVerticalPowerLineA[3].transform.position.y, spawnVerticalPowerLineA[3].transform.position.z);
+            Instantiate(powerLineObject[0], locA, rotate);
+
+            Vector3 locC = new Vector3(spawnVerticalPowerLineC[3].transform.position.x, spawnVerticalPowerLineC[3].transform.position.y, spawnVerticalPowerLineC[3].transform.position.z);
+            Instantiate(powerLineObject[0], locC, rotate);
+
+        }
+
         else
             return;
     }
@@ -256,46 +286,101 @@ public class PoleSpawner : MonoBehaviour
     }
 
     public void generateModVerticalInsulators(int i, Vector3 loc, List<string> shuffle) {
-        //Spawn the B insulator w/o rotating
-        Quaternion rotateInsulator = Quaternion.Euler(-180, 0, 0);
-        Vector3 locB = new Vector3(spawnLocationModVerticalB[i].transform.position.x, spawnLocationModVerticalB[i].transform.position.y, spawnLocationModVerticalB[i].transform.position.z);
-        Instantiate(insulatorMaterial[0], locB, rotateInsulator);
+        if (i <= 9)
+        {
+            //Spawn the B insulator w/o rotating
+            Quaternion rotateInsulator = Quaternion.Euler(-180, 0, 0);
+            Vector3 locB = new Vector3(spawnLocationModVerticalB[i].transform.position.x, spawnLocationModVerticalB[i].transform.position.y, spawnLocationModVerticalB[i].transform.position.z);
+            Instantiate(insulatorMaterial[0], locB, rotateInsulator);
 
-        //Rotate the insulator and spawn
-        Quaternion rotateInsulator2 = Quaternion.Euler(-90, 0, 0);
-        Vector3 locA = new Vector3(spawnLocationModVerticalA[i].transform.position.x, spawnLocationModVerticalA[i].transform.position.y, spawnLocationModVerticalA[i].transform.position.z);
-        Instantiate(insulatorMaterial[0], locA, rotateInsulator2);
+            //Rotate the insulator and spawn
+            Quaternion rotateInsulator2 = Quaternion.Euler(-90, 0, 0);
+            Vector3 locA = new Vector3(spawnLocationModVerticalA[i].transform.position.x, spawnLocationModVerticalA[i].transform.position.y, spawnLocationModVerticalA[i].transform.position.z);
+            Instantiate(insulatorMaterial[0], locA, rotateInsulator2);
 
-        Vector3 locC = new Vector3(spawnLocationModVerticalC[i].transform.position.x, spawnLocationModVerticalC[i].transform.position.y, spawnLocationModVerticalC[i].transform.position.z);
-        Instantiate(insulatorMaterial[0], locC, rotateInsulator2);
+            Vector3 locC = new Vector3(spawnLocationModVerticalC[i].transform.position.x, spawnLocationModVerticalC[i].transform.position.y, spawnLocationModVerticalC[i].transform.position.z);
+            Instantiate(insulatorMaterial[0], locC, rotateInsulator2);
 
 
-        arrayOfPoles[i] = Instantiate(poleMaterial[getRandom(2)], loc, Quaternion.identity);
-        newPole[i].PoleObject = arrayOfPoles[i];
-        newPole[i].poleType = shuffle[0];
-        Debug.Log("shuffle is =" + shuffle[0]);
+            arrayOfPoles[i] = Instantiate(poleMaterial[getRandom(2)], loc, Quaternion.identity);
+            newPole[i].PoleObject = arrayOfPoles[i];
+            newPole[i].poleType = shuffle[0];
+            Debug.Log("shuffle is =" + shuffle[0]);
+        }
+
+        //if the poles are along the z axis (S->N)
+        else if (i > 9) {
+            //Spawn the B insulator w/o rotating
+            Quaternion rotateInsulator = Quaternion.Euler(-180, 0, 0);
+            Vector3 locB = new Vector3(spawnLocationModVerticalB[i].transform.position.x, spawnLocationModVerticalB[i].transform.position.y, spawnLocationModVerticalB[i].transform.position.z);
+            Instantiate(insulatorMaterial[0], locB, rotateInsulator);
+
+            //Rotate the insulator and spawn
+            Quaternion rotateInsulator2 = Quaternion.Euler(0, 0, -90);
+            Vector3 locA = new Vector3(spawnLocationModVerticalA[i].transform.position.x, spawnLocationModVerticalA[i].transform.position.y, spawnLocationModVerticalA[i].transform.position.z);
+            Instantiate(insulatorMaterial[0], locA, rotateInsulator2);
+
+            Vector3 locC = new Vector3(spawnLocationModVerticalC[i].transform.position.x, spawnLocationModVerticalC[i].transform.position.y, spawnLocationModVerticalC[i].transform.position.z);
+            Instantiate(insulatorMaterial[0], locC, rotateInsulator2);
+
+
+            arrayOfPoles[i] = Instantiate(poleMaterial[getRandom(2)], loc, Quaternion.identity);
+            newPole[i].PoleObject = arrayOfPoles[i];
+            newPole[i].poleType = shuffle[0];
+            Debug.Log("shuffle is =" + shuffle[0]);
+        }
+
     }
 
     public void generateTriangularInsulators(int i, Vector3 loc, List<string> shuffle) {
-        //Spawn the B insulator and rotate
-        Quaternion rotateInsulator = Quaternion.Euler(-180, 0, 0);
-        Vector3 locB = new Vector3(spawnLocationTriangularB[i].transform.position.x, spawnLocationTriangularB[i].transform.position.y, spawnLocationTriangularB[i].transform.position.z);
-        Instantiate(insulatorMaterial[0], locB, rotateInsulator);
+        if (i <= 9)
+        {
 
-        //Rotate the C insulator
-        Quaternion rotateInsulator2 = Quaternion.Euler(90, 0, 0);
-        Vector3 locC = new Vector3(spawnLocationTriangularC[i].transform.position.x, spawnLocationTriangularC[i].transform.position.y, spawnLocationTriangularC[i].transform.position.z);
-        Instantiate(insulatorMaterial[0], locC, rotateInsulator2);
+            //Spawn the B insulator and rotate
+            Quaternion rotateInsulator = Quaternion.Euler(-180, 0, 0);
+            Vector3 locB = new Vector3(spawnLocationTriangularB[i].transform.position.x, spawnLocationTriangularB[i].transform.position.y, spawnLocationTriangularB[i].transform.position.z);
+            Instantiate(insulatorMaterial[0], locB, rotateInsulator);
 
-        //Rotate A now
-        Quaternion rotateInsulator3 = Quaternion.Euler(-90, 0, 0);
-        Vector3 locA = new Vector3(spawnLocationTriangularA[i].transform.position.x, spawnLocationTriangularA[i].transform.position.y, spawnLocationTriangularA[i].transform.position.z);
-        Instantiate(insulatorMaterial[0], locA, rotateInsulator3);
-        
-        arrayOfPoles[i] = Instantiate(poleMaterial[getRandom(2)], loc, Quaternion.identity);
-        newPole[i].PoleObject = arrayOfPoles[i];
-        newPole[i].poleType = shuffle[0];
-        Debug.Log("shuffle is =" + shuffle[0]);
+            //Rotate the C insulator
+            Quaternion rotateInsulator2 = Quaternion.Euler(90, 0, 0);
+            Vector3 locC = new Vector3(spawnLocationTriangularC[i].transform.position.x, spawnLocationTriangularC[i].transform.position.y, spawnLocationTriangularC[i].transform.position.z);
+            Instantiate(insulatorMaterial[0], locC, rotateInsulator2);
+
+            //Rotate A now
+            Quaternion rotateInsulator3 = Quaternion.Euler(-90, 0, 0);
+            Vector3 locA = new Vector3(spawnLocationTriangularA[i].transform.position.x, spawnLocationTriangularA[i].transform.position.y, spawnLocationTriangularA[i].transform.position.z);
+            Instantiate(insulatorMaterial[0], locA, rotateInsulator3);
+
+            arrayOfPoles[i] = Instantiate(poleMaterial[getRandom(2)], loc, Quaternion.identity);
+            newPole[i].PoleObject = arrayOfPoles[i];
+            newPole[i].poleType = shuffle[0];
+            Debug.Log("shuffle is =" + shuffle[0]);
+        }
+
+        else if (i > 9) {
+
+            //Spawn the B insulator and rotate
+            Quaternion rotateInsulator = Quaternion.Euler(-180, 0, 0);
+            Vector3 locB = new Vector3(spawnLocationTriangularB[i].transform.position.x, spawnLocationTriangularB[i].transform.position.y, spawnLocationTriangularB[i].transform.position.z);
+            Instantiate(insulatorMaterial[0], locB, rotateInsulator);
+
+            //Rotate the C insulator
+            Quaternion rotateInsulator2 = Quaternion.Euler(0, 0, 90);
+            Vector3 locC = new Vector3(spawnLocationTriangularC[i].transform.position.x, spawnLocationTriangularC[i].transform.position.y, spawnLocationTriangularC[i].transform.position.z);
+            Instantiate(insulatorMaterial[0], locC, rotateInsulator2);
+
+            //Rotate A now
+            Quaternion rotateInsulator3 = Quaternion.Euler(0, 0, -90);
+            Vector3 locA = new Vector3(spawnLocationTriangularA[i].transform.position.x, spawnLocationTriangularA[i].transform.position.y, spawnLocationTriangularA[i].transform.position.z);
+            Instantiate(insulatorMaterial[0], locA, rotateInsulator3);
+
+            arrayOfPoles[i] = Instantiate(poleMaterial[getRandom(2)], loc, Quaternion.identity);
+            newPole[i].PoleObject = arrayOfPoles[i];
+            newPole[i].poleType = shuffle[0];
+            Debug.Log("shuffle is =" + shuffle[0]);
+
+        }
+
     }
 
 
@@ -329,8 +414,8 @@ public class PoleSpawner : MonoBehaviour
         //We probably need to come up with a better shuffle method, this does not check for redundancy
         List<string> shuffle = new List<string>();
         
-        shuffle.Add(poleTypes[3]); //In order to test put 0-3 into here.
-        shuffle.Add(poleTypes[3]);
+        shuffle.Add(poleTypes[0]); //In order to test put 0-3 into here.
+        shuffle.Add(poleTypes[0]);
         shuffle.Add(poleTypes[1]);
         //shuffle.Add(poleTypes[getRandom(4)]);
         shuffle.Add(poleTypes[1]);
@@ -380,7 +465,7 @@ public class PoleSpawner : MonoBehaviour
             else if (i >= 5 && i <= 9) {
 
                 //Vertical insulator: poles 5-9
-                if (shuffle[0].Equals(poleTypes[1])) {
+                if (shuffle[1].Equals(poleTypes[0])) {
 
                     generateVerticalInsulators(i, loc, shuffle);
                     generateVerticalPowerline(i, loc);
@@ -393,14 +478,14 @@ public class PoleSpawner : MonoBehaviour
                 }
 
                 //Triangular: poles 5-9
-                else if ((shuffle[0].Equals(poleTypes[2]))) {
+                else if ((shuffle[1].Equals(poleTypes[2]))) {
 
                     generateTriangularInsulators(i, loc, shuffle);
                     generateTriangularPowerline(i, loc);
                 }
 
                 //Crossarm: poles 5-9
-                else if ((shuffle[0].Equals(poleTypes[3]))) {
+                else if ((shuffle[1].Equals(poleTypes[3]))) {
 
                     generateCrossarmInsulators(i, loc, shuffle);
                     generateCrossarmPowerline(i, loc);
@@ -412,6 +497,7 @@ public class PoleSpawner : MonoBehaviour
                 if (shuffle[0].Equals(poleTypes[0]))  {
 
                     generateVerticalInsulators(i, loc, shuffle);
+                    generateVerticalPowerline(i, loc);
                 }
                 //Modified Vertical: poles 10-14
                 else if ((shuffle[0].Equals(poleTypes[1])))  {
@@ -437,6 +523,7 @@ public class PoleSpawner : MonoBehaviour
                 if (shuffle[0].Equals(poleTypes[0]))  {
 
                     generateVerticalInsulators(i, loc, shuffle);
+                    generateVerticalPowerline(i, loc);
                 }
                 //Modified Vertical: poles 15-19
                 else if ((shuffle[0].Equals(poleTypes[1]))) {
