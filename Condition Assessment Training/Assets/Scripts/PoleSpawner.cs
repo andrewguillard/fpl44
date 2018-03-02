@@ -416,9 +416,9 @@ public class PoleSpawner : MonoBehaviour
         
         shuffle.Add(poleTypes[0]); //In order to test put 0-3 into here.
         shuffle.Add(poleTypes[0]);
-        shuffle.Add(poleTypes[1]);
+        shuffle.Add(poleTypes[0]);
         //shuffle.Add(poleTypes[getRandom(4)]);
-        shuffle.Add(poleTypes[1]);
+        shuffle.Add(poleTypes[0]);
 
         for (int i = 0; i < spawnPoleLocation.Length; i++) {
 
