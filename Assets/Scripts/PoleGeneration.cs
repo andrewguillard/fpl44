@@ -15,7 +15,6 @@ public class PoleGeneration : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-        print(startSpot);
         this.name = "ListOfPoles";
         if (startSpot == null) {
             startSpot = this.gameObject;
@@ -28,8 +27,8 @@ public class PoleGeneration : MonoBehaviour {
 
         if (poles.Length == 0)
         {
-            poles = GameObject.FindGameObjectsWithTag("Pole");
-            print(poles);
+            fillRandomPole();
+            //print();
         }
 
         //populate poles
@@ -48,7 +47,58 @@ public class PoleGeneration : MonoBehaviour {
 
     }
 
+    void fillRandomPole() {
+        //4 zone : 0 vertical (V) ,1 ModifiedVertical (MV),2 Triangular(T),3 CrossArm(C)
 
+        int randomNum = Random.Range(0,4);
+
+        bool[] fill = new bool[4];
+        int start = 0;
+        for (int i = 0; i < 4; i++) {
+            while (fill[randomNum] == true) {
+                //if that framing is already random, change it
+                randomNum = Random.Range(0, 3);
+                
+            }
+            fill[randomNum] = true;
+            GameObject[] temp = new GameObject[2];
+            switch(randomNum)
+            {
+                case 0:
+                    temp = GameObject.FindGameObjectsWithTag("VPole");
+                   
+                    break;
+                case 1:
+                    temp = GameObject.FindGameObjectsWithTag("MVPole");
+                    break;
+                case 2:
+                    temp = GameObject.FindGameObjectsWithTag("VPole"); //change it
+                    break;
+                case 3:
+                    temp = GameObject.FindGameObjectsWithTag("VPole"); //change it
+                    break;
+            }
+
+            //fill a portion of poles array with list of pole template.
+            start = smallerRandom(temp, start);
+        }
+
+
+    }
+
+    //return next start value
+    int smallerRandom(GameObject[] p, int start) {
+        
+
+        for (int i=0; i < (numberOfPole / 4);i++)
+        {
+            int num = Random.Range(0, p.Length);
+            poleList[start + i] = p[num];
+            print("Smaller Random   :"+ i+"----"+p[num]);
+        }
+
+        return start + (numberOfPole / 4);
+    }
     void deactivePole()
     {
         for (int i = 0; i < poles.Length; i++) {
@@ -76,7 +126,7 @@ public class PoleGeneration : MonoBehaviour {
         Vector3 temp = startLoc;
         for (int i = 0, n=0; i < numberOfPole; i++, n++) //n is pole numnber in poleList Array 
         {
-            int j = Random.Range(0, poles.Length); //random variable
+            //int j = Random.Range(0, poles.Length); //random variable
 
             Quaternion rotation = new Quaternion();
             if (n <= numberOfPole/2) {
@@ -86,7 +136,7 @@ public class PoleGeneration : MonoBehaviour {
                 rotation = Quaternion.Euler(0, 180,0);
             }
 
-            poleList[n] = Instantiate(poles[j], temp, rotation);
+            poleList[n] = Instantiate(poles[i], temp, rotation);
             string name = "pole" + n;
             poleList[n].name = name;
 
