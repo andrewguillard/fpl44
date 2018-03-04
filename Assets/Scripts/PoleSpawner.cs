@@ -71,8 +71,72 @@ public class PoleSpawner : MonoBehaviour
     public class Pole {
         public GameObject PoleObject;   //this might not be needed.
         public string poleType = "";
-        public int POLEINT;
+
+        //public Insulator insulator;
     }
+
+    public void shuffleDis(List<string> oldList) {
+        int i = oldList.Count;
+
+
+
+    }
+
+    /*
+    public List<string> shuffleList( List<string> oldList ) {
+
+
+
+        List<string> newList = new List<string> (new string[] { });
+        int tempInt;
+
+
+        //print("First run old list");
+        //oldList.ForEach(Debug.Log);
+        //print("First run new list");
+        //newList.ForEach(Debug.Log);
+
+        tempInt = getRandom(4);
+        newList.Add(oldList[tempInt]);
+        oldList.RemoveAt(tempInt);
+
+       
+        print("Second run old list");
+        oldList.ForEach(Debug.Log);
+        print("Second run new list");
+        newList.ForEach(Debug.Log);
+        print("The tempint is"+ tempInt);
+
+        tempInt = getRandom(3);
+        newList.Add(oldList[tempInt]);
+        oldList.RemoveAt(tempInt);
+       
+       print("Third run old list");
+       oldList.ForEach(Debug.Log);
+       print("Third run new list");
+       newList.ForEach(Debug.Log);
+       print("The tempint is" + tempInt);
+   
+       tempInt = getRandom(2);
+       newList.Add(oldList[tempInt]);
+       oldList.RemoveAt(tempInt);
+
+        /*
+      print("Fourth run old list");
+      oldList.ForEach(Debug.Log);
+      print("Fourth run new list");
+      newList.ForEach(Debug.Log);
+
+      newList.Add(oldList[oldList.Count - 1]);
+
+      print("Final new list");
+      newList.ForEach(Debug.Log);
+     
+
+        return newList;
+    }
+
+*/
 
     public void generateVerticalPowerline(int i, Vector3 loc) {
 
@@ -383,7 +447,6 @@ public class PoleSpawner : MonoBehaviour
 
     }
 
-
     public void generateCrossarmInsulators(int i, Vector3 loc, List<string> shuffle) {
 
         Quaternion rotateInsulator = Quaternion.Euler(-90, 0, 0);
@@ -403,6 +466,9 @@ public class PoleSpawner : MonoBehaviour
     }
 
 
+
+
+
     void Start()
     {
         
@@ -420,15 +486,19 @@ public class PoleSpawner : MonoBehaviour
         //shuffle.Add(poleTypes[getRandom(4)]);
         shuffle.Add(poleTypes[1]);
 
+        List<string> testingThisList = new List<string>();
+        //testingThisList.AddRange(shuffleList(poleTypes));
+        //testingThisList.ForEach(Debug.Log);
+
+
+
+
         for (int i = 0; i < spawnPoleLocation.Length; i++) {
 
             newPole[i] = new Pole();
 
-            //increase y-axis location
-            float newy = spawnPoleLocation[i].transform.position.y + (10.886f / 2f);
-
             //Location of new pole
-            Vector3 loc = new Vector3(spawnPoleLocation[i].transform.position.x, newy, spawnPoleLocation[i].transform.position.z);
+            Vector3 loc = new Vector3(spawnPoleLocation[i].transform.position.x, spawnPoleLocation[i].transform.position.y, spawnPoleLocation[i].transform.position.z);
 
             if (i <= 4) {
 
