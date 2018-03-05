@@ -424,8 +424,8 @@ public class PoleSpawner : MonoBehaviour
         //We probably need to come up with a better shuffle method, this does not check for redundancy
         List<string> shuffle = new List<string>();
         
-        shuffle.Add(poleTypes[0]); //In order to test put 0-3 into here.
-        shuffle.Add(poleTypes[0]);
+        shuffle.Add(poleTypes[1]); //In order to test put 0-3 into here.
+        shuffle.Add(poleTypes[1]);
         shuffle.Add(poleTypes[1]);
         //shuffle.Add(poleTypes[getRandom(4)]);
         shuffle.Add(poleTypes[1]);
@@ -450,14 +450,14 @@ public class PoleSpawner : MonoBehaviour
                 if (shuffle[0].Equals(poleTypes[0]))
                 {
                     generateVerticalInsulators(i, loc, shuffle);
-                    generateVerticalPowerline(i, loc);
+                    //generateVerticalPowerline(i, loc);
 
                 }
                 //Modified Vertical
                 else if ((shuffle[0].Equals(poleTypes[1])))
                 {
                     generateModVerticalInsulators(i, loc, shuffle);
-                    generateModVerticalPowerline(i , loc);
+                    //generateModVerticalPowerline(i , loc);
 
                 }
 
@@ -465,14 +465,14 @@ public class PoleSpawner : MonoBehaviour
                 else if ((shuffle[0].Equals(poleTypes[2])))
                 {
                     generateTriangularInsulators(i, loc, shuffle);
-                    generateTriangularPowerline(i, loc);
+                    //generateTriangularPowerline(i, loc);
                 }
 
                 //Crossarm
                 else if ((shuffle[0].Equals(poleTypes[3])))
                 {
                     generateCrossarmInsulators(i, loc, shuffle);
-                    generateCrossarmPowerline(i, loc);
+                    //generateCrossarmPowerline(i, loc);
                 }
 
             }
@@ -482,27 +482,27 @@ public class PoleSpawner : MonoBehaviour
                 if (shuffle[1].Equals(poleTypes[0])) {
 
                     generateVerticalInsulators(i, loc, shuffle);
-                    generateVerticalPowerline(i, loc);
+                    //generateVerticalPowerline(i, loc);
                 }
                 //Modified Vertical: poles 5-9
                 else if ((shuffle[1].Equals(poleTypes[1]))) {
 
                     generateModVerticalInsulators(i, loc, shuffle);
-                    generateModVerticalPowerline(i, loc);
+                    //generateModVerticalPowerline(i, loc);
                 }
 
                 //Triangular: poles 5-9
                 else if ((shuffle[1].Equals(poleTypes[2]))) {
 
                     generateTriangularInsulators(i, loc, shuffle);
-                    generateTriangularPowerline(i, loc);
+                    //generateTriangularPowerline(i, loc);
                 }
 
                 //Crossarm: poles 5-9
                 else if ((shuffle[1].Equals(poleTypes[3]))) {
 
                     generateCrossarmInsulators(i, loc, shuffle);
-                    generateCrossarmPowerline(i, loc);
+                    //generateCrossarmPowerline(i, loc);
                 }
             }
             else if (i >= 10 && i <= 14) {
@@ -511,7 +511,7 @@ public class PoleSpawner : MonoBehaviour
                 if (shuffle[0].Equals(poleTypes[0]))  {
 
                     generateVerticalInsulators(i, loc, shuffle);
-                    generateVerticalPowerline(i, loc);
+                    //generateVerticalPowerline(i, loc);
                 }
                 //Modified Vertical: poles 10-14
                 else if ((shuffle[0].Equals(poleTypes[1])))  {
@@ -537,7 +537,7 @@ public class PoleSpawner : MonoBehaviour
                 if (shuffle[0].Equals(poleTypes[0]))  {
 
                     generateVerticalInsulators(i, loc, shuffle);
-                    generateVerticalPowerline(i, loc);
+                    //generateVerticalPowerline(i, loc);
                 }
                 //Modified Vertical: poles 15-19
                 else if ((shuffle[0].Equals(poleTypes[1]))) {
