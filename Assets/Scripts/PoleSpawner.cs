@@ -82,62 +82,6 @@ public class PoleSpawner : MonoBehaviour
 
     }
 
-    /*
-    public List<string> shuffleList( List<string> oldList ) {
-
-
-
-        List<string> newList = new List<string> (new string[] { });
-        int tempInt;
-
-
-        //print("First run old list");
-        //oldList.ForEach(Debug.Log);
-        //print("First run new list");
-        //newList.ForEach(Debug.Log);
-
-        tempInt = getRandom(4);
-        newList.Add(oldList[tempInt]);
-        oldList.RemoveAt(tempInt);
-
-       
-        print("Second run old list");
-        oldList.ForEach(Debug.Log);
-        print("Second run new list");
-        newList.ForEach(Debug.Log);
-        print("The tempint is"+ tempInt);
-
-        tempInt = getRandom(3);
-        newList.Add(oldList[tempInt]);
-        oldList.RemoveAt(tempInt);
-       
-       print("Third run old list");
-       oldList.ForEach(Debug.Log);
-       print("Third run new list");
-       newList.ForEach(Debug.Log);
-       print("The tempint is" + tempInt);
-   
-       tempInt = getRandom(2);
-       newList.Add(oldList[tempInt]);
-       oldList.RemoveAt(tempInt);
-
-        /*
-      print("Fourth run old list");
-      oldList.ForEach(Debug.Log);
-      print("Fourth run new list");
-      newList.ForEach(Debug.Log);
-
-      newList.Add(oldList[oldList.Count - 1]);
-
-      print("Final new list");
-      newList.ForEach(Debug.Log);
-     
-
-        return newList;
-    }
-
-*/
-
     public void generateVerticalPowerline(int i, Vector3 loc) {
 
         if (i == 0)
