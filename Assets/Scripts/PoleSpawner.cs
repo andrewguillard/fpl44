@@ -424,11 +424,11 @@ public class PoleSpawner : MonoBehaviour
         //We probably need to come up with a better shuffle method, this does not check for redundancy
         List<string> shuffle = new List<string>();
         
-        shuffle.Add(poleTypes[1]); //In order to test put 0-3 into here.
-        shuffle.Add(poleTypes[1]);
-        shuffle.Add(poleTypes[1]);
+        shuffle.Add(poleTypes[2]); //In order to test put 0-3 into here.
+        shuffle.Add(poleTypes[2]);
+        shuffle.Add(poleTypes[2]);
         //shuffle.Add(poleTypes[getRandom(4)]);
-        shuffle.Add(poleTypes[1]);
+        shuffle.Add(poleTypes[2]);
 
         List<string> testingThisList = new List<string>();
         //testingThisList.AddRange(shuffleList(poleTypes));
