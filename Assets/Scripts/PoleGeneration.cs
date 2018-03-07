@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PoleGeneration : MonoBehaviour {
 
+    //Global Variables
     public GameObject[] poles; // give all pole that need to random
     public GameObject startSpot; // Pole next where player start 
     public LineRenderer line1;
