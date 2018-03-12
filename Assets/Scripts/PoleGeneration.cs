@@ -113,7 +113,7 @@ public class PoleGeneration : MonoBehaviour {
             {
                 GameObject current = wirePoint[i][j];
                 GameObject next = wirePoint[i + 1][j];
-                print("setting pole " + i + " name" + current);
+                //print("setting pole " + i + " name" + current);
                 
                 current.GetComponent<CableScript>().setEndPoint(next);
             }
