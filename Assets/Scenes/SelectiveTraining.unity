@@ -266,14 +266,14 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 84519574}
-        m_MethodName: iconClicked
-        m_Mode: 3
+        m_MethodName: icon_OnClick
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 3
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: INSULATOR
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -322,9 +322,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0ce40b50a28a42439415c674fdbad5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LD_1_BTN: {fileID: 0}
-  LD_3_BTN: {fileID: 0}
-  LD_5_BTN: {fileID: 0}
+  currentIconName: 
 --- !u!1 &93180037
 GameObject:
   m_ObjectHideFlags: 0
@@ -410,6 +408,7 @@ GameObject:
   - component: {fileID: 123155757}
   - component: {fileID: 123155756}
   - component: {fileID: 123155755}
+  - component: {fileID: 123155758}
   m_Layer: 5
   m_Name: DISCARD_BTN
   m_TagString: Untagged
@@ -474,7 +473,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 123155756}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 123155758}
+        m_MethodName: discard_OnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &123155756
@@ -510,6 +520,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 123155753}
+--- !u!114 &123155758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 123155753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0ce40b50a28a42439415c674fdbad5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentIconName: 
 --- !u!1 &123944199
 GameObject:
   m_ObjectHideFlags: 0
@@ -665,6 +687,7 @@ GameObject:
   - component: {fileID: 184048337}
   - component: {fileID: 184048336}
   - component: {fileID: 184048335}
+  - component: {fileID: 184048338}
   m_Layer: 5
   m_Name: LIGHTNING_ARRESTER_BTN
   m_TagString: Untagged
@@ -731,15 +754,15 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: iconClicked
-        m_Mode: 3
+      - m_Target: {fileID: 184048338}
+        m_MethodName: icon_OnClick
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 2
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: LIGHTNING_ARRESTER
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -777,6 +800,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 184048333}
+--- !u!114 &184048338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 184048333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0ce40b50a28a42439415c674fdbad5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentIconName: 
 --- !u!1 &185417068
 GameObject:
   m_ObjectHideFlags: 0
@@ -1001,6 +1036,7 @@ GameObject:
   - component: {fileID: 263050523}
   - component: {fileID: 263050522}
   - component: {fileID: 263050521}
+  - component: {fileID: 263050524}
   m_Layer: 5
   m_Name: OH_SWITCH_BTN
   m_TagString: Untagged
@@ -1067,15 +1103,15 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 263050524}
+        m_MethodName: icon_OnClick
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: OH_SWITCH
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -1113,6 +1149,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 263050519}
+--- !u!114 &263050524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 263050519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0ce40b50a28a42439415c674fdbad5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentIconName: 
 --- !u!4 &322325482 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: a1fd976099ec545409a61459c2e674d6, type: 3}
@@ -1474,14 +1522,14 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 390965070}
-        m_MethodName: iconClicked
-        m_Mode: 3
+        m_MethodName: icon_OnClick
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 5
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: CROSSARM
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -1530,9 +1578,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0ce40b50a28a42439415c674fdbad5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LD_1_BTN: {fileID: 0}
-  LD_3_BTN: {fileID: 0}
-  LD_5_BTN: {fileID: 0}
+  currentIconName: 
 --- !u!1 &418847962
 GameObject:
   m_ObjectHideFlags: 0
@@ -1686,14 +1732,14 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 512103473}
-        m_MethodName: iconClicked
-        m_Mode: 3
+        m_MethodName: icon_OnClick
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 13
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: DOWN_GUY
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -1742,9 +1788,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0ce40b50a28a42439415c674fdbad5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LD_1_BTN: {fileID: 0}
-  LD_3_BTN: {fileID: 0}
-  LD_5_BTN: {fileID: 0}
+  currentIconName: 
 --- !u!1 &548650563
 GameObject:
   m_ObjectHideFlags: 0
@@ -1823,15 +1867,15 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 806970414}
-        m_MethodName: iconClicked
-        m_Mode: 3
+      - m_Target: {fileID: 548650568}
+        m_MethodName: icon_OnClick
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 4
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: POLE
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -1880,9 +1924,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0ce40b50a28a42439415c674fdbad5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LD_1_BTN: {fileID: 0}
-  LD_3_BTN: {fileID: 0}
-  LD_5_BTN: {fileID: 0}
+  currentIconName: 
 --- !u!1 &554133336
 GameObject:
   m_ObjectHideFlags: 0
@@ -1968,6 +2010,7 @@ GameObject:
   - component: {fileID: 567640518}
   - component: {fileID: 567640517}
   - component: {fileID: 567640516}
+  - component: {fileID: 567640519}
   m_Layer: 5
   m_Name: SUBMIT_ALL_BTN
   m_TagString: Untagged
@@ -2032,7 +2075,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 567640517}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 567640519}
+        m_MethodName: submit_OnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &567640517
@@ -2068,6 +2122,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 567640514}
+--- !u!114 &567640519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 567640514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0ce40b50a28a42439415c674fdbad5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentIconName: 
 --- !u!1 &571730482
 GameObject:
   m_ObjectHideFlags: 0
@@ -2147,14 +2213,14 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 571730487}
-        m_MethodName: iconClicked
-        m_Mode: 3
+        m_MethodName: icon_OnClick
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 8
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: OH_TRANSFORMER
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -2203,9 +2269,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0ce40b50a28a42439415c674fdbad5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LD_1_BTN: {fileID: 0}
-  LD_3_BTN: {fileID: 0}
-  LD_5_BTN: {fileID: 0}
+  currentIconName: 
 --- !u!1 &579901586
 GameObject:
   m_ObjectHideFlags: 0
@@ -2543,7 +2607,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -2649,6 +2713,7 @@ GameObject:
   - component: {fileID: 731130066}
   - component: {fileID: 731130065}
   - component: {fileID: 731130064}
+  - component: {fileID: 731130067}
   m_Layer: 5
   m_Name: INCLUDE_BTN
   m_TagString: Untagged
@@ -2713,7 +2778,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 731130065}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 731130067}
+        m_MethodName: include_OnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &731130065
@@ -2749,6 +2825,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 731130062}
+--- !u!114 &731130067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 731130062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0ce40b50a28a42439415c674fdbad5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentIconName: 
 --- !u!1 &743425007
 GameObject:
   m_ObjectHideFlags: 0
@@ -2970,14 +3058,14 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 806970414}
-        m_MethodName: iconClicked
-        m_Mode: 3
+        m_MethodName: icon_OnClick
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 15
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: FOREIGN_OBJECT_IN_WIRE
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -3026,9 +3114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0ce40b50a28a42439415c674fdbad5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LD_1_BTN: {fileID: 0}
-  LD_3_BTN: {fileID: 0}
-  LD_5_BTN: {fileID: 0}
+  currentIconName: 
 --- !u!1 &820415334
 GameObject:
   m_ObjectHideFlags: 0
@@ -3163,9 +3249,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0ce40b50a28a42439415c674fdbad5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LD_1_BTN: {fileID: 0}
-  LD_3_BTN: {fileID: 0}
-  LD_5_BTN: {fileID: 0}
+  currentIconName: 
 --- !u!1 &821963955
 GameObject:
   m_ObjectHideFlags: 0
@@ -3194,9 +3278,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   poles: []
-  startSpot: {fileID: 821963955}
+  startSpot: {fileID: 0}
   line1: {fileID: 0}
-  numberOfPole: 24
+  numberOfPole: 20
 --- !u!4 &821963957
 Transform:
   m_ObjectHideFlags: 0
@@ -3399,7 +3483,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -4265,9 +4349,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0ce40b50a28a42439415c674fdbad5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LD_1_BTN: {fileID: 0}
-  LD_3_BTN: {fileID: 0}
-  LD_5_BTN: {fileID: 0}
+  currentIconName: 
 --- !u!114 &978231897
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4308,14 +4390,14 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 978231896}
-        m_MethodName: iconClicked
-        m_Mode: 3
+        m_MethodName: icon_OnClick
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 10
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: RECLOSER
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -4506,14 +4588,14 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1048949232}
-        m_MethodName: iconClicked
-        m_Mode: 3
+        m_MethodName: icon_OnClick
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 7
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: CONDUCTOR
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -4562,9 +4644,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0ce40b50a28a42439415c674fdbad5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LD_1_BTN: {fileID: 0}
-  LD_3_BTN: {fileID: 0}
-  LD_5_BTN: {fileID: 0}
+  currentIconName: 
 --- !u!1 &1057609768
 GameObject:
   m_ObjectHideFlags: 0
@@ -4699,9 +4779,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0ce40b50a28a42439415c674fdbad5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LD_1_BTN: {fileID: 0}
-  LD_3_BTN: {fileID: 0}
-  LD_5_BTN: {fileID: 0}
+  currentIconName: 
 --- !u!1 &1083389785
 GameObject:
   m_ObjectHideFlags: 0
@@ -4849,14 +4927,14 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1093271397}
-        m_MethodName: iconClicked
-        m_Mode: 3
+        m_MethodName: icon_OnClick
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 9
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: OH_FUSE_SWITCH
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -4905,9 +4983,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0ce40b50a28a42439415c674fdbad5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LD_1_BTN: {fileID: 0}
-  LD_3_BTN: {fileID: 0}
-  LD_5_BTN: {fileID: 0}
+  currentIconName: 
 --- !u!1 &1103769217
 GameObject:
   m_ObjectHideFlags: 0
@@ -4999,14 +5075,14 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1103769223}
-        m_MethodName: iconClicked
-        m_Mode: 3
+        m_MethodName: icon_OnClick
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 6
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: VEGETATION
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -5055,9 +5131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0ce40b50a28a42439415c674fdbad5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LD_1_BTN: {fileID: 0}
-  LD_3_BTN: {fileID: 0}
-  LD_5_BTN: {fileID: 0}
+  currentIconName: 
 --- !u!1 &1132712985
 GameObject:
   m_ObjectHideFlags: 0
@@ -5367,9 +5441,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0ce40b50a28a42439415c674fdbad5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LD_1_BTN: {fileID: 0}
-  LD_3_BTN: {fileID: 0}
-  LD_5_BTN: {fileID: 0}
+  currentIconName: 
 --- !u!114 &1170087599
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5410,14 +5482,14 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1170087598}
-        m_MethodName: iconClicked
-        m_Mode: 3
+        m_MethodName: icon_OnClick
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 5
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: REGULATOR
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -5682,14 +5754,14 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1248706417}
-        m_MethodName: iconClicked
-        m_Mode: 3
+        m_MethodName: icon_OnClick
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 14
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: RISER_SHIELD
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -5738,9 +5810,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0ce40b50a28a42439415c674fdbad5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LD_1_BTN: {fileID: 0}
-  LD_3_BTN: {fileID: 0}
-  LD_5_BTN: {fileID: 0}
+  currentIconName: 
 --- !u!1 &1263621716
 GameObject:
   m_ObjectHideFlags: 0
@@ -6389,14 +6459,14 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1568487013}
-        m_MethodName: iconClicked
-        m_Mode: 3
+        m_MethodName: icon_OnClick
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 12
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: NEST
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -6445,9 +6515,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0ce40b50a28a42439415c674fdbad5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LD_1_BTN: {fileID: 0}
-  LD_3_BTN: {fileID: 0}
-  LD_5_BTN: {fileID: 0}
+  currentIconName: 
 --- !u!1 &1589120715
 GameObject:
   m_ObjectHideFlags: 0
@@ -6650,9 +6718,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0ce40b50a28a42439415c674fdbad5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LD_1_BTN: {fileID: 0}
-  LD_3_BTN: {fileID: 0}
-  LD_5_BTN: {fileID: 0}
+  currentIconName: 
 --- !u!1 &1769312417
 GameObject:
   m_ObjectHideFlags: 0
@@ -6818,14 +6884,14 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1782770651}
-        m_MethodName: iconClicked
-        m_Mode: 3
+        m_MethodName: icon_OnClick
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 11
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: CONNECTIONS_ON_FEEDER_CONDUCTOR
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -6874,9 +6940,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0ce40b50a28a42439415c674fdbad5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LD_1_BTN: {fileID: 0}
-  LD_3_BTN: {fileID: 0}
-  LD_5_BTN: {fileID: 0}
+  currentIconName: 
 --- !u!1 &1783582305
 GameObject:
   m_ObjectHideFlags: 0
@@ -6927,9 +6991,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0ce40b50a28a42439415c674fdbad5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LD_1_BTN: {fileID: 0}
-  LD_3_BTN: {fileID: 0}
-  LD_5_BTN: {fileID: 0}
+  currentIconName: 
 --- !u!114 &1783582308
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6970,14 +7032,14 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1783582307}
-        m_MethodName: iconClicked
-        m_Mode: 3
+        m_MethodName: icon_OnClick
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 15
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: FAULT_CURRENT_INDICATOR
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -7094,14 +7156,14 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1789034264}
-        m_MethodName: iconClicked
-        m_Mode: 3
+        m_MethodName: icon_OnClick
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 10
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: CAPACITOR
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -7150,9 +7212,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0ce40b50a28a42439415c674fdbad5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LD_1_BTN: {fileID: 0}
-  LD_3_BTN: {fileID: 0}
-  LD_5_BTN: {fileID: 0}
+  currentIconName: 
 --- !u!1 &1847678341
 GameObject:
   m_ObjectHideFlags: 0

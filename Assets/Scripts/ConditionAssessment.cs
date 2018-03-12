@@ -4,7 +4,7 @@ using System.Collections;
 public class ConditionAssessment : MonoBehaviour
 {
     //This array holds all the "included" Form structs the user has filled out
-    Form[] formArray = new Form[20];
+    ArrayList FormList = new ArrayList();
 
     public string currentIconName;
 
@@ -16,14 +16,14 @@ public class ConditionAssessment : MonoBehaviour
 
         public Form(string iconName, bool phaseA, bool phaseB, bool phaseC, bool DL1, bool DL3, bool DL5, bool selected)
         {
-            iconName;
-            phaseA = false;
-            phaseB = false;
-            phaseC = false;
-            DL1 = false;
-            DL3 = false;
-            DL5 = false;
-            selected = false;
+            this.iconName = null;
+            this.phaseA = false;
+            this.phaseB = false;
+            this.phaseC = false;
+            this.DL1 = false;
+            this.DL3 = false;
+            this.DL5 = false;
+            this.selected = false;
         }
     }
 
@@ -40,97 +40,114 @@ public class ConditionAssessment : MonoBehaviour
         {
             case "OH_SWITCH":
                 currentIconName = iconName;
+                print(iconName + " icon clicked");
                 severityForm(iconName);
                 break;
 
             case "LIGHTNING_ARRESTER":
                 currentIconName = iconName;
+                print(iconName + " icon clicked");
                 severityForm(iconName);
                 break;
 
             case "INSULATOR":
                 currentIconName = iconName;
+                print(iconName + " icon clicked");
                 phaseSeverityForm(iconName);
-                print("Insulator icon clicked");
                 break;
 
             case "POLE":
                 currentIconName = iconName;
+                print(iconName + " icon clicked");
                 severityForm(iconName);
                 break;
 
             case "CROSSARM":
                 currentIconName = iconName;
+                print(iconName + " icon clicked");
+                severityForm(iconName);
+                break;
+           
+            case "REGULATOR":
+                currentIconName = iconName;
+                print(iconName + " icon clicked");
                 severityForm(iconName);
                 break;
 
             case "VEGETATION":
                 currentIconName = iconName;
+                print(iconName + " icon clicked");
                 trueFalseForm(iconName);
                 break;
 
-            case "CAPACITOR":
+            case "CONDUCTOR":
                 currentIconName = iconName;
-                severityForm(iconName);
-                break;
+                print(iconName + " icon clicked");
+                trueFalseForm(iconName);
+                break;          
 
             case "OH_TRANSFORMER":
                 currentIconName = iconName;
+                print(iconName + " icon clicked");
                 severityForm(iconName);
                 break;
 
             case "OH_FUSE_SWITCH":
                 currentIconName = iconName;
+                print(iconName + " icon clicked");
                 severityForm(iconName);
                 break;
 
             case "CAPACITOR":
                 currentIconName = iconName;
+                print(iconName + " icon clicked");
+                severityForm(iconName);
+                break;
+
+            case "RECLOSER":
+                currentIconName = iconName;
+                print(iconName + " icon clicked");
                 severityForm(iconName);
                 break;
 
             case "CONNECTIONS_ON_FEEDER_CONDUCTOR":
                 currentIconName = iconName;
+                print(iconName + " icon clicked");
                 trueFalseForm(iconName);
                 break;
 
             case "NEST":
                 currentIconName = iconName;
+                print(iconName + " icon clicked");
                 trueFalseForm(iconName);
                 break;
 
             case "DOWN_GUY":
                 currentIconName = iconName;
+                print(iconName + " icon clicked");
                 trueFalseForm(iconName);
                 break;
 
             case "RISER_SHIELD":
                 currentIconName = iconName;
+                print(iconName + " icon clicked");
                 severityForm(iconName);
                 break;
 
             case "FOREIGN_OBJECT_IN_WIRE":
                 currentIconName = iconName;
+                print(iconName + " icon clicked");
                 trueFalseForm(iconName);
-                break;
-
-            case "RECLOSER":
-                currentIconName = iconName;
-                severityForm(iconName);
-                break;
-
-            case "REGULATOR":
-                currentIconName = iconName;
-                severityForm(iconName);
                 break;
 
             case "FAULT_CURRENT_INDICATOR":
                 currentIconName = iconName;
+                print(iconName + " icon clicked");
                 severityForm(iconName);
                 break;
 
             default:
-                print("Icon not recognized.");
+                print("ERROR: Icon not recognized.");
                 break;
         }
     }
@@ -138,6 +155,7 @@ public class ConditionAssessment : MonoBehaviour
     #region Forms
     public void severityForm(string iconName)
     {
+        print("severityForm method fired");
         //TODO: Make "DEFAULT_TXT" invisible
         //TODO: Generate appropriate equipment name in "ICON_SELECTED_TXT"
         //TODO: Make Level of Damage buttons visible
@@ -145,9 +163,9 @@ public class ConditionAssessment : MonoBehaviour
         //TODO: Make Discard and Include buttons visible
     }
 
-    public void phaseSeverityForm(int iconName)
+    public void phaseSeverityForm(string iconName)
     {
-        print("phaseSeverityForm method selected");
+        print("phaseSeverityForm method fired");
 
         //TODO: Make "DEFAULT_TXT" invisible
         //DEFAULT_TXT.SetActive(false);
@@ -170,8 +188,9 @@ public class ConditionAssessment : MonoBehaviour
         //INCLUDE_BTN.SetActive(true);
     }
 
-    public void trueFalseForm(int iconName)
+    public void trueFalseForm(string iconName)
     {
+        print("trueFalseForm method fired");
         //TODO: Make "DEFAULT_TXT" invisible
         //TODO: Generate appropriate equipment name in "ICON_SELECTED_TXT"
         //TODO: Make Level of Damage buttons invisible
@@ -183,6 +202,7 @@ public class ConditionAssessment : MonoBehaviour
     //Store user's form in formArray
     public void include_OnClick()
     {
+        print("include_OnClick method fired");
         //Create a new Form struct
         Form form = new Form();
 
@@ -203,22 +223,23 @@ public class ConditionAssessment : MonoBehaviour
         //if (DL_5_BTN.selected)
         //    form.DL5 = true;
 
-        //Add Form struct to formArray
+        //Add Form struct to formList
 
     }
 
     //Clear user's answers for that specific form
     public void discard_OnClick()
     {
+        print("discard_OnClick method fired");
         //Find appropriate struct in formArray
-        for (int i = 0; i < 20; i++)
-        {
-            if (formArray[i].iconName == currentIconName)
-            {
-                //delete struct
-                break;
-            }
-        }
+        //for (int i = 0; i < 20; i++)
+        //{
+        //    if (formArray[i].iconName == currentIconName)
+        //    {
+        //        //delete struct
+        //        break;
+        //    }
+        //}
 
         //Remove Highlight From icon
 
@@ -227,6 +248,7 @@ public class ConditionAssessment : MonoBehaviour
     //Check user's answers
     public void submit_OnClick()
     {
+        print("submit_OnClick method fired");
 
     }
 
