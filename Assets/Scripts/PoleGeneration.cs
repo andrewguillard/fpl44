@@ -18,18 +18,19 @@ public class PoleGeneration : MonoBehaviour {
         menuSelected = GameObject.FindObjectOfType<SceneData>();
         print("framming = "+menuSelected.getFraming());
         print(transform);
-        if (menuSelected.getFraming() == null) {
-            //No Selection of frame 
-            poles = new GameObject[1];
-            poles[0] = GameObject.Find("PoleSet/V");
-
-        }
-        else
-        {
+        if (menuSelected.getFraming() != null) {       
+            for(int i =0; i< poles.Length; i++)
+            {
+                if (poles[i].name != menuSelected.getFraming())
+                {
+                    poles[i].SetActive(false);
+                }
+            }
             string st = "/PoleSet/" + menuSelected.getFraming();
             print(st);
             poles = new GameObject[1];
             poles[0] = GameObject.Find(st);
+
         }
 
         if (startSpot == null) {
