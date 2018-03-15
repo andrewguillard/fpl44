@@ -6,11 +6,20 @@ public class SceneData : MonoBehaviour {
     public static string framing;
 
     public void setFraming(string f) {
-        print("set framing" + f);
-        framing = f;
+        if (f == "any")
+        {
+            framing = null;
+        }
+        else
+        {
+            print("set framing" + f);
+            framing = f;
+        }
+        
     }
 
     public string getFraming() {
         return framing;
+        
     }
 }
