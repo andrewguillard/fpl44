@@ -25,9 +25,6 @@ public class PoleSpawner : MonoBehaviour
     public Transform[] spawnLocationCrossarmB;
     public Transform[] spawnLocationCrossarmC;
 
-    /// <summary>
-    /// POWER LINES
-    /// </summary>
     public Transform[] spawnVerticalPowerLineA;
     public Transform[] spawnVerticalPowerLineB;
     public Transform[] spawnVerticalPowerLineC;
