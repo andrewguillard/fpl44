@@ -496,8 +496,7 @@ public class PoleSpawner : MonoBehaviour
 
         List<string> shuffle = new List<string>(poleTypes);
         shuffle.ShuffleList();
-
-        //List<string> shuffle = new List<string>();
+        
         //set these indexes and uncomment if you want to fix the insulator type
         //shuffle.Add(poleTypes[3]); //In order to test put 0-3 into here.
         //shuffle.Add(poleTypes[3]);
