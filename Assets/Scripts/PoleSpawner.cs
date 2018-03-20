@@ -398,15 +398,15 @@ public class PoleSpawner : MonoBehaviour
         if (i <= 9)
         {
 
-            //Quaternion rotateInsulator = Quaternion.Euler(0, 0, 0);
+            Quaternion rotateInsulator = Quaternion.Euler(-180, 0, 0);
             Vector3 locA = new Vector3(spawnLocationCrossarmA[i].transform.position.x, spawnLocationCrossarmA[i].transform.position.y, spawnLocationCrossarmA[i].transform.position.z);
-            Instantiate(insulatorMaterial[0], locA, Quaternion.identity);
+            Instantiate(insulatorMaterial[0], locA, rotateInsulator);
 
             Vector3 locB = new Vector3(spawnLocationCrossarmB[i].transform.position.x, spawnLocationCrossarmB[i].transform.position.y, spawnLocationCrossarmB[i].transform.position.z);
-            Instantiate(insulatorMaterial[0], locB, Quaternion.identity);
+            Instantiate(insulatorMaterial[0], locB, rotateInsulator);
 
             Vector3 locC = new Vector3(spawnLocationCrossarmC[i].transform.position.x, spawnLocationCrossarmC[i].transform.position.y, spawnLocationCrossarmC[i].transform.position.z);
-            Instantiate(insulatorMaterial[0], locC, Quaternion.identity);
+            Instantiate(insulatorMaterial[0], locC, rotateInsulator);
 
             int tempPoleMaterial = getRandom(2);
             Debug.Log("tempmaterial is:" + tempPoleMaterial);
@@ -438,7 +438,7 @@ public class PoleSpawner : MonoBehaviour
         }
 
         else if (i > 9) {
-            Quaternion rotateInsulator = Quaternion.Euler(0, 90, 0);
+            Quaternion rotateInsulator = Quaternion.Euler(-180, 90, 0);
             Vector3 locA = new Vector3(spawnLocationCrossarmA[i].transform.position.x, spawnLocationCrossarmA[i].transform.position.y, spawnLocationCrossarmA[i].transform.position.z);
             Instantiate(insulatorMaterial[0], locA, rotateInsulator);
 
@@ -496,6 +496,8 @@ public class PoleSpawner : MonoBehaviour
 
         List<string> shuffle = new List<string>(poleTypes);
         shuffle.ShuffleList();
+
+        //List<string> shuffle = new List<string>();
         //set these indexes and uncomment if you want to fix the insulator type
         //shuffle.Add(poleTypes[3]); //In order to test put 0-3 into here.
         //shuffle.Add(poleTypes[3]);
