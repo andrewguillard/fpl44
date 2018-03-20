@@ -494,16 +494,16 @@ public class PoleSpawner : MonoBehaviour
         //this is so that we can add class style fields to the objects...unless there is a better way.
         arrayOfPoles = new GameObject[20];
 
-        /*
+        
         List<string> shuffle = new List<string>(poleTypes);
         shuffle.ShuffleList();
 
-        List<string> shuffle = new List<string>();
+        //List<string> shuffle = new List<string>();
         //set these indexes and uncomment if you want to fix the insulator type
-        shuffle.Add(poleTypes[3]); //In order to test put 0-3 into here.
-        shuffle.Add(poleTypes[3]);
-        shuffle.Add(poleTypes[2]);
-        shuffle.Add(poleTypes[0]);
+        //shuffle.Add(poleTypes[3]); //In order to test put 0-3 into here.
+        //shuffle.Add(poleTypes[3]);
+        //shuffle.Add(poleTypes[2]);
+        //shuffle.Add(poleTypes[0]);
 
         //List<string> testingThisList = new List<string>(poleTypes);
         //testingThisList.ShuffleList();
@@ -519,9 +519,11 @@ public class PoleSpawner : MonoBehaviour
             //Location of new pole
             Vector3 loc = new Vector3(spawnPoleLocation[i].transform.position.x, spawnPoleLocation[i].transform.position.y, spawnPoleLocation[i].transform.position.z);
 
+            /*
             if (i == 0) {
                 generateCapcitorBank(i);
             }
+            */
             
             if (i <= 4) {
 
