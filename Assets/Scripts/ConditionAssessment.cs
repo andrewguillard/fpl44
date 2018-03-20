@@ -1,5 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using UnityEngine.UI;
+
+//TODO: Need to make buttons act like radio buttons
 
 public class ConditionAssessment : MonoBehaviour
 {
@@ -8,7 +12,40 @@ public class ConditionAssessment : MonoBehaviour
 
     public string currentIconName;
 
-    //One individual Form
+    #region DropDown Options
+    //Create a List of new Dropdown options
+    public List<string> DropOptions_OH_SWITCH = new List<string> { "Disconnect Switch", "Overhead Switch Pothead" };
+    public List<string> DropOptions_LIGHTNING_ARRESTER = new List<string> { "Ceramic", "Polymer", "Deadend" };
+    public List<string> DropOptions_INSULATOR = new List<string> { "Ceramic", "Polymer" };
+    public List<string> DropOptions_POLE = new List<string> { "Wooden", "Concrete" };
+    public List<string> DropOptions_CROSSARM = new List<string> { "Wooden Single", "Wooden Double", "Concrete Single", "Concrete Double" };
+    public List<string> DropOptions_VEGETATION = new List<string> { "Oak", "Palm" };
+    public List<string> DropOptions_CONDUCTOR = new List<string> { "Power line", "Jumper", "Stirrup" };
+    public List<string> DropOptions_OH_TRANSFORMER = new List<string> { "Single", "Double", "Triple" };
+    public List<string> DropOptions_OH_FUSE_SWITCH = new List<string> { "Standard Cut Out", "ALS" };
+    public List<string> DropOptions_FOREIGN_OBJECT_IN_WIRE = new List<string> { "Mylar Balloon", "Kite" };
+    #endregion
+
+    #region Condition Assessment Components
+    public Dropdown EQUIPMENT_DROPDWN;
+    public Text ICON_SELECTED_TXT;      
+    public Text DEFAULT_TXT;
+
+    public Text LD_TXT;
+    public Button LD_1_BTN;             
+    public Button LD_3_BTN;
+    public Button LD_5_BTN;
+
+    public Text PHASE_TXT;
+    public Button PHASE_A_BTN;         
+    public Button PHASE_B_BTN;
+    public Button PHASE_C_BTN;
+    
+    public Button DISCARD_BTN;          
+    public Button INCLUDE_BTN;
+    #endregion
+
+    //Form Struct: One individual Form
     public struct Form
     {
         public string iconName;
@@ -27,49 +64,89 @@ public class ConditionAssessment : MonoBehaviour
         }
     }
 
-    //TODO: Make "DEFAULT_TXT" visible
-    //TODO: Make"ICON_SELECTED_TXT" invisible
-    //TODO: Make Level of Damage buttons invisible
-    //TODO: Make Phase buttons invisible
-    //TODO: Make Discard and Include buttons invisible
+    void Start()
+    {
+        ICON_SELECTED_TXT = GameObject.Find("ICON_SELECTED_TXT").GetComponent<Text>();
+        EQUIPMENT_DROPDWN = GameObject.Find("EQUIPMENT_DROPDWN").GetComponent<Dropdown>();
+
+        DEFAULT_TXT = GameObject.Find("DEFAULT_TXT").GetComponent<Text>();
+
+        PHASE_TXT = GameObject.Find("PHASE_TXT").GetComponent<Text>();
+        PHASE_A_BTN = GameObject.Find("PHASE_A_BTN").GetComponent<Button>();
+        PHASE_B_BTN = GameObject.Find("PHASE_B_BTN").GetComponent<Button>();
+        PHASE_C_BTN = GameObject.Find("PHASE_C_BTN").GetComponent<Button>();
+
+        LD_TXT = GameObject.Find("LD_TXT").GetComponent<Text>();
+        LD_1_BTN = GameObject.Find("LD_1_BTN").GetComponent<Button>();
+        LD_3_BTN = GameObject.Find("LD_3_BTN").GetComponent<Button>();
+        LD_5_BTN = GameObject.Find("LD_5_BTN").GetComponent<Button>();
+
+        INCLUDE_BTN = GameObject.Find("INCLUDE_BTN").GetComponent<Button>();
+        DISCARD_BTN = GameObject.Find("DISCARD_BTN").GetComponent<Button>();
+
+        //DEFAULT_TXT.gameObject.SetActive(true);
+        ////ICON_SELECTED_TXT = gameObject.SetActive(false);
+        ////EQUIPMENT_DROPDWN = gameObject.SetActive(false);
+
+        //PHASE_TXT.gameObject.SetActive(false);
+        //PHASE_A_BTN.gameObject.SetActive(false);
+        //PHASE_B_BTN.gameObject.SetActive(false);
+        //PHASE_C_BTN.gameObject.SetActive(false);
+
+        //LD_TXT.gameObject.SetActive(false);
+        //LD_1_BTN.gameObject.SetActive(false);
+        //LD_3_BTN.gameObject.SetActive(false);
+        //LD_5_BTN.gameObject.SetActive(false);
+
+        //INCLUDE_BTN.gameObject.SetActive(false);
+        //DISCARD_BTN.gameObject.SetActive(false);
+    }
 
     //Depending on the icon that was clicked, call the appropriate form generator
     public void icon_OnClick(string iconName)
     {
+        EQUIPMENT_DROPDWN.ClearOptions();
+
         switch (iconName)
         {
             case "OH_SWITCH":
                 currentIconName = iconName;
                 print(iconName + " icon clicked");
+                EQUIPMENT_DROPDWN.AddOptions(DropOptions_OH_SWITCH);
                 severityForm(iconName);
                 break;
 
             case "LIGHTNING_ARRESTER":
                 currentIconName = iconName;
                 print(iconName + " icon clicked");
+                EQUIPMENT_DROPDWN.AddOptions(DropOptions_LIGHTNING_ARRESTER);
                 severityForm(iconName);
                 break;
 
             case "INSULATOR":
                 currentIconName = iconName;
                 print(iconName + " icon clicked");
+                EQUIPMENT_DROPDWN.AddOptions(DropOptions_INSULATOR);
                 phaseSeverityForm(iconName);
                 break;
 
             case "POLE":
                 currentIconName = iconName;
                 print(iconName + " icon clicked");
+                EQUIPMENT_DROPDWN.AddOptions(DropOptions_POLE);
                 severityForm(iconName);
                 break;
 
             case "CROSSARM":
                 currentIconName = iconName;
                 print(iconName + " icon clicked");
+                EQUIPMENT_DROPDWN.AddOptions(DropOptions_CROSSARM);
                 severityForm(iconName);
                 break;
-           
+
             case "REGULATOR":
                 currentIconName = iconName;
+                ICON_SELECTED_TXT.text = "Regulator";
                 print(iconName + " icon clicked");
                 severityForm(iconName);
                 break;
@@ -77,59 +154,69 @@ public class ConditionAssessment : MonoBehaviour
             case "VEGETATION":
                 currentIconName = iconName;
                 print(iconName + " icon clicked");
+                EQUIPMENT_DROPDWN.AddOptions(DropOptions_VEGETATION);
                 trueFalseForm(iconName);
                 break;
 
             case "CONDUCTOR":
                 currentIconName = iconName;
                 print(iconName + " icon clicked");
+                EQUIPMENT_DROPDWN.AddOptions(DropOptions_CONDUCTOR);
                 trueFalseForm(iconName);
-                break;          
+                break;
 
             case "OH_TRANSFORMER":
                 currentIconName = iconName;
                 print(iconName + " icon clicked");
+                EQUIPMENT_DROPDWN.AddOptions(DropOptions_OH_TRANSFORMER);
                 severityForm(iconName);
                 break;
 
             case "OH_FUSE_SWITCH":
                 currentIconName = iconName;
                 print(iconName + " icon clicked");
+                EQUIPMENT_DROPDWN.AddOptions(DropOptions_OH_FUSE_SWITCH);
                 severityForm(iconName);
                 break;
 
             case "CAPACITOR":
                 currentIconName = iconName;
+                ICON_SELECTED_TXT.text = "Capacitor Bank";
                 print(iconName + " icon clicked");
                 severityForm(iconName);
                 break;
 
             case "RECLOSER":
                 currentIconName = iconName;
+                ICON_SELECTED_TXT.text = "Recloser OCR";
                 print(iconName + " icon clicked");
                 severityForm(iconName);
                 break;
 
             case "CONNECTIONS_ON_FEEDER_CONDUCTOR":
                 currentIconName = iconName;
+                ICON_SELECTED_TXT.text = "Splice";
                 print(iconName + " icon clicked");
                 trueFalseForm(iconName);
                 break;
 
             case "NEST":
                 currentIconName = iconName;
+                ICON_SELECTED_TXT.text = "Nest";
                 print(iconName + " icon clicked");
                 trueFalseForm(iconName);
                 break;
 
             case "DOWN_GUY":
                 currentIconName = iconName;
+                ICON_SELECTED_TXT.text = "Down Guy";
                 print(iconName + " icon clicked");
                 trueFalseForm(iconName);
                 break;
 
             case "RISER_SHIELD":
                 currentIconName = iconName;
+                ICON_SELECTED_TXT.text = "Riser Shield";
                 print(iconName + " icon clicked");
                 severityForm(iconName);
                 break;
@@ -137,11 +224,13 @@ public class ConditionAssessment : MonoBehaviour
             case "FOREIGN_OBJECT_IN_WIRE":
                 currentIconName = iconName;
                 print(iconName + " icon clicked");
+                EQUIPMENT_DROPDWN.AddOptions(DropOptions_FOREIGN_OBJECT_IN_WIRE);
                 trueFalseForm(iconName);
                 break;
 
             case "FAULT_CURRENT_INDICATOR":
                 currentIconName = iconName;
+                ICON_SELECTED_TXT.text = "FCI";
                 print(iconName + " icon clicked");
                 severityForm(iconName);
                 break;
@@ -152,47 +241,50 @@ public class ConditionAssessment : MonoBehaviour
         }
     }
 
-    #region Forms
+    #region Form Options
     public void severityForm(string iconName)
     {
         print("severityForm method fired");
-        //TODO: Make "DEFAULT_TXT" invisible
-        //TODO: Generate appropriate equipment name in "ICON_SELECTED_TXT"
-        //TODO: Make Level of Damage buttons visible
-        //TODO: Make Phase buttons invisible
-        //TODO: Make Discard and Include buttons visible
+        DEFAULT_TXT.gameObject.SetActive(false);
+
+        PHASE_TXT.gameObject.SetActive(false);
+        PHASE_A_BTN.gameObject.SetActive(false);
+        PHASE_B_BTN.gameObject.SetActive(false);
+        PHASE_C_BTN.gameObject.SetActive(false);
+
+        LD_TXT.gameObject.SetActive(true);
+        LD_1_BTN.gameObject.SetActive(true);
+        LD_3_BTN.gameObject.SetActive(true);
+        LD_5_BTN.gameObject.SetActive(true);
+
+        INCLUDE_BTN.gameObject.SetActive(true);
+        DISCARD_BTN.gameObject.SetActive(true);
     }
 
     public void phaseSeverityForm(string iconName)
     {
         print("phaseSeverityForm method fired");
+        DEFAULT_TXT.gameObject.SetActive(false);
 
-        //TODO: Make "DEFAULT_TXT" invisible
-        //DEFAULT_TXT.SetActive(false);
+        PHASE_TXT.gameObject.SetActive(true);
+        PHASE_A_BTN.gameObject.SetActive(true);
+        PHASE_B_BTN.gameObject.SetActive(true);
+        PHASE_C_BTN.gameObject.SetActive(true);
 
-        //TODO: Generate appropriate equipment name in "ICON_SELECTED_TXT"
-        //ICON_SELECTED_TXT.Text = iconName;
+        LD_TXT.gameObject.SetActive(true);
+        LD_1_BTN.gameObject.SetActive(true);
+        LD_3_BTN.gameObject.SetActive(true);
+        LD_5_BTN.gameObject.SetActive(true);
 
-        //TODO: Make Level of Damage buttons visible
-        //LD_1_BTN.SetActive(true);
-        //LD_3_BTN.SetActive(true);
-        //LD_5_BTN.SetActive(true);
-
-        //TODO: Make Phase buttons visible
-        //PHASE_A_BTN.SetActive(true);
-        //PHASE_B_BTN.SetActive(true);
-        //PHASE_C_BTN.SetActive(true);
-
-        //TODO: Make Discard and Include buttons visible
-        //DISCARD_BTN.SetActive(true);
-        //INCLUDE_BTN.SetActive(true);
+        INCLUDE_BTN.gameObject.SetActive(true);
+        DISCARD_BTN.gameObject.SetActive(true);
     }
 
     public void trueFalseForm(string iconName)
     {
         print("trueFalseForm method fired");
+        //TODO: Add True False buttons
         //TODO: Make "DEFAULT_TXT" invisible
-        //TODO: Generate appropriate equipment name in "ICON_SELECTED_TXT"
         //TODO: Make Level of Damage buttons invisible
         //TODO: Make Phase buttons invisible
         //TODO: Make Discard and Include buttons visible
@@ -223,8 +315,22 @@ public class ConditionAssessment : MonoBehaviour
         //if (DL_5_BTN.selected)
         //    form.DL5 = true;
 
-        //Add Form struct to formList
+        DEFAULT_TXT.gameObject.SetActive(true);
+        //ICON_SELECTED_TXT = gameObject.SetActive(false);
+        //EQUIPMENT_DROPDWN = gameObject.SetActive(false);
 
+        PHASE_TXT.gameObject.SetActive(false);
+        PHASE_A_BTN.gameObject.SetActive(false);
+        PHASE_B_BTN.gameObject.SetActive(false);
+        PHASE_C_BTN.gameObject.SetActive(false);
+
+        LD_TXT.gameObject.SetActive(false);
+        LD_1_BTN.gameObject.SetActive(false);
+        LD_3_BTN.gameObject.SetActive(false);
+        LD_5_BTN.gameObject.SetActive(false);
+
+        INCLUDE_BTN.gameObject.SetActive(false);
+        DISCARD_BTN.gameObject.SetActive(false);
     }
 
     //Clear user's answers for that specific form
@@ -243,13 +349,28 @@ public class ConditionAssessment : MonoBehaviour
 
         //Remove Highlight From icon
 
+        DEFAULT_TXT.gameObject.SetActive(true);
+        //ICON_SELECTED_TXT = gameObject.SetActive(false);
+        //EQUIPMENT_DROPDWN = gameObject.SetActive(false);
+
+        PHASE_TXT.gameObject.SetActive(false);
+        PHASE_A_BTN.gameObject.SetActive(false);
+        PHASE_B_BTN.gameObject.SetActive(false);
+        PHASE_C_BTN.gameObject.SetActive(false);
+
+        LD_TXT.gameObject.SetActive(false);
+        LD_1_BTN.gameObject.SetActive(false);
+        LD_3_BTN.gameObject.SetActive(false);
+        LD_5_BTN.gameObject.SetActive(false);
+
+        INCLUDE_BTN.gameObject.SetActive(false);
+        DISCARD_BTN.gameObject.SetActive(false);
     }
 
     //Check user's answers
     public void submit_OnClick()
     {
         print("submit_OnClick method fired");
-
     }
 
 }
