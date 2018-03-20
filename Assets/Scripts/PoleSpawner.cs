@@ -54,11 +54,13 @@ public class PoleSpawner : MonoBehaviour
     public GameObject[] poleMaterial; //this is either wood or concrete atm.
     public GameObject[] arrayOfPoles;
 
-  
+    public GameObject[] capcitorBank;
+    public Transform[] spawnCapacitorBank;
+
     //Array of pole objects
     Pole[] newPole = new Pole[20];
    
-    public int randomInt;
+    private int randomInt;
 
     List<string> poleTypes = new List<string>(new string[] { "Vertical", "ModVertical", "Triangular", "Crossarm" });
 
@@ -474,19 +476,22 @@ public class PoleSpawner : MonoBehaviour
             {
                 Instantiate(crossarmBackMaterial[1], crossConcreteVec, rotatebackConcrete);
                 Debug.Log("The pole material is: " + newPole[i].poleMaterial);
-                //.296
             }
         }
     }
 
 
+    public void generateCapcitorBank(int i)
+    {
 
-
+        Vector3 BankVec = new Vector3(spawnCapacitorBank[i].transform.position.x, spawnCapacitorBank[i].transform.position.y, spawnCapacitorBank[i].transform.position.z);
+        Instantiate(capcitorBank[0], BankVec, Quaternion.identity);
+    }
 
     void Start()
     {
         
-        //this is so that we can add class style fields to the objects...unless there is a beter way.
+        //this is so that we can add class style fields to the objects...unless there is a better way.
         arrayOfPoles = new GameObject[20];
 
         List<string> shuffle = new List<string>(poleTypes);
@@ -511,6 +516,10 @@ public class PoleSpawner : MonoBehaviour
             //Location of new pole
             Vector3 loc = new Vector3(spawnPoleLocation[i].transform.position.x, spawnPoleLocation[i].transform.position.y, spawnPoleLocation[i].transform.position.z);
 
+            if (i == 0) {
+                generateCapcitorBank(i);
+            }
+            
             if (i <= 4) {
 
                 //Vertical insulator: poles 0-4
@@ -518,7 +527,8 @@ public class PoleSpawner : MonoBehaviour
                 {
                     generateVerticalInsulators(i, loc, shuffle);
                     //generateVerticalPowerline(i, loc);
-
+                    //add more code here if you want
+                    
                 }
                 //Modified Vertical
                 else if ((shuffle[0].Equals(poleTypes[1])))
@@ -533,6 +543,7 @@ public class PoleSpawner : MonoBehaviour
                 {
                     generateTriangularInsulators(i, loc, shuffle);
                     //generateTriangularPowerline(i, loc);
+
                 }
 
                 //Crossarm
@@ -540,6 +551,7 @@ public class PoleSpawner : MonoBehaviour
                 {
                     generateCrossarmInsulators(i, loc, shuffle);
                     //generateCrossarmPowerline(i, loc);
+
                 }
 
             }
@@ -625,6 +637,8 @@ public class PoleSpawner : MonoBehaviour
                 }
             }
         }
+
+        
     }
 
     void Update() {
