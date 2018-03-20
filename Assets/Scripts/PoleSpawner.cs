@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
+
 
 public class PoleSpawner : MonoBehaviour
 {
@@ -298,15 +300,24 @@ public class PoleSpawner : MonoBehaviour
             // Debug.Log("shuffle is =" + shuffle[0]);
         }
 
+        GameObject[] wireLoc = new GameObject[3];
         arrayOfPoles[i].name = "Vertical" + i;
         for(int j=0; j< insulator.Length; j++)
         {
             insulator[j].transform.parent = arrayOfPoles[i].transform;
             insulator[j].name = "Insulator" + (j + 1);
-            GameObject wireLoc;
-            wireLoc = insulator[j].transform.Find("Bottom").gameObject;
-            wireLoc.name = (j + 1).ToString();
-            wireLoc.transform.parent = arrayOfPoles[i].transform;
+            
+            wireLoc[j] = insulator[j].transform.Find("Bottom").gameObject;
+            wireLoc[j].transform.parent = arrayOfPoles[i].transform;
+        }
+
+        //change wire location to the right wire phase (1->phase a, 2-> b, 3-> c)
+        wireLoc= wireLoc.OrderBy(wire => wire.transform.position.y).ToArray();
+        string[] name = { "3","1" ,"2"};//b a c
+        for (int j =0; j<wireLoc.Length ; j++)
+        {
+            wireLoc[j].name = name[j];
+
         }
     }
 
@@ -357,16 +368,24 @@ public class PoleSpawner : MonoBehaviour
             newPole[i].poleType = shuffle[0];
             Debug.Log("shuffle is =" + shuffle[0]);
         }
+        GameObject[] wireLoc = new GameObject[3];
 
         arrayOfPoles[i].name = "ModVertical" + i;
         for (int j = 0; j < insulator.Length; j++)
         {
             insulator[j].name = "Insulator" + (j+1);
             insulator[j].transform.parent = arrayOfPoles[i].transform;
-            GameObject wireLoc;
-            wireLoc = insulator[j].transform.Find("Bottom").gameObject;
-            wireLoc.name = (j + 1).ToString();
-            wireLoc.transform.parent = arrayOfPoles[i].transform;
+            wireLoc[j] = insulator[j].transform.Find("Bottom").gameObject;
+            wireLoc[j].transform.parent = arrayOfPoles[i].transform;
+        }
+
+        //change wire location to the right wire phase (1->phase a, 2-> b, 3-> c)
+        wireLoc = wireLoc.OrderBy(wire => wire.transform.position.y).ToArray();
+        string[] name = { "3", "1", "2" };//b a c
+        for (int j = 0; j < wireLoc.Length; j++)
+        {
+            wireLoc[j].name = name[j];
+
         }
     }
 
@@ -420,15 +439,25 @@ public class PoleSpawner : MonoBehaviour
             Debug.Log("shuffle is =" + shuffle[0]);
         }
 
+        GameObject[] wireLoc = new GameObject[3];
+
         arrayOfPoles[i].name = "Triangular" + i;
         for (int j = 0; j < insulator.Length; j++)
         {
             insulator[j].name = "Insulator" + (j + 1);
             insulator[j].transform.parent = arrayOfPoles[i].transform;
-            GameObject wireLoc;
-            wireLoc = insulator[j].transform.Find("Bottom").gameObject;
-            wireLoc.name = (j + 1).ToString();
-            wireLoc.transform.parent = arrayOfPoles[i].transform;
+            wireLoc[j] = insulator[j].transform.Find("Bottom").gameObject;
+            wireLoc[j].name = (j + 1).ToString();
+            wireLoc[j].transform.parent = arrayOfPoles[i].transform;
+        }
+
+        //change wire location to the right wire phase (1->phase a, 2-> b, 3-> c)
+        wireLoc = wireLoc.OrderBy(wire => wire.transform.position.y).ToArray();
+        string[] name = { "1", "3", "2" };//b a c
+        for (int j = 0; j < wireLoc.Length; j++)
+        {
+            wireLoc[j].name = name[j];
+
         }
     }
 
@@ -467,12 +496,12 @@ public class PoleSpawner : MonoBehaviour
             Vector3 crossConcreteVec = new Vector3(spawnCrossarmBackConcrete[i].transform.position.x, spawnCrossarmBackConcrete[i].transform.position.y, spawnCrossarmBackConcrete[i].transform.position.z);
 
             //this will spawn depending on if it's wood or concrete pole. 0 is wood
-            if (newPole[i].poleMaterial.Equals(0)) { 
+            if (newPole[i].poleMaterial.Equals(0)) {
                 Instantiate(crossarmBackMaterial[0], crossWoodVec, rotatebackWood);
-                Debug.Log("The pole material is: "+newPole[i].poleMaterial);
+                Debug.Log("The pole material is: " + newPole[i].poleMaterial);
             }
             //1 is concrete
-            else if (newPole[i].poleMaterial.Equals(1)) { 
+            else if (newPole[i].poleMaterial.Equals(1)) {
                 Instantiate(crossarmBackMaterial[1], crossConcreteVec, rotatebackConcrete);
                 Debug.Log("The pole material is: " + newPole[i].poleMaterial);
             }
@@ -520,15 +549,35 @@ public class PoleSpawner : MonoBehaviour
             }
         }
 
+        GameObject[] wireLoc = new GameObject[3];
+
         arrayOfPoles[i].name = "CrossArm" + i;
         for (int j = 0; j < insulator.Length; j++)
         {
             insulator[j].name = "Insulator" + (j + 1);
             insulator[j].transform.parent = arrayOfPoles[i].transform;
-            GameObject wireLoc;
-            wireLoc = insulator[j].transform.Find("Bottom").gameObject;
-            wireLoc.name = (j + 1).ToString();
-            wireLoc.transform.parent = arrayOfPoles[i].transform;
+            wireLoc[j] = insulator[j].transform.Find("Bottom").gameObject;
+            wireLoc[j].name = (j + 1).ToString();
+            wireLoc[j].transform.parent = arrayOfPoles[i].transform;
+        }
+
+        //change wire location to the right wire phase (1->phase a, 2-> b, 3-> c)
+
+        if (i <= 9) {
+            //sort by z
+            wireLoc = wireLoc.OrderBy(wire => wire.transform.position.z).ToArray();
+            System.Array.Reverse(wireLoc);
+        }
+        else {
+            wireLoc = wireLoc.OrderBy(wire => wire.transform.position.x).ToArray();
+            
+
+        }
+        string[] name = { "1", "2", "3" };
+        for (int j = 0; j < wireLoc.Length; j++)
+        {
+            wireLoc[j].name = name[j];
+
         }
     }
 
