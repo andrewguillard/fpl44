@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18082738, g: 0.22636214, b: 0.30720142, a: 1}
+  m_IndirectSpecularColor: {r: 0.18082783, g: 0.22636274, b: 0.3072023, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -611,8 +611,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 94120985}
-  m_LocalRotation: {x: 0.018694447, y: 0.97203994, z: 0.21884966, w: -0.083028585}
-  m_LocalPosition: {x: 141.64781, y: -9.627516, z: 287.38455}
+  m_LocalRotation: {x: 0.05190875, y: 0.92288923, z: 0.13411461, w: -0.3572033}
+  m_LocalPosition: {x: 148.41968, y: -19.012066, z: 248.48691}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -3073,6 +3073,48 @@ Transform:
   m_Father: {fileID: 1409494455}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &422582853
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 422582855}
+  - component: {fileID: 422582854}
+  m_Layer: 0
+  m_Name: WireConnect
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &422582854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 422582853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab237cff2f477af4493fb20b7557d28f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poleSpawnObject: {fileID: 669747691}
+  wireMaterial: {fileID: 2100000, guid: 50998c4cae1d8f340817c7a3058b7bfa, type: 2}
+--- !u!4 &422582855
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 422582853}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 137.15567, y: 13.587193, z: 242.68712}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 19
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &422910305
 GameObject:
   m_ObjectHideFlags: 0
@@ -5324,7 +5366,7 @@ MonoBehaviour:
   powerLineObject:
   - {fileID: 100000, guid: 04ad6f7fac1e2e840909810c06a1055e, type: 3}
   insulatorMaterial:
-  - {fileID: 100036, guid: eb4519edb33b41f4aa2f377f8d8861fa, type: 3}
+  - {fileID: 1092327113447138, guid: 56356eabc27fc474f9e41e8eb4a5519c, type: 2}
   poleMaterial:
   - {fileID: 100000, guid: 947c66c5ecbffb44c9f5e39653bbf04b, type: 3}
   - {fileID: 100000, guid: b16915bf4fe6519479ba399613bff571, type: 3}
