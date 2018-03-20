@@ -9,8 +9,11 @@ public class wireConnect : MonoBehaviour {
     public Material wireMaterial;
 	// Use this for initialization
 	void Start () {
-        poles = poleSpawnObject.GetComponent<PoleGeneration>().getPoleList();
-        print(poles);
+        if(poleSpawnObject.GetComponent<PoleGeneration>() != null)
+            poles = poleSpawnObject.GetComponent<PoleGeneration>().getPoleList();
+        else
+            poles = poleSpawnObject.GetComponent<PoleSpawner>().getPoleList();
+
         wireObject = new GameObject[poles.Length,3];
         
         //get all wireobjects 
