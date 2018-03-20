@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
@@ -12,7 +11,6 @@ public class ConditionAssessment : MonoBehaviour
     ArrayList FormList = new ArrayList();
 
     public string currentIconName;
-	public GameObject parent;
 
     #region DropDown Options
     //Create a List of new Dropdown options
@@ -30,20 +28,20 @@ public class ConditionAssessment : MonoBehaviour
 
     #region Condition Assessment Components
     public Dropdown EQUIPMENT_DROPDWN;
-    public Text ICON_SELECTED_TXT;      
+    public Text ICON_SELECTED_TXT;
     public Text DEFAULT_TXT;
 
     public Text LD_TXT;
-    public Button LD_1_BTN;             
+    public Button LD_1_BTN;
     public Button LD_3_BTN;
     public Button LD_5_BTN;
 
     public Text PHASE_TXT;
-    public Button PHASE_A_BTN;         
+    public Button PHASE_A_BTN;
     public Button PHASE_B_BTN;
     public Button PHASE_C_BTN;
-    
-    public Button DISCARD_BTN;          
+
+    public Button DISCARD_BTN;
     public Button INCLUDE_BTN;
     #endregion
 
@@ -66,7 +64,6 @@ public class ConditionAssessment : MonoBehaviour
         }
     }
 
-<<<<<<< HEAD
     void Start()
     {
         ICON_SELECTED_TXT = GameObject.Find("ICON_SELECTED_TXT").GetComponent<Text>();
@@ -104,21 +101,6 @@ public class ConditionAssessment : MonoBehaviour
         //INCLUDE_BTN.gameObject.SetActive(false);
         //DISCARD_BTN.gameObject.SetActive(false);
     }
-=======
-	public void start(){
-		//Get the parent object of the button (ie the CAF canvas)
-		this.parent = this.transform.parent.gameObject;
-
-		//Enable the DEFAULT_TXT by default
-		parent.transform.Find("DEFAULT_TXT").GetComponent<Text>().enabled = true;
-
-		//TODO: Make"ICON_SELECTED_TXT" invisible
-		//TODO: Make Level of Damage buttons invisible
-		//TODO: Make Phase buttons invisible
-		//TODO: Make Discard and Include buttons invisible
-	}
-    
->>>>>>> e53f0bb29ed61d0dba8c2d87f621329e9a6865fb
 
     //Depending on the icon that was clicked, call the appropriate form generator
     public void icon_OnClick(string iconName)
@@ -263,7 +245,6 @@ public class ConditionAssessment : MonoBehaviour
     public void severityForm(string iconName)
     {
         print("severityForm method fired");
-<<<<<<< HEAD
         DEFAULT_TXT.gameObject.SetActive(false);
 
         PHASE_TXT.gameObject.SetActive(false);
@@ -278,18 +259,6 @@ public class ConditionAssessment : MonoBehaviour
 
         INCLUDE_BTN.gameObject.SetActive(true);
         DISCARD_BTN.gameObject.SetActive(true);
-=======
-        //TODO: Make "DEFAULT_TXT" invisible
-
-		//set parent and then find Default_TXT and make is disappear.
-		this.parent = this.transform.parent.gameObject;
-		parent.transform.Find("DEFAULT_TXT").GetComponent<Text>().enabled = false;
-
-        //TODO: Generate appropriate equipment name in "ICON_SELECTED_TXT"
-        //TODO: Make Level of Damage buttons visible
-        //TODO: Make Phase buttons invisible
-        //TODO: Make Discard and Include buttons visible
->>>>>>> e53f0bb29ed61d0dba8c2d87f621329e9a6865fb
     }
 
     public void phaseSeverityForm(string iconName)
@@ -297,19 +266,10 @@ public class ConditionAssessment : MonoBehaviour
         print("phaseSeverityForm method fired");
         DEFAULT_TXT.gameObject.SetActive(false);
 
-<<<<<<< HEAD
         PHASE_TXT.gameObject.SetActive(true);
         PHASE_A_BTN.gameObject.SetActive(true);
         PHASE_B_BTN.gameObject.SetActive(true);
         PHASE_C_BTN.gameObject.SetActive(true);
-=======
-        //TODO: Make "DEFAULT_TXT" invisible
-        //DEFAULT_TXT.SetActive(false);
-		parent.transform.Find("DEFAULT_TXT").GetComponent<Text>().enabled = false;
-
-        //TODO: Generate appropriate equipment name in "ICON_SELECTED_TXT"
-        //ICON_SELECTED_TXT.Text = iconName;
->>>>>>> e53f0bb29ed61d0dba8c2d87f621329e9a6865fb
 
         LD_TXT.gameObject.SetActive(true);
         LD_1_BTN.gameObject.SetActive(true);
