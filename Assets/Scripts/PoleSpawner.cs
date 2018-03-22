@@ -596,22 +596,15 @@ public class PoleSpawner : MonoBehaviour
         arrayOfPoles = new GameObject[20];
 
         
-        List<string> shuffle = new List<string>(poleTypes);
-        shuffle.ShuffleList();
+        //List<string> shuffle = new List<string>(poleTypes);
+        //shuffle.ShuffleList();
 
-        //List<string> shuffle = new List<string>();
+        List<string> shuffle = new List<string>();
         //set these indexes and uncomment if you want to fix the insulator type
-        //shuffle.Add(poleTypes[3]); //In order to test put 0-3 into here.
-        //shuffle.Add(poleTypes[3]);
-        //shuffle.Add(poleTypes[2]);
-        //shuffle.Add(poleTypes[0]);
-
-        //List<string> testingThisList = new List<string>(poleTypes);
-        //testingThisList.ShuffleList();
-
-        //testingThisList.AddRange(shuffleList(poleTypes));
-        //testingThisList.ForEach(Debug.Log);
-
+        shuffle.Add(poleTypes[0]); //In order to test put 0-3 into here.
+        shuffle.Add(poleTypes[0]);
+        shuffle.Add(poleTypes[0]);
+        shuffle.Add(poleTypes[0]);
 
         for (int i = 0; i < spawnPoleLocation.Length; i++) {
 
