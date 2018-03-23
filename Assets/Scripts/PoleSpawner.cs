@@ -584,9 +584,18 @@ public class PoleSpawner : MonoBehaviour
 
     public void generateCapcitorBank(int i)
     {
+        if (i <= 9)
+        {
+            Quaternion rotateCapictor = Quaternion.Euler(0, -180, 0);
+            Vector3 BankVec = new Vector3(spawnCapacitorBank[i].transform.position.x, spawnCapacitorBank[i].transform.position.y, spawnCapacitorBank[i].transform.position.z);
+            Instantiate(capcitorBank[0], BankVec, rotateCapictor);
+        }
+        else if (i > 9) {
+            Quaternion rotateCapictor = Quaternion.Euler(0, 90, 0);
+            Vector3 BankVec = new Vector3(spawnCapacitorBank[i].transform.position.x, spawnCapacitorBank[i].transform.position.y, spawnCapacitorBank[i].transform.position.z);
+            Instantiate(capcitorBank[0], BankVec, rotateCapictor);
 
-        Vector3 BankVec = new Vector3(spawnCapacitorBank[i].transform.position.x, spawnCapacitorBank[i].transform.position.y, spawnCapacitorBank[i].transform.position.z);
-        Instantiate(capcitorBank[0], BankVec, Quaternion.identity);
+        }
     }
 
     void Awake()
@@ -613,8 +622,10 @@ public class PoleSpawner : MonoBehaviour
             //Location of new pole
             Vector3 loc = new Vector3(spawnPoleLocation[i].transform.position.x, spawnPoleLocation[i].transform.position.y, spawnPoleLocation[i].transform.position.z);
 
+            generateCapcitorBank(i);
+
             /*
-            if (i == 0) {
+            if (i >= 0 && i < 11) {
                 generateCapcitorBank(i);
             }
             */
@@ -735,6 +746,7 @@ public class PoleSpawner : MonoBehaviour
                     generateCrossarmInsulators(i, loc, shuffle);
                 }
             }
+            //generateCapcitorBank(i);
         }
 
         
