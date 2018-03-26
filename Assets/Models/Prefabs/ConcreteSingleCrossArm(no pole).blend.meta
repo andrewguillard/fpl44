@@ -8,6 +8,7 @@ ModelImporter:
     100000: //RootNode
     400000: //RootNode
     2100000: Material_005
+    2100002: crossarmMetal
     2300000: //RootNode
     3300000: //RootNode
     4300000: Crossarm
@@ -18,7 +19,12 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Material_005
-    second: {fileID: 2100000, guid: 20990cc91ecbe5b4e834ea9d007be375, type: 2}
+    second: {fileID: 2100000, guid: 5d7d4ede84f69d7499a23b5e31e34bd6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: crossarmMetal
+    second: {fileID: 2100000, guid: d57dd6a0bff5fc248a9b62b28c98e007, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

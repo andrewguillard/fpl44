@@ -11,30 +11,53 @@ ModelImporter:
     100006: HInsulator.002
     100008: //RootNode
     100010: Pole
+    100012: LInsulator
     400000: Cylinder.001
     400002: Hat
     400004: HInsulator.001
     400006: HInsulator.002
     400008: //RootNode
     400010: Pole
+    400012: LInsulator
     2100000: Material.005
     2100002: No Name
+    2100004: Ceramic
+    2100006: Concrete
+    2100008: Steel
     2300000: Cylinder.001
     2300002: Hat
     2300004: HInsulator.001
     2300006: HInsulator.002
     2300008: Pole
+    2300010: LInsulator
     3300000: Cylinder.001
     3300002: Hat
     3300004: HInsulator.001
     3300006: HInsulator.002
     3300008: Pole
+    3300010: LInsulator
     4300000: Hat
     4300002: HInsulator.002
     4300004: HInsulator.001
     4300006: Pole
     4300008: Cylinder.001
-  externalObjects: {}
+    4300010: LInsulator
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Ceramic
+    second: {fileID: 2100000, guid: 138ec4445db9edd4abd207c16f212a6a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Concrete
+    second: {fileID: 2100000, guid: 4c1476cd565cfa6479f9961be2aa60c7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Steel
+    second: {fileID: 2100000, guid: 30c5c417a2d8f054f85223b403da1031, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
