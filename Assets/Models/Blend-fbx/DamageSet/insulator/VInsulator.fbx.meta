@@ -24,7 +24,17 @@ ModelImporter:
     4300000: VInsulator3
     4300002: VInsulator2
     4300004: VInsulator1
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BurnMark
+    second: {fileID: 2100000, guid: cc765bc75f2dcaa44b715f3b6c49a03d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Ceramic
+    second: {fileID: 2100000, guid: 138ec4445db9edd4abd207c16f212a6a, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
