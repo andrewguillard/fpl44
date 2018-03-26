@@ -19,6 +19,12 @@ ModelImporter:
     400010: //RootNode
     2100000: Material.005
     2100002: No Name
+    2100004: Steel
+    2100006: Ceramic
+    2100008: Concrete
+    2100010: Steel.001
+    2100012: Ceramic.001
+    2100014: Concrete.001
     2300000: Hat
     2300002: HInsulator
     2300004: HInsulator.001
@@ -34,7 +40,27 @@ ModelImporter:
     4300004: HInsulator.001
     4300006: HInsulator
     4300008: Pole
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Ceramic
+    second: {fileID: 2100000, guid: 138ec4445db9edd4abd207c16f212a6a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Concrete
+    second: {fileID: 2100000, guid: 4c1476cd565cfa6479f9961be2aa60c7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: No Name
+    second: {fileID: 2100000, guid: 4c1476cd565cfa6479f9961be2aa60c7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Steel
+    second: {fileID: 2100000, guid: 30c5c417a2d8f054f85223b403da1031, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

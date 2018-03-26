@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: e28ef41981a9db249b98a24b102a3825
-timeCreated: 1521825858
+timeCreated: 1522045616
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -14,6 +14,8 @@ ModelImporter:
     400004: insulator2
     400006: insulator3
     2100000: No Name
+    2100002: Ceramic
+    2100004: CeramicBurn
     2300000: insulator1
     2300002: insulator2
     2300004: insulator3
@@ -23,7 +25,17 @@ ModelImporter:
     4300000: insulator2
     4300002: insulator3
     4300004: insulator1
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Ceramic
+    second: {fileID: 2100000, guid: 138ec4445db9edd4abd207c16f212a6a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CeramicBurn
+    second: {fileID: 2100000, guid: cc765bc75f2dcaa44b715f3b6c49a03d, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
