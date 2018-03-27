@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class SceneData : MonoBehaviour {
     public static string framing;
+	public static string damageEquipment = "insulator";
+	public static int damageLevel  = -1;
 
     public void setFraming(string f) {
         if (f == "any")
@@ -22,4 +24,15 @@ public class SceneData : MonoBehaviour {
         return framing;
         
     }
+
+	public void setDamageEquipment(string t){
+		damageEquipment = t;
+	}
+
+	public void setDamageLevel(int i){
+		damageLevel = i;
+	}
+
+	public string getDamageEquipment(){ return damageEquipment;}
+	public int getDamageLevel(){ return damageLevel;}
 }

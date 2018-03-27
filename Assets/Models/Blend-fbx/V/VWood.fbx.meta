@@ -17,6 +17,7 @@ ModelImporter:
     400008: Wood Pole
     2100000: No Name
     2100002: Wood
+    2100004: Ceramic
     2300000: HInsulator
     2300002: HInsulator.001
     2300004: HInsulator.002
@@ -29,7 +30,17 @@ ModelImporter:
     4300002: HInsulator.001
     4300004: HInsulator
     4300006: Wood Pole
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Ceramic
+    second: {fileID: 2100000, guid: 138ec4445db9edd4abd207c16f212a6a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wood
+    second: {fileID: 2100000, guid: e1e85aff80789d645857d9dee91afef3, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

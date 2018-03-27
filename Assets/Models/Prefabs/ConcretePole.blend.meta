@@ -8,9 +8,13 @@ ModelImporter:
     100000: //RootNode
     400000: //RootNode
     2100000: Material_005
+    2100002: steel
+    2100004: steel_001
+    2100006: concrete
     2300000: //RootNode
     3300000: //RootNode
     4300000: Hat
+    4300002: ConretePole
     7400000: Default Take
     9500000: //RootNode
   externalObjects:
@@ -19,6 +23,16 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: Material_005
     second: {fileID: 2100000, guid: 20990cc91ecbe5b4e834ea9d007be375, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: concrete
+    second: {fileID: 2100000, guid: 5d7d4ede84f69d7499a23b5e31e34bd6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: steel_001
+    second: {fileID: 2100000, guid: 30c5c417a2d8f054f85223b403da1031, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
