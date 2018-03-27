@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class PoleGeneration : MonoBehaviour {
 
     public GameObject[] poles; // sets of poles
@@ -16,8 +17,8 @@ public class PoleGeneration : MonoBehaviour {
         this.name = "ListOfPoles";
 
         menuSelected = GameObject.FindObjectOfType<SceneData>();
-        print("framming = "+menuSelected.getFraming());
-        print(transform);
+        print("framming = "+ ((menuSelected.getFraming()==null)?"null": menuSelected.getFraming()));
+
         if (menuSelected.getFraming() != null) {       
             for(int i =0; i< poles.Length; i++)
             {
@@ -106,6 +107,8 @@ public class PoleGeneration : MonoBehaviour {
                 }
                 poleList[index].name = name;
                 poleList[index].transform.SetParent(transform);
+
+                poleList[index].AddComponent<PoleData>();
 
                 //set new location
                 if (index < (numberOfPole/2))

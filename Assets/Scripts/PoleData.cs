@@ -2,22 +2,30 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PoleData : MonoBehaviour {
-    public string[] equipment;
-    public int[] levelDamage;
-    
-	// Use this for initialization
-	void Start () {
-        //go to children objects and get data
-        initizalizeData(gameObject);
-	}
+public class PoleData : MonoBehaviour
+{
+    public Data[] poleData;
 
-    void initizalizeData(GameObject pole)
+    void Start()
     {
-        //go through each children 
-        foreach(transform i in pole.transform)
+        poleData = getData();
+        foreach(Data i in poleData)
         {
-
+            i.printData();
         }
+    }
+    public Data[] getData()
+    {
+        List<Data> ret = new List<Data>();
+        foreach(Transform i in transform)
+        {
+            Data childData = i.GetComponent<Data>();
+            if (childData != null)
+            {
+                ret.Add(childData);
+            }
+        }
+
+        return ret.ToArray();
     }
 }

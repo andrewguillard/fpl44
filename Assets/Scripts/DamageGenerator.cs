@@ -30,9 +30,16 @@ public class DamageGenerator : MonoBehaviour {
                 
                 GameObject oldEquipment = getEquipmentToReplace(poleArray[i], equipment);
                 GameObject damagePrefab = getDamagePrefab(damageSet, oldEquipment.name, tempLevel);
-                replaceObject(oldEquipment, damagePrefab);
 
                 //record damage level and equipment to poledata
+                Data oldData = oldEquipment.GetComponent<Data>();
+
+                GameObject newObject=  replaceObject(oldEquipment, damagePrefab);
+
+                newObject.AddComponent<Data>();
+                Data newData = newObject.GetComponent<Data>();
+                newData.setData(oldData);
+                newData.level = tempLevel;
             }
         }
         else
@@ -99,7 +106,7 @@ public class DamageGenerator : MonoBehaviour {
         return ret;
     }
 
-    void replaceObject(GameObject oldObject, GameObject damagePrefab){
+    GameObject replaceObject(GameObject oldObject, GameObject damagePrefab){
         GameObject newObject;
         
 		newObject = (GameObject)PrefabUtility.InstantiatePrefab(damagePrefab);
@@ -124,6 +131,8 @@ public class DamageGenerator : MonoBehaviour {
 		newObject.transform.localScale = oldObject.transform.localScale;
 
         DestroyImmediate(oldObject);
+
+        return newObject;
     }
 
 
