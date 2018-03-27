@@ -15,23 +15,44 @@ public class DamageGenerator : MonoBehaviour {
 		int level = data.getDamageLevel();
         GameObject[] poleArray= getChildObjects(poleList);
 
-		if(level == -1) //check if user input any level damage
-		{
-			//for each pole
-			for(int i = 0; i< poleArray.Length;i++){
-				//generate a random number 
-				int randomLevel = UnityEngine.Random.Range(1,4);// 3 level of damage 1/2/3/
-                print(poleArray[i]);
-				GameObject oldEquipment = getEquipmentToReplace(poleArray[i], equipment);
-                print("old" + oldEquipment);
-                print("old parent" + oldEquipment.transform.parent);
+        //check if user select any equipment
+        if (!equipment.Equals("any"))
+        {
+            //for each pole
+            for (int i = 0; i < poleArray.Length; i++)
+            {
+                int tempLevel = level;
+                
+                //check if they want random level
+                if(level == -1)
+                    //generate a random number 
+                    tempLevel = UnityEngine.Random.Range(1, 4);// 3 level of damage 1/2/3/
+                
+                GameObject oldEquipment = getEquipmentToReplace(poleArray[i], equipment);
+                GameObject damagePrefab = getDamagePrefab(damageSet, oldEquipment.name, tempLevel);
 
-                GameObject damagePrefab = getDamagePrefab(damageSet,equipment,randomLevel);
-                print("new" + damagePrefab);
-				replaceObject (oldEquipment, damagePrefab);
-			}
-		}
-	}
+                //record damage level and equipment to poledata
+                Data oldData = oldEquipment.GetComponent<Data>();
+
+                GameObject newObject=  replaceObject(oldEquipment, damagePrefab);
+
+                newObject.AddComponent<Data>();
+                Data newData = newObject.GetComponent<Data>();
+                newData.setData(oldData);
+                newData.level = tempLevel;
+            }
+        }
+        else
+        {
+            //user want random equipment
+
+            
+        }
+
+
+        //at the end , deactive damageset
+        damageSet.SetActive(false);
+    }
 
     GameObject[] getChildObjects(GameObject parent)
     {
@@ -56,8 +77,10 @@ public class DamageGenerator : MonoBehaviour {
         
         //if damage is a specific number
         string name = equipment+"/"+equipment + level;
-        ret = damageSet.transform.Find(name).gameObject;
-
+     
+        ret = GameObject.Find(name);
+        if (ret == null)
+            print("can't get prefab from damage set");
         return ret;
 	}
 
@@ -66,9 +89,10 @@ public class DamageGenerator : MonoBehaviour {
 
         //find all gameobject with same tag
         List<GameObject> equipmentList = new List<GameObject>();
+
         foreach (Transform child in pole.transform)
         {
-            if (child.gameObject.CompareTag(name))
+            if (child.name.Contains(name))
             {
                 equipmentList.Add(child.gameObject);
             }
@@ -76,12 +100,14 @@ public class DamageGenerator : MonoBehaviour {
 
         int randomIndex = Random.Range(0, equipmentList.Count);
 
-        return equipmentList[randomIndex];
+        GameObject ret = equipmentList.ToArray()[randomIndex];
+        if (ret == null)
+            print("Cant get equipment to replace");
+        return ret;
     }
 
-    void replaceObject(GameObject oldObject, GameObject damagePrefab){
-	
-		GameObject newObject;
+    GameObject replaceObject(GameObject oldObject, GameObject damagePrefab){
+        GameObject newObject;
         
 		newObject = (GameObject)PrefabUtility.InstantiatePrefab(damagePrefab);
         if(PrefabUtility.GetPrefabType(damagePrefab) == PrefabType.Prefab)
@@ -105,5 +131,29 @@ public class DamageGenerator : MonoBehaviour {
 		newObject.transform.localScale = oldObject.transform.localScale;
 
         DestroyImmediate(oldObject);
+
+        return newObject;
+    }
+
+
+    //function check all insulator in a pole and return an insulator
+    GameObject getRandomInsulator(GameObject pole)
+    {
+
+        List<GameObject> insulatorList = new List<GameObject>();
+        for(int i=0; i<pole.transform.childCount; i++)
+        {
+            GameObject temp = pole.transform.GetChild(i).gameObject;
+            if (temp.name.Contains("Insulator")){
+                insulatorList.Add(temp);
+            }
+        }
+
+        int index = Random.Range(0, insulatorList.Count);
+
+
+        return insulatorList.ToArray()[index];
+
     }
 }
+

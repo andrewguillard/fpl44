@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class wireConnect : MonoBehaviour {
     public GameObject poleSpawnObject;
     private GameObject[,] wireObject;

@@ -9,22 +9,47 @@ ModelImporter:
     100002: insulator1
     100004: insulator2
     100006: insulator3
+    100008: HInsulator1
+    100010: HInsulator2
+    100012: HInsulator3
     400000: //RootNode
     400002: insulator1
     400004: insulator2
     400006: insulator3
+    400008: HInsulator1
+    400010: HInsulator2
+    400012: HInsulator3
     2100000: Ceramic
     2100002: BurnMark
     2300000: insulator1
     2300002: insulator2
     2300004: insulator3
+    2300006: HInsulator1
+    2300008: HInsulator2
+    2300010: HInsulator3
     3300000: insulator1
     3300002: insulator2
     3300004: insulator3
+    3300006: HInsulator1
+    3300008: HInsulator2
+    3300010: HInsulator3
     4300000: insulator2
     4300002: insulator3
     4300004: insulator1
-  externalObjects: {}
+    4300006: HInsulator2
+    4300008: HInsulator3
+    4300010: HInsulator1
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BurnMark
+    second: {fileID: 2100000, guid: cc765bc75f2dcaa44b715f3b6c49a03d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Ceramic
+    second: {fileID: 2100000, guid: 138ec4445db9edd4abd207c16f212a6a, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SceneData : MonoBehaviour {
     public static string framing;
-	public static string damageEquipment = "insulator";
+	public static string damageEquipment = "Insulator";
 	public static int damageLevel  = -1;
 
     public void setFraming(string f) {
