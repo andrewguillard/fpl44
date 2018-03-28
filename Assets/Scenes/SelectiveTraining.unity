@@ -225,6 +225,48 @@ MonoBehaviour:
   equipmentName: Insulator
   phase: 65
   level: 0
+--- !u!1001 &40485903
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4724427131550388, guid: 975ed393e69f0f34e973b47aa0951874, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 342.08353
+      objectReference: {fileID: 0}
+    - target: {fileID: 4724427131550388, guid: 975ed393e69f0f34e973b47aa0951874, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4724427131550388, guid: 975ed393e69f0f34e973b47aa0951874, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 399.28647
+      objectReference: {fileID: 0}
+    - target: {fileID: 4724427131550388, guid: 975ed393e69f0f34e973b47aa0951874, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4724427131550388, guid: 975ed393e69f0f34e973b47aa0951874, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4724427131550388, guid: 975ed393e69f0f34e973b47aa0951874, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4724427131550388, guid: 975ed393e69f0f34e973b47aa0951874, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4724427131550388, guid: 975ed393e69f0f34e973b47aa0951874, type: 2}
+      propertyPath: m_RootOrder
+      value: 16
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 975ed393e69f0f34e973b47aa0951874, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &60196537 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1535982803452934, guid: 08b8321e88ba2bd48a0a7a96e855a6ca,
@@ -608,11 +650,35 @@ MonoBehaviour:
   equipmentName: Insulator
   phase: 67
   level: 0
+--- !u!1 &456588070 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1667276797022246, guid: 975ed393e69f0f34e973b47aa0951874,
+    type: 2}
+  m_PrefabInternal: {fileID: 40485903}
+--- !u!114 &456588074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 456588070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fcd432285b926e44b10d60f5ff38b39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  equipmentName: Insulator
+  phase: 67
+  level: 0
 --- !u!1 &473443557 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1931319334139956, guid: 08b8321e88ba2bd48a0a7a96e855a6ca,
     type: 2}
   m_PrefabInternal: {fileID: 1093005055}
+--- !u!1 &492359109 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1042514036010388, guid: 975ed393e69f0f34e973b47aa0951874,
+    type: 2}
+  m_PrefabInternal: {fileID: 40485903}
 --- !u!1001 &496559187
 Prefab:
   m_ObjectHideFlags: 0
@@ -679,6 +745,25 @@ Transform:
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: e21456eb7a6b18e4480b596463b9692a, type: 2}
   m_PrefabInternal: {fileID: 1233481235}
+--- !u!1 &607571797 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1989460036053262, guid: 975ed393e69f0f34e973b47aa0951874,
+    type: 2}
+  m_PrefabInternal: {fileID: 40485903}
+--- !u!114 &607571801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 607571797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fcd432285b926e44b10d60f5ff38b39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  equipmentName: Insulator
+  phase: 65
+  level: 0
 --- !u!4 &609104864 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: e21456eb7a6b18e4480b596463b9692a, type: 2}
@@ -776,6 +861,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &637129041 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1075163211309888, guid: 975ed393e69f0f34e973b47aa0951874,
+    type: 2}
+  m_PrefabInternal: {fileID: 40485903}
+--- !u!114 &637129045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 637129041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fcd432285b926e44b10d60f5ff38b39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  equipmentName: Insulator
+  phase: 66
+  level: 0
 --- !u!1 &638009557
 GameObject:
   m_ObjectHideFlags: 0
@@ -1078,6 +1182,7 @@ MonoBehaviour:
   - {fileID: 1064443232}
   - {fileID: 473443557}
   - {fileID: 1120463985}
+  CornerPole: {fileID: 492359109}
   startSpot: {fileID: 1661135355}
   numberOfPole: 20
 --- !u!4 &824981369
@@ -1503,6 +1608,44 @@ GameObject:
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 0880d9ac631f24f409114af2781b3480, type: 2}
   m_PrefabInternal: {fileID: 1877623903}
+--- !u!1 &1025361670 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1073049212449358, guid: 975ed393e69f0f34e973b47aa0951874,
+    type: 2}
+  m_PrefabInternal: {fileID: 40485903}
+--- !u!114 &1025361674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1025361670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fcd432285b926e44b10d60f5ff38b39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  equipmentName: Insulator
+  phase: 66
+  level: 0
+--- !u!1 &1035486797 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1105508040380078, guid: 975ed393e69f0f34e973b47aa0951874,
+    type: 2}
+  m_PrefabInternal: {fileID: 40485903}
+--- !u!114 &1035486801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1035486797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fcd432285b926e44b10d60f5ff38b39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  equipmentName: Insulator
+  phase: 66
+  level: 0
 --- !u!1001 &1059860479
 Prefab:
   m_ObjectHideFlags: 0
@@ -1744,11 +1887,49 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 08b8321e88ba2bd48a0a7a96e855a6ca, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1102469322 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1247593495466160, guid: 975ed393e69f0f34e973b47aa0951874,
+    type: 2}
+  m_PrefabInternal: {fileID: 40485903}
+--- !u!114 &1102469326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1102469322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fcd432285b926e44b10d60f5ff38b39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  equipmentName: Pole
+  phase: 78
+  level: 0
 --- !u!1 &1120463985 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1560969354125710, guid: 08b8321e88ba2bd48a0a7a96e855a6ca,
     type: 2}
   m_PrefabInternal: {fileID: 1093005055}
+--- !u!1 &1122530502 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1565003399911032, guid: 975ed393e69f0f34e973b47aa0951874,
+    type: 2}
+  m_PrefabInternal: {fileID: 40485903}
+--- !u!114 &1122530506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1122530502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fcd432285b926e44b10d60f5ff38b39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  equipmentName: Insulator
+  phase: 65
+  level: 0
 --- !u!1 &1137089805 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1650748038115566, guid: 7ba1f42b16bdc144fbee1e6eef7cfa01,
@@ -2090,6 +2271,63 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e21456eb7a6b18e4480b596463b9692a, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1309987718 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1354538037134180, guid: 975ed393e69f0f34e973b47aa0951874,
+    type: 2}
+  m_PrefabInternal: {fileID: 40485903}
+--- !u!114 &1309987722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1309987718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fcd432285b926e44b10d60f5ff38b39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  equipmentName: Insulator
+  phase: 65
+  level: 0
+--- !u!1 &1337165744 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1659570092360362, guid: 975ed393e69f0f34e973b47aa0951874,
+    type: 2}
+  m_PrefabInternal: {fileID: 40485903}
+--- !u!114 &1337165748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1337165744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fcd432285b926e44b10d60f5ff38b39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  equipmentName: Insulator
+  phase: 67
+  level: 0
+--- !u!1 &1434298060 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1797829002835348, guid: 975ed393e69f0f34e973b47aa0951874,
+    type: 2}
+  m_PrefabInternal: {fileID: 40485903}
+--- !u!114 &1434298064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1434298060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fcd432285b926e44b10d60f5ff38b39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  equipmentName: Pole
+  phase: 78
+  level: 0
 --- !u!1 &1442411991 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1550164140920488, guid: 08b8321e88ba2bd48a0a7a96e855a6ca,
@@ -2546,7 +2784,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1726702681}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab237cff2f477af4493fb20b7557d28f, type: 3}
+  m_Script: {fileID: 11500000, guid: e86adaa1f95da2744ac814a037bb3e4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   poleSpawnObject: {fileID: 824981367}
@@ -2596,6 +2834,44 @@ Transform:
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 0880d9ac631f24f409114af2781b3480, type: 2}
   m_PrefabInternal: {fileID: 1624472113}
+--- !u!1 &1756729074 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1248961545096986, guid: 975ed393e69f0f34e973b47aa0951874,
+    type: 2}
+  m_PrefabInternal: {fileID: 40485903}
+--- !u!114 &1756729078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1756729074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fcd432285b926e44b10d60f5ff38b39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  equipmentName: Insulator
+  phase: 66
+  level: 0
+--- !u!1 &1763154954 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1419647411591860, guid: 975ed393e69f0f34e973b47aa0951874,
+    type: 2}
+  m_PrefabInternal: {fileID: 40485903}
+--- !u!114 &1763154958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1763154954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fcd432285b926e44b10d60f5ff38b39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  equipmentName: Insulator
+  phase: 67
+  level: 0
 --- !u!4 &1770490386 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: e21456eb7a6b18e4480b596463b9692a, type: 2}
@@ -2818,8 +3094,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1925114150}
-  m_LocalRotation: {x: 0.20570123, y: 0.64766425, z: 0.18786034, w: -0.7091732}
-  m_LocalPosition: {x: 408.53058, y: -22.056744, z: 377.36404}
+  m_LocalRotation: {x: 0.17109051, y: 0.6211103, z: 0.14137898, w: -0.7516396}
+  m_LocalPosition: {x: 147.18105, y: -7.930055, z: 362.41135}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2848,6 +3124,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   equipmentName: Insulator
   phase: 66
+  level: 0
+--- !u!1 &2000683852 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1084902716708080, guid: 975ed393e69f0f34e973b47aa0951874,
+    type: 2}
+  m_PrefabInternal: {fileID: 40485903}
+--- !u!114 &2000683856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2000683852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fcd432285b926e44b10d60f5ff38b39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  equipmentName: Insulator
+  phase: 67
   level: 0
 --- !u!1 &2020396257 stripped
 GameObject:
@@ -3356,3 +3651,22 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7ba1f42b16bdc144fbee1e6eef7cfa01, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &2143392714 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1463254368791990, guid: 975ed393e69f0f34e973b47aa0951874,
+    type: 2}
+  m_PrefabInternal: {fileID: 40485903}
+--- !u!114 &2143392718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2143392714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fcd432285b926e44b10d60f5ff38b39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  equipmentName: Insulator
+  phase: 65
+  level: 0

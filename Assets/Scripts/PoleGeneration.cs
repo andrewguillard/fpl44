@@ -6,6 +6,7 @@ using UnityEngine;
 public class PoleGeneration : MonoBehaviour {
 
     public GameObject[] poles; // sets of poles
+    public GameObject CornerPole;
     public GameObject startSpot; // Pole next where player start 
     public int numberOfPole = 20;
     private GameObject[] poleList;
@@ -28,7 +29,7 @@ public class PoleGeneration : MonoBehaviour {
                 }
             }
             string st = "/PoleSet/" + menuSelected.getFraming();
-            print(st);
+            //print(st);
             poles = new GameObject[1];
             poles[0] = GameObject.Find(st);
 
@@ -38,8 +39,10 @@ public class PoleGeneration : MonoBehaviour {
             startSpot = this.gameObject;
         }
 
+
+
         ////create 10 new gameObject
-        poleList = new GameObject[numberOfPole];
+        poleList = new GameObject[numberOfPole+1];
 
         //get a zone order
         int[] zoneOrder = getRandomZone();
@@ -82,21 +85,18 @@ public class PoleGeneration : MonoBehaviour {
         tempStart = startSpot.transform.position;
         int numPoleAZone  = numberOfPole / template.Length;
  
-        for (int i = 0; i < template.Length; i++) {
-
-            //get rotation
-            Quaternion angle = Quaternion.Euler(0, 90, 0);
-
+        for (int i = 0, index = 0; i < template.Length; i++) {
             //instatiate pole
-            for (int j = 0; j < numPoleAZone; j++)
+            for (int j = 0; j < numPoleAZone; j++, index++)
             {
+
                 int childIndex = Random.Range(0, template[i].transform.childCount);
 
                 GameObject temp = template[i].transform.GetChild(childIndex).gameObject;
 
                 //get pole name
-                string name = "pole" + (numPoleAZone * i + j) + temp.transform.name;
-                int index = numPoleAZone * i + j;
+                string name = "pole" + index + temp.transform.name;
+                
                 if (index < (numberOfPole / 2))
                     poleList[index] = Instantiate(temp, tempStart, temp.transform.rotation);
                 else {
@@ -111,10 +111,28 @@ public class PoleGeneration : MonoBehaviour {
                 poleList[index].AddComponent<PoleData>();
 
                 //set new location
-                if (index < (numberOfPole/2))
+                if (index <= (numberOfPole/2))
                     tempStart.Set(tempStart.x -20, tempStart.y, tempStart.z);
                 else
                     tempStart.Set(tempStart.x, tempStart.y, tempStart.z-20);
+            }
+
+            //if cornerpole
+            if(index== numberOfPole / 2)
+            {
+                int randomIndex = Random.Range(0, CornerPole.transform.childCount);
+                GameObject corner = CornerPole.transform.GetChild(randomIndex).gameObject;
+
+                poleList[index] = Instantiate(corner,
+                    tempStart, Quaternion.Euler(corner.transform.rotation.eulerAngles)); ;
+
+                string name = "pole" + index + corner.transform.name;
+                poleList[index].name = name;
+                poleList[index].transform.SetParent(transform);
+
+                tempStart.Set(tempStart.x, tempStart.y, tempStart.z - 20);
+
+                index++;
             }
         }
     }
@@ -126,6 +144,8 @@ public class PoleGeneration : MonoBehaviour {
         {
             poles[i].SetActive(false);
         }
+
+        CornerPole.SetActive(false);
     }
 
     public GameObject[] getPoleList() {
