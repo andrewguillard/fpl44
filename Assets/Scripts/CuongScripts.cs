@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [ExecuteInEditMode]
-public class UtilityScript : MonoBehaviour {
+public class CuongScripts : MonoBehaviour {
     public GameObject poleSet;
     //public bool placeDataScript= false;
     //private static bool isSet = false;

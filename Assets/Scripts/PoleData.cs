@@ -9,10 +9,10 @@ public class PoleData : MonoBehaviour
     void Start()
     {
         poleData = getData();
-        foreach(Data i in poleData)
-        {
-            i.printData();
-        }
+        //foreach(Data i in poleData)
+        //{
+        //    i.printData();
+        //}
     }
     public Data[] getData()
     {
