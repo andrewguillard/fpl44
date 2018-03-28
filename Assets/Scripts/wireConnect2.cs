@@ -98,6 +98,7 @@ public class wireConnect2 : MonoBehaviour {
 
     GameObject findOutMarker(string name, GameObject pole)
     {
+
         // 11-21-31 and 12-22-32 format
         string name2 = name + "2";
         //A1-B1-C1 and A2-B2-C2 format
