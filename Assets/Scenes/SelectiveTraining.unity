@@ -113,67 +113,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1001 &3848488
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 902181782}
-    m_Modifications:
-    - target: {fileID: 4281755462753184, guid: 8a3b5f857d1604146ae85089c1f46fc9, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4281755462753184, guid: 8a3b5f857d1604146ae85089c1f46fc9, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4281755462753184, guid: 8a3b5f857d1604146ae85089c1f46fc9, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4281755462753184, guid: 8a3b5f857d1604146ae85089c1f46fc9, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4281755462753184, guid: 8a3b5f857d1604146ae85089c1f46fc9, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4281755462753184, guid: 8a3b5f857d1604146ae85089c1f46fc9, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4281755462753184, guid: 8a3b5f857d1604146ae85089c1f46fc9, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4281755462753184, guid: 8a3b5f857d1604146ae85089c1f46fc9, type: 2}
-      propertyPath: m_RootOrder
-      value: 8
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 8a3b5f857d1604146ae85089c1f46fc9, type: 2}
-  m_IsPrefabParent: 0
---- !u!1 &12793408 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1189384096123104, guid: 08b8321e88ba2bd48a0a7a96e855a6ca,
-    type: 2}
-  m_PrefabInternal: {fileID: 1093005055}
---- !u!114 &12793412
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 12793408}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fcd432285b926e44b10d60f5ff38b39, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  equipmentName: Insulator
-  phase: 65
-  level: 0
 --- !u!1 &16967153
 GameObject:
   m_ObjectHideFlags: 0
@@ -248,25 +187,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &22712019 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1218826862974572, guid: 08b8321e88ba2bd48a0a7a96e855a6ca,
-    type: 2}
-  m_PrefabInternal: {fileID: 1093005055}
---- !u!114 &22712023
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 22712019}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fcd432285b926e44b10d60f5ff38b39, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  equipmentName: Insulator
-  phase: 65
-  level: 0
 --- !u!1001 &40485903
 Prefab:
   m_ObjectHideFlags: 0
@@ -276,7 +196,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4724427131550388, guid: 975ed393e69f0f34e973b47aa0951874, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 342.08353
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4724427131550388, guid: 975ed393e69f0f34e973b47aa0951874, type: 2}
       propertyPath: m_LocalPosition.y
@@ -284,7 +204,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4724427131550388, guid: 975ed393e69f0f34e973b47aa0951874, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 399.28647
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4724427131550388, guid: 975ed393e69f0f34e973b47aa0951874, type: 2}
       propertyPath: m_LocalRotation.x
@@ -309,48 +229,10 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 975ed393e69f0f34e973b47aa0951874, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &60196537 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1535982803452934, guid: 08b8321e88ba2bd48a0a7a96e855a6ca,
-    type: 2}
-  m_PrefabInternal: {fileID: 1093005055}
---- !u!114 &60196541
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 60196537}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fcd432285b926e44b10d60f5ff38b39, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  equipmentName: Insulator
-  phase: 66
-  level: 0
 --- !u!4 &103010891 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 0880d9ac631f24f409114af2781b3480, type: 2}
   m_PrefabInternal: {fileID: 889881809}
---- !u!1 &136383489 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1511584870315206, guid: 08b8321e88ba2bd48a0a7a96e855a6ca,
-    type: 2}
-  m_PrefabInternal: {fileID: 1093005055}
---- !u!114 &136383493
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 136383489}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fcd432285b926e44b10d60f5ff38b39, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  equipmentName: Insulator
-  phase: 78
-  level: 0
 --- !u!1001 &221937069
 Prefab:
   m_ObjectHideFlags: 0
@@ -413,25 +295,6 @@ Transform:
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 0880d9ac631f24f409114af2781b3480, type: 2}
   m_PrefabInternal: {fileID: 1527864920}
---- !u!1 &280121863 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1956986586533050, guid: 08b8321e88ba2bd48a0a7a96e855a6ca,
-    type: 2}
-  m_PrefabInternal: {fileID: 1093005055}
---- !u!114 &280121867
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 280121863}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fcd432285b926e44b10d60f5ff38b39, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  equipmentName: Insulator
-  phase: 78
-  level: 0
 --- !u!4 &289280217 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: e21456eb7a6b18e4480b596463b9692a, type: 2}
@@ -544,48 +407,6 @@ Prefab:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0880d9ac631f24f409114af2781b3480, type: 2}
-  m_IsPrefabParent: 0
---- !u!1001 &366460706
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1422398470}
-    m_Modifications:
-    - target: {fileID: 4281755462753184, guid: 8a3b5f857d1604146ae85089c1f46fc9, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4281755462753184, guid: 8a3b5f857d1604146ae85089c1f46fc9, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4281755462753184, guid: 8a3b5f857d1604146ae85089c1f46fc9, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4281755462753184, guid: 8a3b5f857d1604146ae85089c1f46fc9, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4281755462753184, guid: 8a3b5f857d1604146ae85089c1f46fc9, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4281755462753184, guid: 8a3b5f857d1604146ae85089c1f46fc9, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4281755462753184, guid: 8a3b5f857d1604146ae85089c1f46fc9, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4281755462753184, guid: 8a3b5f857d1604146ae85089c1f46fc9, type: 2}
-      propertyPath: m_RootOrder
-      value: 8
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 8a3b5f857d1604146ae85089c1f46fc9, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &367662661
 GameObject:
@@ -784,44 +605,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &452505380 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1944932996555638, guid: 08b8321e88ba2bd48a0a7a96e855a6ca,
-    type: 2}
-  m_PrefabInternal: {fileID: 1093005055}
---- !u!114 &452505384
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 452505380}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fcd432285b926e44b10d60f5ff38b39, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  equipmentName: Insulator
-  phase: 67
-  level: 0
---- !u!1 &456588070 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1667276797022246, guid: 975ed393e69f0f34e973b47aa0951874,
-    type: 2}
-  m_PrefabInternal: {fileID: 40485903}
---- !u!114 &456588074
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 456588070}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fcd432285b926e44b10d60f5ff38b39, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  equipmentName: Insulator
-  phase: 67
-  level: 0
 --- !u!1 &473443557 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1931319334139956, guid: 08b8321e88ba2bd48a0a7a96e855a6ca,
@@ -898,25 +681,6 @@ Transform:
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: e21456eb7a6b18e4480b596463b9692a, type: 2}
   m_PrefabInternal: {fileID: 1233481235}
---- !u!1 &607571797 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1989460036053262, guid: 975ed393e69f0f34e973b47aa0951874,
-    type: 2}
-  m_PrefabInternal: {fileID: 40485903}
---- !u!114 &607571801
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 607571797}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fcd432285b926e44b10d60f5ff38b39, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  equipmentName: Insulator
-  phase: 65
-  level: 0
 --- !u!4 &609104864 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: e21456eb7a6b18e4480b596463b9692a, type: 2}
@@ -1014,25 +778,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &637129041 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1075163211309888, guid: 975ed393e69f0f34e973b47aa0951874,
-    type: 2}
-  m_PrefabInternal: {fileID: 40485903}
---- !u!114 &637129045
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 637129041}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fcd432285b926e44b10d60f5ff38b39, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  equipmentName: Insulator
-  phase: 66
-  level: 0
 --- !u!1 &638009557
 GameObject:
   m_ObjectHideFlags: 0
@@ -1106,86 +851,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &717804895 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1472121588628132, guid: 08b8321e88ba2bd48a0a7a96e855a6ca,
-    type: 2}
-  m_PrefabInternal: {fileID: 1093005055}
---- !u!114 &717804899
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 717804895}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fcd432285b926e44b10d60f5ff38b39, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  equipmentName: Pole
-  phase: 78
-  level: 0
---- !u!1 &721008330 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1434663968107062, guid: 08b8321e88ba2bd48a0a7a96e855a6ca,
-    type: 2}
-  m_PrefabInternal: {fileID: 1093005055}
---- !u!114 &721008334
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 721008330}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fcd432285b926e44b10d60f5ff38b39, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  equipmentName: Insulator
-  phase: 65
-  level: 0
---- !u!1001 &725447138
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 868290910}
-    m_Modifications:
-    - target: {fileID: 4281755462753184, guid: 8a3b5f857d1604146ae85089c1f46fc9, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4281755462753184, guid: 8a3b5f857d1604146ae85089c1f46fc9, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4281755462753184, guid: 8a3b5f857d1604146ae85089c1f46fc9, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4281755462753184, guid: 8a3b5f857d1604146ae85089c1f46fc9, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4281755462753184, guid: 8a3b5f857d1604146ae85089c1f46fc9, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4281755462753184, guid: 8a3b5f857d1604146ae85089c1f46fc9, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4281755462753184, guid: 8a3b5f857d1604146ae85089c1f46fc9, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4281755462753184, guid: 8a3b5f857d1604146ae85089c1f46fc9, type: 2}
-      propertyPath: m_RootOrder
-      value: 9
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 8a3b5f857d1604146ae85089c1f46fc9, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &732201311
 GameObject:
   m_ObjectHideFlags: 0
@@ -1248,48 +913,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &757236308
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 2048100895}
-    m_Modifications:
-    - target: {fileID: 4281755462753184, guid: 8a3b5f857d1604146ae85089c1f46fc9, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4281755462753184, guid: 8a3b5f857d1604146ae85089c1f46fc9, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4281755462753184, guid: 8a3b5f857d1604146ae85089c1f46fc9, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4281755462753184, guid: 8a3b5f857d1604146ae85089c1f46fc9, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4281755462753184, guid: 8a3b5f857d1604146ae85089c1f46fc9, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4281755462753184, guid: 8a3b5f857d1604146ae85089c1f46fc9, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4281755462753184, guid: 8a3b5f857d1604146ae85089c1f46fc9, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4281755462753184, guid: 8a3b5f857d1604146ae85089c1f46fc9, type: 2}
-      propertyPath: m_RootOrder
-      value: 8
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 8a3b5f857d1604146ae85089c1f46fc9, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1001 &768121027
 Prefab:
   m_ObjectHideFlags: 0
@@ -1344,49 +967,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e21456eb7a6b18e4480b596463b9692a, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &794179948 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1998462498886246, guid: 08b8321e88ba2bd48a0a7a96e855a6ca,
-    type: 2}
-  m_PrefabInternal: {fileID: 1093005055}
---- !u!114 &794179952
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 794179948}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fcd432285b926e44b10d60f5ff38b39, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  equipmentName: Insulator
-  phase: 66
-  level: 0
 --- !u!1 &815584484 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1614046140279618, guid: 470d6f5bac5bf434a80940d04b98ec5e,
     type: 2}
   m_PrefabInternal: {fileID: 1263357256}
---- !u!1 &821762980 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1853548381391420, guid: 08b8321e88ba2bd48a0a7a96e855a6ca,
-    type: 2}
-  m_PrefabInternal: {fileID: 1093005055}
---- !u!114 &821762984
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 821762980}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fcd432285b926e44b10d60f5ff38b39, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  equipmentName: Pole
-  phase: 78
-  level: 0
 --- !u!1 &824981367
 GameObject:
   m_ObjectHideFlags: 0
@@ -1569,49 +1154,6 @@ Mesh:
   m_BakedConvexCollisionMesh: 
   m_BakedTriangleCollisionMesh: 
   m_MeshOptimized: 0
---- !u!1 &847575283 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1542219760450974, guid: 08b8321e88ba2bd48a0a7a96e855a6ca,
-    type: 2}
-  m_PrefabInternal: {fileID: 1093005055}
---- !u!114 &847575287
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 847575283}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fcd432285b926e44b10d60f5ff38b39, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  equipmentName: Insulator
-  phase: 78
-  level: 0
---- !u!4 &868290910 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 4581567636789892, guid: 08b8321e88ba2bd48a0a7a96e855a6ca,
-    type: 2}
-  m_PrefabInternal: {fileID: 1093005055}
---- !u!1 &872349570 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1913323937381676, guid: 08b8321e88ba2bd48a0a7a96e855a6ca,
-    type: 2}
-  m_PrefabInternal: {fileID: 1093005055}
---- !u!114 &872349574
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 872349570}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fcd432285b926e44b10d60f5ff38b39, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  equipmentName: Pole
-  phase: 78
-  level: 0
 --- !u!1001 &889705151
 Prefab:
   m_ObjectHideFlags: 0
@@ -1720,30 +1262,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0880d9ac631f24f409114af2781b3480, type: 2}
   m_IsPrefabParent: 0
---- !u!4 &902181782 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 4661956844036056, guid: 08b8321e88ba2bd48a0a7a96e855a6ca,
-    type: 2}
-  m_PrefabInternal: {fileID: 1093005055}
---- !u!1 &912698497 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1315581789849306, guid: 08b8321e88ba2bd48a0a7a96e855a6ca,
-    type: 2}
-  m_PrefabInternal: {fileID: 1093005055}
---- !u!114 &912698501
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 912698497}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fcd432285b926e44b10d60f5ff38b39, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  equipmentName: Insulator
-  phase: 67
-  level: 0
 --- !u!1 &920330983
 GameObject:
   m_ObjectHideFlags: 0
@@ -1789,63 +1307,6 @@ Transform:
   m_Father: {fileID: 638009560}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &930726915 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1485912307755168, guid: 08b8321e88ba2bd48a0a7a96e855a6ca,
-    type: 2}
-  m_PrefabInternal: {fileID: 1093005055}
---- !u!114 &930726919
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 930726915}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fcd432285b926e44b10d60f5ff38b39, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  equipmentName: Insulator
-  phase: 66
-  level: 0
---- !u!1 &943769365 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1383542507395364, guid: 08b8321e88ba2bd48a0a7a96e855a6ca,
-    type: 2}
-  m_PrefabInternal: {fileID: 1093005055}
---- !u!114 &943769369
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 943769365}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fcd432285b926e44b10d60f5ff38b39, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  equipmentName: Insulator
-  phase: 65
-  level: 0
---- !u!1 &990375541 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1899308781301458, guid: 08b8321e88ba2bd48a0a7a96e855a6ca,
-    type: 2}
-  m_PrefabInternal: {fileID: 1093005055}
---- !u!114 &990375545
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 990375541}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fcd432285b926e44b10d60f5ff38b39, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  equipmentName: Insulator
-  phase: 66
-  level: 0
 --- !u!1 &1000361024 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1914452764175260, guid: 7ba1f42b16bdc144fbee1e6eef7cfa01,
@@ -1855,44 +1316,6 @@ GameObject:
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 0880d9ac631f24f409114af2781b3480, type: 2}
   m_PrefabInternal: {fileID: 1877623903}
---- !u!1 &1025361670 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1073049212449358, guid: 975ed393e69f0f34e973b47aa0951874,
-    type: 2}
-  m_PrefabInternal: {fileID: 40485903}
---- !u!114 &1025361674
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1025361670}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fcd432285b926e44b10d60f5ff38b39, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  equipmentName: Insulator
-  phase: 66
-  level: 0
---- !u!1 &1035486797 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1105508040380078, guid: 975ed393e69f0f34e973b47aa0951874,
-    type: 2}
-  m_PrefabInternal: {fileID: 40485903}
---- !u!114 &1035486801
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1035486797}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fcd432285b926e44b10d60f5ff38b39, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  equipmentName: Insulator
-  phase: 66
-  level: 0
 --- !u!1001 &1059860479
 Prefab:
   m_ObjectHideFlags: 0
@@ -1991,192 +1414,14 @@ Prefab:
       propertyPath: m_RootOrder
       value: 9
       objectReference: {fileID: 0}
-    - target: {fileID: 1777353693296260, guid: 08b8321e88ba2bd48a0a7a96e855a6ca, type: 2}
-      propertyPath: m_TagString
-      value: Equipment
-      objectReference: {fileID: 0}
-    - target: {fileID: 1189384096123104, guid: 08b8321e88ba2bd48a0a7a96e855a6ca, type: 2}
-      propertyPath: m_TagString
-      value: Equipment
-      objectReference: {fileID: 0}
-    - target: {fileID: 1535982803452934, guid: 08b8321e88ba2bd48a0a7a96e855a6ca, type: 2}
-      propertyPath: m_TagString
-      value: Equipment
-      objectReference: {fileID: 0}
-    - target: {fileID: 1853548381391420, guid: 08b8321e88ba2bd48a0a7a96e855a6ca, type: 2}
-      propertyPath: m_TagString
-      value: Equipment
-      objectReference: {fileID: 0}
-    - target: {fileID: 1898848743115172, guid: 08b8321e88ba2bd48a0a7a96e855a6ca, type: 2}
-      propertyPath: m_TagString
-      value: Equipment
-      objectReference: {fileID: 0}
-    - target: {fileID: 1905501472794596, guid: 08b8321e88ba2bd48a0a7a96e855a6ca, type: 2}
-      propertyPath: m_TagString
-      value: Equipment
-      objectReference: {fileID: 0}
-    - target: {fileID: 1961498826492112, guid: 08b8321e88ba2bd48a0a7a96e855a6ca, type: 2}
-      propertyPath: m_TagString
-      value: Equipment
-      objectReference: {fileID: 0}
-    - target: {fileID: 1383542507395364, guid: 08b8321e88ba2bd48a0a7a96e855a6ca, type: 2}
-      propertyPath: m_TagString
-      value: Equipment
-      objectReference: {fileID: 0}
-    - target: {fileID: 1550164140920488, guid: 08b8321e88ba2bd48a0a7a96e855a6ca, type: 2}
-      propertyPath: m_TagString
-      value: Equipment
-      objectReference: {fileID: 0}
-    - target: {fileID: 1511584870315206, guid: 08b8321e88ba2bd48a0a7a96e855a6ca, type: 2}
-      propertyPath: m_TagString
-      value: Equipment
-      objectReference: {fileID: 0}
-    - target: {fileID: 1944932996555638, guid: 08b8321e88ba2bd48a0a7a96e855a6ca, type: 2}
-      propertyPath: m_TagString
-      value: Equipment
-      objectReference: {fileID: 0}
-    - target: {fileID: 1552859936743376, guid: 08b8321e88ba2bd48a0a7a96e855a6ca, type: 2}
-      propertyPath: m_TagString
-      value: Equipment
-      objectReference: {fileID: 0}
-    - target: {fileID: 1998462498886246, guid: 08b8321e88ba2bd48a0a7a96e855a6ca, type: 2}
-      propertyPath: m_TagString
-      value: Equipment
-      objectReference: {fileID: 0}
-    - target: {fileID: 1728457963998142, guid: 08b8321e88ba2bd48a0a7a96e855a6ca, type: 2}
-      propertyPath: m_TagString
-      value: Equipment
-      objectReference: {fileID: 0}
-    - target: {fileID: 1099448761919914, guid: 08b8321e88ba2bd48a0a7a96e855a6ca, type: 2}
-      propertyPath: m_TagString
-      value: Equipment
-      objectReference: {fileID: 0}
-    - target: {fileID: 1740944630048394, guid: 08b8321e88ba2bd48a0a7a96e855a6ca, type: 2}
-      propertyPath: m_TagString
-      value: Equipment
-      objectReference: {fileID: 0}
-    - target: {fileID: 1434663968107062, guid: 08b8321e88ba2bd48a0a7a96e855a6ca, type: 2}
-      propertyPath: m_TagString
-      value: Equipment
-      objectReference: {fileID: 0}
-    - target: {fileID: 1315581789849306, guid: 08b8321e88ba2bd48a0a7a96e855a6ca, type: 2}
-      propertyPath: m_TagString
-      value: Equipment
-      objectReference: {fileID: 0}
-    - target: {fileID: 1898382320153550, guid: 08b8321e88ba2bd48a0a7a96e855a6ca, type: 2}
-      propertyPath: m_TagString
-      value: Equipment
-      objectReference: {fileID: 0}
-    - target: {fileID: 1508894042953788, guid: 08b8321e88ba2bd48a0a7a96e855a6ca, type: 2}
-      propertyPath: m_TagString
-      value: Equipment
-      objectReference: {fileID: 0}
-    - target: {fileID: 1308158914578940, guid: 08b8321e88ba2bd48a0a7a96e855a6ca, type: 2}
-      propertyPath: m_TagString
-      value: Equipment
-      objectReference: {fileID: 0}
-    - target: {fileID: 1472121588628132, guid: 08b8321e88ba2bd48a0a7a96e855a6ca, type: 2}
-      propertyPath: m_TagString
-      value: Equipment
-      objectReference: {fileID: 0}
-    - target: {fileID: 1392001269497808, guid: 08b8321e88ba2bd48a0a7a96e855a6ca, type: 2}
-      propertyPath: m_TagString
-      value: Equipment
-      objectReference: {fileID: 0}
-    - target: {fileID: 1905469524151836, guid: 08b8321e88ba2bd48a0a7a96e855a6ca, type: 2}
-      propertyPath: m_TagString
-      value: Equipment
-      objectReference: {fileID: 0}
-    - target: {fileID: 1485912307755168, guid: 08b8321e88ba2bd48a0a7a96e855a6ca, type: 2}
-      propertyPath: m_TagString
-      value: Equipment
-      objectReference: {fileID: 0}
-    - target: {fileID: 1520929496812768, guid: 08b8321e88ba2bd48a0a7a96e855a6ca, type: 2}
-      propertyPath: m_TagString
-      value: Equipment
-      objectReference: {fileID: 0}
-    - target: {fileID: 1160677379287600, guid: 08b8321e88ba2bd48a0a7a96e855a6ca, type: 2}
-      propertyPath: m_TagString
-      value: Equipment
-      objectReference: {fileID: 0}
-    - target: {fileID: 1020220645247500, guid: 08b8321e88ba2bd48a0a7a96e855a6ca, type: 2}
-      propertyPath: m_TagString
-      value: Equipment
-      objectReference: {fileID: 0}
-    - target: {fileID: 1218826862974572, guid: 08b8321e88ba2bd48a0a7a96e855a6ca, type: 2}
-      propertyPath: m_TagString
-      value: Equipment
-      objectReference: {fileID: 0}
-    - target: {fileID: 1656105847963468, guid: 08b8321e88ba2bd48a0a7a96e855a6ca, type: 2}
-      propertyPath: m_TagString
-      value: Equipment
-      objectReference: {fileID: 0}
-    - target: {fileID: 1956986586533050, guid: 08b8321e88ba2bd48a0a7a96e855a6ca, type: 2}
-      propertyPath: m_TagString
-      value: Equipment
-      objectReference: {fileID: 0}
-    - target: {fileID: 1899308781301458, guid: 08b8321e88ba2bd48a0a7a96e855a6ca, type: 2}
-      propertyPath: m_TagString
-      value: Equipment
-      objectReference: {fileID: 0}
-    - target: {fileID: 1542219760450974, guid: 08b8321e88ba2bd48a0a7a96e855a6ca, type: 2}
-      propertyPath: m_TagString
-      value: Equipment
-      objectReference: {fileID: 0}
-    - target: {fileID: 4990269879193972, guid: 08b8321e88ba2bd48a0a7a96e855a6ca, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4990269879193972, guid: 08b8321e88ba2bd48a0a7a96e855a6ca, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -7.1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 08b8321e88ba2bd48a0a7a96e855a6ca, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1102469322 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1247593495466160, guid: 975ed393e69f0f34e973b47aa0951874,
-    type: 2}
-  m_PrefabInternal: {fileID: 40485903}
---- !u!114 &1102469326
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1102469322}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fcd432285b926e44b10d60f5ff38b39, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  equipmentName: Pole
-  phase: 78
-  level: 0
 --- !u!1 &1120463985 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1560969354125710, guid: 08b8321e88ba2bd48a0a7a96e855a6ca,
     type: 2}
   m_PrefabInternal: {fileID: 1093005055}
---- !u!1 &1122530502 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1565003399911032, guid: 975ed393e69f0f34e973b47aa0951874,
-    type: 2}
-  m_PrefabInternal: {fileID: 40485903}
---- !u!114 &1122530506
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1122530502}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fcd432285b926e44b10d60f5ff38b39, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  equipmentName: Insulator
-  phase: 65
-  level: 0
 --- !u!1 &1137089805 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1650748038115566, guid: 7ba1f42b16bdc144fbee1e6eef7cfa01,
@@ -2269,44 +1514,6 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
---- !u!1 &1194544326 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1160677379287600, guid: 08b8321e88ba2bd48a0a7a96e855a6ca,
-    type: 2}
-  m_PrefabInternal: {fileID: 1093005055}
---- !u!114 &1194544330
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1194544326}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fcd432285b926e44b10d60f5ff38b39, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  equipmentName: Insulator
-  phase: 67
-  level: 0
---- !u!1 &1226620326 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1728457963998142, guid: 08b8321e88ba2bd48a0a7a96e855a6ca,
-    type: 2}
-  m_PrefabInternal: {fileID: 1093005055}
---- !u!114 &1226620330
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1226620326}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fcd432285b926e44b10d60f5ff38b39, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  equipmentName: Insulator
-  phase: 65
-  level: 0
 --- !u!1001 &1233481235
 Prefab:
   m_ObjectHideFlags: 0
@@ -2518,106 +1725,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e21456eb7a6b18e4480b596463b9692a, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1309987718 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1354538037134180, guid: 975ed393e69f0f34e973b47aa0951874,
-    type: 2}
-  m_PrefabInternal: {fileID: 40485903}
---- !u!114 &1309987722
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1309987718}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fcd432285b926e44b10d60f5ff38b39, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  equipmentName: Insulator
-  phase: 65
-  level: 0
---- !u!1 &1337165744 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1659570092360362, guid: 975ed393e69f0f34e973b47aa0951874,
-    type: 2}
-  m_PrefabInternal: {fileID: 40485903}
---- !u!114 &1337165748
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1337165744}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fcd432285b926e44b10d60f5ff38b39, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  equipmentName: Insulator
-  phase: 67
-  level: 0
---- !u!4 &1422398470 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 4828550660480246, guid: 08b8321e88ba2bd48a0a7a96e855a6ca,
-    type: 2}
-  m_PrefabInternal: {fileID: 1093005055}
---- !u!1 &1434298060 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1797829002835348, guid: 975ed393e69f0f34e973b47aa0951874,
-    type: 2}
-  m_PrefabInternal: {fileID: 40485903}
---- !u!114 &1434298064
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1434298060}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fcd432285b926e44b10d60f5ff38b39, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  equipmentName: Pole
-  phase: 78
-  level: 0
---- !u!1 &1442411991 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1550164140920488, guid: 08b8321e88ba2bd48a0a7a96e855a6ca,
-    type: 2}
-  m_PrefabInternal: {fileID: 1093005055}
---- !u!114 &1442411995
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1442411991}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fcd432285b926e44b10d60f5ff38b39, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  equipmentName: Insulator
-  phase: 78
-  level: 0
---- !u!1 &1449647369 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1898848743115172, guid: 08b8321e88ba2bd48a0a7a96e855a6ca,
-    type: 2}
-  m_PrefabInternal: {fileID: 1093005055}
---- !u!114 &1449647373
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1449647369}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fcd432285b926e44b10d60f5ff38b39, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  equipmentName: Insulator
-  phase: 67
-  level: 0
 --- !u!1 &1451243328
 GameObject:
   m_ObjectHideFlags: 0
@@ -2781,25 +1888,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0880d9ac631f24f409114af2781b3480, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1553053393 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1520929496812768, guid: 08b8321e88ba2bd48a0a7a96e855a6ca,
-    type: 2}
-  m_PrefabInternal: {fileID: 1093005055}
---- !u!114 &1553053397
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1553053393}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fcd432285b926e44b10d60f5ff38b39, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  equipmentName: Insulator
-  phase: 66
-  level: 0
 --- !u!4 &1566226787 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 0880d9ac631f24f409114af2781b3480, type: 2}
@@ -2886,44 +1974,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1672392594 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1020220645247500, guid: 08b8321e88ba2bd48a0a7a96e855a6ca,
-    type: 2}
-  m_PrefabInternal: {fileID: 1093005055}
---- !u!114 &1672392598
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1672392594}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fcd432285b926e44b10d60f5ff38b39, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  equipmentName: Pole
-  phase: 78
-  level: 0
---- !u!1 &1681586957 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1905501472794596, guid: 08b8321e88ba2bd48a0a7a96e855a6ca,
-    type: 2}
-  m_PrefabInternal: {fileID: 1093005055}
---- !u!114 &1681586961
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1681586957}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fcd432285b926e44b10d60f5ff38b39, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  equipmentName: Pole
-  phase: 78
-  level: 0
 --- !u!1001 &1691798852
 Prefab:
   m_ObjectHideFlags: 0
@@ -2974,44 +2024,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 843740dbe549a4a6ba9556d1b80001f5, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1694733983 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1777353693296260, guid: 08b8321e88ba2bd48a0a7a96e855a6ca,
-    type: 2}
-  m_PrefabInternal: {fileID: 1093005055}
---- !u!114 &1694733987
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1694733983}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fcd432285b926e44b10d60f5ff38b39, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  equipmentName: Insulator
-  phase: 67
-  level: 0
---- !u!1 &1699769613 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1308158914578940, guid: 08b8321e88ba2bd48a0a7a96e855a6ca,
-    type: 2}
-  m_PrefabInternal: {fileID: 1093005055}
---- !u!114 &1699769617
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1699769613}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fcd432285b926e44b10d60f5ff38b39, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  equipmentName: Pole
-  phase: 78
-  level: 0
 --- !u!1 &1726702681
 GameObject:
   m_ObjectHideFlags: 0
@@ -3086,44 +2098,6 @@ Transform:
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 0880d9ac631f24f409114af2781b3480, type: 2}
   m_PrefabInternal: {fileID: 1624472113}
---- !u!1 &1756729074 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1248961545096986, guid: 975ed393e69f0f34e973b47aa0951874,
-    type: 2}
-  m_PrefabInternal: {fileID: 40485903}
---- !u!114 &1756729078
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1756729074}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fcd432285b926e44b10d60f5ff38b39, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  equipmentName: Insulator
-  phase: 66
-  level: 0
---- !u!1 &1763154954 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1419647411591860, guid: 975ed393e69f0f34e973b47aa0951874,
-    type: 2}
-  m_PrefabInternal: {fileID: 40485903}
---- !u!114 &1763154958
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1763154954}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fcd432285b926e44b10d60f5ff38b39, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  equipmentName: Insulator
-  phase: 67
-  level: 0
 --- !u!4 &1770490386 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: e21456eb7a6b18e4480b596463b9692a, type: 2}
@@ -3170,25 +2144,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 21d21d357e9028540bc68b09c40cf9fb, type: 3}
   m_IsPrefabParent: 0
---- !u!1 &1832859582 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1898382320153550, guid: 08b8321e88ba2bd48a0a7a96e855a6ca,
-    type: 2}
-  m_PrefabInternal: {fileID: 1093005055}
---- !u!114 &1832859586
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1832859582}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fcd432285b926e44b10d60f5ff38b39, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  equipmentName: Insulator
-  phase: 78
-  level: 0
 --- !u!4 &1849544035 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: e21456eb7a6b18e4480b596463b9692a, type: 2}
@@ -3198,25 +2153,6 @@ GameObject:
   m_PrefabParentObject: {fileID: 1408968025069670, guid: 470d6f5bac5bf434a80940d04b98ec5e,
     type: 2}
   m_PrefabInternal: {fileID: 1263357256}
---- !u!1 &1870043242 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1099448761919914, guid: 08b8321e88ba2bd48a0a7a96e855a6ca,
-    type: 2}
-  m_PrefabInternal: {fileID: 1093005055}
---- !u!114 &1870043246
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1870043242}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fcd432285b926e44b10d60f5ff38b39, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  equipmentName: Insulator
-  phase: 65
-  level: 0
 --- !u!1001 &1877623903
 Prefab:
   m_ObjectHideFlags: 0
@@ -3388,8 +2324,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1925114150}
-  m_LocalRotation: {x: 0.03600307, y: 0.961821, z: 0.15601772, w: -0.22195181}
-  m_LocalPosition: {x: 287.0677, y: -8.560644, z: 373.94766}
+  m_LocalRotation: {x: 0.06522577, y: 0.92722166, z: 0.19212142, w: -0.31479362}
+  m_LocalPosition: {x: 306.69537, y: -9.439489, z: 373.24323}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -3400,87 +2336,6 @@ GameObject:
   m_PrefabParentObject: {fileID: 1844874923664030, guid: 7ba1f42b16bdc144fbee1e6eef7cfa01,
     type: 2}
   m_PrefabInternal: {fileID: 2130275368}
---- !u!1 &1957308660 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1961498826492112, guid: 08b8321e88ba2bd48a0a7a96e855a6ca,
-    type: 2}
-  m_PrefabInternal: {fileID: 1093005055}
---- !u!114 &1957308664
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1957308660}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fcd432285b926e44b10d60f5ff38b39, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  equipmentName: Insulator
-  phase: 66
-  level: 0
---- !u!1 &2000683852 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1084902716708080, guid: 975ed393e69f0f34e973b47aa0951874,
-    type: 2}
-  m_PrefabInternal: {fileID: 40485903}
---- !u!114 &2000683856
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2000683852}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fcd432285b926e44b10d60f5ff38b39, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  equipmentName: Insulator
-  phase: 67
-  level: 0
---- !u!1 &2020396257 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1552859936743376, guid: 08b8321e88ba2bd48a0a7a96e855a6ca,
-    type: 2}
-  m_PrefabInternal: {fileID: 1093005055}
---- !u!114 &2020396261
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2020396257}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fcd432285b926e44b10d60f5ff38b39, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  equipmentName: Insulator
-  phase: 67
-  level: 0
---- !u!4 &2048100895 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 4194669036449464, guid: 08b8321e88ba2bd48a0a7a96e855a6ca,
-    type: 2}
-  m_PrefabInternal: {fileID: 1093005055}
---- !u!1 &2057242847 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1508894042953788, guid: 08b8321e88ba2bd48a0a7a96e855a6ca,
-    type: 2}
-  m_PrefabInternal: {fileID: 1093005055}
---- !u!114 &2057242851
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2057242847}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fcd432285b926e44b10d60f5ff38b39, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  equipmentName: Pole
-  phase: 78
-  level: 0
 --- !u!1 &2057745477 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1506649020278742, guid: 7ba1f42b16bdc144fbee1e6eef7cfa01,
@@ -3490,44 +2345,6 @@ GameObject:
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: e21456eb7a6b18e4480b596463b9692a, type: 2}
   m_PrefabInternal: {fileID: 768121027}
---- !u!1 &2082962355 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1656105847963468, guid: 08b8321e88ba2bd48a0a7a96e855a6ca,
-    type: 2}
-  m_PrefabInternal: {fileID: 1093005055}
---- !u!114 &2082962359
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2082962355}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fcd432285b926e44b10d60f5ff38b39, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  equipmentName: Pole
-  phase: 78
-  level: 0
---- !u!1 &2121481236 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1740944630048394, guid: 08b8321e88ba2bd48a0a7a96e855a6ca,
-    type: 2}
-  m_PrefabInternal: {fileID: 1093005055}
---- !u!114 &2121481240
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2121481236}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fcd432285b926e44b10d60f5ff38b39, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  equipmentName: Insulator
-  phase: 65
-  level: 0
 --- !u!1001 &2130275368
 Prefab:
   m_ObjectHideFlags: 0
@@ -3605,7 +2422,7 @@ Prefab:
     - target: {fileID: 224183127872991712, guid: 7ba1f42b16bdc144fbee1e6eef7cfa01,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -11
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224183127872991712, guid: 7ba1f42b16bdc144fbee1e6eef7cfa01,
         type: 2}
@@ -3615,7 +2432,7 @@ Prefab:
     - target: {fileID: 224183127872991712, guid: 7ba1f42b16bdc144fbee1e6eef7cfa01,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 16
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224255632135724588, guid: 7ba1f42b16bdc144fbee1e6eef7cfa01,
         type: 2}
@@ -3635,7 +2452,7 @@ Prefab:
     - target: {fileID: 224255632135724588, guid: 7ba1f42b16bdc144fbee1e6eef7cfa01,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -8
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224255632135724588, guid: 7ba1f42b16bdc144fbee1e6eef7cfa01,
         type: 2}
@@ -3645,7 +2462,7 @@ Prefab:
     - target: {fileID: 224255632135724588, guid: 7ba1f42b16bdc144fbee1e6eef7cfa01,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 16
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224268098729905960, guid: 7ba1f42b16bdc144fbee1e6eef7cfa01,
         type: 2}
@@ -3665,7 +2482,7 @@ Prefab:
     - target: {fileID: 224268098729905960, guid: 7ba1f42b16bdc144fbee1e6eef7cfa01,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -30
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224268098729905960, guid: 7ba1f42b16bdc144fbee1e6eef7cfa01,
         type: 2}
@@ -3675,7 +2492,7 @@ Prefab:
     - target: {fileID: 224268098729905960, guid: 7ba1f42b16bdc144fbee1e6eef7cfa01,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 22
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224205874361474578, guid: 7ba1f42b16bdc144fbee1e6eef7cfa01,
         type: 2}
@@ -3695,7 +2512,7 @@ Prefab:
     - target: {fileID: 224205874361474578, guid: 7ba1f42b16bdc144fbee1e6eef7cfa01,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -11
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224205874361474578, guid: 7ba1f42b16bdc144fbee1e6eef7cfa01,
         type: 2}
@@ -3705,7 +2522,7 @@ Prefab:
     - target: {fileID: 224205874361474578, guid: 7ba1f42b16bdc144fbee1e6eef7cfa01,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 16
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224858289459119218, guid: 7ba1f42b16bdc144fbee1e6eef7cfa01,
         type: 2}
@@ -3725,7 +2542,7 @@ Prefab:
     - target: {fileID: 224858289459119218, guid: 7ba1f42b16bdc144fbee1e6eef7cfa01,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -11
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224858289459119218, guid: 7ba1f42b16bdc144fbee1e6eef7cfa01,
         type: 2}
@@ -3735,7 +2552,7 @@ Prefab:
     - target: {fileID: 224858289459119218, guid: 7ba1f42b16bdc144fbee1e6eef7cfa01,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 16
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224410354335096204, guid: 7ba1f42b16bdc144fbee1e6eef7cfa01,
         type: 2}
@@ -3755,7 +2572,7 @@ Prefab:
     - target: {fileID: 224410354335096204, guid: 7ba1f42b16bdc144fbee1e6eef7cfa01,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -8
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224410354335096204, guid: 7ba1f42b16bdc144fbee1e6eef7cfa01,
         type: 2}
@@ -3765,7 +2582,7 @@ Prefab:
     - target: {fileID: 224410354335096204, guid: 7ba1f42b16bdc144fbee1e6eef7cfa01,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 16
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224033167161445254, guid: 7ba1f42b16bdc144fbee1e6eef7cfa01,
         type: 2}
@@ -3785,7 +2602,7 @@ Prefab:
     - target: {fileID: 224033167161445254, guid: 7ba1f42b16bdc144fbee1e6eef7cfa01,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -30
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224033167161445254, guid: 7ba1f42b16bdc144fbee1e6eef7cfa01,
         type: 2}
@@ -3795,7 +2612,7 @@ Prefab:
     - target: {fileID: 224033167161445254, guid: 7ba1f42b16bdc144fbee1e6eef7cfa01,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 22
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224521912372080872, guid: 7ba1f42b16bdc144fbee1e6eef7cfa01,
         type: 2}
@@ -3815,7 +2632,7 @@ Prefab:
     - target: {fileID: 224521912372080872, guid: 7ba1f42b16bdc144fbee1e6eef7cfa01,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -55
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224521912372080872, guid: 7ba1f42b16bdc144fbee1e6eef7cfa01,
         type: 2}
@@ -3825,7 +2642,7 @@ Prefab:
     - target: {fileID: 224521912372080872, guid: 7ba1f42b16bdc144fbee1e6eef7cfa01,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 22
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224104047458848432, guid: 7ba1f42b16bdc144fbee1e6eef7cfa01,
         type: 2}
@@ -3845,7 +2662,7 @@ Prefab:
     - target: {fileID: 224104047458848432, guid: 7ba1f42b16bdc144fbee1e6eef7cfa01,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -25.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224104047458848432, guid: 7ba1f42b16bdc144fbee1e6eef7cfa01,
         type: 2}
@@ -3855,7 +2672,7 @@ Prefab:
     - target: {fileID: 224104047458848432, guid: 7ba1f42b16bdc144fbee1e6eef7cfa01,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 41
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224690594435285202, guid: 7ba1f42b16bdc144fbee1e6eef7cfa01,
         type: 2}
@@ -3875,7 +2692,7 @@ Prefab:
     - target: {fileID: 224690594435285202, guid: 7ba1f42b16bdc144fbee1e6eef7cfa01,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -82
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224690594435285202, guid: 7ba1f42b16bdc144fbee1e6eef7cfa01,
         type: 2}
@@ -3885,7 +2702,7 @@ Prefab:
     - target: {fileID: 224690594435285202, guid: 7ba1f42b16bdc144fbee1e6eef7cfa01,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 66
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114879200397470876, guid: 7ba1f42b16bdc144fbee1e6eef7cfa01,
         type: 2}
@@ -3930,7 +2747,7 @@ Prefab:
     - target: {fileID: 224703044442760362, guid: 7ba1f42b16bdc144fbee1e6eef7cfa01,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 472
+      value: 1120
       objectReference: {fileID: 0}
     - target: {fileID: 224703044442760362, guid: 7ba1f42b16bdc144fbee1e6eef7cfa01,
         type: 2}
@@ -3950,22 +2767,3 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7ba1f42b16bdc144fbee1e6eef7cfa01, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &2143392714 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1463254368791990, guid: 975ed393e69f0f34e973b47aa0951874,
-    type: 2}
-  m_PrefabInternal: {fileID: 40485903}
---- !u!114 &2143392718
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2143392714}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fcd432285b926e44b10d60f5ff38b39, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  equipmentName: Insulator
-  phase: 65
-  level: 0

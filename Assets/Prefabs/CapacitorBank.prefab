@@ -38,8 +38,9 @@ GameObject:
   - component: {fileID: 4456991362988076}
   - component: {fileID: 33007473765806012}
   - component: {fileID: 23535494668215522}
+  - component: {fileID: 114086748608643142}
   m_Layer: 0
-  m_Name: FuseSwitch_001
+  m_Name: FuseSwitch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -123,6 +124,7 @@ GameObject:
   - component: {fileID: 4272864316586814}
   - component: {fileID: 33373441663898400}
   - component: {fileID: 23568081288006896}
+  - component: {fileID: 114982873059436324}
   m_Layer: 0
   m_Name: CapacitorBank
   m_TagString: Untagged
@@ -191,8 +193,9 @@ GameObject:
   - component: {fileID: 4106373405800176}
   - component: {fileID: 33900080950941872}
   - component: {fileID: 23380167685986770}
+  - component: {fileID: 114516263817561226}
   m_Layer: 0
-  m_Name: FuseSwitch_002
+  m_Name: FuseSwitch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -225,6 +228,7 @@ GameObject:
   - component: {fileID: 4924332606666918}
   - component: {fileID: 33744135112093534}
   - component: {fileID: 23222810490669476}
+  - component: {fileID: 114891985894654144}
   m_Layer: 0
   m_Name: FuseSwitch
   m_TagString: Untagged
@@ -1069,6 +1073,34 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114086748608643142
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1045388114727468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fcd432285b926e44b10d60f5ff38b39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  equipmentName: FuseSwitch
+  phase: 78
+  level: 0
+--- !u!114 &114516263817561226
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1614296539885980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fcd432285b926e44b10d60f5ff38b39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  equipmentName: FuseSwitch
+  phase: 78
+  level: 0
 --- !u!114 &114547393555141348
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1080,3 +1112,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c47d2b7cd8460844ba93e39f4b353d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114891985894654144
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1712328787486122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fcd432285b926e44b10d60f5ff38b39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  equipmentName: FuseSwitch
+  phase: 78
+  level: 0
+--- !u!114 &114982873059436324
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1219598663161966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fcd432285b926e44b10d60f5ff38b39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  equipmentName: CapacitorBank
+  phase: 78
+  level: 0
