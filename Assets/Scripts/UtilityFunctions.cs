@@ -32,4 +32,16 @@ public class UtilityFunctions : MonoBehaviour
         start.GetComponent<CableScript>().setEndPoint(end);
     }
 
+    public static void lineConnect(GameObject start, GameObject end, float size, int numPoint)
+    {
+        lineConnect(start, end, size);
+        start.GetComponent<CableScript>().setPointInLine(numPoint);
+    }
+
+    public static void lineConnect(GameObject start, GameObject end, float size, int numPoint, float sagNum)
+    {
+        lineConnect(start, end, size);
+        start.GetComponent<CableScript>().setPointInLine(numPoint);
+        start.GetComponent<CableScript>().setSagAmplitude(sagNum);
+    }
 }

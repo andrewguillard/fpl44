@@ -41,8 +41,14 @@ public class CableScript : MonoBehaviour
 
     }
 
-
-
+    public void setSagAmplitude(float i)
+    {
+        sagAmplitude = i;
+    }
+    public void setPointInLine(int i)
+    {
+        pointsInLineRenderer = i;
+    }
     void Update()
     {
         Animate();
