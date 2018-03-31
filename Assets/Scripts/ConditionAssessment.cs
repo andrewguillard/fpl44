@@ -8,13 +8,14 @@ using UnityEngine.UI;
 public class ConditionAssessment : MonoBehaviour
 {
     //This array holds all the "included" Form structs the user has filled out
-    ArrayList FormList = new ArrayList();
+    ArrayList UserInputList = new ArrayList();
 
+    public Image currentImage;
     public string currentIconName;
 
     #region DropDown Options
     //Create a List of new Dropdown options
-    public List<string> DropOptions_OH_SWITCH = new List<string> { "Disconnect Switch", "Overhead Switch Pothead" };
+    public List<string> DropOptions_OH_SWITCH = new List<string> { "Disconnect Switch", "Overhead Switch Pothead", "AFS" };
     public List<string> DropOptions_LIGHTNING_ARRESTER = new List<string> { "Ceramic", "Polymer", "Deadend" };
     public List<string> DropOptions_INSULATOR = new List<string> { "Ceramic", "Polymer" };
     public List<string> DropOptions_POLE = new List<string> { "Wooden", "Concrete" };
@@ -43,6 +44,26 @@ public class ConditionAssessment : MonoBehaviour
 
     public Button DISCARD_BTN;
     public Button INCLUDE_BTN;
+
+    public Image OH_SWITCH_IMG;
+    public Image LIGHTNING_ARRESTER_IMG;
+    public Image INSULATOR_IMG;
+    public Image POLE_IMG;
+    public Image CROSS_ARM_IMG;
+    public Image VEGETATION_IMG;
+    public Image CONDUCTOR_IMG;
+    public Image OH_TRANSFORMER_IMG;
+    public Image OH_FUSE_SWITCH_IMG;
+    public Image CAPACITOR_IMG;
+    public Image CONNECTIONS_ON_FEEDER_CONDUCTOR_IMG;
+    public Image NEST_IMG;
+    public Image DOWN_GUY_IMG;
+    public Image RISER_SHIELD_IMG;
+    public Image FOREIGN_OBJECT_IN_WIRE_IMG;
+    public Image REGULATOR_IMG;
+    public Image RECLOSER_IMG;
+    public Image FAULT_CURRENT_INDICATOR_IMG;
+
     #endregion
 
     //Form Struct: One individual Form
@@ -66,9 +87,9 @@ public class ConditionAssessment : MonoBehaviour
 
     void Start()
     {
-		print ("CAF Start Called");
+        #region get all the components
         ICON_SELECTED_TXT = GameObject.Find("ICON_SELECTED_TXT").GetComponent<Text>();
-		EQUIPMENT_DROPDWN = GameObject.Find("EQUIPMENT_DROPDWN").GetComponent<Dropdown>();
+        EQUIPMENT_DROPDWN = GameObject.Find("EQUIPMENT_DROPDWN").GetComponent<Dropdown>();
 
         DEFAULT_TXT = GameObject.Find("DEFAULT_TXT").GetComponent<Text>();
 
@@ -85,161 +106,230 @@ public class ConditionAssessment : MonoBehaviour
         INCLUDE_BTN = GameObject.Find("INCLUDE_BTN").GetComponent<Button>();
         DISCARD_BTN = GameObject.Find("DISCARD_BTN").GetComponent<Button>();
 
-		hideSeverity ();
-		hidePhase ();
-		hideDrop ();
-		hideIncludeDiscard ();
-		showDefaultText ();
+        OH_SWITCH_IMG = GameObject.Find("OH_SWITCH_IMG").GetComponent<Image>();
+        LIGHTNING_ARRESTER_IMG = GameObject.Find("LIGHTNING_ARRESTER_IMG").GetComponent<Image>();
+        INSULATOR_IMG = GameObject.Find("INSULATOR_IMG").GetComponent<Image>();
+        POLE_IMG = GameObject.Find("POLE_IMG").GetComponent<Image>();
+        CROSS_ARM_IMG = GameObject.Find("CROSS_ARM_IMG").GetComponent<Image>();
+        VEGETATION_IMG = GameObject.Find("VEGETATION_IMG").GetComponent<Image>();
+        CONDUCTOR_IMG = GameObject.Find("CONDUCTOR_IMG").GetComponent<Image>();
+        OH_TRANSFORMER_IMG = GameObject.Find("OH_TRANSFORMER_IMG").GetComponent<Image>();
+        OH_FUSE_SWITCH_IMG = GameObject.Find("OH_FUSE_SWITCH_IMG").GetComponent<Image>();
+        CAPACITOR_IMG = GameObject.Find("CAPACITOR_IMG").GetComponent<Image>();
+        CONNECTIONS_ON_FEEDER_CONDUCTOR_IMG = GameObject.Find("CONNECTIONS_ON_FEEDER_CONDUCTOR_IMG").GetComponent<Image>();
+        NEST_IMG = GameObject.Find("NEST_IMG").GetComponent<Image>();
+        DOWN_GUY_IMG = GameObject.Find("DOWN_GUY_IMG").GetComponent<Image>();
+        RISER_SHIELD_IMG = GameObject.Find("RISER_SHIELD_IMG").GetComponent<Image>();
+        FOREIGN_OBJECT_IN_WIRE_IMG = GameObject.Find("FOREIGN_OBJECT_IN_WIRE_IMG").GetComponent<Image>();
+        REGULATOR_IMG = GameObject.Find("REGULATOR_IMG").GetComponent<Image>();
+        RECLOSER_IMG = GameObject.Find("RECLOSER_IMG").GetComponent<Image>();
+        FAULT_CURRENT_INDICATOR_IMG = GameObject.Find("FAULT_CURRENT_INDICATOR_IMG").GetComponent<Image>();
+        #endregion
 
-        //DEFAULT_TXT.gameObject.SetActive(true);
-        ////ICON_SELECTED_TXT = gameObject.SetActive(false);
-        ////EQUIPMENT_DROPDWN = gameObject.SetActive(false);
+        resetToStart();
+    }
 
-        //PHASE_TXT.gameObject.SetActive(false);
-        //PHASE_A_BTN.gameObject.SetActive(false);
-        //PHASE_B_BTN.gameObject.SetActive(false);
-        //PHASE_C_BTN.gameObject.SetActive(false);
-
-        //LD_TXT.gameObject.SetActive(false);
-        //LD_1_BTN.gameObject.SetActive(false);
-        //LD_3_BTN.gameObject.SetActive(false);
-        //LD_5_BTN.gameObject.SetActive(false);
-
-        //INCLUDE_BTN.gameObject.SetActive(false);
-        //DISCARD_BTN.gameObject.SetActive(false);
+    //Highlights the icon image depending on the state
+    public void highlight(Image image, string state)
+    {
+        if (state == "active")
+        {
+            if (image.color == Color.white)
+            {
+                image.color = Color.grey;
+            }
+        }
+        if (state == "included")
+        {
+            image.color = Color.yellow;
+        }
+        if (state == "removed")
+        {
+            image.color = Color.white;
+        }
+        if (state == "correct")
+        {
+            image.color = Color.green;
+        }
+        if (state == "incorrect")
+        {
+            image.color = Color.red;
+        }
     }
 
     //Depending on the icon that was clicked, call the appropriate form generator
     public void icon_OnClick(string iconName)
     {
         EQUIPMENT_DROPDWN.ClearOptions();
+        hideDrop();
+        if (currentImage != null)
+        {
+            if (currentImage.color == Color.grey)
+                highlight(currentImage, "removed");
+        }
 
         switch (iconName)
         {
-			case "OH_SWITCH":
-				currentIconName = iconName;
-                print(iconName + " icon clicked");
+            case "OH_SWITCH":
+                currentIconName = iconName;
                 EQUIPMENT_DROPDWN.AddOptions(DropOptions_OH_SWITCH);
+                showDrop();
                 severityForm(iconName);
+                currentImage = OH_SWITCH_IMG;
+                highlight(currentImage, "active");
                 break;
 
-			case "LIGHTNING_ARRESTER":
-				currentIconName = iconName;
-                print(iconName + " icon clicked");
+            case "LIGHTNING_ARRESTER":
+                currentIconName = iconName;
                 EQUIPMENT_DROPDWN.AddOptions(DropOptions_LIGHTNING_ARRESTER);
+                showDrop();
                 severityForm(iconName);
+                currentImage = LIGHTNING_ARRESTER_IMG;
+                highlight(currentImage, "active");
                 break;
 
             case "INSULATOR":
                 currentIconName = iconName;
-                print(iconName + " icon clicked");
                 EQUIPMENT_DROPDWN.AddOptions(DropOptions_INSULATOR);
+                showDrop();
                 phaseSeverityForm(iconName);
+                currentImage = INSULATOR_IMG;
+                highlight(currentImage, "active");
                 break;
 
-            case "POLE": //Test comment
+            case "POLE":
                 currentIconName = iconName;
-                print(iconName + " icon clicked");
                 EQUIPMENT_DROPDWN.AddOptions(DropOptions_POLE);
+                showDrop();
                 severityForm(iconName);
+                currentImage = POLE_IMG;
+                highlight(currentImage, "active");
                 break;
 
             case "CROSSARM":
                 currentIconName = iconName;
-                print(iconName + " icon clicked");
                 EQUIPMENT_DROPDWN.AddOptions(DropOptions_CROSSARM);
+                showDrop();
                 severityForm(iconName);
+                currentImage = CROSS_ARM_IMG;
+                highlight(currentImage, "active");
                 break;
 
             case "REGULATOR":
                 currentIconName = iconName;
                 ICON_SELECTED_TXT.text = "Regulator";
-                print(iconName + " icon clicked");
+                showIconSelectedText();
                 severityForm(iconName);
+                currentImage = REGULATOR_IMG;
+                highlight(currentImage, "active");
                 break;
 
             case "VEGETATION":
                 currentIconName = iconName;
-                print(iconName + " icon clicked");
                 EQUIPMENT_DROPDWN.AddOptions(DropOptions_VEGETATION);
-                trueFalseForm(iconName);
+                showDrop();
+                severityForm(iconName);
+                currentImage = VEGETATION_IMG;
+                highlight(currentImage, "active");
                 break;
 
             case "CONDUCTOR":
                 currentIconName = iconName;
-                print(iconName + " icon clicked");
                 EQUIPMENT_DROPDWN.AddOptions(DropOptions_CONDUCTOR);
-                trueFalseForm(iconName);
+                showDrop();
+                severityForm(iconName);
+                currentImage = CONDUCTOR_IMG;
+                highlight(currentImage, "active");
                 break;
 
             case "OH_TRANSFORMER":
                 currentIconName = iconName;
-                print(iconName + " icon clicked");
                 EQUIPMENT_DROPDWN.AddOptions(DropOptions_OH_TRANSFORMER);
+                showDrop();
                 severityForm(iconName);
+                currentImage = OH_TRANSFORMER_IMG;
+                highlight(currentImage, "active");
                 break;
 
             case "OH_FUSE_SWITCH":
                 currentIconName = iconName;
-                print(iconName + " icon clicked");
                 EQUIPMENT_DROPDWN.AddOptions(DropOptions_OH_FUSE_SWITCH);
+                showDrop();
                 severityForm(iconName);
+                currentImage = OH_FUSE_SWITCH_IMG;
+                highlight(currentImage, "active");
                 break;
 
             case "CAPACITOR":
                 currentIconName = iconName;
                 ICON_SELECTED_TXT.text = "Capacitor Bank";
-                print(iconName + " icon clicked");
+                showIconSelectedText();
                 severityForm(iconName);
-                break;
+                currentImage = CAPACITOR_IMG;
+                highlight(currentImage, "active"); break;
 
             case "RECLOSER":
                 currentIconName = iconName;
                 ICON_SELECTED_TXT.text = "Recloser OCR";
-                print(iconName + " icon clicked");
+                showIconSelectedText();
                 severityForm(iconName);
+                currentImage = RECLOSER_IMG;
+                highlight(currentImage, "active");
                 break;
 
             case "CONNECTIONS_ON_FEEDER_CONDUCTOR":
                 currentIconName = iconName;
                 ICON_SELECTED_TXT.text = "Splice";
-                print(iconName + " icon clicked");
-                trueFalseForm(iconName);
+                showIconSelectedText();
+                severityForm(iconName);
+                currentImage = CONNECTIONS_ON_FEEDER_CONDUCTOR_IMG;
+                highlight(currentImage, "active");
                 break;
 
             case "NEST":
                 currentIconName = iconName;
                 ICON_SELECTED_TXT.text = "Nest";
-                print(iconName + " icon clicked");
-                trueFalseForm(iconName);
+                showIconSelectedText();
+                severityForm(iconName);
+                currentImage = NEST_IMG;
+                highlight(currentImage, "active");
                 break;
 
             case "DOWN_GUY":
                 currentIconName = iconName;
                 ICON_SELECTED_TXT.text = "Down Guy";
-                print(iconName + " icon clicked");
-                trueFalseForm(iconName);
+                showIconSelectedText();
+                severityForm(iconName);
+                currentImage = DOWN_GUY_IMG;
+                highlight(currentImage, "active");
                 break;
 
             case "RISER_SHIELD":
                 currentIconName = iconName;
                 ICON_SELECTED_TXT.text = "Riser Shield";
-                print(iconName + " icon clicked");
+                showIconSelectedText();
                 severityForm(iconName);
+                currentImage = RISER_SHIELD_IMG;
+                highlight(currentImage, "active");
                 break;
 
             case "FOREIGN_OBJECT_IN_WIRE":
                 currentIconName = iconName;
-                print(iconName + " icon clicked");
                 EQUIPMENT_DROPDWN.AddOptions(DropOptions_FOREIGN_OBJECT_IN_WIRE);
-                trueFalseForm(iconName);
+                showDrop();
+                severityForm(iconName);
+                highlight(FOREIGN_OBJECT_IN_WIRE_IMG, "active");
+                currentImage = FOREIGN_OBJECT_IN_WIRE_IMG;
+                highlight(currentImage, "active");
                 break;
 
             case "FAULT_CURRENT_INDICATOR":
                 currentIconName = iconName;
                 ICON_SELECTED_TXT.text = "FCI";
-                print(iconName + " icon clicked");
+                showIconSelectedText();
                 severityForm(iconName);
+                currentImage = FAULT_CURRENT_INDICATOR_IMG;
+                highlight(currentImage, "active");
                 break;
 
             default:
@@ -251,59 +341,38 @@ public class ConditionAssessment : MonoBehaviour
     #region Form Options
     public void severityForm(string iconName)
     {
-        print("severityForm method fired");
-        DEFAULT_TXT.gameObject.SetActive(false);
+        hideDefaultText();
 
-        PHASE_TXT.gameObject.SetActive(false);
-        PHASE_A_BTN.gameObject.SetActive(false);
-        PHASE_B_BTN.gameObject.SetActive(false);
-        PHASE_C_BTN.gameObject.SetActive(false);
+        hidePhase();
 
-        LD_TXT.gameObject.SetActive(true);
-        LD_1_BTN.gameObject.SetActive(true);
-        LD_3_BTN.gameObject.SetActive(true);
-        LD_5_BTN.gameObject.SetActive(true);
+        showSeverity();
 
-        INCLUDE_BTN.gameObject.SetActive(true);
-        DISCARD_BTN.gameObject.SetActive(true);
+        showIncludeDiscard();
     }
 
     public void phaseSeverityForm(string iconName)
     {
-        print("phaseSeverityForm method fired");
-        DEFAULT_TXT.gameObject.SetActive(false);
+        hideDefaultText();
 
-        PHASE_TXT.gameObject.SetActive(true);
-        PHASE_A_BTN.gameObject.SetActive(true);
-        PHASE_B_BTN.gameObject.SetActive(true);
-        PHASE_C_BTN.gameObject.SetActive(true);
+        showPhase();
 
-        LD_TXT.gameObject.SetActive(true);
-        LD_1_BTN.gameObject.SetActive(true);
-        LD_3_BTN.gameObject.SetActive(true);
-        LD_5_BTN.gameObject.SetActive(true);
+        showSeverity();
 
-        INCLUDE_BTN.gameObject.SetActive(true);
-        DISCARD_BTN.gameObject.SetActive(true);
+        showIncludeDiscard();
     }
 
-    public void trueFalseForm(string iconName)
-    {
-        print("trueFalseForm method fired");
-        //TODO: Add True False buttons
-        //TODO: Make "DEFAULT_TXT" invisible
-        //TODO: Make Level of Damage buttons invisible
-        //TODO: Make Phase buttons invisible
-        //TODO: Make Discard and Include buttons visible
-    }
     #endregion
 
     //Store user's form in formArray
     public void include_OnClick()
     {
         print("include_OnClick method fired");
+        
         //Create a new Form struct
         Form form = new Form();
+
+        //Highlight the equipment icon yellow
+        highlight(currentImage, "included");
 
         //TODO: Fill out form struct
         //form.iconName = currentIconName;
@@ -322,111 +391,110 @@ public class ConditionAssessment : MonoBehaviour
         //if (DL_5_BTN.selected)
         //    form.DL5 = true;
 
-        DEFAULT_TXT.gameObject.SetActive(true);
-        //ICON_SELECTED_TXT = gameObject.SetActive(false);
-        //EQUIPMENT_DROPDWN = gameObject.SetActive(false);
+        //TODO: Add the struct to the user's answers array
 
-        PHASE_TXT.gameObject.SetActive(false);
-        PHASE_A_BTN.gameObject.SetActive(false);
-        PHASE_B_BTN.gameObject.SetActive(false);
-        PHASE_C_BTN.gameObject.SetActive(false);
-
-        LD_TXT.gameObject.SetActive(false);
-        LD_1_BTN.gameObject.SetActive(false);
-        LD_3_BTN.gameObject.SetActive(false);
-        LD_5_BTN.gameObject.SetActive(false);
-
-        INCLUDE_BTN.gameObject.SetActive(false);
-        DISCARD_BTN.gameObject.SetActive(false);
+        resetToStart();
     }
 
     //Clear user's answers for that specific form
     public void discard_OnClick()
     {
         print("discard_OnClick method fired");
-        //Find appropriate struct in formArray
-        //for (int i = 0; i < 20; i++)
-        //{
-        //    if (formArray[i].iconName == currentIconName)
-        //    {
-        //        //delete struct
-        //        break;
-        //    }
-        //}
 
-        //Remove Highlight From icon
+        //Find appropriate struct in formArray and delete it
 
-        DEFAULT_TXT.gameObject.SetActive(true);
-        //ICON_SELECTED_TXT = gameObject.SetActive(false);
-        //EQUIPMENT_DROPDWN = gameObject.SetActive(false);
+        //Remove yellow Highlight From icon
+        highlight(currentImage, "removed");
 
-        PHASE_TXT.gameObject.SetActive(false);
-        PHASE_A_BTN.gameObject.SetActive(false);
-        PHASE_B_BTN.gameObject.SetActive(false);
-        PHASE_C_BTN.gameObject.SetActive(false);
 
+        resetToStart();
+
+    }
+
+    //If the form for the selected icon has already been filled out, populate the form
+    public void fillForm()
+    {
+
+    }
+
+    #region hide/show buttons
+    public void hideSeverity() {
         LD_TXT.gameObject.SetActive(false);
         LD_1_BTN.gameObject.SetActive(false);
         LD_3_BTN.gameObject.SetActive(false);
         LD_5_BTN.gameObject.SetActive(false);
+    }
+    public void showSeverity() {
+        LD_TXT.gameObject.SetActive(true);
+        LD_1_BTN.gameObject.SetActive(true);
+        LD_3_BTN.gameObject.SetActive(true);
+        LD_5_BTN.gameObject.SetActive(true);
+    }
 
+    public void hidePhase() {
+        PHASE_TXT.gameObject.SetActive(false);
+        PHASE_A_BTN.gameObject.SetActive(false);
+        PHASE_B_BTN.gameObject.SetActive(false);
+        PHASE_C_BTN.gameObject.SetActive(false);
+    }
+    public void showPhase() {
+        PHASE_TXT.gameObject.SetActive(true);
+        PHASE_A_BTN.gameObject.SetActive(true);
+        PHASE_B_BTN.gameObject.SetActive(true);
+        PHASE_C_BTN.gameObject.SetActive(true);
+    }
+
+    public void hideDrop() {
+        EQUIPMENT_DROPDWN.gameObject.SetActive(false);
+    }
+    public void showDrop() {
+        EQUIPMENT_DROPDWN.gameObject.SetActive(true);
+    }
+
+    public void hideIncludeDiscard() {
         INCLUDE_BTN.gameObject.SetActive(false);
         DISCARD_BTN.gameObject.SetActive(false);
     }
+    public void showIncludeDiscard() {
+        INCLUDE_BTN.gameObject.SetActive(true);
+        DISCARD_BTN.gameObject.SetActive(true);
+    }
 
-	public void hideSeverity(){
-		LD_TXT.gameObject.SetActive(false);
-		LD_1_BTN.gameObject.SetActive(false);
-		LD_3_BTN.gameObject.SetActive(false);
-		LD_5_BTN.gameObject.SetActive(false);
-	}
-	public void showSeverity(){
-		LD_TXT.gameObject.SetActive(true);
-		LD_1_BTN.gameObject.SetActive(true);
-		LD_3_BTN.gameObject.SetActive(true);
-		LD_5_BTN.gameObject.SetActive(true);
-	}
+    public void hideDefaultText() {
+        DEFAULT_TXT.gameObject.SetActive(false);
+    }
+    public void showDefaultText() {
+        DEFAULT_TXT.gameObject.SetActive(true);
+    }
 
-	public void hidePhase(){
-		PHASE_TXT.gameObject.SetActive(false);
-		PHASE_A_BTN.gameObject.SetActive(false);
-		PHASE_B_BTN.gameObject.SetActive(false);
-		PHASE_C_BTN.gameObject.SetActive(false);
-	}
-	public void showPhase(){
-		PHASE_TXT.gameObject.SetActive(true);
-		PHASE_A_BTN.gameObject.SetActive(true);
-		PHASE_B_BTN.gameObject.SetActive(true);
-		PHASE_C_BTN.gameObject.SetActive(true);
-	}
+    public void showIconSelectedText()
+    {
+        ICON_SELECTED_TXT.gameObject.SetActive(true);
+    }
+    public void hideIconSelectedText()
+    {
+        ICON_SELECTED_TXT.gameObject.SetActive(false);
+    }
 
-	public void hideDrop(){
-		EQUIPMENT_DROPDWN.gameObject.SetActive(false);
-	}
-	public void showDrop(){
-		EQUIPMENT_DROPDWN.gameObject.SetActive(true);
-	}
-
-	public void hideIncludeDiscard(){
-		INCLUDE_BTN.gameObject.SetActive(false);
-		DISCARD_BTN.gameObject.SetActive(false);
-	}
-	public void showIncludeDiscard(){
-		INCLUDE_BTN.gameObject.SetActive(true);
-		DISCARD_BTN.gameObject.SetActive(true);
-	}
-
-	public void hideDefaultText(){
-		DEFAULT_TXT.gameObject.SetActive(false);
-	}
-	public void showDefaultText(){
-		DEFAULT_TXT.gameObject.SetActive(true);
-	}
+    public void resetToStart()
+    {
+        hideSeverity();
+        hidePhase();
+        hideDrop();
+        hideIncludeDiscard();
+        showDefaultText();
+        hideIconSelectedText();
+    }
+    #endregion
 
     //Check user's answers
     public void submit_OnClick()
     {
         print("submit_OnClick method fired");
+        resetToStart();
+        hideDefaultText();
+
+        //print the solution on the form
     }
 
 }
