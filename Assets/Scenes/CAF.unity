@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -265,7 +265,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 84519574}
+      - m_Target: {fileID: 945297263}
         m_MethodName: icon_OnClick
         m_Mode: 5
         m_Arguments:
@@ -322,54 +322,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0ce40b50a28a42439415c674fdbad5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentIconName: 
-  DropOptions_OH_SWITCH:
-  - Disconnect Switch
-  - Overhead Switch Pothead
-  DropOptions_LIGHTNING_ARRESTER:
-  - Ceramic
-  - Polymer
-  - Deadend
-  DropOptions_INSULATOR:
-  - Ceramic
-  - Polymer
-  DropOptions_POLE:
-  - Wooden
-  - Concrete
-  DropOptions_CROSSARM:
-  - Wooden Single
-  - Wooden Double
-  - Concrete Single
-  - Concrete Double
-  DropOptions_VEGETATION:
-  - Oak
-  - Palm
-  DropOptions_CONDUCTOR:
-  - Power line
-  - Jumper
-  - Stirrup
-  DropOptions_OH_TRANSFORMER:
-  - Single
-  - Double
-  - Triple
-  DropOptions_OH_FUSE_SWITCH:
-  - Standard Cut Out
-  - ALS
-  DropOptions_FOREIGN_OBJECT_IN_WIRE:
-  - Mylar Balloon
-  - Kite
-  EQUIPMENT_DROPDWN: {fileID: 0}
-  ICON_SELECTED_TXT: {fileID: 0}
-  DEFAULT_TXT: {fileID: 0}
-  LD_1_BTN: {fileID: 0}
-  LD_3_BTN: {fileID: 0}
-  LD_5_BTN: {fileID: 0}
-  PHASE_A_BTN: {fileID: 0}
-  PHASE_B_BTN: {fileID: 0}
-  PHASE_C_BTN: {fileID: 0}
-  DISCARD_BTN: {fileID: 0}
-  INCLUDE_BTN: {fileID: 0}
-  LD_TXT: {fileID: 0}
 --- !u!1 &93180037
 GameObject:
   m_ObjectHideFlags: 0
@@ -555,8 +507,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 123155758}
-        m_MethodName: discard_OnClick
+      - m_Target: {fileID: 945297257}
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -612,54 +564,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0ce40b50a28a42439415c674fdbad5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentIconName: 
-  DropOptions_OH_SWITCH:
-  - Disconnect Switch
-  - Overhead Switch Pothead
-  DropOptions_LIGHTNING_ARRESTER:
-  - Ceramic
-  - Polymer
-  - Deadend
-  DropOptions_INSULATOR:
-  - Ceramic
-  - Polymer
-  DropOptions_POLE:
-  - Wooden
-  - Concrete
-  DropOptions_CROSSARM:
-  - Wooden Single
-  - Wooden Double
-  - Concrete Single
-  - Concrete Double
-  DropOptions_VEGETATION:
-  - Oak
-  - Palm
-  DropOptions_CONDUCTOR:
-  - Power line
-  - Jumper
-  - Stirrup
-  DropOptions_OH_TRANSFORMER:
-  - Single
-  - Double
-  - Triple
-  DropOptions_OH_FUSE_SWITCH:
-  - Standard Cut Out
-  - ALS
-  DropOptions_FOREIGN_OBJECT_IN_WIRE:
-  - Mylar Balloon
-  - Kite
-  EQUIPMENT_DROPDWN: {fileID: 0}
-  ICON_SELECTED_TXT: {fileID: 0}
-  DEFAULT_TXT: {fileID: 0}
-  LD_1_BTN: {fileID: 0}
-  LD_3_BTN: {fileID: 0}
-  LD_5_BTN: {fileID: 0}
-  PHASE_A_BTN: {fileID: 0}
-  PHASE_B_BTN: {fileID: 0}
-  PHASE_C_BTN: {fileID: 0}
-  DISCARD_BTN: {fileID: 0}
-  INCLUDE_BTN: {fileID: 0}
-  LD_TXT: {fileID: 0}
 --- !u!1 &123944199
 GameObject:
   m_ObjectHideFlags: 0
@@ -882,7 +786,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 184048338}
+      - m_Target: {fileID: 945297263}
         m_MethodName: icon_OnClick
         m_Mode: 5
         m_Arguments:
@@ -939,54 +843,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0ce40b50a28a42439415c674fdbad5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentIconName: 
-  DropOptions_OH_SWITCH:
-  - Disconnect Switch
-  - Overhead Switch Pothead
-  DropOptions_LIGHTNING_ARRESTER:
-  - Ceramic
-  - Polymer
-  - Deadend
-  DropOptions_INSULATOR:
-  - Ceramic
-  - Polymer
-  DropOptions_POLE:
-  - Wooden
-  - Concrete
-  DropOptions_CROSSARM:
-  - Wooden Single
-  - Wooden Double
-  - Concrete Single
-  - Concrete Double
-  DropOptions_VEGETATION:
-  - Oak
-  - Palm
-  DropOptions_CONDUCTOR:
-  - Power line
-  - Jumper
-  - Stirrup
-  DropOptions_OH_TRANSFORMER:
-  - Single
-  - Double
-  - Triple
-  DropOptions_OH_FUSE_SWITCH:
-  - Standard Cut Out
-  - ALS
-  DropOptions_FOREIGN_OBJECT_IN_WIRE:
-  - Mylar Balloon
-  - Kite
-  EQUIPMENT_DROPDWN: {fileID: 0}
-  ICON_SELECTED_TXT: {fileID: 0}
-  DEFAULT_TXT: {fileID: 0}
-  LD_1_BTN: {fileID: 0}
-  LD_3_BTN: {fileID: 0}
-  LD_5_BTN: {fileID: 0}
-  PHASE_A_BTN: {fileID: 0}
-  PHASE_B_BTN: {fileID: 0}
-  PHASE_C_BTN: {fileID: 0}
-  DISCARD_BTN: {fileID: 0}
-  INCLUDE_BTN: {fileID: 0}
-  LD_TXT: {fileID: 0}
 --- !u!1 &185417068
 GameObject:
   m_ObjectHideFlags: 0
@@ -1380,7 +1236,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 263050524}
+      - m_Target: {fileID: 945297263}
         m_MethodName: icon_OnClick
         m_Mode: 5
         m_Arguments:
@@ -1437,54 +1293,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0ce40b50a28a42439415c674fdbad5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentIconName: 
-  DropOptions_OH_SWITCH:
-  - Disconnect Switch
-  - Overhead Switch Pothead
-  DropOptions_LIGHTNING_ARRESTER:
-  - Ceramic
-  - Polymer
-  - Deadend
-  DropOptions_INSULATOR:
-  - Ceramic
-  - Polymer
-  DropOptions_POLE:
-  - Wooden
-  - Concrete
-  DropOptions_CROSSARM:
-  - Wooden Single
-  - Wooden Double
-  - Concrete Single
-  - Concrete Double
-  DropOptions_VEGETATION:
-  - Oak
-  - Palm
-  DropOptions_CONDUCTOR:
-  - Power line
-  - Jumper
-  - Stirrup
-  DropOptions_OH_TRANSFORMER:
-  - Single
-  - Double
-  - Triple
-  DropOptions_OH_FUSE_SWITCH:
-  - Standard Cut Out
-  - ALS
-  DropOptions_FOREIGN_OBJECT_IN_WIRE:
-  - Mylar Balloon
-  - Kite
-  EQUIPMENT_DROPDWN: {fileID: 0}
-  ICON_SELECTED_TXT: {fileID: 0}
-  DEFAULT_TXT: {fileID: 0}
-  LD_1_BTN: {fileID: 0}
-  LD_3_BTN: {fileID: 0}
-  LD_5_BTN: {fileID: 0}
-  PHASE_A_BTN: {fileID: 0}
-  PHASE_B_BTN: {fileID: 0}
-  PHASE_C_BTN: {fileID: 0}
-  DISCARD_BTN: {fileID: 0}
-  INCLUDE_BTN: {fileID: 0}
-  LD_TXT: {fileID: 0}
 --- !u!4 &322325482 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: a1fd976099ec545409a61459c2e674d6, type: 3}
@@ -1845,7 +1653,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 390965070}
+      - m_Target: {fileID: 945297263}
         m_MethodName: icon_OnClick
         m_Mode: 5
         m_Arguments:
@@ -1902,54 +1710,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0ce40b50a28a42439415c674fdbad5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentIconName: 
-  DropOptions_OH_SWITCH:
-  - Disconnect Switch
-  - Overhead Switch Pothead
-  DropOptions_LIGHTNING_ARRESTER:
-  - Ceramic
-  - Polymer
-  - Deadend
-  DropOptions_INSULATOR:
-  - Ceramic
-  - Polymer
-  DropOptions_POLE:
-  - Wooden
-  - Concrete
-  DropOptions_CROSSARM:
-  - Wooden Single
-  - Wooden Double
-  - Concrete Single
-  - Concrete Double
-  DropOptions_VEGETATION:
-  - Oak
-  - Palm
-  DropOptions_CONDUCTOR:
-  - Power line
-  - Jumper
-  - Stirrup
-  DropOptions_OH_TRANSFORMER:
-  - Single
-  - Double
-  - Triple
-  DropOptions_OH_FUSE_SWITCH:
-  - Standard Cut Out
-  - ALS
-  DropOptions_FOREIGN_OBJECT_IN_WIRE:
-  - Mylar Balloon
-  - Kite
-  EQUIPMENT_DROPDWN: {fileID: 0}
-  ICON_SELECTED_TXT: {fileID: 0}
-  DEFAULT_TXT: {fileID: 0}
-  LD_1_BTN: {fileID: 0}
-  LD_3_BTN: {fileID: 0}
-  LD_5_BTN: {fileID: 0}
-  PHASE_A_BTN: {fileID: 0}
-  PHASE_B_BTN: {fileID: 0}
-  PHASE_C_BTN: {fileID: 0}
-  DISCARD_BTN: {fileID: 0}
-  INCLUDE_BTN: {fileID: 0}
-  LD_TXT: {fileID: 0}
 --- !u!1 &405356327
 GameObject:
   m_ObjectHideFlags: 0
@@ -2184,7 +1944,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 512103473}
+      - m_Target: {fileID: 945297263}
         m_MethodName: icon_OnClick
         m_Mode: 5
         m_Arguments:
@@ -2241,54 +2001,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0ce40b50a28a42439415c674fdbad5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentIconName: 
-  DropOptions_OH_SWITCH:
-  - Disconnect Switch
-  - Overhead Switch Pothead
-  DropOptions_LIGHTNING_ARRESTER:
-  - Ceramic
-  - Polymer
-  - Deadend
-  DropOptions_INSULATOR:
-  - Ceramic
-  - Polymer
-  DropOptions_POLE:
-  - Wooden
-  - Concrete
-  DropOptions_CROSSARM:
-  - Wooden Single
-  - Wooden Double
-  - Concrete Single
-  - Concrete Double
-  DropOptions_VEGETATION:
-  - Oak
-  - Palm
-  DropOptions_CONDUCTOR:
-  - Power line
-  - Jumper
-  - Stirrup
-  DropOptions_OH_TRANSFORMER:
-  - Single
-  - Double
-  - Triple
-  DropOptions_OH_FUSE_SWITCH:
-  - Standard Cut Out
-  - ALS
-  DropOptions_FOREIGN_OBJECT_IN_WIRE:
-  - Mylar Balloon
-  - Kite
-  EQUIPMENT_DROPDWN: {fileID: 0}
-  ICON_SELECTED_TXT: {fileID: 0}
-  DEFAULT_TXT: {fileID: 0}
-  LD_1_BTN: {fileID: 0}
-  LD_3_BTN: {fileID: 0}
-  LD_5_BTN: {fileID: 0}
-  PHASE_A_BTN: {fileID: 0}
-  PHASE_B_BTN: {fileID: 0}
-  PHASE_C_BTN: {fileID: 0}
-  DISCARD_BTN: {fileID: 0}
-  INCLUDE_BTN: {fileID: 0}
-  LD_TXT: {fileID: 0}
 --- !u!1 &548650563
 GameObject:
   m_ObjectHideFlags: 0
@@ -2367,7 +2079,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 548650568}
+      - m_Target: {fileID: 945297263}
         m_MethodName: icon_OnClick
         m_Mode: 5
         m_Arguments:
@@ -2424,54 +2136,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0ce40b50a28a42439415c674fdbad5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentIconName: 
-  DropOptions_OH_SWITCH:
-  - Disconnect Switch
-  - Overhead Switch Pothead
-  DropOptions_LIGHTNING_ARRESTER:
-  - Ceramic
-  - Polymer
-  - Deadend
-  DropOptions_INSULATOR:
-  - Ceramic
-  - Polymer
-  DropOptions_POLE:
-  - Wooden
-  - Concrete
-  DropOptions_CROSSARM:
-  - Wooden Single
-  - Wooden Double
-  - Concrete Single
-  - Concrete Double
-  DropOptions_VEGETATION:
-  - Oak
-  - Palm
-  DropOptions_CONDUCTOR:
-  - Power line
-  - Jumper
-  - Stirrup
-  DropOptions_OH_TRANSFORMER:
-  - Single
-  - Double
-  - Triple
-  DropOptions_OH_FUSE_SWITCH:
-  - Standard Cut Out
-  - ALS
-  DropOptions_FOREIGN_OBJECT_IN_WIRE:
-  - Mylar Balloon
-  - Kite
-  EQUIPMENT_DROPDWN: {fileID: 0}
-  ICON_SELECTED_TXT: {fileID: 0}
-  DEFAULT_TXT: {fileID: 0}
-  LD_1_BTN: {fileID: 0}
-  LD_3_BTN: {fileID: 0}
-  LD_5_BTN: {fileID: 0}
-  PHASE_A_BTN: {fileID: 0}
-  PHASE_B_BTN: {fileID: 0}
-  PHASE_C_BTN: {fileID: 0}
-  DISCARD_BTN: {fileID: 0}
-  INCLUDE_BTN: {fileID: 0}
-  LD_TXT: {fileID: 0}
 --- !u!1 &554133336
 GameObject:
   m_ObjectHideFlags: 0
@@ -2623,8 +2287,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 567640519}
-        m_MethodName: submit_OnClick
+      - m_Target: {fileID: 945297257}
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2680,54 +2344,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0ce40b50a28a42439415c674fdbad5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentIconName: 
-  DropOptions_OH_SWITCH:
-  - Disconnect Switch
-  - Overhead Switch Pothead
-  DropOptions_LIGHTNING_ARRESTER:
-  - Ceramic
-  - Polymer
-  - Deadend
-  DropOptions_INSULATOR:
-  - Ceramic
-  - Polymer
-  DropOptions_POLE:
-  - Wooden
-  - Concrete
-  DropOptions_CROSSARM:
-  - Wooden Single
-  - Wooden Double
-  - Concrete Single
-  - Concrete Double
-  DropOptions_VEGETATION:
-  - Oak
-  - Palm
-  DropOptions_CONDUCTOR:
-  - Power line
-  - Jumper
-  - Stirrup
-  DropOptions_OH_TRANSFORMER:
-  - Single
-  - Double
-  - Triple
-  DropOptions_OH_FUSE_SWITCH:
-  - Standard Cut Out
-  - ALS
-  DropOptions_FOREIGN_OBJECT_IN_WIRE:
-  - Mylar Balloon
-  - Kite
-  EQUIPMENT_DROPDWN: {fileID: 0}
-  ICON_SELECTED_TXT: {fileID: 0}
-  DEFAULT_TXT: {fileID: 0}
-  LD_1_BTN: {fileID: 0}
-  LD_3_BTN: {fileID: 0}
-  LD_5_BTN: {fileID: 0}
-  PHASE_A_BTN: {fileID: 0}
-  PHASE_B_BTN: {fileID: 0}
-  PHASE_C_BTN: {fileID: 0}
-  DISCARD_BTN: {fileID: 0}
-  INCLUDE_BTN: {fileID: 0}
-  LD_TXT: {fileID: 0}
 --- !u!1 &571730482
 GameObject:
   m_ObjectHideFlags: 0
@@ -2806,7 +2422,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 571730487}
+      - m_Target: {fileID: 945297263}
         m_MethodName: icon_OnClick
         m_Mode: 5
         m_Arguments:
@@ -2863,54 +2479,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0ce40b50a28a42439415c674fdbad5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentIconName: 
-  DropOptions_OH_SWITCH:
-  - Disconnect Switch
-  - Overhead Switch Pothead
-  DropOptions_LIGHTNING_ARRESTER:
-  - Ceramic
-  - Polymer
-  - Deadend
-  DropOptions_INSULATOR:
-  - Ceramic
-  - Polymer
-  DropOptions_POLE:
-  - Wooden
-  - Concrete
-  DropOptions_CROSSARM:
-  - Wooden Single
-  - Wooden Double
-  - Concrete Single
-  - Concrete Double
-  DropOptions_VEGETATION:
-  - Oak
-  - Palm
-  DropOptions_CONDUCTOR:
-  - Power line
-  - Jumper
-  - Stirrup
-  DropOptions_OH_TRANSFORMER:
-  - Single
-  - Double
-  - Triple
-  DropOptions_OH_FUSE_SWITCH:
-  - Standard Cut Out
-  - ALS
-  DropOptions_FOREIGN_OBJECT_IN_WIRE:
-  - Mylar Balloon
-  - Kite
-  EQUIPMENT_DROPDWN: {fileID: 0}
-  ICON_SELECTED_TXT: {fileID: 0}
-  DEFAULT_TXT: {fileID: 0}
-  LD_1_BTN: {fileID: 0}
-  LD_3_BTN: {fileID: 0}
-  LD_5_BTN: {fileID: 0}
-  PHASE_A_BTN: {fileID: 0}
-  PHASE_B_BTN: {fileID: 0}
-  PHASE_C_BTN: {fileID: 0}
-  DISCARD_BTN: {fileID: 0}
-  INCLUDE_BTN: {fileID: 0}
-  LD_TXT: {fileID: 0}
 --- !u!1 &579901586
 GameObject:
   m_ObjectHideFlags: 0
@@ -3488,8 +3056,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 731130067}
-        m_MethodName: include_OnClick
+      - m_Target: {fileID: 945297257}
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3545,54 +3113,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0ce40b50a28a42439415c674fdbad5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentIconName: 
-  DropOptions_OH_SWITCH:
-  - Disconnect Switch
-  - Overhead Switch Pothead
-  DropOptions_LIGHTNING_ARRESTER:
-  - Ceramic
-  - Polymer
-  - Deadend
-  DropOptions_INSULATOR:
-  - Ceramic
-  - Polymer
-  DropOptions_POLE:
-  - Wooden
-  - Concrete
-  DropOptions_CROSSARM:
-  - Wooden Single
-  - Wooden Double
-  - Concrete Single
-  - Concrete Double
-  DropOptions_VEGETATION:
-  - Oak
-  - Palm
-  DropOptions_CONDUCTOR:
-  - Power line
-  - Jumper
-  - Stirrup
-  DropOptions_OH_TRANSFORMER:
-  - Single
-  - Double
-  - Triple
-  DropOptions_OH_FUSE_SWITCH:
-  - Standard Cut Out
-  - ALS
-  DropOptions_FOREIGN_OBJECT_IN_WIRE:
-  - Mylar Balloon
-  - Kite
-  EQUIPMENT_DROPDWN: {fileID: 0}
-  ICON_SELECTED_TXT: {fileID: 0}
-  DEFAULT_TXT: {fileID: 0}
-  LD_1_BTN: {fileID: 0}
-  LD_3_BTN: {fileID: 0}
-  LD_5_BTN: {fileID: 0}
-  PHASE_A_BTN: {fileID: 0}
-  PHASE_B_BTN: {fileID: 0}
-  PHASE_C_BTN: {fileID: 0}
-  DISCARD_BTN: {fileID: 0}
-  INCLUDE_BTN: {fileID: 0}
-  LD_TXT: {fileID: 0}
 --- !u!1 &743425007
 GameObject:
   m_ObjectHideFlags: 0
@@ -3881,7 +3401,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 806970414}
+      - m_Target: {fileID: 945297263}
         m_MethodName: icon_OnClick
         m_Mode: 5
         m_Arguments:
@@ -3938,54 +3458,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0ce40b50a28a42439415c674fdbad5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentIconName: 
-  DropOptions_OH_SWITCH:
-  - Disconnect Switch
-  - Overhead Switch Pothead
-  DropOptions_LIGHTNING_ARRESTER:
-  - Ceramic
-  - Polymer
-  - Deadend
-  DropOptions_INSULATOR:
-  - Ceramic
-  - Polymer
-  DropOptions_POLE:
-  - Wooden
-  - Concrete
-  DropOptions_CROSSARM:
-  - Wooden Single
-  - Wooden Double
-  - Concrete Single
-  - Concrete Double
-  DropOptions_VEGETATION:
-  - Oak
-  - Palm
-  DropOptions_CONDUCTOR:
-  - Power line
-  - Jumper
-  - Stirrup
-  DropOptions_OH_TRANSFORMER:
-  - Single
-  - Double
-  - Triple
-  DropOptions_OH_FUSE_SWITCH:
-  - Standard Cut Out
-  - ALS
-  DropOptions_FOREIGN_OBJECT_IN_WIRE:
-  - Mylar Balloon
-  - Kite
-  EQUIPMENT_DROPDWN: {fileID: 0}
-  ICON_SELECTED_TXT: {fileID: 0}
-  DEFAULT_TXT: {fileID: 0}
-  LD_1_BTN: {fileID: 0}
-  LD_3_BTN: {fileID: 0}
-  LD_5_BTN: {fileID: 0}
-  PHASE_A_BTN: {fileID: 0}
-  PHASE_B_BTN: {fileID: 0}
-  PHASE_C_BTN: {fileID: 0}
-  DISCARD_BTN: {fileID: 0}
-  INCLUDE_BTN: {fileID: 0}
-  LD_TXT: {fileID: 0}
 --- !u!1 &820415334
 GameObject:
   m_ObjectHideFlags: 0
@@ -4063,8 +3535,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 820415339}
-        m_MethodName: getInfo
+      - m_Target: {fileID: 945297257}
+        m_MethodName: 
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4120,54 +3592,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0ce40b50a28a42439415c674fdbad5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentIconName: 
-  DropOptions_OH_SWITCH:
-  - Disconnect Switch
-  - Overhead Switch Pothead
-  DropOptions_LIGHTNING_ARRESTER:
-  - Ceramic
-  - Polymer
-  - Deadend
-  DropOptions_INSULATOR:
-  - Ceramic
-  - Polymer
-  DropOptions_POLE:
-  - Wooden
-  - Concrete
-  DropOptions_CROSSARM:
-  - Wooden Single
-  - Wooden Double
-  - Concrete Single
-  - Concrete Double
-  DropOptions_VEGETATION:
-  - Oak
-  - Palm
-  DropOptions_CONDUCTOR:
-  - Power line
-  - Jumper
-  - Stirrup
-  DropOptions_OH_TRANSFORMER:
-  - Single
-  - Double
-  - Triple
-  DropOptions_OH_FUSE_SWITCH:
-  - Standard Cut Out
-  - ALS
-  DropOptions_FOREIGN_OBJECT_IN_WIRE:
-  - Mylar Balloon
-  - Kite
-  EQUIPMENT_DROPDWN: {fileID: 0}
-  ICON_SELECTED_TXT: {fileID: 0}
-  DEFAULT_TXT: {fileID: 0}
-  LD_1_BTN: {fileID: 0}
-  LD_3_BTN: {fileID: 0}
-  LD_5_BTN: {fileID: 0}
-  PHASE_A_BTN: {fileID: 0}
-  PHASE_B_BTN: {fileID: 0}
-  PHASE_C_BTN: {fileID: 0}
-  DISCARD_BTN: {fileID: 0}
-  INCLUDE_BTN: {fileID: 0}
-  LD_TXT: {fileID: 0}
 --- !u!1 &821963955
 GameObject:
   m_ObjectHideFlags: 0
@@ -4195,10 +3619,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e350aed849115542977cd01206989ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poles: []
-  startSpot: {fileID: 0}
-  line1: {fileID: 0}
-  numberOfPole: 20
 --- !u!4 &821963957
 Transform:
   m_ObjectHideFlags: 0
@@ -4627,7 +4047,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 873181837}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 945297257}
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &873181837
@@ -4866,31 +4297,31 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4801619852357282, guid: d07219f7fd2992d43adf8c8df5e7ef80, type: 2}
       propertyPath: m_LocalRotation.x
-      value: -0.09295264
+      value: 0.0713438
       objectReference: {fileID: 0}
     - target: {fileID: 4801619852357282, guid: d07219f7fd2992d43adf8c8df5e7ef80, type: 2}
       propertyPath: m_LocalRotation.y
-      value: 0.66007084
+      value: 0.79296225
       objectReference: {fileID: 0}
     - target: {fileID: 4801619852357282, guid: d07219f7fd2992d43adf8c8df5e7ef80, type: 2}
       propertyPath: m_LocalRotation.z
-      value: 0.082821995
+      value: 0.09466319
       objectReference: {fileID: 0}
     - target: {fileID: 4801619852357282, guid: d07219f7fd2992d43adf8c8df5e7ef80, type: 2}
       propertyPath: m_LocalRotation.w
-      value: 0.74081504
+      value: -0.59762853
       objectReference: {fileID: 0}
     - target: {fileID: 4801619852357282, guid: d07219f7fd2992d43adf8c8df5e7ef80, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -36.5567
+      value: 130.9846
       objectReference: {fileID: 0}
     - target: {fileID: 4801619852357282, guid: d07219f7fd2992d43adf8c8df5e7ef80, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -77.342224
+      value: -17.479607
       objectReference: {fileID: 0}
     - target: {fileID: 4801619852357282, guid: d07219f7fd2992d43adf8c8df5e7ef80, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 320.5086
+      value: 355.0028
       objectReference: {fileID: 0}
     - target: {fileID: 20211285371786574, guid: d07219f7fd2992d43adf8c8df5e7ef80,
         type: 2}
@@ -4980,6 +4411,7 @@ GameObject:
   - component: {fileID: 945297260}
   - component: {fileID: 945297259}
   - component: {fileID: 945297262}
+  - component: {fileID: 945297263}
   m_Layer: 5
   m_Name: CAF_CANVAS
   m_TagString: Untagged
@@ -5144,6 +4576,66 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Dropdown+DropdownEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &945297263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 945297257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ae8b748c9574504197fa6a62127d47c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentIconName: 
+  DropOptions_OH_SWITCH:
+  - Disconnect Switch
+  - Overhead Switch Pothead
+  DropOptions_LIGHTNING_ARRESTER:
+  - Ceramic
+  - Polymer
+  - Deadend
+  DropOptions_INSULATOR:
+  - Ceramic
+  - Polymer
+  DropOptions_POLE:
+  - Wooden
+  - Concrete
+  DropOptions_CROSSARM:
+  - Wooden Single
+  - Wooden Double
+  - Concrete Single
+  - Concrete Double
+  DropOptions_VEGETATION:
+  - Oak
+  - Palm
+  DropOptions_CONDUCTOR:
+  - Power line
+  - Jumper
+  - Stirrup
+  DropOptions_OH_TRANSFORMER:
+  - Single
+  - Double
+  - Triple
+  DropOptions_OH_FUSE_SWITCH:
+  - Standard Cut Out
+  - ALS
+  DropOptions_FOREIGN_OBJECT_IN_WIRE:
+  - Mylar Balloon
+  - Kite
+  EQUIPMENT_DROPDWN: {fileID: 0}
+  ICON_SELECTED_TXT: {fileID: 0}
+  DEFAULT_TXT: {fileID: 0}
+  LD_TXT: {fileID: 0}
+  LD_1_BTN: {fileID: 0}
+  LD_3_BTN: {fileID: 0}
+  LD_5_BTN: {fileID: 0}
+  PHASE_TXT: {fileID: 0}
+  PHASE_A_BTN: {fileID: 0}
+  PHASE_B_BTN: {fileID: 0}
+  PHASE_C_BTN: {fileID: 0}
+  DISCARD_BTN: {fileID: 0}
+  INCLUDE_BTN: {fileID: 0}
 --- !u!1001 &946001424
 Prefab:
   m_ObjectHideFlags: 0
@@ -5450,54 +4942,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0ce40b50a28a42439415c674fdbad5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentIconName: 
-  DropOptions_OH_SWITCH:
-  - Disconnect Switch
-  - Overhead Switch Pothead
-  DropOptions_LIGHTNING_ARRESTER:
-  - Ceramic
-  - Polymer
-  - Deadend
-  DropOptions_INSULATOR:
-  - Ceramic
-  - Polymer
-  DropOptions_POLE:
-  - Wooden
-  - Concrete
-  DropOptions_CROSSARM:
-  - Wooden Single
-  - Wooden Double
-  - Concrete Single
-  - Concrete Double
-  DropOptions_VEGETATION:
-  - Oak
-  - Palm
-  DropOptions_CONDUCTOR:
-  - Power line
-  - Jumper
-  - Stirrup
-  DropOptions_OH_TRANSFORMER:
-  - Single
-  - Double
-  - Triple
-  DropOptions_OH_FUSE_SWITCH:
-  - Standard Cut Out
-  - ALS
-  DropOptions_FOREIGN_OBJECT_IN_WIRE:
-  - Mylar Balloon
-  - Kite
-  EQUIPMENT_DROPDWN: {fileID: 0}
-  ICON_SELECTED_TXT: {fileID: 0}
-  DEFAULT_TXT: {fileID: 0}
-  LD_1_BTN: {fileID: 0}
-  LD_3_BTN: {fileID: 0}
-  LD_5_BTN: {fileID: 0}
-  PHASE_A_BTN: {fileID: 0}
-  PHASE_B_BTN: {fileID: 0}
-  PHASE_C_BTN: {fileID: 0}
-  DISCARD_BTN: {fileID: 0}
-  INCLUDE_BTN: {fileID: 0}
-  LD_TXT: {fileID: 0}
 --- !u!114 &978231897
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5537,7 +4981,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 978231896}
+      - m_Target: {fileID: 945297263}
         m_MethodName: icon_OnClick
         m_Mode: 5
         m_Arguments:
@@ -5735,7 +5179,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1048949232}
+      - m_Target: {fileID: 945297263}
         m_MethodName: icon_OnClick
         m_Mode: 5
         m_Arguments:
@@ -5792,54 +5236,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0ce40b50a28a42439415c674fdbad5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentIconName: 
-  DropOptions_OH_SWITCH:
-  - Disconnect Switch
-  - Overhead Switch Pothead
-  DropOptions_LIGHTNING_ARRESTER:
-  - Ceramic
-  - Polymer
-  - Deadend
-  DropOptions_INSULATOR:
-  - Ceramic
-  - Polymer
-  DropOptions_POLE:
-  - Wooden
-  - Concrete
-  DropOptions_CROSSARM:
-  - Wooden Single
-  - Wooden Double
-  - Concrete Single
-  - Concrete Double
-  DropOptions_VEGETATION:
-  - Oak
-  - Palm
-  DropOptions_CONDUCTOR:
-  - Power line
-  - Jumper
-  - Stirrup
-  DropOptions_OH_TRANSFORMER:
-  - Single
-  - Double
-  - Triple
-  DropOptions_OH_FUSE_SWITCH:
-  - Standard Cut Out
-  - ALS
-  DropOptions_FOREIGN_OBJECT_IN_WIRE:
-  - Mylar Balloon
-  - Kite
-  EQUIPMENT_DROPDWN: {fileID: 0}
-  ICON_SELECTED_TXT: {fileID: 0}
-  DEFAULT_TXT: {fileID: 0}
-  LD_1_BTN: {fileID: 0}
-  LD_3_BTN: {fileID: 0}
-  LD_5_BTN: {fileID: 0}
-  PHASE_A_BTN: {fileID: 0}
-  PHASE_B_BTN: {fileID: 0}
-  PHASE_C_BTN: {fileID: 0}
-  DISCARD_BTN: {fileID: 0}
-  INCLUDE_BTN: {fileID: 0}
-  LD_TXT: {fileID: 0}
 --- !u!1 &1057609768
 GameObject:
   m_ObjectHideFlags: 0
@@ -5917,8 +5313,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1057609773}
-        m_MethodName: getInfo
+      - m_Target: {fileID: 945297257}
+        m_MethodName: 
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5974,54 +5370,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0ce40b50a28a42439415c674fdbad5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentIconName: 
-  DropOptions_OH_SWITCH:
-  - Disconnect Switch
-  - Overhead Switch Pothead
-  DropOptions_LIGHTNING_ARRESTER:
-  - Ceramic
-  - Polymer
-  - Deadend
-  DropOptions_INSULATOR:
-  - Ceramic
-  - Polymer
-  DropOptions_POLE:
-  - Wooden
-  - Concrete
-  DropOptions_CROSSARM:
-  - Wooden Single
-  - Wooden Double
-  - Concrete Single
-  - Concrete Double
-  DropOptions_VEGETATION:
-  - Oak
-  - Palm
-  DropOptions_CONDUCTOR:
-  - Power line
-  - Jumper
-  - Stirrup
-  DropOptions_OH_TRANSFORMER:
-  - Single
-  - Double
-  - Triple
-  DropOptions_OH_FUSE_SWITCH:
-  - Standard Cut Out
-  - ALS
-  DropOptions_FOREIGN_OBJECT_IN_WIRE:
-  - Mylar Balloon
-  - Kite
-  EQUIPMENT_DROPDWN: {fileID: 0}
-  ICON_SELECTED_TXT: {fileID: 0}
-  DEFAULT_TXT: {fileID: 0}
-  LD_1_BTN: {fileID: 0}
-  LD_3_BTN: {fileID: 0}
-  LD_5_BTN: {fileID: 0}
-  PHASE_A_BTN: {fileID: 0}
-  PHASE_B_BTN: {fileID: 0}
-  PHASE_C_BTN: {fileID: 0}
-  DISCARD_BTN: {fileID: 0}
-  INCLUDE_BTN: {fileID: 0}
-  LD_TXT: {fileID: 0}
 --- !u!1 &1083389785
 GameObject:
   m_ObjectHideFlags: 0
@@ -6168,7 +5516,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1093271397}
+      - m_Target: {fileID: 945297263}
         m_MethodName: icon_OnClick
         m_Mode: 5
         m_Arguments:
@@ -6225,54 +5573,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0ce40b50a28a42439415c674fdbad5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentIconName: 
-  DropOptions_OH_SWITCH:
-  - Disconnect Switch
-  - Overhead Switch Pothead
-  DropOptions_LIGHTNING_ARRESTER:
-  - Ceramic
-  - Polymer
-  - Deadend
-  DropOptions_INSULATOR:
-  - Ceramic
-  - Polymer
-  DropOptions_POLE:
-  - Wooden
-  - Concrete
-  DropOptions_CROSSARM:
-  - Wooden Single
-  - Wooden Double
-  - Concrete Single
-  - Concrete Double
-  DropOptions_VEGETATION:
-  - Oak
-  - Palm
-  DropOptions_CONDUCTOR:
-  - Power line
-  - Jumper
-  - Stirrup
-  DropOptions_OH_TRANSFORMER:
-  - Single
-  - Double
-  - Triple
-  DropOptions_OH_FUSE_SWITCH:
-  - Standard Cut Out
-  - ALS
-  DropOptions_FOREIGN_OBJECT_IN_WIRE:
-  - Mylar Balloon
-  - Kite
-  EQUIPMENT_DROPDWN: {fileID: 0}
-  ICON_SELECTED_TXT: {fileID: 0}
-  DEFAULT_TXT: {fileID: 0}
-  LD_1_BTN: {fileID: 0}
-  LD_3_BTN: {fileID: 0}
-  LD_5_BTN: {fileID: 0}
-  PHASE_A_BTN: {fileID: 0}
-  PHASE_B_BTN: {fileID: 0}
-  PHASE_C_BTN: {fileID: 0}
-  DISCARD_BTN: {fileID: 0}
-  INCLUDE_BTN: {fileID: 0}
-  LD_TXT: {fileID: 0}
 --- !u!1 &1103769217
 GameObject:
   m_ObjectHideFlags: 0
@@ -6363,7 +5663,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1103769223}
+      - m_Target: {fileID: 945297263}
         m_MethodName: icon_OnClick
         m_Mode: 5
         m_Arguments:
@@ -6420,54 +5720,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0ce40b50a28a42439415c674fdbad5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentIconName: 
-  DropOptions_OH_SWITCH:
-  - Disconnect Switch
-  - Overhead Switch Pothead
-  DropOptions_LIGHTNING_ARRESTER:
-  - Ceramic
-  - Polymer
-  - Deadend
-  DropOptions_INSULATOR:
-  - Ceramic
-  - Polymer
-  DropOptions_POLE:
-  - Wooden
-  - Concrete
-  DropOptions_CROSSARM:
-  - Wooden Single
-  - Wooden Double
-  - Concrete Single
-  - Concrete Double
-  DropOptions_VEGETATION:
-  - Oak
-  - Palm
-  DropOptions_CONDUCTOR:
-  - Power line
-  - Jumper
-  - Stirrup
-  DropOptions_OH_TRANSFORMER:
-  - Single
-  - Double
-  - Triple
-  DropOptions_OH_FUSE_SWITCH:
-  - Standard Cut Out
-  - ALS
-  DropOptions_FOREIGN_OBJECT_IN_WIRE:
-  - Mylar Balloon
-  - Kite
-  EQUIPMENT_DROPDWN: {fileID: 0}
-  ICON_SELECTED_TXT: {fileID: 0}
-  DEFAULT_TXT: {fileID: 0}
-  LD_1_BTN: {fileID: 0}
-  LD_3_BTN: {fileID: 0}
-  LD_5_BTN: {fileID: 0}
-  PHASE_A_BTN: {fileID: 0}
-  PHASE_B_BTN: {fileID: 0}
-  PHASE_C_BTN: {fileID: 0}
-  DISCARD_BTN: {fileID: 0}
-  INCLUDE_BTN: {fileID: 0}
-  LD_TXT: {fileID: 0}
 --- !u!1 &1132712985
 GameObject:
   m_ObjectHideFlags: 0
@@ -6543,7 +5795,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1132712988}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 945297257}
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1132712988
@@ -6777,54 +6040,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0ce40b50a28a42439415c674fdbad5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentIconName: 
-  DropOptions_OH_SWITCH:
-  - Disconnect Switch
-  - Overhead Switch Pothead
-  DropOptions_LIGHTNING_ARRESTER:
-  - Ceramic
-  - Polymer
-  - Deadend
-  DropOptions_INSULATOR:
-  - Ceramic
-  - Polymer
-  DropOptions_POLE:
-  - Wooden
-  - Concrete
-  DropOptions_CROSSARM:
-  - Wooden Single
-  - Wooden Double
-  - Concrete Single
-  - Concrete Double
-  DropOptions_VEGETATION:
-  - Oak
-  - Palm
-  DropOptions_CONDUCTOR:
-  - Power line
-  - Jumper
-  - Stirrup
-  DropOptions_OH_TRANSFORMER:
-  - Single
-  - Double
-  - Triple
-  DropOptions_OH_FUSE_SWITCH:
-  - Standard Cut Out
-  - ALS
-  DropOptions_FOREIGN_OBJECT_IN_WIRE:
-  - Mylar Balloon
-  - Kite
-  EQUIPMENT_DROPDWN: {fileID: 0}
-  ICON_SELECTED_TXT: {fileID: 0}
-  DEFAULT_TXT: {fileID: 0}
-  LD_1_BTN: {fileID: 0}
-  LD_3_BTN: {fileID: 0}
-  LD_5_BTN: {fileID: 0}
-  PHASE_A_BTN: {fileID: 0}
-  PHASE_B_BTN: {fileID: 0}
-  PHASE_C_BTN: {fileID: 0}
-  DISCARD_BTN: {fileID: 0}
-  INCLUDE_BTN: {fileID: 0}
-  LD_TXT: {fileID: 0}
 --- !u!114 &1170087599
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6864,7 +6079,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1170087598}
+      - m_Target: {fileID: 945297263}
         m_MethodName: icon_OnClick
         m_Mode: 5
         m_Arguments:
@@ -7208,54 +6423,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0ce40b50a28a42439415c674fdbad5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentIconName: 
-  DropOptions_OH_SWITCH:
-  - Disconnect Switch
-  - Overhead Switch Pothead
-  DropOptions_LIGHTNING_ARRESTER:
-  - Ceramic
-  - Polymer
-  - Deadend
-  DropOptions_INSULATOR:
-  - Ceramic
-  - Polymer
-  DropOptions_POLE:
-  - Wooden
-  - Concrete
-  DropOptions_CROSSARM:
-  - Wooden Single
-  - Wooden Double
-  - Concrete Single
-  - Concrete Double
-  DropOptions_VEGETATION:
-  - Oak
-  - Palm
-  DropOptions_CONDUCTOR:
-  - Power line
-  - Jumper
-  - Stirrup
-  DropOptions_OH_TRANSFORMER:
-  - Single
-  - Double
-  - Triple
-  DropOptions_OH_FUSE_SWITCH:
-  - Standard Cut Out
-  - ALS
-  DropOptions_FOREIGN_OBJECT_IN_WIRE:
-  - Mylar Balloon
-  - Kite
-  EQUIPMENT_DROPDWN: {fileID: 0}
-  ICON_SELECTED_TXT: {fileID: 0}
-  DEFAULT_TXT: {fileID: 0}
-  LD_1_BTN: {fileID: 0}
-  LD_3_BTN: {fileID: 0}
-  LD_5_BTN: {fileID: 0}
-  PHASE_A_BTN: {fileID: 0}
-  PHASE_B_BTN: {fileID: 0}
-  PHASE_C_BTN: {fileID: 0}
-  DISCARD_BTN: {fileID: 0}
-  INCLUDE_BTN: {fileID: 0}
-  LD_TXT: {fileID: 0}
 --- !u!1 &1245578499
 GameObject:
   m_ObjectHideFlags: 0
@@ -7402,7 +6569,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1248706417}
+      - m_Target: {fileID: 945297263}
         m_MethodName: icon_OnClick
         m_Mode: 5
         m_Arguments:
@@ -7459,54 +6626,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0ce40b50a28a42439415c674fdbad5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentIconName: 
-  DropOptions_OH_SWITCH:
-  - Disconnect Switch
-  - Overhead Switch Pothead
-  DropOptions_LIGHTNING_ARRESTER:
-  - Ceramic
-  - Polymer
-  - Deadend
-  DropOptions_INSULATOR:
-  - Ceramic
-  - Polymer
-  DropOptions_POLE:
-  - Wooden
-  - Concrete
-  DropOptions_CROSSARM:
-  - Wooden Single
-  - Wooden Double
-  - Concrete Single
-  - Concrete Double
-  DropOptions_VEGETATION:
-  - Oak
-  - Palm
-  DropOptions_CONDUCTOR:
-  - Power line
-  - Jumper
-  - Stirrup
-  DropOptions_OH_TRANSFORMER:
-  - Single
-  - Double
-  - Triple
-  DropOptions_OH_FUSE_SWITCH:
-  - Standard Cut Out
-  - ALS
-  DropOptions_FOREIGN_OBJECT_IN_WIRE:
-  - Mylar Balloon
-  - Kite
-  EQUIPMENT_DROPDWN: {fileID: 0}
-  ICON_SELECTED_TXT: {fileID: 0}
-  DEFAULT_TXT: {fileID: 0}
-  LD_1_BTN: {fileID: 0}
-  LD_3_BTN: {fileID: 0}
-  LD_5_BTN: {fileID: 0}
-  PHASE_A_BTN: {fileID: 0}
-  PHASE_B_BTN: {fileID: 0}
-  PHASE_C_BTN: {fileID: 0}
-  DISCARD_BTN: {fileID: 0}
-  INCLUDE_BTN: {fileID: 0}
-  LD_TXT: {fileID: 0}
 --- !u!1 &1263621716
 GameObject:
   m_ObjectHideFlags: 0
@@ -8270,7 +7389,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1568487013}
+      - m_Target: {fileID: 945297263}
         m_MethodName: icon_OnClick
         m_Mode: 5
         m_Arguments:
@@ -8327,54 +7446,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0ce40b50a28a42439415c674fdbad5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentIconName: 
-  DropOptions_OH_SWITCH:
-  - Disconnect Switch
-  - Overhead Switch Pothead
-  DropOptions_LIGHTNING_ARRESTER:
-  - Ceramic
-  - Polymer
-  - Deadend
-  DropOptions_INSULATOR:
-  - Ceramic
-  - Polymer
-  DropOptions_POLE:
-  - Wooden
-  - Concrete
-  DropOptions_CROSSARM:
-  - Wooden Single
-  - Wooden Double
-  - Concrete Single
-  - Concrete Double
-  DropOptions_VEGETATION:
-  - Oak
-  - Palm
-  DropOptions_CONDUCTOR:
-  - Power line
-  - Jumper
-  - Stirrup
-  DropOptions_OH_TRANSFORMER:
-  - Single
-  - Double
-  - Triple
-  DropOptions_OH_FUSE_SWITCH:
-  - Standard Cut Out
-  - ALS
-  DropOptions_FOREIGN_OBJECT_IN_WIRE:
-  - Mylar Balloon
-  - Kite
-  EQUIPMENT_DROPDWN: {fileID: 0}
-  ICON_SELECTED_TXT: {fileID: 0}
-  DEFAULT_TXT: {fileID: 0}
-  LD_1_BTN: {fileID: 0}
-  LD_3_BTN: {fileID: 0}
-  LD_5_BTN: {fileID: 0}
-  PHASE_A_BTN: {fileID: 0}
-  PHASE_B_BTN: {fileID: 0}
-  PHASE_C_BTN: {fileID: 0}
-  DISCARD_BTN: {fileID: 0}
-  INCLUDE_BTN: {fileID: 0}
-  LD_TXT: {fileID: 0}
 --- !u!1 &1583104194
 GameObject:
   m_ObjectHideFlags: 0
@@ -8588,8 +7659,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1599036722}
-        m_MethodName: getInfo
+      - m_Target: {fileID: 945297257}
+        m_MethodName: 
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8645,54 +7716,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0ce40b50a28a42439415c674fdbad5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentIconName: 
-  DropOptions_OH_SWITCH:
-  - Disconnect Switch
-  - Overhead Switch Pothead
-  DropOptions_LIGHTNING_ARRESTER:
-  - Ceramic
-  - Polymer
-  - Deadend
-  DropOptions_INSULATOR:
-  - Ceramic
-  - Polymer
-  DropOptions_POLE:
-  - Wooden
-  - Concrete
-  DropOptions_CROSSARM:
-  - Wooden Single
-  - Wooden Double
-  - Concrete Single
-  - Concrete Double
-  DropOptions_VEGETATION:
-  - Oak
-  - Palm
-  DropOptions_CONDUCTOR:
-  - Power line
-  - Jumper
-  - Stirrup
-  DropOptions_OH_TRANSFORMER:
-  - Single
-  - Double
-  - Triple
-  DropOptions_OH_FUSE_SWITCH:
-  - Standard Cut Out
-  - ALS
-  DropOptions_FOREIGN_OBJECT_IN_WIRE:
-  - Mylar Balloon
-  - Kite
-  EQUIPMENT_DROPDWN: {fileID: 0}
-  ICON_SELECTED_TXT: {fileID: 0}
-  DEFAULT_TXT: {fileID: 0}
-  LD_1_BTN: {fileID: 0}
-  LD_3_BTN: {fileID: 0}
-  LD_5_BTN: {fileID: 0}
-  PHASE_A_BTN: {fileID: 0}
-  PHASE_B_BTN: {fileID: 0}
-  PHASE_C_BTN: {fileID: 0}
-  DISCARD_BTN: {fileID: 0}
-  INCLUDE_BTN: {fileID: 0}
-  LD_TXT: {fileID: 0}
 --- !u!1 &1765008029
 GameObject:
   m_ObjectHideFlags: 0
@@ -8931,7 +7954,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1782770651}
+      - m_Target: {fileID: 945297263}
         m_MethodName: icon_OnClick
         m_Mode: 5
         m_Arguments:
@@ -8988,54 +8011,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0ce40b50a28a42439415c674fdbad5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentIconName: 
-  DropOptions_OH_SWITCH:
-  - Disconnect Switch
-  - Overhead Switch Pothead
-  DropOptions_LIGHTNING_ARRESTER:
-  - Ceramic
-  - Polymer
-  - Deadend
-  DropOptions_INSULATOR:
-  - Ceramic
-  - Polymer
-  DropOptions_POLE:
-  - Wooden
-  - Concrete
-  DropOptions_CROSSARM:
-  - Wooden Single
-  - Wooden Double
-  - Concrete Single
-  - Concrete Double
-  DropOptions_VEGETATION:
-  - Oak
-  - Palm
-  DropOptions_CONDUCTOR:
-  - Power line
-  - Jumper
-  - Stirrup
-  DropOptions_OH_TRANSFORMER:
-  - Single
-  - Double
-  - Triple
-  DropOptions_OH_FUSE_SWITCH:
-  - Standard Cut Out
-  - ALS
-  DropOptions_FOREIGN_OBJECT_IN_WIRE:
-  - Mylar Balloon
-  - Kite
-  EQUIPMENT_DROPDWN: {fileID: 0}
-  ICON_SELECTED_TXT: {fileID: 0}
-  DEFAULT_TXT: {fileID: 0}
-  LD_1_BTN: {fileID: 0}
-  LD_3_BTN: {fileID: 0}
-  LD_5_BTN: {fileID: 0}
-  PHASE_A_BTN: {fileID: 0}
-  PHASE_B_BTN: {fileID: 0}
-  PHASE_C_BTN: {fileID: 0}
-  DISCARD_BTN: {fileID: 0}
-  INCLUDE_BTN: {fileID: 0}
-  LD_TXT: {fileID: 0}
 --- !u!1 &1783582305
 GameObject:
   m_ObjectHideFlags: 0
@@ -9086,54 +8061,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0ce40b50a28a42439415c674fdbad5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentIconName: 
-  DropOptions_OH_SWITCH:
-  - Disconnect Switch
-  - Overhead Switch Pothead
-  DropOptions_LIGHTNING_ARRESTER:
-  - Ceramic
-  - Polymer
-  - Deadend
-  DropOptions_INSULATOR:
-  - Ceramic
-  - Polymer
-  DropOptions_POLE:
-  - Wooden
-  - Concrete
-  DropOptions_CROSSARM:
-  - Wooden Single
-  - Wooden Double
-  - Concrete Single
-  - Concrete Double
-  DropOptions_VEGETATION:
-  - Oak
-  - Palm
-  DropOptions_CONDUCTOR:
-  - Power line
-  - Jumper
-  - Stirrup
-  DropOptions_OH_TRANSFORMER:
-  - Single
-  - Double
-  - Triple
-  DropOptions_OH_FUSE_SWITCH:
-  - Standard Cut Out
-  - ALS
-  DropOptions_FOREIGN_OBJECT_IN_WIRE:
-  - Mylar Balloon
-  - Kite
-  EQUIPMENT_DROPDWN: {fileID: 0}
-  ICON_SELECTED_TXT: {fileID: 0}
-  DEFAULT_TXT: {fileID: 0}
-  LD_1_BTN: {fileID: 0}
-  LD_3_BTN: {fileID: 0}
-  LD_5_BTN: {fileID: 0}
-  PHASE_A_BTN: {fileID: 0}
-  PHASE_B_BTN: {fileID: 0}
-  PHASE_C_BTN: {fileID: 0}
-  DISCARD_BTN: {fileID: 0}
-  INCLUDE_BTN: {fileID: 0}
-  LD_TXT: {fileID: 0}
 --- !u!114 &1783582308
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9173,7 +8100,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1783582307}
+      - m_Target: {fileID: 945297263}
         m_MethodName: icon_OnClick
         m_Mode: 5
         m_Arguments:
@@ -9297,7 +8224,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1789034264}
+      - m_Target: {fileID: 945297263}
         m_MethodName: icon_OnClick
         m_Mode: 5
         m_Arguments:
@@ -9354,54 +8281,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0ce40b50a28a42439415c674fdbad5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentIconName: 
-  DropOptions_OH_SWITCH:
-  - Disconnect Switch
-  - Overhead Switch Pothead
-  DropOptions_LIGHTNING_ARRESTER:
-  - Ceramic
-  - Polymer
-  - Deadend
-  DropOptions_INSULATOR:
-  - Ceramic
-  - Polymer
-  DropOptions_POLE:
-  - Wooden
-  - Concrete
-  DropOptions_CROSSARM:
-  - Wooden Single
-  - Wooden Double
-  - Concrete Single
-  - Concrete Double
-  DropOptions_VEGETATION:
-  - Oak
-  - Palm
-  DropOptions_CONDUCTOR:
-  - Power line
-  - Jumper
-  - Stirrup
-  DropOptions_OH_TRANSFORMER:
-  - Single
-  - Double
-  - Triple
-  DropOptions_OH_FUSE_SWITCH:
-  - Standard Cut Out
-  - ALS
-  DropOptions_FOREIGN_OBJECT_IN_WIRE:
-  - Mylar Balloon
-  - Kite
-  EQUIPMENT_DROPDWN: {fileID: 0}
-  ICON_SELECTED_TXT: {fileID: 0}
-  DEFAULT_TXT: {fileID: 0}
-  LD_1_BTN: {fileID: 0}
-  LD_3_BTN: {fileID: 0}
-  LD_5_BTN: {fileID: 0}
-  PHASE_A_BTN: {fileID: 0}
-  PHASE_B_BTN: {fileID: 0}
-  PHASE_C_BTN: {fileID: 0}
-  DISCARD_BTN: {fileID: 0}
-  INCLUDE_BTN: {fileID: 0}
-  LD_TXT: {fileID: 0}
 --- !u!1 &1847678341
 GameObject:
   m_ObjectHideFlags: 0
@@ -9945,7 +8824,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2014295620}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 945297257}
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &2014295620
