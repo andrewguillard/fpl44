@@ -27,15 +27,10 @@ public class PoleSpawner : MonoBehaviour
     public Transform[] spawnLocationCrossarmB;
     public Transform[] spawnLocationCrossarmC;
 
-
     //These are just for the crossarm backs
     public Transform[] spawnCrossarmBackWood;
     public Transform[] spawnCrossarmBackConcrete;
     public GameObject[] crossarmBackMaterial;
-
-    public GameObject[] powerLineObject;
-    //public Transform[] spawnPowerLineVerticalB;
-    //public Transform[] spawnPowerLineVerticalC;
 
     public GameObject[] insulatorMaterial; //this is only one atm.
     public GameObject[] poleMaterial; //this is either wood or concrete atm.
@@ -44,9 +39,14 @@ public class PoleSpawner : MonoBehaviour
     public GameObject[] capcitorBank;
     public Transform[] spawnCapacitorBank;
 
-    //Array of pole objects
-    Pole[] newPole = new Pole[20];
-   
+    public GameObject[] fuseSwitchHolderMaterial;
+    public Transform[] spawnFuseSwitchHolder;
+
+    public GameObject[] fuseSwitchMaterial;
+    public Transform[] spawnFuseSwitchLeft;
+    public Transform[] spawnFuseSwitchMiddle;
+    public Transform[] spawnFuseSwitchRight;
+
     private int randomInt;
 
     List<string> poleTypes = new List<string>(new string[] { "Vertical", "ModVertical", "Triangular", "Crossarm" });
@@ -57,13 +57,6 @@ public class PoleSpawner : MonoBehaviour
 
         randomInt = Random.Range(0, x);
         return randomInt;
-    }
-
-    public class Pole {
-        public GameObject PoleObject;   //this might not be needed.
-        public string poleType = "";
-        public int poleMaterial = 0;
-        //public Insulator insulator;
     }
 
     PoleObject[] poleObjectArray = new PoleObject[20];
@@ -90,10 +83,10 @@ public class PoleSpawner : MonoBehaviour
             Vector3 locC = new Vector3(spawnLocationVerticalC[i].transform.position.x, spawnLocationVerticalC[i].transform.position.y, spawnLocationVerticalC[i].transform.position.z);
             insulator[t++] = Instantiate(insulatorMaterial[0], locC, rotateInsulator);
 
-            arrayOfPoles[i] = Instantiate(poleMaterial[getRandom(2)], loc, Quaternion.identity);
-            newPole[i].PoleObject = arrayOfPoles[i];
-            newPole[i].poleType = shuffle[0];
-            // Debug.Log("shuffle is =" + shuffle[0]);
+            int poleRandoNum = getRandom(2);
+            poleObjectArray[i].setPoleMaterial(poleRandoNum);
+
+            arrayOfPoles[i] = Instantiate(poleMaterial[poleRandoNum], loc, Quaternion.identity);
 
             poleObjectArray[i].setInsulatorType("V");
         }
@@ -111,10 +104,10 @@ public class PoleSpawner : MonoBehaviour
             Vector3 locC = new Vector3(spawnLocationVerticalC[i].transform.position.x, spawnLocationVerticalC[i].transform.position.y, spawnLocationVerticalC[i].transform.position.z);
             insulator[t++] = Instantiate(insulatorMaterial[0], locC, rotateInsulator);
 
-            arrayOfPoles[i] = Instantiate(poleMaterial[getRandom(2)], loc, Quaternion.identity);
-            newPole[i].PoleObject = arrayOfPoles[i];
-            newPole[i].poleType = shuffle[0];
-            // Debug.Log("shuffle is =" + shuffle[0]);
+            int poleRandoNum = getRandom(2);
+            poleObjectArray[i].setPoleMaterial(poleRandoNum);
+
+            arrayOfPoles[i] = Instantiate(poleMaterial[poleRandoNum], loc, Quaternion.identity);
 
             poleObjectArray[i].setInsulatorType("V");
         }
@@ -129,6 +122,7 @@ public class PoleSpawner : MonoBehaviour
             wireLoc[j] = insulator[j].transform.Find("Bottom").gameObject;
             wireLoc[j].transform.parent = arrayOfPoles[i].transform;
         }
+
 
         //change wire location to the right wire phase (1->phase a, 2-> b, 3-> c)
         wireLoc= wireLoc.OrderBy(wire => wire.transform.position.y).ToArray();
@@ -159,11 +153,10 @@ public class PoleSpawner : MonoBehaviour
             Vector3 locC = new Vector3(spawnLocationModVerticalC[i].transform.position.x, spawnLocationModVerticalC[i].transform.position.y, spawnLocationModVerticalC[i].transform.position.z);
             insulator[t++] = Instantiate(insulatorMaterial[0], locC, rotateInsulator2);
 
+            int poleRandoNum = getRandom(2);
+            poleObjectArray[i].setPoleMaterial(poleRandoNum);
 
-            arrayOfPoles[i] = Instantiate(poleMaterial[getRandom(2)], loc, Quaternion.identity);
-            newPole[i].PoleObject = arrayOfPoles[i];
-            newPole[i].poleType = shuffle[0];
-            Debug.Log("shuffle is =" + shuffle[0]);
+            arrayOfPoles[i] = Instantiate(poleMaterial[poleRandoNum], loc, Quaternion.identity);
 
             poleObjectArray[i].setInsulatorType("M");
         }
@@ -183,11 +176,10 @@ public class PoleSpawner : MonoBehaviour
             Vector3 locC = new Vector3(spawnLocationModVerticalC[i].transform.position.x, spawnLocationModVerticalC[i].transform.position.y, spawnLocationModVerticalC[i].transform.position.z);
             insulator[t++] = Instantiate(insulatorMaterial[0], locC, rotateInsulator2);
 
+            int poleRandoNum = getRandom(2);
+            poleObjectArray[i].setPoleMaterial(poleRandoNum);
 
-            arrayOfPoles[i] = Instantiate(poleMaterial[getRandom(2)], loc, Quaternion.identity);
-            newPole[i].PoleObject = arrayOfPoles[i];
-            newPole[i].poleType = shuffle[0];
-            Debug.Log("shuffle is =" + shuffle[0]);
+            arrayOfPoles[i] = Instantiate(poleMaterial[poleRandoNum], loc, Quaternion.identity);
 
             poleObjectArray[i].setInsulatorType("M");
         }
@@ -233,10 +225,10 @@ public class PoleSpawner : MonoBehaviour
             Vector3 locA = new Vector3(spawnLocationTriangularA[i].transform.position.x, spawnLocationTriangularA[i].transform.position.y, spawnLocationTriangularA[i].transform.position.z);
             insulator[t++] = Instantiate(insulatorMaterial[0], locA, rotateInsulator3);
 
-            arrayOfPoles[i] = Instantiate(poleMaterial[getRandom(2)], loc, Quaternion.identity);
-            newPole[i].PoleObject = arrayOfPoles[i];
-            newPole[i].poleType = shuffle[0];
-            Debug.Log("shuffle is =" + shuffle[0]);
+            int poleRandoNum = getRandom(2);
+            poleObjectArray[i].setPoleMaterial(poleRandoNum);
+
+            arrayOfPoles[i] = Instantiate(poleMaterial[poleRandoNum], loc, Quaternion.identity);
 
             poleObjectArray[i].setInsulatorType("T");
         }
@@ -258,10 +250,10 @@ public class PoleSpawner : MonoBehaviour
             Vector3 locA = new Vector3(spawnLocationTriangularA[i].transform.position.x, spawnLocationTriangularA[i].transform.position.y, spawnLocationTriangularA[i].transform.position.z);
             insulator[t++] = Instantiate(insulatorMaterial[0], locA, rotateInsulator3);
 
-            arrayOfPoles[i] = Instantiate(poleMaterial[getRandom(2)], loc, Quaternion.identity);
-            newPole[i].PoleObject = arrayOfPoles[i];
-            newPole[i].poleType = shuffle[0];
-            Debug.Log("shuffle is =" + shuffle[0]);
+            int poleRandoNum = getRandom(2);
+            poleObjectArray[i].setPoleMaterial(poleRandoNum);
+
+            arrayOfPoles[i] = Instantiate(poleMaterial[poleRandoNum], loc, Quaternion.identity);
 
             poleObjectArray[i].setInsulatorType("T");
         }
@@ -303,17 +295,10 @@ public class PoleSpawner : MonoBehaviour
             Vector3 locC = new Vector3(spawnLocationCrossarmC[i].transform.position.x, spawnLocationCrossarmC[i].transform.position.y, spawnLocationCrossarmC[i].transform.position.z);
             insulator[t++] = Instantiate(insulatorMaterial[0], locC, rotateInsulator);
 
-            int tempPoleMaterial = getRandom(2);
-            Debug.Log("tempmaterial is:" + tempPoleMaterial);
+            int poleRandoNum = getRandom(2);
+            poleObjectArray[i].setPoleMaterial(poleRandoNum);
 
-            //arrayOfPoles[i] = Instantiate(poleMaterial[getRandom(2)], loc, Quaternion.identity);
-            arrayOfPoles[i] = Instantiate(poleMaterial[tempPoleMaterial], loc, Quaternion.identity);
-
-            //store the type of pole material
-            newPole[i].poleMaterial = tempPoleMaterial;
-            newPole[i].PoleObject = arrayOfPoles[i];
-            newPole[i].poleType = shuffle[0];
-            Debug.Log("shuffle is =" + shuffle[0]);
+            arrayOfPoles[i] = Instantiate(poleMaterial[poleRandoNum], loc, Quaternion.identity);
 
             Quaternion rotatebackWood = Quaternion.Euler(0, 90, 0);
             Quaternion rotatebackConcrete = Quaternion.Euler(180, -90, 0);
@@ -323,14 +308,14 @@ public class PoleSpawner : MonoBehaviour
             poleObjectArray[i].setInsulatorType("SC");
 
             //this will spawn depending on if it's wood or concrete pole. 0 is wood
-            if (newPole[i].poleMaterial.Equals(0)) {
+            if (poleObjectArray[i].poleMaterial.Equals(0)) {
                 Instantiate(crossarmBackMaterial[0], crossWoodVec, rotatebackWood);
-                Debug.Log("The pole material is: " + newPole[i].poleMaterial);
+                //Debug.Log("The pole material is: " + poleObjectArray[i].poleMaterial);
             }
             //1 is concrete
-            else if (newPole[i].poleMaterial.Equals(1)) {
+            else if (poleObjectArray[i].poleMaterial.Equals(1)) {
                 Instantiate(crossarmBackMaterial[1], crossConcreteVec, rotatebackConcrete);
-                Debug.Log("The pole material is: " + newPole[i].poleMaterial);
+                //Debug.Log("The pole material is: " + poleObjectArray[i].poleMaterial);
             }
         }
 
@@ -345,17 +330,11 @@ public class PoleSpawner : MonoBehaviour
             Vector3 locC = new Vector3(spawnLocationCrossarmC[i].transform.position.x, spawnLocationCrossarmC[i].transform.position.y, spawnLocationCrossarmC[i].transform.position.z);
             insulator[t++] = Instantiate(insulatorMaterial[0], locC, rotateInsulator);
 
-            int tempPoleMaterial = getRandom(2);
-            Debug.Log("tempmaterial is:" + tempPoleMaterial);
+            int poleRandoNum = getRandom(2);
+            poleObjectArray[i].setPoleMaterial(poleRandoNum);
 
             //arrayOfPoles[i] = Instantiate(poleMaterial[getRandom(2)], loc, Quaternion.identity);
-            arrayOfPoles[i] = Instantiate(poleMaterial[tempPoleMaterial], loc, Quaternion.identity);
-
-            //store the type of pole material
-            newPole[i].poleMaterial = tempPoleMaterial;
-            newPole[i].PoleObject = arrayOfPoles[i];
-            newPole[i].poleType = shuffle[0];
-            Debug.Log("shuffle is =" + shuffle[0]);
+            arrayOfPoles[i] = Instantiate(poleMaterial[poleRandoNum], loc, Quaternion.identity);
 
             Quaternion rotatebackWood = Quaternion.Euler(0, 0, 0);
             Quaternion rotatebackConcrete = Quaternion.Euler(0, 0, 0);
@@ -365,16 +344,16 @@ public class PoleSpawner : MonoBehaviour
             poleObjectArray[i].setInsulatorType("SC");
 
             //this will spawn depending on if it's wood or concrete pole. 0 is wood
-            if (newPole[i].poleMaterial.Equals(0))
+            if (poleObjectArray[i].getPoleMaterial().Equals(0))
             {
                 Instantiate(crossarmBackMaterial[0], crossWoodVec, rotatebackWood);
-                Debug.Log("The pole material is: " + newPole[i].poleMaterial);
+                Debug.Log("The pole material is: " + poleObjectArray[i].getPoleMaterial());
             }
             //1 is concrete
-            else if (newPole[i].poleMaterial.Equals(1))
+            else if (poleObjectArray[i].getPoleMaterial().Equals(1))
             {
                 Instantiate(crossarmBackMaterial[1], crossConcreteVec, rotatebackConcrete);
-                Debug.Log("The pole material is: " + newPole[i].poleMaterial);
+                Debug.Log("The pole material is: " + poleObjectArray[i].getPoleMaterial());
             }
         }
 
@@ -410,20 +389,73 @@ public class PoleSpawner : MonoBehaviour
         }
     }
 
+    // fuseSwitchHolder;
+    // spawnFuseSwitchHolder;
 
     public void generateCapcitorBank(int i)
     {
         if (i <= 9)
         {
-            Quaternion rotateCapictor = Quaternion.Euler(0, -180, 0);
-            Vector3 BankVec = new Vector3(spawnCapacitorBank[i].transform.position.x, spawnCapacitorBank[i].transform.position.y, spawnCapacitorBank[i].transform.position.z);
-            Instantiate(capcitorBank[0], BankVec, rotateCapictor);
-        }
-        else if (i > 9) {
-            Quaternion rotateCapictor = Quaternion.Euler(0, 90, 0);
+            Quaternion rotateCapictor = Quaternion.Euler(-90, 0, -90);
             Vector3 BankVec = new Vector3(spawnCapacitorBank[i].transform.position.x, spawnCapacitorBank[i].transform.position.y, spawnCapacitorBank[i].transform.position.z);
             Instantiate(capcitorBank[0], BankVec, rotateCapictor);
 
+            if (poleObjectArray[i].getPoleMaterial().Equals(0))
+            {
+                Vector3 fuseVec = new Vector3(spawnFuseSwitchHolder[i].transform.position.x, spawnFuseSwitchHolder[i].transform.position.y, spawnFuseSwitchHolder[i].transform.position.z);
+                Instantiate(fuseSwitchHolderMaterial[0], fuseVec, Quaternion.identity);
+            }
+            else {
+                Vector3 fuseVec = new Vector3(spawnFuseSwitchHolder[i].transform.position.x, spawnFuseSwitchHolder[i].transform.position.y, spawnFuseSwitchHolder[i].transform.position.z);
+                Instantiate(fuseSwitchHolderMaterial[1], fuseVec, Quaternion.identity);
+            }
+
+        }
+        else if (i > 9) {
+            Quaternion rotateCapictor = Quaternion.Euler(-90, 0, -180);
+            Vector3 BankVec = new Vector3(spawnCapacitorBank[i].transform.position.x, spawnCapacitorBank[i].transform.position.y, spawnCapacitorBank[i].transform.position.z);
+            Instantiate(capcitorBank[0], BankVec, rotateCapictor);
+
+            Quaternion rotateBacking = Quaternion.Euler(0, -90, 0);
+            if (poleObjectArray[i].getPoleMaterial().Equals(0))
+            {
+                Vector3 fuseVec = new Vector3(spawnFuseSwitchHolder[i].transform.position.x, spawnFuseSwitchHolder[i].transform.position.y, spawnFuseSwitchHolder[i].transform.position.z);
+                Instantiate(fuseSwitchHolderMaterial[0], fuseVec, rotateBacking);
+            }
+            else
+            {
+                Vector3 fuseVec = new Vector3(spawnFuseSwitchHolder[i].transform.position.x, spawnFuseSwitchHolder[i].transform.position.y, spawnFuseSwitchHolder[i].transform.position.z);
+                Instantiate(fuseSwitchHolderMaterial[1], fuseVec, rotateBacking);
+            }
+        }
+    }
+
+
+
+    public void generateFuseSwitch(int i) {
+        if (i <= 9)
+        {
+            //Left fuse switch
+            Quaternion rotateSwitch = Quaternion.Euler(0, 90, 0);
+            Vector3 FuseVec = new Vector3(spawnFuseSwitchLeft[i].transform.position.x, spawnFuseSwitchLeft[i].transform.position.y, spawnFuseSwitchLeft[i].transform.position.z);
+            Instantiate(fuseSwitchMaterial[0], FuseVec, rotateSwitch);
+            //Middle fuse switch
+            Vector3 FuseVec2 = new Vector3(spawnFuseSwitchMiddle[i].transform.position.x, spawnFuseSwitchMiddle[i].transform.position.y, spawnFuseSwitchMiddle[i].transform.position.z);
+            Instantiate(fuseSwitchMaterial[0], FuseVec2, rotateSwitch);
+            //Right fuse switch
+            Vector3 FuseVec3 = new Vector3(spawnFuseSwitchRight[i].transform.position.x, spawnFuseSwitchRight[i].transform.position.y, spawnFuseSwitchRight[i].transform.position.z);
+            Instantiate(fuseSwitchMaterial[0], FuseVec3, rotateSwitch);
+        }
+        else if (i > 9) {
+
+            Vector3 FuseVec = new Vector3(spawnFuseSwitchLeft[i].transform.position.x, spawnFuseSwitchLeft[i].transform.position.y, spawnFuseSwitchLeft[i].transform.position.z);
+            Instantiate(fuseSwitchMaterial[0], FuseVec, Quaternion.identity);
+            //Middle fuse switch
+            Vector3 FuseVec2 = new Vector3(spawnFuseSwitchMiddle[i].transform.position.x, spawnFuseSwitchMiddle[i].transform.position.y, spawnFuseSwitchMiddle[i].transform.position.z);
+            Instantiate(fuseSwitchMaterial[0], FuseVec2, Quaternion.identity);
+            //Right fuse switch
+            Vector3 FuseVec3 = new Vector3(spawnFuseSwitchRight[i].transform.position.x, spawnFuseSwitchRight[i].transform.position.y, spawnFuseSwitchRight[i].transform.position.z);
+            Instantiate(fuseSwitchMaterial[0], FuseVec3, Quaternion.identity);
         }
     }
 
@@ -453,18 +485,11 @@ public class PoleSpawner : MonoBehaviour
         for (int i = 0; i < spawnPoleLocation.Length; i++)
         {
 
-            newPole[i] = new Pole();
+            //newPole[i] = new Pole();
 
             //Location of new pole
             Vector3 loc = new Vector3(spawnPoleLocation[i].transform.position.x, spawnPoleLocation[i].transform.position.y, spawnPoleLocation[i].transform.position.z);
 
-            generateCapcitorBank(i);
-
-            /*
-            if (i >= 0 && i < 11) {
-                generateCapcitorBank(i);
-            }
-            */
 
             if (i <= 4)
             {
@@ -597,10 +622,15 @@ public class PoleSpawner : MonoBehaviour
                     generateCrossarmInsulators(i, loc, shuffle);
                 }
             }
-            //generateCapcitorBank(i);
+            generateCapcitorBank(i);
+            generateFuseSwitch(i);
         }
         for (int i = 0; i < 20; i++) {
             Debug.Log(poleObjectArray[i].getInsulatorType());
+        }
+        for (int i = 0; i < 20; i++)
+        {
+            Debug.Log(poleObjectArray[i].getPoleMaterial());
         }
     }
 

@@ -25,7 +25,7 @@ public class PoleObject {
     public bool nest;
 
     public PoleObject(){
-        poleMaterial = 0;
+        poleMaterial =0;
         insulatorType="null";
         InsulatorA = 0;
         InsulatorB = 0;
