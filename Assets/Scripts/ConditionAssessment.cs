@@ -10,8 +10,19 @@ public class ConditionAssessment : MonoBehaviour
     //This array holds all the "included" Form structs the user has filled out
     ArrayList UserInputList = new ArrayList();
 
+    public bool LD1;
+    public bool LD3;
+    public bool LD5;
+
+    public bool PHA;
+    public bool PHB;
+    public bool PHC;
+
+    public bool found;
+
     public Image currentImage;
     public string currentIconName;
+    public string currentEquipmentName;
 
     #region DropDown Options
     //Create a List of new Dropdown options
@@ -34,13 +45,19 @@ public class ConditionAssessment : MonoBehaviour
 
     public Text LD_TXT;
     public Button LD_1_BTN;
+    public Image LD_1_IMG;
     public Button LD_3_BTN;
+    public Image LD_3_IMG;
     public Button LD_5_BTN;
+    public Image LD_5_IMG;
 
     public Text PHASE_TXT;
     public Button PHASE_A_BTN;
+    public Image PHASE_A_IMG;
     public Button PHASE_B_BTN;
+    public Image PHASE_B_IMG;
     public Button PHASE_C_BTN;
+    public Image PHASE_C_IMG;
 
     public Button DISCARD_BTN;
     public Button INCLUDE_BTN;
@@ -70,20 +87,16 @@ public class ConditionAssessment : MonoBehaviour
     public struct Form
     {
         public string iconName;
-        public bool phaseA, phaseB, phaseC, DL1, DL3, DL5, selected;
-
-        public Form(string iconName, bool phaseA, bool phaseB, bool phaseC, bool DL1, bool DL3, bool DL5, bool selected)
-        {
-            this.iconName = null;
-            this.phaseA = false;
-            this.phaseB = false;
-            this.phaseC = false;
-            this.DL1 = false;
-            this.DL3 = false;
-            this.DL5 = false;
-            this.selected = false;
-        }
+        public bool phaseA;
+        public bool phaseB;
+        public bool phaseC;
+        public bool DL1;
+        public bool DL3;
+        public bool DL5;
     }
+
+    //Create a new Form struct
+    Form form = new Form();
 
     void Start()
     {
@@ -95,13 +108,20 @@ public class ConditionAssessment : MonoBehaviour
 
         PHASE_TXT = GameObject.Find("PHASE_TXT").GetComponent<Text>();
         PHASE_A_BTN = GameObject.Find("PHASE_A_BTN").GetComponent<Button>();
+        PHASE_A_IMG = GameObject.Find("PHASE_A_IMG").GetComponent<Image>();
         PHASE_B_BTN = GameObject.Find("PHASE_B_BTN").GetComponent<Button>();
+        PHASE_B_IMG = GameObject.Find("PHASE_B_IMG").GetComponent<Image>();
         PHASE_C_BTN = GameObject.Find("PHASE_C_BTN").GetComponent<Button>();
+        PHASE_C_IMG = GameObject.Find("PHASE_C_IMG").GetComponent<Image>();
 
         LD_TXT = GameObject.Find("LD_TXT").GetComponent<Text>();
         LD_1_BTN = GameObject.Find("LD_1_BTN").GetComponent<Button>();
+        LD_1_IMG = GameObject.Find("LD_1_IMG").GetComponent<Image>();
         LD_3_BTN = GameObject.Find("LD_3_BTN").GetComponent<Button>();
+        LD_3_IMG = GameObject.Find("LD_3_IMG").GetComponent<Image>();
         LD_5_BTN = GameObject.Find("LD_5_BTN").GetComponent<Button>();
+        LD_5_IMG = GameObject.Find("LD_5_IMG").GetComponent<Image>();
+
 
         INCLUDE_BTN = GameObject.Find("INCLUDE_BTN").GetComponent<Button>();
         DISCARD_BTN = GameObject.Find("DISCARD_BTN").GetComponent<Button>();
@@ -162,10 +182,33 @@ public class ConditionAssessment : MonoBehaviour
     {
         EQUIPMENT_DROPDWN.ClearOptions();
         hideDrop();
+        showIconSelectedText();
+        highlight(LD_1_IMG, "removed");
+        highlight(LD_3_IMG, "removed");
+        highlight(LD_5_IMG, "removed");
+        highlight(PHASE_A_IMG, "removed");
+        highlight(PHASE_B_IMG, "removed");
+        highlight(PHASE_C_IMG, "removed");
+        LD1 = false;
+        LD3 = false;
+        LD5 = false;
+        PHA = false;
+        PHB = false;
+        PHC = false;
+
         if (currentImage != null)
         {
             if (currentImage.color == Color.grey)
                 highlight(currentImage, "removed");
+        }
+
+        foreach (Form la in UserInputList)
+        {
+            if (la.iconName == iconName)
+            {
+                found = true;
+                break;
+            }
         }
 
         switch (iconName)
@@ -222,6 +265,8 @@ public class ConditionAssessment : MonoBehaviour
                 severityForm(iconName);
                 currentImage = REGULATOR_IMG;
                 highlight(currentImage, "active");
+                if (found == true)
+                    fillForm(currentIconName);
                 break;
 
             case "VEGETATION":
@@ -266,7 +311,10 @@ public class ConditionAssessment : MonoBehaviour
                 showIconSelectedText();
                 severityForm(iconName);
                 currentImage = CAPACITOR_IMG;
-                highlight(currentImage, "active"); break;
+                highlight(currentImage, "active");
+                if (found == true)
+                    fillForm(currentIconName);
+                break;
 
             case "RECLOSER":
                 currentIconName = iconName;
@@ -275,6 +323,8 @@ public class ConditionAssessment : MonoBehaviour
                 severityForm(iconName);
                 currentImage = RECLOSER_IMG;
                 highlight(currentImage, "active");
+                if (found == true)
+                    fillForm(currentIconName);
                 break;
 
             case "CONNECTIONS_ON_FEEDER_CONDUCTOR":
@@ -284,6 +334,8 @@ public class ConditionAssessment : MonoBehaviour
                 severityForm(iconName);
                 currentImage = CONNECTIONS_ON_FEEDER_CONDUCTOR_IMG;
                 highlight(currentImage, "active");
+                if (found == true)
+                    fillForm(currentIconName);
                 break;
 
             case "NEST":
@@ -293,6 +345,8 @@ public class ConditionAssessment : MonoBehaviour
                 severityForm(iconName);
                 currentImage = NEST_IMG;
                 highlight(currentImage, "active");
+                if (found == true)
+                    fillForm(currentIconName);
                 break;
 
             case "DOWN_GUY":
@@ -302,6 +356,8 @@ public class ConditionAssessment : MonoBehaviour
                 severityForm(iconName);
                 currentImage = DOWN_GUY_IMG;
                 highlight(currentImage, "active");
+                if (found == true)
+                    fillForm(currentIconName);
                 break;
 
             case "RISER_SHIELD":
@@ -311,6 +367,8 @@ public class ConditionAssessment : MonoBehaviour
                 severityForm(iconName);
                 currentImage = RISER_SHIELD_IMG;
                 highlight(currentImage, "active");
+                if (found == true)
+                    fillForm(currentIconName);
                 break;
 
             case "FOREIGN_OBJECT_IN_WIRE":
@@ -330,10 +388,55 @@ public class ConditionAssessment : MonoBehaviour
                 severityForm(iconName);
                 currentImage = FAULT_CURRENT_INDICATOR_IMG;
                 highlight(currentImage, "active");
+                if (found == true)
+                    fillForm(currentIconName);
                 break;
 
             default:
                 print("ERROR: Icon not recognized.");
+                break;
+        }
+    }
+
+    public void form_OnClick(string button)
+    {
+        switch (button)
+        {
+            case "1":
+                highlight(LD_1_IMG, "active");
+                LD1 = true;
+                LD3 = false;
+                highlight(LD_3_IMG, "removed");
+                LD5 = false;
+                highlight(LD_5_IMG, "removed");
+                break;
+            case "3":
+                highlight(LD_3_IMG, "active");
+                LD3 = true;
+                LD1 = false;
+                highlight(LD_1_IMG, "removed");
+                LD5 = false;
+                highlight(LD_5_IMG, "removed");
+                break;
+            case "5":
+                highlight(LD_5_IMG, "active");
+                LD5 = true;
+                LD3 = false;
+                highlight(LD_3_IMG, "removed");
+                LD1 = false;
+                highlight(LD_1_IMG, "removed");
+                break;
+            case "A":
+                highlight(PHASE_A_IMG, "active");
+                PHA = true;
+                break;
+            case "B":
+                highlight(PHASE_B_IMG, "active");
+                PHB = true;
+                break;
+            case "C":
+                highlight(PHASE_C_IMG, "active");
+                PHC = true;
                 break;
         }
     }
@@ -366,55 +469,154 @@ public class ConditionAssessment : MonoBehaviour
     //Store user's form in formArray
     public void include_OnClick()
     {
-        print("include_OnClick method fired");
-        
-        //Create a new Form struct
-        Form form = new Form();
-
         //Highlight the equipment icon yellow
         highlight(currentImage, "included");
 
-        //TODO: Fill out form struct
-        //form.iconName = currentIconName;
-        //if (currentIconName.selected)
-        //    form.iconName = true;
-        //if (PHASE_A_BTN.selected)
-        //    form.phaseA = true;
-        //if (PHASE_B_BTN.selected)
-        //    form.phaseA = true;
-        //if (PHASE_C_BTN.selected)
-        //    form.phaseA = true;
-        //if (DL_1_BTN.selected)
-        //    form.DL1 = true;
-        //if (DL_3_BTN.selected)
-        //    form.DL3 = true;
-        //if (DL_5_BTN.selected)
-        //    form.DL5 = true;
+        //Fill out form struct
+        if (currentIconName == "OH_SWITCH" ||
+            currentIconName == "LIGHTNING_ARRESTER" ||
+            currentIconName == "INSULATOR" ||
+            currentIconName == "POLE" ||
+            currentIconName == "CROSSARM" ||
+            currentIconName == "VEGETATION" ||
+            currentIconName == "CONDUCTOR" ||
+            currentIconName == "OH_TRANSFORMER" ||
+            currentIconName == "OH_FUSE_SWITCH" ||
+            currentIconName == "FOREIGN_OBJECT_IN_WIRE")
+        {
+            form.iconName = EQUIPMENT_DROPDWN.options[EQUIPMENT_DROPDWN.value].text;
+        }
+        else
+        {
+            form.iconName = currentIconName;
+        }
 
-        //TODO: Add the struct to the user's answers array
+        if (PHA)
+            form.phaseA = true;
 
+        if (PHB)
+            form.phaseB = true;
+
+        if (PHC)
+            form.phaseC = true;
+
+        if (LD1)
+        {
+            form.DL1 = true;
+            form.DL3 = false;
+            form.DL5 = false;
+        }
+
+        if (LD3)
+        {
+            form.DL3 = true;
+            form.DL1 = false;
+            form.DL5 = false;
+        }
+
+        if (LD5)
+        {
+            form.DL5 = true;
+            form.DL1 = false;
+            form.DL3 = false;
+        }
+
+        foreach (Form la in UserInputList)
+        {
+            //if the form has already been filled out, remove the old version
+            if (la.iconName == currentIconName)
+            {
+                UserInputList.Remove(la);
+                break;
+            }
+        }
+        
+        //Add the new form 
+        UserInputList.Add(form);
         resetToStart();
     }
 
     //Clear user's answers for that specific form
     public void discard_OnClick()
     {
-        print("discard_OnClick method fired");
+        if (currentIconName == "OH_SWITCH" ||
+            currentIconName == "LIGHTNING_ARRESTER" ||
+            currentIconName == "INSULATOR" ||
+            currentIconName == "POLE" ||
+            currentIconName == "CROSSARM" ||
+            currentIconName == "VEGETATION" ||
+            currentIconName == "CONDUCTOR" ||
+            currentIconName == "OH_TRANSFORMER" ||
+            currentIconName == "OH_FUSE_SWITCH" ||
+            currentIconName == "FOREIGN_OBJECT_IN_WIRE")
+        {
+            currentEquipmentName = EQUIPMENT_DROPDWN.options[EQUIPMENT_DROPDWN.value].text;
+        }
+        else
+        {
+            currentEquipmentName = currentIconName;
+        }
 
-        //Find appropriate struct in formArray and delete it
+        if (currentImage.color == Color.yellow)
+        {
+            //Remove yellow Highlight From icon
+            highlight(currentImage, "removed");
+            highlight(LD_1_IMG, "removed");
+            highlight(LD_3_IMG, "removed");
+            highlight(LD_5_IMG, "removed");
+            highlight(PHASE_A_IMG, "removed");
+            highlight(PHASE_B_IMG, "removed");
+            highlight(PHASE_C_IMG, "removed");
 
-        //Remove yellow Highlight From icon
-        highlight(currentImage, "removed");
-
-
+            //Find appropriate struct in formArray and delete it
+            foreach (Form la in UserInputList)
+            {
+                print("currently checking:" + la.iconName + currentIconName );
+                if (la.iconName == currentEquipmentName)
+                {
+                    print("found what we want to delete");
+                    UserInputList.Remove(la);
+                    break;
+                }
+            }
+        }
         resetToStart();
-
     }
 
-    //If the form for the selected icon has already been filled out, populate the form
-    public void fillForm()
+    //If the form for the selected icon has already been filled out, show the user what they have already inputted
+    public void fillForm(string Equipment)
     {
-
+        foreach (Form la in UserInputList)
+        {
+            if (la.iconName == Equipment)
+            {
+                if (la.DL1)
+                {
+                    highlight(LD_1_IMG, "active");
+                    highlight(LD_3_IMG, "removed");
+                    highlight(LD_5_IMG, "removed");
+                }
+                if (la.DL3)
+                {
+                    highlight(LD_1_IMG, "removed");
+                    highlight(LD_3_IMG, "active");
+                    highlight(LD_5_IMG, "removed");
+                }
+                if (la.DL5)
+                {
+                    highlight(LD_1_IMG, "removed");
+                    highlight(LD_3_IMG, "removed");
+                    highlight(LD_5_IMG, "active");
+                }
+                if (la.phaseA)
+                    highlight(PHASE_A_IMG, "active");
+                if (la.phaseB)
+                    highlight(PHASE_B_IMG, "active");
+                if (la.phaseC)
+                    highlight(PHASE_C_IMG, "active");
+                break;
+            }
+        }
     }
 
     #region hide/show buttons
@@ -493,6 +695,11 @@ public class ConditionAssessment : MonoBehaviour
         print("submit_OnClick method fired");
         resetToStart();
         hideDefaultText();
+        foreach (Form la in UserInputList) 
+        { 
+            print(la.iconName + " :" + " DL1 = " + la.DL1 + " DL3 = " + la.DL3 + " DL5 = " + la.DL5 + " PHA = " + la.phaseA + " PHB = " + la.phaseB + " PHC = " + la.phaseC);
+        }
+        //print(UserInputList);
 
         //print the solution on the form
     }
