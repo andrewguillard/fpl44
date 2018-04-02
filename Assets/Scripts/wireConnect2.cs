@@ -9,7 +9,7 @@ public class wireConnect2 : MonoBehaviour {
     private GameObject[] poles;
     public Material wireMaterial;
 	// Use this for initialization
-	void Start () {
+	public void connectWire () {
 
         if(poleSpawnObject.GetComponent<PoleGeneration>() != null)
             poles = poleSpawnObject.GetComponent<PoleGeneration>().getPoleList();
@@ -32,12 +32,12 @@ public class wireConnect2 : MonoBehaviour {
                 else
                 {
                     temp = findMarker(name, poles[i]);
-                    print(temp.name);
+                    //print(temp.name);
                     wireObject[i,j] = temp;
 
                     //find out marker, if not found use in marker
                     wireObject[i, j + 3] = findOutMarker(name, poles[i]);
-                    print(findOutMarker(name, poles[i]).name);
+                    //print(findOutMarker(name, poles[i]).name);
 
                     //dont add cable script to the last pole
                     if (i == poles.Length - 1)
@@ -62,6 +62,7 @@ public class wireConnect2 : MonoBehaviour {
             {
                 CableScript cable =  wireObject[i,j+3].transform.GetComponent<CableScript>();
                 cable.setEndPoint(wireObject[i+1,j].gameObject);
+                cable.setSagAmplitude(1);
             }
         }
 

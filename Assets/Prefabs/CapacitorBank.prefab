@@ -90,6 +90,7 @@ GameObject:
   - component: {fileID: 4281755462753184}
   - component: {fileID: 95337778485334410}
   - component: {fileID: 114547393555141348}
+  - component: {fileID: 114544763152985066}
   m_Layer: 0
   m_Name: CapacitorBank
   m_TagString: Untagged
@@ -1099,6 +1100,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   equipmentName: FuseSwitch
+  phase: 78
+  level: 0
+--- !u!114 &114544763152985066
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1161972288425176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fcd432285b926e44b10d60f5ff38b39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  equipmentName: CapacitorBank
   phase: 78
   level: 0
 --- !u!114 &114547393555141348

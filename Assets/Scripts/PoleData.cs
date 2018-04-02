@@ -4,16 +4,14 @@ using UnityEngine;
 
 public class PoleData : MonoBehaviour
 {
-    public Data[] poleData;
+    Data[] poleData;
+    public int poleIndex;
 
     void Start()
     {
         poleData = getData();
-        //foreach(Data i in poleData)
-        //{
-        //    i.printData();
-        //}
     }
+
     public Data[] getData()
     {
         List<Data> ret = new List<Data>();
@@ -27,5 +25,10 @@ public class PoleData : MonoBehaviour
         }
 
         return ret.ToArray();
+    }
+
+    public string[,] getDataString()
+    {
+        return null;
     }
 }

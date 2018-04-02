@@ -1,29 +1,52 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 using System.Text.RegularExpressions;
 
 public class CapacitorBank2 : MonoBehaviour {
-    public void Start()
+
+    void Start()
     {
-        fillwire();
+        Transform parent = transform.parent;
+        if (parent.GetComponent<PoleData>() !=null)
+        {
+            List<GameObject> fuseSwitch = new List<GameObject>();
+            //initiate pole , bring fuse switch out
+            foreach (Transform child in transform)
+            {
+
+                if (child.name == "FuseSwitch")
+                {
+                    fuseSwitch.Add(child.gameObject);
+                }
+            }
+            changeParent(fuseSwitch, parent.gameObject);
+
+        }
     }
 
+    //Use this for initialization
     public void fillwire()
     {
+        int poleIndex = 0;
         //get wireDirection from name
-        
-        string temp = Regex.Match(transform.name, @"\d+").ToString();
-        if (temp == "")
-            temp = Regex.Match(transform.parent.name, @"\d+").ToString();
+        string[] numbers = Regex.Split(transform.parent.name, @"\D+");
+        foreach (string value in numbers)
+        {
+            if (!string.IsNullOrEmpty(value))
+            {
+                poleIndex = int.Parse(value);
+            }
+        }
 
-        if (int.Parse(temp) < 10)  //need to figure out how to get this number 10
+        if (poleIndex < 10)  //need to figure out how to get this number 10
             fillwire("x");
         else
             fillwire("z");
     }
 
-	// Use this for initialization
+	//overloaded -  Use this for initialization
 	public void fillwire (string wireDirection) {
 
         //make points for jumper
@@ -106,7 +129,6 @@ public class CapacitorBank2 : MonoBehaviour {
         GameObject newB = createNewPoint(old2, lineDirection,-0.5f,"B");
         GameObject newC = createNewPoint(old3, lineDirection,0.8f,"C");
 
-
     }
 
     void setABCtoAMBMCM(GameObject pole, string lineDirection)
@@ -153,8 +175,21 @@ public class CapacitorBank2 : MonoBehaviour {
         ret.name = Name + "2";
 
         //connect 2 points with wire
-        UtilityFunctions.lineConnect(ret, old, 0.07f, 5,0.01f);
+        UtilityFunctions.lineConnect(old, ret, 0.07f, 5,0.01f);
 
         return ret;
+    }
+
+    void changeParent(GameObject child, GameObject parent)
+    {
+        child.transform.parent = parent.transform;
+    }
+
+    void changeParent(List<GameObject> children, GameObject parent)
+    {
+        foreach(GameObject child in children)
+        {
+            child.transform.parent = parent.transform;
+        }
     }
 }

@@ -5,17 +5,19 @@ using UnityEngine;
 
 public class PoleGeneration : MonoBehaviour {
 
-    public GameObject[] poles; // sets of poles
-    public GameObject CornerPole;
-    public GameObject startSpot; // Pole next where player start 
-    public int numberOfPole = 20;
-    private GameObject[] poleList;
+    public GameObject[] poles;      // sets of poles template to instantiate
+    public GameObject CornerPole;   //corner pole template
+    public GameObject startSpot;    // Pole next where player start 
+    public int numberOfPole = 20;   //number of pole you want to put in the scene
+    private GameObject[] poleList;  //list of all poles that are instatiated
 
     private SceneData menuSelected;
     // Use this for initialization
-    void Awake()
+    public void generatePoles()
     {
+        //make this gameobject is where stores all poles that instatiated
         this.name = "ListOfPoles";
+
 
         menuSelected = GameObject.FindObjectOfType<SceneData>();
         print("framming = "+ ((menuSelected.getFraming()==null)?"null": menuSelected.getFraming()));
@@ -41,7 +43,7 @@ public class PoleGeneration : MonoBehaviour {
 
 
 
-        ////create 10 new gameObject
+        ////create new gameObjects
         poleList = new GameObject[numberOfPole+1];
 
         //get a zone order
@@ -79,8 +81,6 @@ public class PoleGeneration : MonoBehaviour {
     //populate poles into scence
     private void populatePole(GameObject[] template) {
 
-        startSpot.name = "ListOfPole";
-
         Vector3 tempStart = new Vector3(0, 0, 0);
         tempStart = startSpot.transform.position;
         int numPoleAZone  = numberOfPole / template.Length;
@@ -107,8 +107,9 @@ public class PoleGeneration : MonoBehaviour {
                 }
                 poleList[index].name = name;
                 poleList[index].transform.SetParent(transform);
-
                 poleList[index].AddComponent<PoleData>();
+                poleList[index].GetComponent<PoleData>().poleIndex = index;
+
 
                 //set new location
                 if (index <= (numberOfPole/2))
@@ -129,6 +130,8 @@ public class PoleGeneration : MonoBehaviour {
                 string name = "pole" + index + corner.transform.name;
                 poleList[index].name = name;
                 poleList[index].transform.SetParent(transform);
+                poleList[index].AddComponent<PoleData>();
+                poleList[index].GetComponent<PoleData>().poleIndex = index;
 
                 tempStart.Set(tempStart.x, tempStart.y, tempStart.z - 20);
 
