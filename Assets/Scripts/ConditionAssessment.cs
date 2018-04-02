@@ -66,8 +66,9 @@ public class ConditionAssessment : MonoBehaviour
 
     void Start()
     {
+		print ("CAF Start Called");
         ICON_SELECTED_TXT = GameObject.Find("ICON_SELECTED_TXT").GetComponent<Text>();
-        EQUIPMENT_DROPDWN = GameObject.Find("EQUIPMENT_DROPDWN").GetComponent<Dropdown>();
+		EQUIPMENT_DROPDWN = GameObject.Find("EQUIPMENT_DROPDWN").GetComponent<Dropdown>();
 
         DEFAULT_TXT = GameObject.Find("DEFAULT_TXT").GetComponent<Text>();
 
@@ -83,6 +84,12 @@ public class ConditionAssessment : MonoBehaviour
 
         INCLUDE_BTN = GameObject.Find("INCLUDE_BTN").GetComponent<Button>();
         DISCARD_BTN = GameObject.Find("DISCARD_BTN").GetComponent<Button>();
+
+		hideSeverity ();
+		hidePhase ();
+		hideDrop ();
+		hideIncludeDiscard ();
+		showDefaultText ();
 
         //DEFAULT_TXT.gameObject.SetActive(true);
         ////ICON_SELECTED_TXT = gameObject.SetActive(false);
@@ -109,15 +116,15 @@ public class ConditionAssessment : MonoBehaviour
 
         switch (iconName)
         {
-            case "OH_SWITCH":
-                currentIconName = iconName;
+			case "OH_SWITCH":
+				currentIconName = iconName;
                 print(iconName + " icon clicked");
                 EQUIPMENT_DROPDWN.AddOptions(DropOptions_OH_SWITCH);
                 severityForm(iconName);
                 break;
 
-            case "LIGHTNING_ARRESTER":
-                currentIconName = iconName;
+			case "LIGHTNING_ARRESTER":
+				currentIconName = iconName;
                 print(iconName + " icon clicked");
                 EQUIPMENT_DROPDWN.AddOptions(DropOptions_LIGHTNING_ARRESTER);
                 severityForm(iconName);
@@ -130,7 +137,7 @@ public class ConditionAssessment : MonoBehaviour
                 phaseSeverityForm(iconName);
                 break;
 
-            case "POLE":
+            case "POLE": //Test comment
                 currentIconName = iconName;
                 print(iconName + " icon clicked");
                 EQUIPMENT_DROPDWN.AddOptions(DropOptions_POLE);
@@ -366,6 +373,55 @@ public class ConditionAssessment : MonoBehaviour
         INCLUDE_BTN.gameObject.SetActive(false);
         DISCARD_BTN.gameObject.SetActive(false);
     }
+
+	public void hideSeverity(){
+		LD_TXT.gameObject.SetActive(false);
+		LD_1_BTN.gameObject.SetActive(false);
+		LD_3_BTN.gameObject.SetActive(false);
+		LD_5_BTN.gameObject.SetActive(false);
+	}
+	public void showSeverity(){
+		LD_TXT.gameObject.SetActive(true);
+		LD_1_BTN.gameObject.SetActive(true);
+		LD_3_BTN.gameObject.SetActive(true);
+		LD_5_BTN.gameObject.SetActive(true);
+	}
+
+	public void hidePhase(){
+		PHASE_TXT.gameObject.SetActive(false);
+		PHASE_A_BTN.gameObject.SetActive(false);
+		PHASE_B_BTN.gameObject.SetActive(false);
+		PHASE_C_BTN.gameObject.SetActive(false);
+	}
+	public void showPhase(){
+		PHASE_TXT.gameObject.SetActive(true);
+		PHASE_A_BTN.gameObject.SetActive(true);
+		PHASE_B_BTN.gameObject.SetActive(true);
+		PHASE_C_BTN.gameObject.SetActive(true);
+	}
+
+	public void hideDrop(){
+		EQUIPMENT_DROPDWN.gameObject.SetActive(false);
+	}
+	public void showDrop(){
+		EQUIPMENT_DROPDWN.gameObject.SetActive(true);
+	}
+
+	public void hideIncludeDiscard(){
+		INCLUDE_BTN.gameObject.SetActive(false);
+		DISCARD_BTN.gameObject.SetActive(false);
+	}
+	public void showIncludeDiscard(){
+		INCLUDE_BTN.gameObject.SetActive(true);
+		DISCARD_BTN.gameObject.SetActive(true);
+	}
+
+	public void hideDefaultText(){
+		DEFAULT_TXT.gameObject.SetActive(false);
+	}
+	public void showDefaultText(){
+		DEFAULT_TXT.gameObject.SetActive(true);
+	}
 
     //Check user's answers
     public void submit_OnClick()
