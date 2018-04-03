@@ -5036,21 +5036,21 @@ MonoBehaviour:
   PHC: 0
   found: 0
   currentImage: {fileID: 0}
-  currentIconName: 
-  currentEquipmentName: 
+  HasBeenSubmitted: 0
   DropOptions_OH_SWITCH:
   - Disconnect Switch
   - Overhead Switch Pothead
+  - AFS
   DropOptions_LIGHTNING_ARRESTER:
-  - Ceramic
-  - Polymer
-  - Deadend
+  - Ceramic LA
+  - Polymer LA
   DropOptions_INSULATOR:
-  - Ceramic
-  - Polymer
+  - Ceramic Insulator
+  - Polymer Insulator
+  - Deadend Insulator
   DropOptions_POLE:
-  - Wooden
-  - Concrete
+  - Wooden Pole
+  - Concrete Pole
   DropOptions_CROSSARM:
   - Wooden Single
   - Wooden Double
@@ -5064,14 +5064,14 @@ MonoBehaviour:
   - Jumper
   - Stirrup
   DropOptions_OH_TRANSFORMER:
-  - Single
-  - Double
-  - Triple
+  - Single Transformer
+  - Double Transformer
+  - Triple Transformer
   DropOptions_OH_FUSE_SWITCH:
-  - Standard Cut Out
+  - Fuse Switch
   - ALS
   DropOptions_FOREIGN_OBJECT_IN_WIRE:
-  - Mylar Balloon
+  - Balloon
   - Kite
   EQUIPMENT_DROPDWN: {fileID: 0}
   ICON_SELECTED_TXT: {fileID: 0}
@@ -6875,6 +6875,7 @@ GameObject:
   - component: {fileID: 1234331266}
   - component: {fileID: 1234331265}
   - component: {fileID: 1234331268}
+  - component: {fileID: 1234331269}
   m_Layer: 5
   m_Name: EQUIPMENT_DROPDWN
   m_TagString: Untagged
@@ -6957,18 +6958,7 @@ MonoBehaviour:
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1234331268}
-        m_MethodName: dropdown_OnClick
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: UnityEngine.UI.Dropdown+DropdownEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1234331266
@@ -7018,6 +7008,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0ce40b50a28a42439415c674fdbad5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1234331269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1234331263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c20ae10d0e771c4e8e980b105fecbde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EQUIPMENT_DROPDWN: {fileID: 0}
 --- !u!1 &1245578499
 GameObject:
   m_ObjectHideFlags: 0

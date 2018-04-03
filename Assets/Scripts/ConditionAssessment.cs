@@ -10,6 +10,11 @@ public class ConditionAssessment : MonoBehaviour
     //This array holds all the "included" Form structs the user has filled out
     ArrayList UserInputList = new ArrayList();
 
+    //This is an array for test purposes that is the answer key
+    ArrayList AnswerKeyTest = new ArrayList();
+
+    public GameObject pole;
+
     public bool LD1;
     public bool LD3;
     public bool LD5;
@@ -21,21 +26,22 @@ public class ConditionAssessment : MonoBehaviour
     public bool found;
 
     public Image currentImage;
-    public string currentIconName;
-    public string currentEquipmentName;
+    public static string currentIconName;
+    public static string currentEquipmentName;
+    public bool HasBeenSubmitted = false;
 
     #region DropDown Options
     //Create a List of new Dropdown options
     public List<string> DropOptions_OH_SWITCH = new List<string> { "Disconnect Switch", "Overhead Switch Pothead", "AFS" };
-    public List<string> DropOptions_LIGHTNING_ARRESTER = new List<string> { "Ceramic", "Polymer", "Deadend" };
-    public List<string> DropOptions_INSULATOR = new List<string> { "Ceramic", "Polymer" };
-    public List<string> DropOptions_POLE = new List<string> { "Wooden", "Concrete" };
+    public List<string> DropOptions_LIGHTNING_ARRESTER = new List<string> { "Ceramic LA", "Polymer LA" };
+    public List<string> DropOptions_INSULATOR = new List<string> { "Ceramic Insulator", "Polymer Insulator", "Deadend Insulator" };
+    public List<string> DropOptions_POLE = new List<string> { "Wooden Pole", "Concrete Pole" };
     public List<string> DropOptions_CROSSARM = new List<string> { "Wooden Single", "Wooden Double", "Concrete Single", "Concrete Double" };
     public List<string> DropOptions_VEGETATION = new List<string> { "Oak", "Palm" };
     public List<string> DropOptions_CONDUCTOR = new List<string> { "Power line", "Jumper", "Stirrup" };
-    public List<string> DropOptions_OH_TRANSFORMER = new List<string> { "Single", "Double", "Triple" };
-    public List<string> DropOptions_OH_FUSE_SWITCH = new List<string> { "Standard Cut Out", "ALS" };
-    public List<string> DropOptions_FOREIGN_OBJECT_IN_WIRE = new List<string> { "Mylar Balloon", "Kite" };
+    public List<string> DropOptions_OH_TRANSFORMER = new List<string> { "Single Transformer", "Double Transformer", "Triple Transformer" };
+    public List<string> DropOptions_OH_FUSE_SWITCH = new List<string> { "Fuse Switch", "ALS" };
+    public List<string> DropOptions_FOREIGN_OBJECT_IN_WIRE = new List<string> { "Balloon", "Kite" };
     #endregion
 
     #region Condition Assessment Components
@@ -83,6 +89,11 @@ public class ConditionAssessment : MonoBehaviour
 
     #endregion
 
+    public void getAnswerArray()
+    {
+        
+    }
+
     //Form Struct: One individual Form
     public struct Form
     {
@@ -100,9 +111,11 @@ public class ConditionAssessment : MonoBehaviour
 
     void Start()
     {
+
         #region get all the components
         ICON_SELECTED_TXT = GameObject.Find("ICON_SELECTED_TXT").GetComponent<Text>();
         EQUIPMENT_DROPDWN = GameObject.Find("EQUIPMENT_DROPDWN").GetComponent<Dropdown>();
+        EQUIPMENT_DROPDWN.onValueChanged.AddListener(delegate { myDropdownValueChangedHandler(EQUIPMENT_DROPDWN); });
 
         DEFAULT_TXT = GameObject.Find("DEFAULT_TXT").GetComponent<Text>();
 
@@ -147,6 +160,59 @@ public class ConditionAssessment : MonoBehaviour
         #endregion
 
         resetToStart();
+
+        form.iconName = "RECLOSER";
+        form.DL1 = true;
+        form.DL3 = false;
+        form.DL5 = false;
+        form.phaseA = false;
+        form.phaseB = false;
+        form.phaseC = false;
+        AnswerKeyTest.Add(form);
+
+        form.iconName = "CAPACITOR";
+        form.DL1 = true;
+        form.DL3 = false;
+        form.DL5 = false;
+        form.phaseA = false;
+        form.phaseB = false;
+        form.phaseC = false;
+        AnswerKeyTest.Add(form);
+
+        form.iconName = "AFS";
+        form.DL1 = true;
+        form.DL3 = false;
+        form.DL5 = false;
+        form.phaseA = false;
+        form.phaseB = false;
+        form.phaseC = false;
+        AnswerKeyTest.Add(form);
+    }
+
+    private void myDropdownValueChangedHandler(Dropdown target)
+    {
+        currentEquipmentName = EQUIPMENT_DROPDWN.options[EQUIPMENT_DROPDWN.value].text;
+        print("currenteqname was just changed to: " + currentEquipmentName);
+        print("index" + target);
+
+        foreach (Form la in UserInputList)
+        {
+            print("comparing: " + la.iconName + " and " + currentEquipmentName);
+
+            if (la.iconName == currentEquipmentName)
+            {
+                print("found = true");
+                found = true;
+                break;
+            }
+        }
+
+        if (found)
+        {
+            fillForm(currentEquipmentName, "active");
+            print("got into found");
+        }
+
     }
 
     //Highlights the icon image depending on the state
@@ -204,6 +270,7 @@ public class ConditionAssessment : MonoBehaviour
 
         foreach (Form la in UserInputList)
         {
+
             if (la.iconName == iconName)
             {
                 found = true;
@@ -266,7 +333,7 @@ public class ConditionAssessment : MonoBehaviour
                 currentImage = REGULATOR_IMG;
                 highlight(currentImage, "active");
                 if (found == true)
-                    fillForm(currentIconName);
+                    fillForm(currentIconName, "active");
                 break;
 
             case "VEGETATION":
@@ -313,7 +380,7 @@ public class ConditionAssessment : MonoBehaviour
                 currentImage = CAPACITOR_IMG;
                 highlight(currentImage, "active");
                 if (found == true)
-                    fillForm(currentIconName);
+                    fillForm(currentIconName, "active");
                 break;
 
             case "RECLOSER":
@@ -324,7 +391,7 @@ public class ConditionAssessment : MonoBehaviour
                 currentImage = RECLOSER_IMG;
                 highlight(currentImage, "active");
                 if (found == true)
-                    fillForm(currentIconName);
+                    fillForm(currentIconName, "active");
                 break;
 
             case "CONNECTIONS_ON_FEEDER_CONDUCTOR":
@@ -335,7 +402,7 @@ public class ConditionAssessment : MonoBehaviour
                 currentImage = CONNECTIONS_ON_FEEDER_CONDUCTOR_IMG;
                 highlight(currentImage, "active");
                 if (found == true)
-                    fillForm(currentIconName);
+                    fillForm(currentIconName, "active");
                 break;
 
             case "NEST":
@@ -346,7 +413,7 @@ public class ConditionAssessment : MonoBehaviour
                 currentImage = NEST_IMG;
                 highlight(currentImage, "active");
                 if (found == true)
-                    fillForm(currentIconName);
+                    fillForm(currentIconName, "active");
                 break;
 
             case "DOWN_GUY":
@@ -357,7 +424,7 @@ public class ConditionAssessment : MonoBehaviour
                 currentImage = DOWN_GUY_IMG;
                 highlight(currentImage, "active");
                 if (found == true)
-                    fillForm(currentIconName);
+                    fillForm(currentIconName, "active");
                 break;
 
             case "RISER_SHIELD":
@@ -368,7 +435,7 @@ public class ConditionAssessment : MonoBehaviour
                 currentImage = RISER_SHIELD_IMG;
                 highlight(currentImage, "active");
                 if (found == true)
-                    fillForm(currentIconName);
+                    fillForm(currentIconName, "active");
                 break;
 
             case "FOREIGN_OBJECT_IN_WIRE":
@@ -389,7 +456,7 @@ public class ConditionAssessment : MonoBehaviour
                 currentImage = FAULT_CURRENT_INDICATOR_IMG;
                 highlight(currentImage, "active");
                 if (found == true)
-                    fillForm(currentIconName);
+                    fillForm(currentIconName, "active");
                 break;
 
             default:
@@ -427,16 +494,40 @@ public class ConditionAssessment : MonoBehaviour
                 highlight(LD_1_IMG, "removed");
                 break;
             case "A":
-                highlight(PHASE_A_IMG, "active");
-                PHA = true;
+                if (PHASE_A_IMG.color == Color.grey)
+                {
+                    highlight(PHASE_A_IMG, "removed");
+                    PHA = false;
+                }
+                else
+                {
+                    highlight(PHASE_A_IMG, "active");
+                    PHA = true;
+                }
                 break;
             case "B":
-                highlight(PHASE_B_IMG, "active");
-                PHB = true;
+                if (PHASE_B_IMG.color == Color.grey)
+                {
+                    highlight(PHASE_B_IMG, "removed");
+                    PHB = false;
+                }
+                else
+                {
+                    highlight(PHASE_B_IMG, "active");
+                    PHB = true;
+                }
                 break;
             case "C":
-                highlight(PHASE_C_IMG, "active");
-                PHC = true;
+                if (PHASE_C_IMG.color == Color.grey)
+                {
+                    highlight(PHASE_C_IMG, "removed");
+                    PHC = false;
+                }
+                else
+                {
+                    highlight(PHASE_C_IMG, "active");
+                    PHC = true;
+                }
                 break;
         }
     }
@@ -530,7 +621,7 @@ public class ConditionAssessment : MonoBehaviour
                 break;
             }
         }
-        
+
         //Add the new form 
         UserInputList.Add(form);
         resetToStart();
@@ -571,7 +662,7 @@ public class ConditionAssessment : MonoBehaviour
             //Find appropriate struct in formArray and delete it
             foreach (Form la in UserInputList)
             {
-                print("currently checking:" + la.iconName + currentIconName );
+                print("currently checking:" + la.iconName + currentEquipmentName);
                 if (la.iconName == currentEquipmentName)
                 {
                     print("found what we want to delete");
@@ -584,7 +675,7 @@ public class ConditionAssessment : MonoBehaviour
     }
 
     //If the form for the selected icon has already been filled out, show the user what they have already inputted
-    public void fillForm(string Equipment)
+    public void fillForm(string Equipment, string state)
     {
         foreach (Form la in UserInputList)
         {
@@ -592,28 +683,28 @@ public class ConditionAssessment : MonoBehaviour
             {
                 if (la.DL1)
                 {
-                    highlight(LD_1_IMG, "active");
+                    highlight(LD_1_IMG, state);
                     highlight(LD_3_IMG, "removed");
                     highlight(LD_5_IMG, "removed");
                 }
                 if (la.DL3)
                 {
                     highlight(LD_1_IMG, "removed");
-                    highlight(LD_3_IMG, "active");
+                    highlight(LD_3_IMG, state);
                     highlight(LD_5_IMG, "removed");
                 }
                 if (la.DL5)
                 {
                     highlight(LD_1_IMG, "removed");
                     highlight(LD_3_IMG, "removed");
-                    highlight(LD_5_IMG, "active");
+                    highlight(LD_5_IMG, state);
                 }
                 if (la.phaseA)
-                    highlight(PHASE_A_IMG, "active");
+                    highlight(PHASE_A_IMG, state);
                 if (la.phaseB)
-                    highlight(PHASE_B_IMG, "active");
+                    highlight(PHASE_B_IMG, state);
                 if (la.phaseC)
-                    highlight(PHASE_C_IMG, "active");
+                    highlight(PHASE_C_IMG, state);
                 break;
             }
         }
@@ -692,16 +783,244 @@ public class ConditionAssessment : MonoBehaviour
     //Check user's answers
     public void submit_OnClick()
     {
-        print("submit_OnClick method fired");
+        HasBeenSubmitted = true;
         resetToStart();
         hideDefaultText();
-        foreach (Form la in UserInputList) 
-        { 
-            print(la.iconName + " :" + " DL1 = " + la.DL1 + " DL3 = " + la.DL3 + " DL5 = " + la.DL5 + " PHA = " + la.phaseA + " PHB = " + la.phaseB + " PHC = " + la.phaseC);
-        }
-        //print(UserInputList);
 
-        //print the solution on the form
+        foreach (Form la in UserInputList)
+        {
+            print("USER INPUT:\t" + la.iconName + " :" + " \t DL1 = " + la.DL1 + "\t DL3 = " + la.DL3 + "\t DL5 = " + la.DL5 + "\t PHA = " + la.phaseA + "\t PHB = " + la.phaseB + "\t PHC = " + la.phaseC);
+        }
+        foreach (Form lo in AnswerKeyTest)
+        {
+            print("ANSWER KEY:\t" + lo.iconName + " :" + " \t DL1 = " + lo.DL1 + "\t DL3 = " + lo.DL3 + "\t DL5 = " + lo.DL5 + "\t PHA = " + lo.phaseA + "\t PHB = " + lo.phaseB + "\t PHC = " + lo.phaseC);
+        }
+
+        foreach (Form la in UserInputList)
+        {
+            //Completely Correct
+            if (AnswerKeyTest.Contains(la))
+            {
+                //Highlight icon in green
+                highlightAfterSubmit(la.iconName, "correct");
+
+                //Highlight correct answers in green
+
+                //Test print
+                print(la.iconName + "has been checked as correct");
+
+            }
+            else
+            {
+                //Highlight icon in red
+                highlightAfterSubmit(la.iconName, "incorrect");
+
+                //Highlight correct answers in red
+
+                //Test print
+                print(la.iconName + "has been checked as incorrect");
+            }
+        }
+
+        foreach (Form lo in AnswerKeyTest)
+        {
+            if (!UserInputList.Contains(lo))
+            {
+                //Highlight icon in red
+                highlightAfterSubmit(lo.iconName, "incorrect");
+
+                print(lo.iconName + "is in the answerkey but not in the userinput");
+
+            }
+            //Highlight correct answers in red
+
+        }
+    }
+
+    public void highlightAfterSubmit(string eqName, string state)
+    {
+        switch (eqName)
+        {
+            case "Disconnect Switch":
+                highlight(OH_SWITCH_IMG, state);
+                break;
+
+            case "Disconnect Switch Pothead":
+                highlight(OH_SWITCH_IMG, state);
+                break;
+
+            case "AFS":
+                highlight(OH_SWITCH_IMG, state);
+                break;
+
+            case "Ceramic LA":
+                highlight(LIGHTNING_ARRESTER_IMG, state);
+                break;
+
+            case "Polymer LA":
+                highlight(LIGHTNING_ARRESTER_IMG, state);
+                break;
+
+            case "Ceramic Insulator":
+                highlight(INSULATOR_IMG, state);
+                break;
+
+            case "Polymer Insulator":
+                highlight(INSULATOR_IMG, state);
+                break;
+
+            case "Deadend Insulator":
+                highlight(INSULATOR_IMG, state);
+                break;
+
+            case "Wooden Pole":
+                highlight(POLE_IMG, state);
+                break;
+
+            case "Concrete Pole":
+                highlight(POLE_IMG, state);
+                break;
+
+            case "Wooden Single":
+                highlight(CROSS_ARM_IMG, state);
+                break;
+
+            case "Wooden Double":
+                highlight(CROSS_ARM_IMG, state);
+                break;
+
+            case "Concrete Single":
+                highlight(CROSS_ARM_IMG, state);
+                break;
+
+            case "Concrete Double":
+                highlight(CROSS_ARM_IMG, state);
+                break;
+
+            case "REGULATOR":
+                highlight(REGULATOR_IMG, state);
+                break;
+
+            case "Oak":
+                highlight(VEGETATION_IMG, state);
+                break;
+
+            case "Palm":
+                highlight(VEGETATION_IMG, state);
+                break;
+
+            case "Power line":
+                highlight(CONDUCTOR_IMG, state);
+                break;
+
+            case "Jumper":
+                highlight(CONDUCTOR_IMG, state);
+                break;
+
+            case "Stirrup":
+                highlight(CONDUCTOR_IMG, state);
+                break;
+
+            case "Single Transformer":
+                highlight(OH_TRANSFORMER_IMG, state);
+                break;
+
+            case "Double Transformer":
+                highlight(OH_TRANSFORMER_IMG, state);
+                break;
+
+            case "Triple Transformer":
+                highlight(OH_TRANSFORMER_IMG, state);
+                break;
+
+            case "Fuse Switch":
+                highlight(OH_FUSE_SWITCH_IMG, state);
+                break;
+
+            case "ALS":
+                highlight(OH_FUSE_SWITCH_IMG, state);
+                break;
+
+            case "CAPACITOR":
+                highlight(CAPACITOR_IMG, state);
+                break;
+
+            case "RECLOSER":
+                highlight(RECLOSER_IMG, state);
+                break;
+
+            case "CONNECTIONS_ON_FEEDER_CONDUCTOR":
+                highlight(CONNECTIONS_ON_FEEDER_CONDUCTOR_IMG, state);
+                break;
+
+            case "NEST":
+                highlight(NEST_IMG, state);
+                break;
+
+            case "DOWN_GUY":
+                highlight(DOWN_GUY_IMG, state);
+                break;
+
+            case "RISER_SHIELD":
+                highlight(RISER_SHIELD_IMG, state);
+                break;
+
+            case "Balloon":
+                highlight(FOREIGN_OBJECT_IN_WIRE_IMG, state);
+                break;
+
+            case "Kite":
+                highlight(FOREIGN_OBJECT_IN_WIRE_IMG, state);
+                break;
+
+            case "FAULT_CURRENT_INDICATOR":
+                highlight(FAULT_CURRENT_INDICATOR_IMG, state);
+                break;
+
+            default:
+                print("not icon not found in highlightAfterSubmit");
+                break;
+        }
     }
 
 }
+
+//public class DropDown : MonoBehaviour
+//{
+
+//    void start()
+//    {
+//        EQUIPMENT_DROPDWN = GameObject.Find("EQUIPMENT_DROPDWN").GetComponent<Dropdown>();
+//        //GameObject CAF_Asset = GameObject.Find("CAF_CANVAS");
+//        //ConditionAssessment CAF = CAF_Asset.GetComponent<ConditionAssessment>();
+
+//    }
+
+//    public Dropdown EQUIPMENT_DROPDWN; 
+
+//    public void DropDownOnClick(int index)
+//    {
+//        string currentIconName = ConditionAssessment.currentIconName;
+
+//        switch (currentIconName)
+//        {
+//            case "OH_SWITCH":
+//                if (index == 0)
+//                {
+//                    ConditionAssessment.currentEquipmentName = "Disconnect Switch";
+//                }
+//                if (index == 1)
+//                {
+//                    ConditionAssessment.currentEquipmentName = "Overhead Switch";
+//                }
+//                if (index == 2)
+//                {
+//                    ConditionAssessment.currentEquipmentName = "AFS";
+//                }
+//                break;
+
+//            default:
+//                break;
+//        }
+//    }
+//}
