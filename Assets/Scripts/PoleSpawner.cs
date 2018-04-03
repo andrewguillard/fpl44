@@ -389,16 +389,14 @@ public class PoleSpawner : MonoBehaviour
         }
     }
 
-    // fuseSwitchHolder;
-    // spawnFuseSwitchHolder;
-
     public void generateCapcitorBank(int i)
     {
+        
         if (i <= 9)
         {
-            Quaternion rotateCapictor = Quaternion.Euler(-90, 0, -90);
+            //Quaternion rotateCapictor = Quaternion.Euler(-90, 0, -90);
             Vector3 BankVec = new Vector3(spawnCapacitorBank[i].transform.position.x, spawnCapacitorBank[i].transform.position.y, spawnCapacitorBank[i].transform.position.z);
-            Instantiate(capcitorBank[0], BankVec, rotateCapictor);
+            Instantiate(capcitorBank[0], BankVec, Quaternion.identity);
 
             if (poleObjectArray[i].getPoleMaterial().Equals(0))
             {
@@ -410,9 +408,20 @@ public class PoleSpawner : MonoBehaviour
                 Instantiate(fuseSwitchHolderMaterial[1], fuseVec, Quaternion.identity);
             }
 
+            /*
+            //UtilityFunctions.lineConnect(s, e, 0.03f, 5, 0.7f);
+
+            //GameObject sPoint = this.gameObject.transform.GetChild(4).gameObject;
+            /*
+            if (sPoint == null || ePoint == null)
+                Debug.Log("Couldn't find it");
+            else
+                UtilityFunctions.lineConnect(sPoint, ePoint, 0.03f, 5, 0.7f);
+              */
+
         }
         else if (i > 9) {
-            Quaternion rotateCapictor = Quaternion.Euler(-90, 0, -180);
+            Quaternion rotateCapictor = Quaternion.Euler(0, -90, 0);
             Vector3 BankVec = new Vector3(spawnCapacitorBank[i].transform.position.x, spawnCapacitorBank[i].transform.position.y, spawnCapacitorBank[i].transform.position.z);
             Instantiate(capcitorBank[0], BankVec, rotateCapictor);
 
@@ -428,6 +437,104 @@ public class PoleSpawner : MonoBehaviour
                 Instantiate(fuseSwitchHolderMaterial[1], fuseVec, rotateBacking);
             }
         }
+        /*
+        string[] fuseConnectors = { "LFS", "MFS", "RFS" };
+        for (int t = 0; t < fuseConnectors.Length; t++)
+        {
+            string fuseBottom = fuseConnectors[t];
+            string bank = fuseConnectors[t] + 1;
+
+            GameObject s = fuseSwitchMaterial[0].transform.Find(fuseBottom).gameObject;
+            GameObject e = fuseSwitchMaterial[0].transform.Find(bank).gameObject; 
+
+            UtilityFunctions.lineConnect(s, e, 0.03f, 5, 0.7f);
+        }
+        */
+
+
+        string[] phases = { "A", "B", "C" };
+
+        //connect transformer to fuse switch
+        for (int t = 0; t < phases.Length; t++)
+        {
+            string sname = phases[t];
+            string ename = phases[t] + "2";
+            string topName = phases[t] + "3";
+
+            GameObject sPoint = capcitorBank[0].transform.Find(sname).gameObject;
+            GameObject ePoint = capcitorBank[0].transform.Find(ename).gameObject;
+            GameObject topPoint = capcitorBank[0].transform.Find(topName).gameObject;
+
+            UtilityFunctions.lineConnect(sPoint, ePoint, 0.03f, 5, 0.7f);
+        }
+        //Debug.Log("The " + i + " pole insulator type is0..." + poleObjectArray[i].getInsulatorType());
+        //B3, A3, C3
+        //V, M, T, SC, DC
+        if (poleObjectArray[i].getInsulatorType() == "V")
+        {
+            Debug.Log("Vinside The " + i + " pole insulator type is..." + poleObjectArray[i].getInsulatorType());
+            GameObject bStart = capcitorBank[0].transform.Find("B3").gameObject;
+            GameObject bFinish = capcitorBank[0].transform.Find("VB").gameObject;
+            UtilityFunctions.lineConnect(bStart, bFinish, 0.03f, 5, 0.7f);
+
+            GameObject aStart = capcitorBank[0].transform.Find("A3").gameObject;
+            GameObject aFinish = capcitorBank[0].transform.Find("VA").gameObject;
+            UtilityFunctions.lineConnect(aStart, aFinish, 0.03f, 5, 0.7f);
+
+            GameObject cStart = capcitorBank[0].transform.Find("C3").gameObject;
+            GameObject cFinish = capcitorBank[0].transform.Find("VC").gameObject;
+            UtilityFunctions.lineConnect(cStart, cFinish, 0.03f, 5, 0.7f);
+        }
+        else if (poleObjectArray[i].getInsulatorType() == "M")
+        {
+            Debug.Log("Minside The " + i + " pole insulator type is..." + poleObjectArray[i].getInsulatorType());
+            GameObject bStart = capcitorBank[0].transform.Find("B3").gameObject;
+            GameObject bFinish = capcitorBank[0].transform.Find("MVB").gameObject;
+            UtilityFunctions.lineConnect(bStart, bFinish, 0.03f, 5, 0.7f);
+
+            GameObject aStart = capcitorBank[0].transform.Find("A3").gameObject;
+            GameObject aFinish = capcitorBank[0].transform.Find("MVA").gameObject;
+            UtilityFunctions.lineConnect(aStart, aFinish, 0.03f, 5, 0.7f);
+
+            GameObject cStart = capcitorBank[0].transform.Find("C3").gameObject;
+            GameObject cFinish = capcitorBank[0].transform.Find("MVC").gameObject;
+            UtilityFunctions.lineConnect(cStart, cFinish, 0.03f, 5, 0.7f);
+        }
+        else if (poleObjectArray[i].getInsulatorType() == "T")
+        {
+            Debug.Log("Minside The " + i + " pole insulator type is..." + poleObjectArray[i].getInsulatorType());
+            GameObject bStart = capcitorBank[0].transform.Find("B3").gameObject;
+            GameObject bFinish = capcitorBank[0].transform.Find("TB").gameObject;
+            UtilityFunctions.lineConnect(bStart, bFinish, 0.03f, 5, 0.7f);
+
+            GameObject aStart = capcitorBank[0].transform.Find("A3").gameObject;
+            GameObject aFinish = capcitorBank[0].transform.Find("TA").gameObject;
+            UtilityFunctions.lineConnect(aStart, aFinish, 0.03f, 5, 0.7f);
+
+            GameObject cStart = capcitorBank[0].transform.Find("C3").gameObject;
+            GameObject cFinish = capcitorBank[0].transform.Find("TC").gameObject;
+            UtilityFunctions.lineConnect(cStart, cFinish, 0.03f, 5, 0.7f);
+        }
+        
+        else if (poleObjectArray[i].getInsulatorType() == "SC")
+        {
+            Debug.Log("Minside The " + i + " pole insulator type is..." + poleObjectArray[i].getInsulatorType());
+            GameObject bStart = capcitorBank[0].transform.Find("B3").gameObject;
+            GameObject bFinish = capcitorBank[0].transform.Find("SCB").gameObject;
+            UtilityFunctions.lineConnect(bStart, bFinish, 0.03f, 5, 0.7f);
+
+            GameObject aStart = capcitorBank[0].transform.Find("A3").gameObject;
+            GameObject aFinish = capcitorBank[0].transform.Find("SCA").gameObject;
+            UtilityFunctions.lineConnect(aStart, aFinish, 0.03f, 5, 0.7f);
+
+            GameObject cStart = capcitorBank[0].transform.Find("C3").gameObject;
+            GameObject cFinish = capcitorBank[0].transform.Find("SCC").gameObject;
+            UtilityFunctions.lineConnect(cStart, cFinish, 0.03f, 5, 0.7f);
+        }
+        
+        else
+            return;
+           
     }
 
 
@@ -435,8 +542,9 @@ public class PoleSpawner : MonoBehaviour
     public void generateFuseSwitch(int i) {
         if (i <= 9)
         {
-            //Left fuse switch
+
             Quaternion rotateSwitch = Quaternion.Euler(0, 90, 0);
+            //Left fuse switch
             Vector3 FuseVec = new Vector3(spawnFuseSwitchLeft[i].transform.position.x, spawnFuseSwitchLeft[i].transform.position.y, spawnFuseSwitchLeft[i].transform.position.z);
             Instantiate(fuseSwitchMaterial[0], FuseVec, rotateSwitch);
             //Middle fuse switch
@@ -445,9 +553,11 @@ public class PoleSpawner : MonoBehaviour
             //Right fuse switch
             Vector3 FuseVec3 = new Vector3(spawnFuseSwitchRight[i].transform.position.x, spawnFuseSwitchRight[i].transform.position.y, spawnFuseSwitchRight[i].transform.position.z);
             Instantiate(fuseSwitchMaterial[0], FuseVec3, rotateSwitch);
+
         }
         else if (i > 9) {
 
+            //Left fuse switch
             Vector3 FuseVec = new Vector3(spawnFuseSwitchLeft[i].transform.position.x, spawnFuseSwitchLeft[i].transform.position.y, spawnFuseSwitchLeft[i].transform.position.z);
             Instantiate(fuseSwitchMaterial[0], FuseVec, Quaternion.identity);
             //Middle fuse switch
@@ -457,6 +567,31 @@ public class PoleSpawner : MonoBehaviour
             Vector3 FuseVec3 = new Vector3(spawnFuseSwitchRight[i].transform.position.x, spawnFuseSwitchRight[i].transform.position.y, spawnFuseSwitchRight[i].transform.position.z);
             Instantiate(fuseSwitchMaterial[0], FuseVec3, Quaternion.identity);
         }
+       // GameObject s = transform.Find("Bank").gameObject;
+      //  GameObject e = transform.Find("Bottom of FS").gameObject;
+       // UtilityFunctions.lineConnect(s, e, 0.03f, 5, 0.7f);
+
+        //GameObject s = fuseSwitchMaterial[0].transform.Find("LFS").gameObject;
+        //GameObject e = fuseSwitchMaterial[0].transform.Find("RFS").gameObject;
+        //UtilityFunctions.lineConnect(s, e, 0.03f, 5, 0.7f);
+
+        //GameObject s3 = fuseSwitchMaterial[0].transform.Find("RFS").gameObject;
+        //GameObject e3 = fuseSwitchMaterial[0].transform.Find("RFS1").gameObject;
+        //UtilityFunctions.lineConnect(s3, e3, 0.03f, 5, 0.7f);
+
+        /*
+        string[] fuseConnectors = { "LFS", "MFS", "RFS" };
+        for (int t = 0; t < fuseConnectors.Length; t++)
+        {
+            string fuseBottom = fuseConnectors[t];
+            string bank = fuseConnectors[t] + 1;
+
+            GameObject s = fuseSwitchMaterial[0].transform.Find(fuseBottom).gameObject;
+            GameObject e = fuseSwitchMaterial[0].transform.Find(bank).gameObject;
+
+            UtilityFunctions.lineConnect(s, e, 0.03f, 5, 0.7f);
+        }
+       */
     }
 
     void Awake()
@@ -472,7 +607,7 @@ public class PoleSpawner : MonoBehaviour
         //List<string> shuffle = new List<string>();
         //set these indexes and uncomment if you want to fix the insulator type
         //shuffle.Add(poleTypes[0]); //In order to test put 0-3 into here.
-        //shuffle.Add(poleTypes[0]);
+        //shuffle.Add(poleTypes[3]);
         //shuffle.Add(poleTypes[0]);
         //shuffle.Add(poleTypes[0]);
 
