@@ -17,6 +17,8 @@ public class EquipmentGenerator : MonoBehaviour {
 
         foreach (string equip in equips)
         {
+            if (equip.Contains("Pole") || equip.Contains("Insulator"))
+                continue;
             foreach(GameObject pole in poleList)
             {
                 if (getEquip(equip) != null)
@@ -34,6 +36,8 @@ public class EquipmentGenerator : MonoBehaviour {
 
             }
         }
+
+        disableEquipmentSet();
     }
 
     void disableEquipmentSet()

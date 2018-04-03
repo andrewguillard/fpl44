@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class SceneData : MonoBehaviour {
     public static string framing;
@@ -51,20 +53,63 @@ public class SceneData : MonoBehaviour {
         }
 
         damageEquipment.Add(t);
+
+        //printDamageEquip();
 	}
 
     public void removeDamageEquipment(string t)
     {
         damageEquipment.Remove(t);
+        //printDamageEquip();
     }
 
     public void clearEquip()
     {
-        damageEquipment.Clear();
+        if(damageEquipment != null)
+            damageEquipment.Clear();
     }
 
 	public void setDamageLevel(int i){
         damageLevel = i;
 	}
 
+    public void loadScene(string sceneName)
+    {
+        print("button click and  load scene " + sceneName);
+        SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
+
+        //testing
+        print("load scene");
+        print("framming = "+getFraming() + "\t\t level = "+getDamageLevel());
+        string ret = "";
+        foreach(string t in getDamageEquipmentArray())
+        {
+            ret += t + "--";
+        }
+        print(ret);
+    }
+
+    //platform specific compilation: code will run differently depending on if it's being run on Unity or not
+    public void quit()
+    {
+        //if we are running on the editor
+        #if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+
+        //if we are not running in the editor (like the build)
+        #else
+        Application.Quit();
+        
+        #endif
+    }
+
+    public void printDamageEquip()
+    {
+        string t = "";
+        foreach(string equip in damageEquipment)
+        {
+            t += equip + "|";
+        }
+        print(t);
+    }
 }
