@@ -8,52 +8,55 @@ public class DamageGenerator : MonoBehaviour {
 	public GameObject poleList;
 	public SceneData data;
 	public GameObject damageSet;
+
 	// Use this for initialization
-	void Start () {
+	public void generateDamage () {
 		//get damage equipment 
-		string equipment = data.getDamageEquipment();
+		string[] equipments = data.getDamageEquipmentArray();
 		int level = data.getDamageLevel();
         GameObject[] poleArray= getChildObjects(poleList);
 
-        //check if user select any equipment
-        if (!equipment.Equals("any"))
+        //for each equipment in list that user selected
+        foreach (string equipment in equipments)
         {
             //for each pole
             for (int i = 0; i < poleArray.Length; i++)
             {
                 int tempLevel = level;
-                
+
                 //check if they want random level
-                if(level == -1)
+                if (level == -1)
                     //generate a random number 
                     tempLevel = UnityEngine.Random.Range(1, 4);// 3 level of damage 1/2/3/
-                
+
                 GameObject oldEquipment = getEquipmentToReplace(poleArray[i], equipment);
+                if (oldEquipment == null) { continue; } //this pole doesn't have that equipment
+
                 GameObject damagePrefab = getDamagePrefab(damageSet, oldEquipment.name, tempLevel);
+                if (damagePrefab == null) continue;
 
                 //record damage level and equipment to poledata
                 Data oldData = oldEquipment.GetComponent<Data>();
 
-                GameObject newObject=  replaceObject(oldEquipment, damagePrefab);
+                GameObject newObject = replaceObject(oldEquipment, damagePrefab);
 
                 newObject.AddComponent<Data>();
                 Data newData = newObject.GetComponent<Data>();
                 newData.setData(oldData);
                 newData.level = tempLevel;
+
+                //call appriate function for different type of equipment
+                if (equipment == "CapacitorBank")
+                {
+                    newObject.GetComponent<CapacitorBank2>().fillwire();
+                }
             }
         }
-        else
-        {
-            //user want random equipment
-
-            
-        }
-
-
         //at the end , deactive damageset
         damageSet.SetActive(false);
     }
 
+    //find all children object in a gameobject
     GameObject[] getChildObjects(GameObject parent)
     {
         List<GameObject> temp = new List<GameObject>();
@@ -65,7 +68,14 @@ public class DamageGenerator : MonoBehaviour {
         return temp.ToArray();
     }
 
+    //get prefab of damage equipment for an available set
 	GameObject getDamagePrefab(GameObject damageSet, string equipment, int level){
+        if (damageSet.transform.Find(equipment) == null)
+        {
+            print("Damage set doesn't have "+equipment);
+            return null;
+        }
+        
         //if damage level is any
         GameObject ret;
         if (level == -1)
@@ -77,17 +87,12 @@ public class DamageGenerator : MonoBehaviour {
         
         //if damage is a specific number
         string name = equipment+"/"+equipment + level;
-     
         ret = GameObject.Find(name);
-        if (ret == null)
-            print("can't get prefab from damage set");
         return ret;
 	}
 
-	GameObject getEquipmentToReplace(GameObject pole, string name ){
-        //pole gameobject is a single pole
-
-        //find all gameobject with same tag
+    GameObject getEquipmentToReplace(GameObject pole, string name) {
+        //all gameobject is a single pole
         List<GameObject> equipmentList = new List<GameObject>();
 
         foreach (Transform child in pole.transform)
@@ -97,12 +102,13 @@ public class DamageGenerator : MonoBehaviour {
                 equipmentList.Add(child.gameObject);
             }
         }
+        if (equipmentList.Count == 0) {return null; }
+
 
         int randomIndex = Random.Range(0, equipmentList.Count);
 
         GameObject ret = equipmentList.ToArray()[randomIndex];
-        if (ret == null)
-            print("Cant get equipment to replace");
+
         return ret;
     }
 
