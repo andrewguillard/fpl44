@@ -66,10 +66,11 @@ public class SelectiveSceneManager : MonoBehaviour {
 			GameObject tempScene = Instantiate (screenPrefab,location ,screenPrefab.transform.rotation);
 			tempScene.name = "CAF" + poleIndex;
 
-			tempScene.GetComponent<ConditionAssessment> ().pole = pole;
-		}
+            ConditionAssessment form = GameObject.Find("CAFScreen/CAF_CANVAS").GetComponent<ConditionAssessment>();
+            form.pole = pole;
+        }
 
-		screenPrefab.SetActive (false);
+        screenPrefab.SetActive(false);
 
     }
 
