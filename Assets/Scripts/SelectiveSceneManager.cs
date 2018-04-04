@@ -8,6 +8,13 @@ public class SelectiveSceneManager : MonoBehaviour {
     void Start () {
         SceneData data = transform.GetComponent<SceneData>();
 
+        //debug 
+        print("Selective trainning");
+        string l = "";
+        foreach (string n in data.getDamageEquipmentArray())
+            l += n + "--";
+        print(l + "\n" + data.getDamageLevel() + "\n" + data.getFraming());
+
         //trigger pole generator'
         if (GameObject.Find("PoleGenerator") == null) {
             print("Can't find pole generator");

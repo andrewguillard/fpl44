@@ -51,26 +51,26 @@ public class EquipmentGenerator : MonoBehaviour {
             }
         }
 
-        //decide what pole and what equipment to spawn
-        GameObject[] prefabArray= new GameObject[listPrefab.Count];
-        listPrefab.CopyTo(prefabArray);
+        if(listPrefab.Count != 0) { 
+   
+            //decide what pole and what equipment to spawn
+            GameObject[] prefabArray = new GameObject[listPrefab.Count];
+            listPrefab.CopyTo(prefabArray);
 
-        //for each pole 
-        foreach(GameObject pole in poleList)
-        {
-            int randomIndex = Random.Range(0, prefabArray.Length);
-            GameObject eq = Instantiate(prefabArray[randomIndex], pole.transform);
-            eq.transform.parent = pole.transform;
-            eq.name = prefabArray[randomIndex].name;
+            //for each pole 
+            foreach (GameObject pole in poleList)
+            {
+                int randomIndex = Random.Range(0, prefabArray.Length);
+                GameObject eq = Instantiate(prefabArray[randomIndex], pole.transform);
+                eq.transform.parent = pole.transform;
+                eq.name = prefabArray[randomIndex].name;
 
-            ////call appriate function for different type of equipment
-            //if (eq.name == "CapacitorBank")
-            //{
-            //    eq.GetComponent<CapacitorBank2>().fillwire();
-            //}
 
-            //add more equipment in this pole
+                //add more equipment in this pole
+
+            }
         }
+
 
 
         disableEquipmentSet();
