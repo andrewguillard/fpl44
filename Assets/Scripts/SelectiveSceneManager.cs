@@ -71,11 +71,11 @@ public class SelectiveSceneManager : MonoBehaviour {
             tempScene.name = "CAF" + poleIndex;
             string searchString = tempScene.name+"/CAF_CANVAS";
 
-            //ConditionAssessment form = tempScene.transform.Find(searchString).GetComponent<ConditionAssessment>();
-            //form.pole = pole;
         }
 
-        //screenPrefab.SetActive(false);
+        screenPrefab.SetActive(false);
+
+
 
     }
 
