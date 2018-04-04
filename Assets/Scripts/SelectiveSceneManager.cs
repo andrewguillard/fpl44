@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class SelectiveSceneManager : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
+    public GameObject screenPrefab;
+    // Use this for initialization
+    void Start () {
         SceneData data = transform.GetComponent<SceneData>();
 
         //trigger pole generator'
@@ -53,7 +53,7 @@ public class SelectiveSceneManager : MonoBehaviour {
 
         //CAF generator 
         GameObject[] poles = poleGenerator.getPoleList();
-        GameObject screenPrefab = GameObject.Find("CAFScreen").gameObject;
+        //GameObject screenPrefab = GameObject.Find("CAFScreen").gameObject;
         foreach (GameObject pole in poles)
         {
             Vector3 location = pole.transform.position;
@@ -69,12 +69,13 @@ public class SelectiveSceneManager : MonoBehaviour {
             }
             GameObject tempScene = Instantiate(screenPrefab, location, screenPrefab.transform.rotation);
             tempScene.name = "CAF" + poleIndex;
+            string searchString = tempScene.name+"/CAF_CANVAS";
 
-            ConditionAssessment form = GameObject.Find("CAFScreen/CAF_CANVAS").GetComponent<ConditionAssessment>();
-            form.pole = pole;
+            //ConditionAssessment form = tempScene.transform.Find(searchString).GetComponent<ConditionAssessment>();
+            //form.pole = pole;
         }
 
-        screenPrefab.SetActive(false);
+        //screenPrefab.SetActive(false);
 
     }
 
