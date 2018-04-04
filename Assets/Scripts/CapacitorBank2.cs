@@ -48,7 +48,7 @@ public class CapacitorBank2 : MonoBehaviour {
 
 	//overloaded -  Use this for initialization
 	public void fillwire (string wireDirection) {
-
+        print("at " + transform.parent +" | " + transform);
         //make points for jumper
         connectToJumper(transform.parent.gameObject, wireDirection);
 
@@ -98,7 +98,6 @@ public class CapacitorBank2 : MonoBehaviour {
     {
         //in the pole has 2 system (3 point marker, and 6 points marker)
         bool is123 = find123Marker(pole);
-        GameObject newA, newB, newC;
         if (is123)
         {
             set123toABC(pole,lineDirection);    
@@ -133,6 +132,7 @@ public class CapacitorBank2 : MonoBehaviour {
 
     void setABCtoAMBMCM(GameObject pole, string lineDirection)
     {
+        print("\t\t"+pole.transform.parent.name+"\t"+pole.name);
         //move a1 b2 and c1
         GameObject old1 = pole.transform.Find("A1").gameObject;
         GameObject old2 = pole.transform.Find("B2").gameObject;

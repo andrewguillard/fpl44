@@ -30,7 +30,15 @@ public class SceneData : MonoBehaviour {
     }
 	public int getDamageLevel(){ return damageLevel;}
     public GameObject[] getPoles() { return poles; }
-    
+    public Transform[] getPolesTransform()
+    {
+        Transform[] ret = new Transform[poles.Length];
+        for(int i = 0; i < poles.Length; i++)
+        {
+            ret[i] = poles[i].transform;
+        }
+        return ret;
+    }
     //setfunctions
     public void setFraming(string f) {
         if (f == "any")
@@ -120,5 +128,20 @@ public class SceneData : MonoBehaviour {
         framing = null;
         damageEquipment = null;
         damageLevel = -1;
+    }
+
+    public void addDamageEquipment(string[] list)
+    {
+        foreach(string t in list)
+        {
+            addDamageEquipment(t);
+        }
+    }
+    public void removeDamageEquipment(string[] list)
+    {
+        foreach (string t in list)
+        {
+            removeDamageEquipment(t);
+        }
     }
 }

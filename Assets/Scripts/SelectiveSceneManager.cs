@@ -31,13 +31,27 @@ public class SelectiveSceneManager : MonoBehaviour {
         //trigger damage generator
         if (GameObject.Find("DamageGenerator") == null)
         {
-            print("Can't finwd damage generator");
+            print("Can't find damage generator");
         }
         else
         {
             DamageGenerator damageGenerator = GameObject.Find("DamageGenerator").GetComponent<DamageGenerator>();
             damageGenerator.generateDamage();
         }
+
+        //go throught list all call all neccessary functions
+        foreach(Transform pole in data.getPolesTransform())
+        {
+            foreach(Transform child in pole)
+            {
+                if(child.name == "CapacitorBank")
+                {
+                    child.GetComponent<CapacitorBank2>().fillwire();
+                }
+            }
+        }
+
+
 
         //trigger wire connector
         if (GameObject.Find("WireConnector") == null)

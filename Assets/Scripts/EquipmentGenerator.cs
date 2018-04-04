@@ -63,6 +63,12 @@ public class EquipmentGenerator : MonoBehaviour {
             eq.transform.parent = pole.transform;
             eq.name = prefabArray[randomIndex].name;
 
+            ////call appriate function for different type of equipment
+            //if (eq.name == "CapacitorBank")
+            //{
+            //    eq.GetComponent<CapacitorBank2>().fillwire();
+            //}
+
             //add more equipment in this pole
         }
 
