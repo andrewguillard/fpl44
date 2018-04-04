@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+using System.Linq;
 
 public class DamageGenerator : MonoBehaviour {
 
-	public GameObject poleList;
+	public GameObject poleListObj;
 	public SceneData data;
 	public GameObject damageSet;
 
@@ -14,14 +15,16 @@ public class DamageGenerator : MonoBehaviour {
 		//get damage equipment 
 		string[] equipments = data.getDamageEquipmentArray();
 		int level = data.getDamageLevel();
-        GameObject[] poleArray= getChildObjects(poleList);
+        GameObject[] poleArray= getChildObjects(poleListObj);
 
-        //for each equipment in list that user selected
-        foreach (string equipment in equipments)
+        //for each pole
+        foreach (GameObject pole in poleArray)
         {
-            //for each pole
-            for (int i = 0; i < poleArray.Length; i++)
+            //choose maximum 3 equipment that exist in pole to replace
+            string[] damageList = chooseDamageForPole(equipments, pole);
+            foreach(string equipment in damageList)
             {
+                //put damage to each equipment in damageList
                 int tempLevel = level;
 
                 //check if they want random level
@@ -29,11 +32,9 @@ public class DamageGenerator : MonoBehaviour {
                     //generate a random number 
                     tempLevel = UnityEngine.Random.Range(1, 4);// 3 level of damage 1/2/3/
 
-                GameObject oldEquipment = getEquipmentToReplace(poleArray[i], equipment);
-                if (oldEquipment == null) { continue; } //this pole doesn't have that equipment
+                GameObject oldEquipment = getEquipmentToReplace(pole, equipment);
 
                 GameObject damagePrefab = getDamagePrefab(damageSet, oldEquipment.name, tempLevel);
-                if (damagePrefab == null) continue;
 
                 //record damage level and equipment to poledata
                 Data oldData = oldEquipment.GetComponent<Data>();
@@ -51,9 +52,31 @@ public class DamageGenerator : MonoBehaviour {
                     newObject.GetComponent<CapacitorBank2>().fillwire();
                 }
             }
+
         }
         //at the end , deactive damageset
         damageSet.SetActive(false);
+    }
+
+    string[] chooseDamageForPole(string[] damageList, GameObject pole)
+    {
+        //get list object name in pole
+        HashSet<string> temp = new HashSet<string>();
+        foreach(Transform child in pole.transform)
+        {
+            temp.Add(child.name);
+        }
+
+        List<string> ret = new List<string>();
+        foreach (string t in temp)
+        {
+            if (damageList.Contains(t))
+            {
+                ret.Add(t);
+            }
+        }
+
+        return ret.ToArray();
     }
 
     //find all children object in a gameobject

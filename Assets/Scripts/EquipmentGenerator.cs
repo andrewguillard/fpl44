@@ -15,27 +15,57 @@ public class EquipmentGenerator : MonoBehaviour {
         string[] equips = data.getDamageEquipmentArray();
         GameObject[] poleList = data.getPoles();
 
+        //list of prefab to store and spawn
+        HashSet<GameObject> listPrefab = new HashSet<GameObject>();
+
+        //get list of prefab to spawn
         foreach (string equip in equips)
         {
-            if (equip.Contains("Pole") || equip.Contains("Insulator"))
+            print("equipment = " + equip);
+
+            if (equip.Contains("Pole") || equip.Contains("Insulator")) //all pole comes with it
                 continue;
-            foreach(GameObject pole in poleList)
+
+            GameObject prefab = getEquip(equip);
+            //feed the equipment to the pole 
+            if (prefab != null)
             {
-                if (getEquip(equip) != null)
+                //equiment is in the equipment set
+                listPrefab.Add(prefab);
+            }
+            else
+            {
+                //not in the set but have to check other place too (check as grandchild )
+                foreach (Transform eq in EquipmentSet.transform)
                 {
-                   if (pole.GetComponent<PoleData>().poleIndex != poleList.Length / 2)
+                    foreach (Transform grandchild in eq)
                     {
-                        GameObject newEquip = Instantiate(getEquip(equip), pole.transform);
-                        newEquip.name = equip;
+                        if (grandchild.name.Contains(equip))
+                        {
+                            if(listPrefab.Add(eq.gameObject))
+                                listPrefab.Add(eq.gameObject);
+                            break;
+                        }
                     }
                 }
-                else
-                {
-                    print("Can't find gameobject , so nothing is added");
-                }
-
             }
         }
+
+        //decide what pole and what equipment to spawn
+        GameObject[] prefabArray= new GameObject[listPrefab.Count];
+        listPrefab.CopyTo(prefabArray);
+
+        //for each pole 
+        foreach(GameObject pole in poleList)
+        {
+            int randomIndex = Random.Range(0, prefabArray.Length);
+            GameObject eq = Instantiate(prefabArray[randomIndex], pole.transform);
+            eq.transform.parent = pole.transform;
+            eq.name = prefabArray[randomIndex].name;
+
+            //add more equipment in this pole
+        }
+
 
         disableEquipmentSet();
     }
@@ -54,11 +84,11 @@ public class EquipmentGenerator : MonoBehaviour {
         {
             print("Equipment set is empty");
         }
-        else
+        else if(EquipmentSet.transform.Find(name) == null)
         {
-            return EquipmentSet.transform.Find(name).gameObject;
+            return null;
         }
 
-        return null;
+        return EquipmentSet.transform.Find(name).gameObject;
     }
 }

@@ -9,7 +9,7 @@ public class SceneData : MonoBehaviour {
 	public static List<string> damageEquipment;
 	public static int damageLevel  = -1;
     GameObject[] poles;
-
+    public string[] testingData;
 
     //get functions
     public string getFraming(){return framing;}
@@ -18,8 +18,10 @@ public class SceneData : MonoBehaviour {
         {
             //this only for development 
             damageEquipment = new List<string>();
-            damageEquipment.Add("CapacitorBank");
-            //damageEquipment.Add("FuseSwitch");
+            foreach(string t in testingData)
+            {
+                damageEquipment.Add(t);
+            }
 
 
         }
