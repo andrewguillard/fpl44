@@ -76,8 +76,8 @@ public class SceneData : MonoBehaviour {
     public void loadScene(string sceneName)
     {
         print("button click and  load scene " + sceneName);
-        SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
-
+        SceneManager.LoadScene(sceneName);
+        //SteamVR_LoadLevel.Begin(sceneName);
         //testing
         print("load scene");
         print("framming = "+getFraming() + "\t\t level = "+getDamageLevel());
@@ -111,5 +111,12 @@ public class SceneData : MonoBehaviour {
             t += equip + "|";
         }
         print(t);
+    }
+
+    public void clearData()
+    {
+        framing = null;
+        damageEquipment = null;
+        damageLevel = -1;
     }
 }
