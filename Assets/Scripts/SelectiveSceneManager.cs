@@ -52,8 +52,24 @@ public class SelectiveSceneManager : MonoBehaviour {
 
 
         //CAF generator 
+		GameObject[] poles =  poleGenerator.getPoleList();
+		GameObject screenPrefab = GameObject.Find ("CAFScreen").gameObject;
+		foreach (GameObject pole in poles) {
+			Vector3 location = pole.transform.position;
 
+			int poleIndex = pole.GetComponent<PoleData> ().poleIndex;
+			if ( poleIndex < poles.Length / 2) {
+				location += new Vector3(0.0f, 0.0f,3.0f);
+			} else {
+				location += new Vector3(-3.0f, 0.0f,0.0f);
+			}
+			GameObject tempScene = Instantiate (screenPrefab,location ,screenPrefab.transform.rotation);
+			tempScene.name = "CAF" + poleIndex;
 
+			tempScene.GetComponent<ConditionAssessment> ().pole = pole;
+		}
+
+		screenPrefab.SetActive (false);
 
     }
 
