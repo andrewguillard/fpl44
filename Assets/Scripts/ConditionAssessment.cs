@@ -113,50 +113,50 @@ public class ConditionAssessment : MonoBehaviour
     {
 
         #region get all the components
-        ICON_SELECTED_TXT = GameObject.Find("ICON_SELECTED_TXT").GetComponent<Text>();
-        EQUIPMENT_DROPDWN = GameObject.Find("EQUIPMENT_DROPDWN").GetComponent<Dropdown>();
+        ICON_SELECTED_TXT = gameObject.transform.Find("ICON_SELECTED_TXT").GetComponent<Text>();
+        EQUIPMENT_DROPDWN = gameObject.transform.Find("EQUIPMENT_DROPDWN").GetComponent<Dropdown>();
         EQUIPMENT_DROPDWN.onValueChanged.AddListener(delegate { myDropdownValueChangedHandler(EQUIPMENT_DROPDWN); });
 
-        DEFAULT_TXT = GameObject.Find("DEFAULT_TXT").GetComponent<Text>();
+        DEFAULT_TXT = gameObject.transform.Find("DEFAULT_TXT").GetComponent<Text>();
 
-        PHASE_TXT = GameObject.Find("PHASE_TXT").GetComponent<Text>();
-        PHASE_A_BTN = GameObject.Find("PHASE_A_BTN").GetComponent<Button>();
-        PHASE_A_IMG = GameObject.Find("PHASE_A_IMG").GetComponent<Image>();
-        PHASE_B_BTN = GameObject.Find("PHASE_B_BTN").GetComponent<Button>();
-        PHASE_B_IMG = GameObject.Find("PHASE_B_IMG").GetComponent<Image>();
-        PHASE_C_BTN = GameObject.Find("PHASE_C_BTN").GetComponent<Button>();
-        PHASE_C_IMG = GameObject.Find("PHASE_C_IMG").GetComponent<Image>();
+        PHASE_TXT = gameObject.transform.Find("PHASE_TXT").GetComponent<Text>();
+        PHASE_A_BTN = gameObject.transform.Find("PHASE_A_BTN").GetComponent<Button>();
+        PHASE_A_IMG = gameObject.transform.Find("PHASE_A_BTN/PHASE_A_IMG").GetComponent<Image>();
+        PHASE_B_BTN = gameObject.transform.Find("PHASE_B_BTN").GetComponent<Button>();
+        PHASE_B_IMG = gameObject.transform.Find("PHASE_B_BTN/PHASE_B_IMG").GetComponent<Image>();
+        PHASE_C_BTN = gameObject.transform.Find("PHASE_C_BTN").GetComponent<Button>();
+        PHASE_C_IMG = gameObject.transform.Find("PHASE_C_BTN/PHASE_C_IMG").GetComponent<Image>();
 
-        LD_TXT = GameObject.Find("LD_TXT").GetComponent<Text>();
-        LD_1_BTN = GameObject.Find("LD_1_BTN").GetComponent<Button>();
-        LD_1_IMG = GameObject.Find("LD_1_IMG").GetComponent<Image>();
-        LD_3_BTN = GameObject.Find("LD_3_BTN").GetComponent<Button>();
-        LD_3_IMG = GameObject.Find("LD_3_IMG").GetComponent<Image>();
-        LD_5_BTN = GameObject.Find("LD_5_BTN").GetComponent<Button>();
-        LD_5_IMG = GameObject.Find("LD_5_IMG").GetComponent<Image>();
+        LD_TXT = gameObject.transform.Find("LD_TXT").GetComponent<Text>();
+        LD_1_BTN = gameObject.transform.Find("LD_1_BTN").GetComponent<Button>();
+        LD_1_IMG = gameObject.transform.Find("LD_1_BTN/LD_1_IMG").GetComponent<Image>();
+        LD_3_BTN = gameObject.transform.Find("LD_3_BTN").GetComponent<Button>();
+        LD_3_IMG = gameObject.transform.Find("LD_3_BTN/LD_3_IMG").GetComponent<Image>();
+        LD_5_BTN = gameObject.transform.Find("LD_5_BTN").GetComponent<Button>();
+        LD_5_IMG = gameObject.transform.Find("LD_5_BTN/LD_5_IMG").GetComponent<Image>();
 
 
-        INCLUDE_BTN = GameObject.Find("INCLUDE_BTN").GetComponent<Button>();
-        DISCARD_BTN = GameObject.Find("DISCARD_BTN").GetComponent<Button>();
+        INCLUDE_BTN = gameObject.transform.Find("INCLUDE_BTN").GetComponent<Button>();
+        DISCARD_BTN = gameObject.transform.Find("DISCARD_BTN").GetComponent<Button>();
 
-        OH_SWITCH_IMG = GameObject.Find("OH_SWITCH_IMG").GetComponent<Image>();
-        LIGHTNING_ARRESTER_IMG = GameObject.Find("LIGHTNING_ARRESTER_IMG").GetComponent<Image>();
-        INSULATOR_IMG = GameObject.Find("INSULATOR_IMG").GetComponent<Image>();
-        POLE_IMG = GameObject.Find("POLE_IMG").GetComponent<Image>();
-        CROSS_ARM_IMG = GameObject.Find("CROSS_ARM_IMG").GetComponent<Image>();
-        VEGETATION_IMG = GameObject.Find("VEGETATION_IMG").GetComponent<Image>();
-        CONDUCTOR_IMG = GameObject.Find("CONDUCTOR_IMG").GetComponent<Image>();
-        OH_TRANSFORMER_IMG = GameObject.Find("OH_TRANSFORMER_IMG").GetComponent<Image>();
-        OH_FUSE_SWITCH_IMG = GameObject.Find("OH_FUSE_SWITCH_IMG").GetComponent<Image>();
-        CAPACITOR_IMG = GameObject.Find("CAPACITOR_IMG").GetComponent<Image>();
-        CONNECTIONS_ON_FEEDER_CONDUCTOR_IMG = GameObject.Find("CONNECTIONS_ON_FEEDER_CONDUCTOR_IMG").GetComponent<Image>();
-        NEST_IMG = GameObject.Find("NEST_IMG").GetComponent<Image>();
-        DOWN_GUY_IMG = GameObject.Find("DOWN_GUY_IMG").GetComponent<Image>();
-        RISER_SHIELD_IMG = GameObject.Find("RISER_SHIELD_IMG").GetComponent<Image>();
-        FOREIGN_OBJECT_IN_WIRE_IMG = GameObject.Find("FOREIGN_OBJECT_IN_WIRE_IMG").GetComponent<Image>();
-        REGULATOR_IMG = GameObject.Find("REGULATOR_IMG").GetComponent<Image>();
-        RECLOSER_IMG = GameObject.Find("RECLOSER_IMG").GetComponent<Image>();
-        FAULT_CURRENT_INDICATOR_IMG = GameObject.Find("FAULT_CURRENT_INDICATOR_IMG").GetComponent<Image>();
+        OH_SWITCH_IMG = gameObject.transform.Find("OH_SWITCH_BTN/OH_SWITCH_IMG").GetComponent<Image>();
+        LIGHTNING_ARRESTER_IMG = gameObject.transform.Find("LIGHTNING_ARRESTER_BTN/LIGHTNING_ARRESTER_IMG").GetComponent<Image>();
+        INSULATOR_IMG = gameObject.transform.Find("INSULATOR_BTN/INSULATOR_IMG").GetComponent<Image>();
+        POLE_IMG = gameObject.transform.Find("POLE_BTN/POLE_IMG").GetComponent<Image>();
+        CROSS_ARM_IMG = gameObject.transform.Find("CROSS_ARM_BTN/CROSS_ARM_IMG").GetComponent<Image>();
+        VEGETATION_IMG = gameObject.transform.Find("VEGETATION_BTN/VEGETATION_IMG").GetComponent<Image>();
+        CONDUCTOR_IMG = gameObject.transform.Find("CONDUCTOR_BTN/CONDUCTOR_IMG").GetComponent<Image>();
+        OH_TRANSFORMER_IMG = gameObject.transform.Find("OH_TRANSFORMER_BTN/OH_TRANSFORMER_IMG").GetComponent<Image>();
+        OH_FUSE_SWITCH_IMG = gameObject.transform.Find("OH_FUSE_SWITCH_BTN/OH_FUSE_SWITCH_IMG").GetComponent<Image>();
+        CAPACITOR_IMG = gameObject.transform.Find("CAPACITOR_BTN/CAPACITOR_IMG").GetComponent<Image>();
+        CONNECTIONS_ON_FEEDER_CONDUCTOR_IMG = gameObject.transform.Find("CONNECTIONS_ON_FEEDER_CONDUCTOR_BTN/CONNECTIONS_ON_FEEDER_CONDUCTOR_IMG").GetComponent<Image>();
+        NEST_IMG = gameObject.transform.Find("NEST_BTN/NEST_IMG").GetComponent<Image>();
+        DOWN_GUY_IMG = gameObject.transform.Find("DOWN_GUY_BTN/DOWN_GUY_IMG").GetComponent<Image>();
+        RISER_SHIELD_IMG = gameObject.transform.Find("RISER_SHIELD_BTN/RISER_SHIELD_IMG").GetComponent<Image>();
+        FOREIGN_OBJECT_IN_WIRE_IMG = gameObject.transform.Find("FOREIGN_OBJECT_IN_WIRE_BTN/FOREIGN_OBJECT_IN_WIRE_IMG").GetComponent<Image>();
+        REGULATOR_IMG = gameObject.transform.Find("REGULATOR_BTN/REGULATOR_IMG").GetComponent<Image>();
+        RECLOSER_IMG = gameObject.transform.Find("RECLOSER_BTN/RECLOSER_IMG").GetComponent<Image>();
+        FAULT_CURRENT_INDICATOR_IMG = gameObject.transform.Find("FAULT_CURRENT_INDICATOR_BTN/FAULT_CURRENT_INDICATOR_IMG").GetComponent<Image>();
         #endregion
 
         resetToStart();
