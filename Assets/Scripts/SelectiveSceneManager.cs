@@ -39,6 +39,20 @@ public class SelectiveSceneManager : MonoBehaviour {
             damageGenerator.generateDamage();
         }
 
+        //go throught list all call all neccessary functions
+        foreach(Transform pole in data.getPolesTransform())
+        {
+            foreach(Transform child in pole)
+            {
+                if(child.name == "CapacitorBank")
+                {
+                    child.GetComponent<CapacitorBank2>().fillwire();
+                }
+            }
+        }
+
+
+
         //trigger wire connector
         if (GameObject.Find("WireConnector") == null)
         {
@@ -73,13 +87,13 @@ public class SelectiveSceneManager : MonoBehaviour {
             {
                 tempScene.transform.Rotate(0, -90, 0);
             }
-            else if(poleIndex== poles.Length / 2)
+            else if (poleIndex == poles.Length / 2)
             {
                 tempScene.transform.Rotate(0, -45, 0);
             }
 
             tempScene.name = "CAF" + poleIndex;
-            string searchString = tempScene.name+"/CAF_CANVAS";
+            string searchString = tempScene.name + "/CAF_CANVAS";
 
             ConditionAssessment aform;
             //search for condition 
@@ -93,6 +107,8 @@ public class SelectiveSceneManager : MonoBehaviour {
 
             tempScene.transform.parent = CAFs.transform;
         }
+
+        screenPrefab.SetActive(false);
     }
 
 }

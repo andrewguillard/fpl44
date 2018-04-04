@@ -9,7 +9,7 @@ public class SceneData : MonoBehaviour {
 	public static List<string> damageEquipment;
 	public static int damageLevel  = -1;
     GameObject[] poles;
-
+    public string[] testingData;
 
     //get functions
     public string getFraming(){return framing;}
@@ -18,8 +18,10 @@ public class SceneData : MonoBehaviour {
         {
             //this only for development 
             damageEquipment = new List<string>();
-            damageEquipment.Add("CapacitorBank");
-            //damageEquipment.Add("FuseSwitch");
+            foreach(string t in testingData)
+            {
+                damageEquipment.Add(t);
+            }
 
 
         }
@@ -28,7 +30,15 @@ public class SceneData : MonoBehaviour {
     }
 	public int getDamageLevel(){ return damageLevel;}
     public GameObject[] getPoles() { return poles; }
-    
+    public Transform[] getPolesTransform()
+    {
+        Transform[] ret = new Transform[poles.Length];
+        for(int i = 0; i < poles.Length; i++)
+        {
+            ret[i] = poles[i].transform;
+        }
+        return ret;
+    }
     //setfunctions
     public void setFraming(string f) {
         if (f == "any")
@@ -76,8 +86,8 @@ public class SceneData : MonoBehaviour {
     public void loadScene(string sceneName)
     {
         print("button click and  load scene " + sceneName);
-        SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
-
+        SceneManager.LoadScene(sceneName);
+        //SteamVR_LoadLevel.Begin(sceneName);
         //testing
         print("load scene");
         print("framming = "+getFraming() + "\t\t level = "+getDamageLevel());
@@ -111,5 +121,27 @@ public class SceneData : MonoBehaviour {
             t += equip + "|";
         }
         print(t);
+    }
+
+    public void clearData()
+    {
+        framing = null;
+        damageEquipment = null;
+        damageLevel = -1;
+    }
+
+    public void addDamageEquipment(string[] list)
+    {
+        foreach(string t in list)
+        {
+            addDamageEquipment(t);
+        }
+    }
+    public void removeDamageEquipment(string[] list)
+    {
+        foreach (string t in list)
+        {
+            removeDamageEquipment(t);
+        }
     }
 }
