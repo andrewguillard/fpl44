@@ -47,6 +47,9 @@ public class PoleSpawner : MonoBehaviour
     public Transform[] spawnFuseSwitchMiddle;
     public Transform[] spawnFuseSwitchRight;
 
+    public GameObject[] recloserMaterial;
+    public Transform[] spawnRecloser;
+
     private int randomInt;
 
     List<string> poleTypes = new List<string>(new string[] { "Vertical", "ModVertical", "Triangular", "Crossarm" });
@@ -555,6 +558,20 @@ public class PoleSpawner : MonoBehaviour
         }
     }
 
+    public void generateRecloser(int i) {
+        if (i <= 9) {
+            Quaternion rotateRec = Quaternion.Euler(0, 90, 0);
+            Vector3 recVec = new Vector3(spawnRecloser[i].transform.position.x, spawnRecloser[i].transform.position.y, spawnRecloser[i].transform.position.z);
+            Instantiate(recloserMaterial[0], recVec, rotateRec);
+        }
+        else if (i > 9) {
+            //Quaternion rotateRec = Quaternion.Euler(0, 90, 0);
+            Vector3 recVec = new Vector3(spawnRecloser[i].transform.position.x, spawnRecloser[i].transform.position.y, spawnRecloser[i].transform.position.z);
+            Instantiate(recloserMaterial[0], recVec, Quaternion.identity);
+
+        }
+    }
+
     void Awake()
     {
 
@@ -718,8 +735,9 @@ public class PoleSpawner : MonoBehaviour
                     generateCrossarmInsulators(i, loc, shuffle);
                 }
             }
-            generateCapcitorBank(i);
-            generateFuseSwitch(i);
+            //generateCapcitorBank(i);
+            //generateFuseSwitch(i);
+            generateRecloser(i);
         }
         for (int i = 0; i < 20; i++) {
             Debug.Log(poleObjectArray[i].getInsulatorType());
