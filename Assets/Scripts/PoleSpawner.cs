@@ -50,6 +50,11 @@ public class PoleSpawner : MonoBehaviour
     public GameObject[] recloserMaterial;
     public Transform[] spawnRecloser;
 
+    public GameObject[] transformerMaterial;
+    public Transform[] spawnTransformerLeft;
+    public Transform[] spawnTransformerMiddle;
+    public Transform[] spawnTransformerRight;
+
     private int randomInt;
 
     List<string> poleTypes = new List<string>(new string[] { "Vertical", "ModVertical", "Triangular", "Crossarm" });
@@ -568,9 +573,41 @@ public class PoleSpawner : MonoBehaviour
             //Quaternion rotateRec = Quaternion.Euler(0, 90, 0);
             Vector3 recVec = new Vector3(spawnRecloser[i].transform.position.x, spawnRecloser[i].transform.position.y, spawnRecloser[i].transform.position.z);
             Instantiate(recloserMaterial[0], recVec, Quaternion.identity);
-
         }
     }
+
+
+
+    public void generateTransformer(int i) {
+        if (i <= 9) {
+            //MIDDLE
+            Vector3 tranVec = new Vector3(spawnTransformerMiddle[i].transform.position.x, spawnTransformerMiddle[i].transform.position.y, spawnTransformerMiddle[i].transform.position.z);
+            Instantiate(transformerMaterial[0], tranVec, Quaternion.identity);
+            //LEFT
+            Quaternion rotateTranLeft = Quaternion.Euler(0, 90, 0);
+            Vector3 tranVec2 = new Vector3(spawnTransformerLeft[i].transform.position.x, spawnTransformerLeft[i].transform.position.y, spawnTransformerLeft[i].transform.position.z);
+            Instantiate(transformerMaterial[0], tranVec2, rotateTranLeft);
+            //RIGHT
+            Quaternion rotateTranRight = Quaternion.Euler(0, -90, 0);
+            Vector3 tranVec3 = new Vector3(spawnTransformerRight[i].transform.position.x, spawnTransformerRight[i].transform.position.y, spawnTransformerRight[i].transform.position.z);
+            Instantiate(transformerMaterial[0], tranVec3, rotateTranRight);
+        }
+        else if (i > 9) {
+            //MIDDLE
+            Quaternion rotateTranMid = Quaternion.Euler(0, -90, 0);
+            Vector3 tranVec = new Vector3(spawnTransformerMiddle[i].transform.position.x, spawnTransformerMiddle[i].transform.position.y, spawnTransformerMiddle[i].transform.position.z);
+            Instantiate(transformerMaterial[0], tranVec, rotateTranMid);
+            //LEFT
+            //Quaternion rotateTranLeft = Quaternion.Euler(0, 90, 0);
+            Vector3 tranVec2 = new Vector3(spawnTransformerLeft[i].transform.position.x, spawnTransformerLeft[i].transform.position.y, spawnTransformerLeft[i].transform.position.z);
+            Instantiate(transformerMaterial[0], tranVec2, Quaternion.identity);
+            //RIGHT
+            Quaternion rotateTranRight = Quaternion.Euler(0, -180, 0);
+            Vector3 tranVec3 = new Vector3(spawnTransformerRight[i].transform.position.x, spawnTransformerRight[i].transform.position.y, spawnTransformerRight[i].transform.position.z);
+            Instantiate(transformerMaterial[0], tranVec3, rotateTranRight);
+        }
+    }
+
 
     void Awake()
     {
@@ -737,7 +774,9 @@ public class PoleSpawner : MonoBehaviour
             }
             //generateCapcitorBank(i);
             //generateFuseSwitch(i);
-            generateRecloser(i);
+            //generateRecloser(i);
+       
+            generateTransformer(i);
         }
         for (int i = 0; i < 20; i++) {
             Debug.Log(poleObjectArray[i].getInsulatorType());
