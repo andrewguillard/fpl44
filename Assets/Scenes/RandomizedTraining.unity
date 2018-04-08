@@ -346,7 +346,7 @@ GameObject:
   m_Component:
   - component: {fileID: 35097787}
   m_Layer: 0
-  m_Name: Fuse Switch R
+  m_Name: Fuse Switch L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -363,7 +363,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1060563427}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &35402645
 GameObject:
@@ -863,8 +863,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 94120985}
-  m_LocalRotation: {x: 0.67282474, y: 0.021122942, z: 0.019213993, w: -0.73925066}
-  m_LocalPosition: {x: 136.56064, y: -79.59315, z: 335.2491}
+  m_LocalRotation: {x: -0.007616373, y: 0.96445215, z: 0.26266, w: 0.027995873}
+  m_LocalPosition: {x: 126.504654, y: -12.464926, z: 352.02014}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2942,9 +2942,9 @@ Transform:
   m_Children:
   - {fileID: 1866615710}
   - {fileID: 1688469470}
-  - {fileID: 755917857}
-  - {fileID: 911437775}
   - {fileID: 1764564188}
+  - {fileID: 911437775}
+  - {fileID: 755917857}
   - {fileID: 32426919}
   - {fileID: 1935479931}
   - {fileID: 1091871105}
@@ -4327,9 +4327,9 @@ Transform:
   m_Children:
   - {fileID: 300299142}
   - {fileID: 990189264}
-  - {fileID: 1036862640}
-  - {fileID: 1973163243}
   - {fileID: 1658402061}
+  - {fileID: 1973163243}
+  - {fileID: 1036862640}
   - {fileID: 99718188}
   - {fileID: 569270182}
   - {fileID: 255420512}
@@ -5601,7 +5601,7 @@ GameObject:
   m_Component:
   - component: {fileID: 558743474}
   m_Layer: 0
-  m_Name: Fuse Switch L
+  m_Name: Fuse Switch R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5618,7 +5618,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1045386858}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &558979695
 GameObject:
@@ -6955,16 +6955,16 @@ MonoBehaviour:
   - {fileID: 161838018}
   - {fileID: 1931804653}
   - {fileID: 2093519733}
-  - {fileID: 1485224735}
-  - {fileID: 2032970390}
-  - {fileID: 1036862640}
-  - {fileID: 558743474}
-  - {fileID: 786280782}
-  - {fileID: 755917857}
-  - {fileID: 1642716129}
-  - {fileID: 682888962}
-  - {fileID: 960986606}
-  - {fileID: 1926115401}
+  - {fileID: 681356550}
+  - {fileID: 1029257432}
+  - {fileID: 1658402061}
+  - {fileID: 1890385875}
+  - {fileID: 35097787}
+  - {fileID: 1764564188}
+  - {fileID: 715040752}
+  - {fileID: 982013694}
+  - {fileID: 1502893357}
+  - {fileID: 1972461647}
   spawnFuseSwitchMiddle:
   - {fileID: 682816774}
   - {fileID: 926211927}
@@ -6997,16 +6997,16 @@ MonoBehaviour:
   - {fileID: 1271890384}
   - {fileID: 815861406}
   - {fileID: 1810078273}
-  - {fileID: 681356550}
-  - {fileID: 1029257432}
-  - {fileID: 1658402061}
-  - {fileID: 1890385875}
-  - {fileID: 35097787}
-  - {fileID: 1764564188}
-  - {fileID: 715040752}
-  - {fileID: 982013694}
-  - {fileID: 1502893357}
-  - {fileID: 1972461647}
+  - {fileID: 1485224735}
+  - {fileID: 2032970390}
+  - {fileID: 1036862640}
+  - {fileID: 558743474}
+  - {fileID: 786280782}
+  - {fileID: 755917857}
+  - {fileID: 1642716129}
+  - {fileID: 682888962}
+  - {fileID: 960986606}
+  - {fileID: 1926115401}
   recloserMaterial:
   - {fileID: 1584363837842482, guid: fd8d4fcd81731a34a91a93655931af78, type: 2}
   spawnRecloser:
@@ -7223,7 +7223,7 @@ GameObject:
   m_Component:
   - component: {fileID: 681356550}
   m_Layer: 0
-  m_Name: Fuse Switch R
+  m_Name: Fuse Switch L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7240,7 +7240,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 837771247}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &682816773
 GameObject:
@@ -7307,7 +7307,7 @@ GameObject:
   m_Component:
   - component: {fileID: 682888962}
   m_Layer: 0
-  m_Name: Fuse Switch L
+  m_Name: Fuse Switch R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7324,7 +7324,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1798501946}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &684260485
 GameObject:
@@ -7618,7 +7618,7 @@ GameObject:
   m_Component:
   - component: {fileID: 715040752}
   m_Layer: 0
-  m_Name: Fuse Switch R
+  m_Name: Fuse Switch L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7635,7 +7635,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1139410411}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &721855686
 GameObject:
@@ -7776,9 +7776,9 @@ Transform:
   m_Children:
   - {fileID: 699712095}
   - {fileID: 1999160037}
-  - {fileID: 960986606}
-  - {fileID: 670682433}
   - {fileID: 1502893357}
+  - {fileID: 670682433}
+  - {fileID: 960986606}
   - {fileID: 1283305298}
   - {fileID: 1748929771}
   - {fileID: 1620451489}
@@ -7823,7 +7823,7 @@ GameObject:
   m_Component:
   - component: {fileID: 755917857}
   m_Layer: 0
-  m_Name: Fuse Switch L
+  m_Name: Fuse Switch R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7840,7 +7840,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 322825075}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &759227432
 GameObject:
@@ -7998,7 +7998,7 @@ GameObject:
   m_Component:
   - component: {fileID: 786280782}
   m_Layer: 0
-  m_Name: Fuse Switch L
+  m_Name: Fuse Switch R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8015,7 +8015,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1060563427}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &786396786
 GameObject:
@@ -8541,9 +8541,9 @@ Transform:
   m_Children:
   - {fileID: 357660248}
   - {fileID: 938710407}
-  - {fileID: 1485224735}
-  - {fileID: 1254829802}
   - {fileID: 681356550}
+  - {fileID: 1254829802}
+  - {fileID: 1485224735}
   - {fileID: 1052095671}
   - {fileID: 704131899}
   - {fileID: 1813240860}
@@ -9273,9 +9273,9 @@ Transform:
   m_Children:
   - {fileID: 1907617082}
   - {fileID: 1076058982}
-  - {fileID: 2032970390}
-  - {fileID: 1647659811}
   - {fileID: 1029257432}
+  - {fileID: 1647659811}
+  - {fileID: 2032970390}
   - {fileID: 1924517065}
   - {fileID: 792336767}
   - {fileID: 1795555282}
@@ -9831,7 +9831,7 @@ GameObject:
   m_Component:
   - component: {fileID: 960986606}
   m_Layer: 0
-  m_Name: Fuse Switch L
+  m_Name: Fuse Switch R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9848,7 +9848,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 743534843}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &963603446
 GameObject:
@@ -9974,7 +9974,7 @@ GameObject:
   m_Component:
   - component: {fileID: 982013694}
   m_Layer: 0
-  m_Name: Fuse Switch R
+  m_Name: Fuse Switch L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9991,7 +9991,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1798501946}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &982742923
 GameObject:
@@ -10457,7 +10457,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1029257432}
   m_Layer: 0
-  m_Name: Fuse Switch R
+  m_Name: Fuse Switch L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10474,7 +10474,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 898302329}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1036862639
 GameObject:
@@ -10485,7 +10485,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1036862640}
   m_Layer: 0
-  m_Name: Fuse Switch L
+  m_Name: Fuse Switch R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10502,7 +10502,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 429367715}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1039150763
 GameObject:
@@ -10699,9 +10699,9 @@ Transform:
   m_Children:
   - {fileID: 1121272635}
   - {fileID: 250197765}
-  - {fileID: 558743474}
-  - {fileID: 1314971426}
   - {fileID: 1890385875}
+  - {fileID: 1314971426}
+  - {fileID: 558743474}
   - {fileID: 1334586551}
   - {fileID: 1027078874}
   - {fileID: 277336003}
@@ -10846,9 +10846,9 @@ Transform:
   m_Children:
   - {fileID: 744520914}
   - {fileID: 1429024336}
-  - {fileID: 786280782}
-  - {fileID: 64848872}
   - {fileID: 35097787}
+  - {fileID: 64848872}
+  - {fileID: 786280782}
   - {fileID: 541653998}
   - {fileID: 217323154}
   - {fileID: 1753784994}
@@ -11498,9 +11498,9 @@ Transform:
   m_Children:
   - {fileID: 1679519540}
   - {fileID: 634519920}
-  - {fileID: 1642716129}
-  - {fileID: 1389962240}
   - {fileID: 715040752}
+  - {fileID: 1389962240}
+  - {fileID: 1642716129}
   - {fileID: 1207977723}
   - {fileID: 1908330319}
   - {fileID: 1271867023}
@@ -14252,7 +14252,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1485224735}
   m_Layer: 0
-  m_Name: Fuse Switch L
+  m_Name: Fuse Switch R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14269,7 +14269,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 837771247}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1486563856
 GameObject:
@@ -14472,7 +14472,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1502893357}
   m_Layer: 0
-  m_Name: Fuse Switch R
+  m_Name: Fuse Switch L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14489,7 +14489,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 743534843}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1513426731
 GameObject:
@@ -15509,7 +15509,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1642716129}
   m_Layer: 0
-  m_Name: Fuse Switch L
+  m_Name: Fuse Switch R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15526,7 +15526,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1139410411}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1647659810
 GameObject:
@@ -15626,7 +15626,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1658402061}
   m_Layer: 0
-  m_Name: Fuse Switch R
+  m_Name: Fuse Switch L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15643,7 +15643,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 429367715}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1658439736
 GameObject:
@@ -16578,7 +16578,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1764564188}
   m_Layer: 0
-  m_Name: Fuse Switch R
+  m_Name: Fuse Switch L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16595,7 +16595,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 322825075}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1768357402
 GameObject:
@@ -17041,9 +17041,9 @@ Transform:
   m_Children:
   - {fileID: 1007817433}
   - {fileID: 997985395}
-  - {fileID: 682888962}
-  - {fileID: 1104042422}
   - {fileID: 982013694}
+  - {fileID: 1104042422}
+  - {fileID: 682888962}
   - {fileID: 443459755}
   - {fileID: 1993411681}
   - {fileID: 655600387}
@@ -18406,7 +18406,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1890385875}
   m_Layer: 0
-  m_Name: Fuse Switch R
+  m_Name: Fuse Switch L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18423,7 +18423,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1045386858}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1900347386
 GameObject:
@@ -18701,7 +18701,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1926115401}
   m_Layer: 0
-  m_Name: Fuse Switch L
+  m_Name: Fuse Switch R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18718,7 +18718,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1981037672}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1931656141
 GameObject:
@@ -19009,7 +19009,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1972461647}
   m_Layer: 0
-  m_Name: Fuse Switch R
+  m_Name: Fuse Switch L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19026,7 +19026,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1981037672}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1973163242
 GameObject:
@@ -19111,9 +19111,9 @@ Transform:
   m_Children:
   - {fileID: 712459405}
   - {fileID: 1474480723}
-  - {fileID: 1926115401}
-  - {fileID: 721855687}
   - {fileID: 1972461647}
+  - {fileID: 721855687}
+  - {fileID: 1926115401}
   - {fileID: 200825856}
   - {fileID: 1065363923}
   - {fileID: 438456393}
@@ -19613,7 +19613,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2032970390}
   m_Layer: 0
-  m_Name: Fuse Switch L
+  m_Name: Fuse Switch R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19630,7 +19630,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 898302329}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2039447035
 GameObject:
