@@ -5,11 +5,6 @@ using UnityEngine;
 public class EquipmentGenerator : MonoBehaviour {
     public GameObject EquipmentSet;
 
-    public void generateEquipment()
-    {
-
-    }
-
     public void generateEquipment(SceneData data)
     {
         string[] equips = data.getDamageEquipmentArray();
@@ -17,20 +12,23 @@ public class EquipmentGenerator : MonoBehaviour {
 
         //list of prefab to store and spawn
         HashSet<GameObject> listPrefab = new HashSet<GameObject>();
-
+        
         //get list of prefab to spawn
         foreach (string equip in equips)
         {
+            //Declare and initialize
+            GameObject prefab = getEquipPrefab(equip);
+
+            //debug
             print("equipment = " + equip);
+
 
             if (equip.Contains("Pole") || equip.Contains("Insulator")) //all pole comes with it
                 continue;
 
-            GameObject prefab = getEquip(equip);
             //feed the equipment to the pole 
             if (prefab != null)
             {
-                //equiment is in the equipment set
                 listPrefab.Add(prefab);
             }
             else
@@ -58,7 +56,18 @@ public class EquipmentGenerator : MonoBehaviour {
         //for each pole 
         foreach(GameObject pole in poleList)
         {
+            //if corner pole skip
+            if (pole.transform.GetComponent<PoleData>().poleIndex == poleList.Length / 2)
+                continue;
+
+            //a new random generator to put a empty pole
+            int random = Random.Range(0, 10); // p = 0.1 
+            if (random.Equals(9))
+                continue;
+
             int randomIndex = Random.Range(0, prefabArray.Length);
+
+
             GameObject eq = Instantiate(prefabArray[randomIndex], pole.transform);
             eq.transform.parent = pole.transform;
             eq.name = prefabArray[randomIndex].name;
@@ -84,8 +93,16 @@ public class EquipmentGenerator : MonoBehaviour {
         }
     }
 
-    GameObject getEquip(string name)
+
+    GameObject getEquipPrefab(string name)
     {
+        //special Case
+        if(name == "Transformer")
+        {
+            int ran = Random.Range(1,4);
+            name += ran;
+        }
+
         if(EquipmentSet == null)
         {
             print("Equipment set is empty");

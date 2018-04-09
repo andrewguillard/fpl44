@@ -44,6 +44,11 @@ public class DamageGenerator : MonoBehaviour {
                 GameObject oldEquipment = getEquipmentToReplace(pole, equipment);
                 print("old equipment = " + oldEquipment.transform.parent+"/"+ oldEquipment);
                 GameObject damagePrefab = getDamagePrefab(damageSet, oldEquipment.name, tempLevel);
+                if(damagePrefab == null)
+                {
+                    print("Can't find prefab damage for " + oldEquipment);
+                    return;
+                }
                 print("new equip = " +damagePrefab.transform.parent+"/"+ damagePrefab);
 
 

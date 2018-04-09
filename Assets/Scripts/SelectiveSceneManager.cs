@@ -27,6 +27,8 @@ public class SelectiveSceneManager : MonoBehaviour {
         EquipmentGenerator equipGen = GameObject.Find("EquipmentGenerator").GetComponent<EquipmentGenerator>();
         equipGen.generateEquipment(data);
 
+        //Prepare and Rearrange equipment before add damage
+
 
         //trigger damage generator
         if (GameObject.Find("DamageGenerator") == null)
@@ -36,17 +38,23 @@ public class SelectiveSceneManager : MonoBehaviour {
         else
         {
             DamageGenerator damageGenerator = GameObject.Find("DamageGenerator").GetComponent<DamageGenerator>();
+            damageGenerator.damageSet.SetActive(true);
             damageGenerator.generateDamage();
+            damageGenerator.damageSet.SetActive(false);
+
         }
 
         //go throught list all call all neccessary functions
-        foreach(Transform pole in data.getPolesTransform())
+        foreach (Transform pole in data.getPolesTransform())
         {
             foreach(Transform child in pole)
             {
                 if(child.name == "CapacitorBank")
                 {
                     child.GetComponent<CapacitorBank2>().fillwire();
+                }
+                else if (child.name.Contains("Transformer")){
+                    child.GetComponent<Transformer>().fillWire();
                 }
             }
         }
@@ -75,11 +83,11 @@ public class SelectiveSceneManager : MonoBehaviour {
             int poleIndex = pole.GetComponent<PoleData>().poleIndex;
             if (poleIndex < poles.Length / 2)
             {
-                location += new Vector3(0.0f, 0.0f, 3.0f);
+                location += new Vector3(2.7f, 0.0f, 3.0f);
             }
             else
             {
-                location += new Vector3(-3.0f, 0.0f, 0.0f);
+                location += new Vector3(-3.0f, 0.0f, 2.7f);
             }
 
             GameObject tempScene = Instantiate(screenPrefab, location, screenPrefab.transform.rotation);
