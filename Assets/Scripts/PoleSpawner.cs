@@ -55,6 +55,9 @@ public class PoleSpawner : MonoBehaviour
     public Transform[] spawnTransformerMiddle;
     public Transform[] spawnTransformerRight;
 
+    public GameObject[] CAFMaterial;
+    public Transform[] spawnCAFLocation;
+
     private int randomInt;
 
     List<string> poleTypes = new List<string>(new string[] { "Vertical", "ModVertical", "Triangular", "Crossarm" });
@@ -754,6 +757,23 @@ public class PoleSpawner : MonoBehaviour
             generateRecloser(i);
     }
 
+
+    //public GameObject[] CAFMaterial;
+    //public Transform[] spawnCAFLocation;
+
+    public void spawnCAF(int i) {
+        if (i <= 9) {
+            Quaternion rotateCAF = Quaternion.Euler(0, 90, 0);
+            Vector3 cafVec = new Vector3(spawnCAFLocation[i].transform.position.x, spawnCAFLocation[i].transform.position.y, spawnCAFLocation[i].transform.position.z);
+            Instantiate(CAFMaterial[0], cafVec, rotateCAF);
+        }
+        else if (i > 9) {
+            Vector3 cafVec = new Vector3(spawnCAFLocation[i].transform.position.x, spawnCAFLocation[i].transform.position.y, spawnCAFLocation[i].transform.position.z);
+            Instantiate(CAFMaterial[0], cafVec, Quaternion.identity);
+        }
+    }
+
+
     void Awake()
     {
 
@@ -921,7 +941,7 @@ public class PoleSpawner : MonoBehaviour
             //generateCapcitorBank(i);
             //generateFuseSwitch(i);
             //generateRecloser(i);
-
+            spawnCAF(i);
         }
         /*
         for (int i = 0; i < 20; i++) {
@@ -943,6 +963,8 @@ public class PoleSpawner : MonoBehaviour
                 Debug.Log("the num of transistors is: " + poleObjectArray[i].getTransformerCount()+"and the pole number is: "+ i);
             }
         }
+
+        
     }
     void Update() {
 
