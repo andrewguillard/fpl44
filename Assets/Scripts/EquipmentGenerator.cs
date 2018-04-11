@@ -53,7 +53,7 @@ public class EquipmentGenerator : MonoBehaviour {
         GameObject[] prefabArray= new GameObject[listPrefab.Count];
         listPrefab.CopyTo(prefabArray);
 
-        //for each pole 
+        //for each pole , random choose a prefab and spawn
         foreach(GameObject pole in poleList)
         {
             //if corner pole skip
@@ -96,7 +96,7 @@ public class EquipmentGenerator : MonoBehaviour {
 
     GameObject getEquipPrefab(string name)
     {
-        //special Case
+        //special Cases
         if(name == "Transformer")
         {
             int ran = Random.Range(1,4);
