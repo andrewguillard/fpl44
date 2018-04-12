@@ -7,6 +7,7 @@ public class EquipmentGenerator : MonoBehaviour {
 
     public void generateEquipment(SceneData data)
     {
+        EquipmentSet.SetActive(true);
         if(EquipmentSet == null)
         {
             Debug.LogError("No equipment set to spawn");
