@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 using System.Linq;
+using System.Text.RegularExpressions;
+
 
 public class DamageGenerator : MonoBehaviour {
 
@@ -10,65 +12,61 @@ public class DamageGenerator : MonoBehaviour {
 	public SceneData data;
 	public GameObject damageSet;
 
-	// Use this for initialization
-	public void generateDamage () {
-		//get damage equipment 
-		string[] equipments = data.getDamageEquipmentArray();
-		int level = data.getDamageLevel();
-        GameObject[] poleArray= getChildObjects(poleListObj);
+    // Use this for initialization
+    public void generateDamage()
+    {
+        //get damage equipment array
+        string[] equipments = data.getDamageEquipmentArray();
+        int level = data.getDamageLevel();
 
-        //debug
-        print("------");
-        foreach(string t in equipments)
-        {
-            print("\t\t" + t);
-        }
+        //get all pole gameobject to an gameobject array
+        GameObject[] poleArray = getChildObjects(poleListObj);
 
         //for each pole
         foreach (GameObject pole in poleArray)
         {
-            print("Pole = "+pole);
-            //choose maximum 3 equipment that exist in pole to replace
-            string[] damageList = chooseDamageForPole(equipments, pole);
-            foreach(string equipment in damageList)
+            //choose maximum 3 equipment name that exist in pole and damageList to replace
+            string[] chosenEquipName = chooseDamageForPole(equipments, pole);
+            print("Pole " + pole.name);
+            string temp = "";
+            foreach (string t in chosenEquipName)
             {
-                print(equipment);
+                temp += t + "-----";
+            }
+            print(temp);
+            foreach (string equipment in chosenEquipName)
+            {
+                Debug.Log(equipment);
                 //put damage to each equipment in damageList
                 int tempLevel = level;
-
                 //check if they want random level
                 if (level == -1)
                     //generate a random number 
                     tempLevel = UnityEngine.Random.Range(1, 4);// 3 level of damage 1/2/3/
 
                 GameObject oldEquipment = getEquipmentToReplace(pole, equipment);
-                print("old equipment = " + oldEquipment.transform.parent+"/"+ oldEquipment);
+                Debug.Log("\told " + oldEquipment);
                 GameObject damagePrefab = getDamagePrefab(damageSet, oldEquipment.name, tempLevel);
-                if(damagePrefab == null)
+
+                if (damagePrefab == null || oldEquipment == null)
                 {
-                    print("Can't find prefab damage for " + oldEquipment);
+                    Debug.LogError("Can't find prefab damage for " + oldEquipment);
+                    Debug.LogError(" Or Can't find equipment " + equipment);
+
                     return;
                 }
-                print("new equip = " +damagePrefab.transform.parent+"/"+ damagePrefab);
-
 
                 //record damage level and equipment to poledata
                 Data oldData = oldEquipment.GetComponent<Data>();
 
                 GameObject newObject = replaceObject(oldEquipment, damagePrefab);
-                if (newObject.GetComponent <Data>() == null)
+                if (newObject.GetComponent<Data>() == null)
                     newObject.AddComponent<Data>();
 
                 Data newData = newObject.GetComponent<Data>();
 
                 newData.setData(oldData);
                 newData.level = tempLevel;
-
-                ////call appriate function for different type of equipment
-                //if (equipment == "CapacitorBank")
-                //{
-                //    newObject.GetComponent<CapacitorBank2>().fillwire();
-                //}
             }
 
         }
@@ -79,45 +77,38 @@ public class DamageGenerator : MonoBehaviour {
     string[] chooseDamageForPole(string[] damageList, GameObject pole)
     {
         //get list object name in pole
-        HashSet<string> temp = new HashSet<string>();
-        foreach(Transform child in pole.transform)
+        HashSet<string> uniqueNameList = new HashSet<string>();
+        foreach (Transform child in pole.transform)
         {
-            print("child --- " + child);
-            temp.Add(child.name);
+            //print("child --- " + child);
+            uniqueNameList.Add(child.name);
             foreach (Transform child2 in child)
             {
-                temp.Add(child2.name);
-
+                uniqueNameList.Add(child2.name);
             }
-
         }
 
         List<string> ret = new List<string>();
-        foreach (string t in temp)
-        {
-            print("temp --- " + t);
+        foreach (string t in uniqueNameList)
+        {   //Compare with damageList
             if (damageList.Contains(t))
             {
                 ret.Add(t);
                 continue;
             }
         }
+
+        //shuffle list of name equipment and return maxmum 3 names
         ret.ShuffleList<string>();
 
-        int max = 3;
-        if (ret.Count < 3)
-            max = ret.Count;
-
-        
-
-        return ret.GetRange(0,max).ToArray();
+        return ret.GetRange(0, (ret.Count < 3) ? ret.Count : 3).ToArray();
     }
 
     //find all children object in a gameobject
     GameObject[] getChildObjects(GameObject parent)
     {
         List<GameObject> temp = new List<GameObject>();
-        foreach( Transform child in parent.transform)
+        foreach (Transform child in parent.transform)
         {
             temp.Add(child.gameObject);
         }
@@ -126,13 +117,14 @@ public class DamageGenerator : MonoBehaviour {
     }
 
     //get prefab of damage equipment for an available set
-	GameObject getDamagePrefab(GameObject damageSet, string equipment, int level){
+    GameObject getDamagePrefab(GameObject damageSet, string equipment, int level)
+    {
         if (damageSet.transform.Find(equipment) == null)
         {
-            print("Damage set doesn't have "+equipment);
+            Debug.LogError("Damage set doesn't have " + equipment);
             return null;
         }
-        
+
         //if damage level is any
         GameObject ret;
         if (level == -1)
@@ -141,34 +133,35 @@ public class DamageGenerator : MonoBehaviour {
             level = Random.Range(1, 4);
 
         }
-        
+
         //if damage is a specific number
-        string name = equipment+"/"+equipment + level;
+        string name = equipment + "/" + equipment + level;
         ret = GameObject.Find(name);
         return ret;
-	}
+    }
 
-    GameObject getEquipmentToReplace(GameObject pole, string name) {
+    GameObject getEquipmentToReplace(GameObject pole, string name)
+    {
         //all gameobject is a single pole
         List<GameObject> equipmentList = new List<GameObject>();
 
         foreach (Transform child in pole.transform)
         {
-            if (child.name.Contains(name))
+            if (child.GetComponent<Data>() != null && child.name.Equals(name))
             {
                 equipmentList.Add(child.gameObject);
             }
 
-            if(name == "FuseSwitch")
-            foreach(Transform child2 in child)
+            //if(name == "FuseSwitch")
+            foreach (Transform child2 in child)
             {
-                if (child2.name.Contains(name))
+                if (child2.GetComponent<Data>() != null && child2.name.Equals(name))
                 {
                     equipmentList.Add(child2.gameObject);
                 }
             }
         }
-        if (equipmentList.Count == 0) {return null; }
+        if (equipmentList.Count == 0) { return null; }
 
 
         int randomIndex = Random.Range(0, equipmentList.Count);
@@ -178,11 +171,12 @@ public class DamageGenerator : MonoBehaviour {
         return ret;
     }
 
-    GameObject replaceObject(GameObject oldObject, GameObject damagePrefab){
+    GameObject replaceObject(GameObject oldObject, GameObject damagePrefab)
+    {
         GameObject newObject;
-        
-		newObject = (GameObject)PrefabUtility.InstantiatePrefab(damagePrefab);
-        if(PrefabUtility.GetPrefabType(damagePrefab) == PrefabType.Prefab)
+
+        newObject = (GameObject)PrefabUtility.InstantiatePrefab(damagePrefab);
+        if (PrefabUtility.GetPrefabType(damagePrefab) == PrefabType.Prefab)
         {
             newObject = (GameObject)PrefabUtility.InstantiatePrefab(damagePrefab);
         }
@@ -196,15 +190,15 @@ public class DamageGenerator : MonoBehaviour {
         {
             Debug.LogError("Error instantiating prefab");
         }
-        print("oldObject parent" + oldObject.transform.parent); 
+
         newObject.transform.parent = oldObject.transform.parent;
         newObject.transform.localPosition = oldObject.transform.localPosition;
         newObject.transform.localRotation = oldObject.transform.localRotation;
-		newObject.transform.localScale = oldObject.transform.localScale;
+        newObject.transform.localScale = oldObject.transform.localScale;
 
-        DestroyImmediate(oldObject);
+        oldObject.SetActive(false);
 
-        print(newObject.transform.parent+" replace with " +newObject.name+"-"+ newObject.transform.GetComponent<Data>().level);
+        //print("In "+newObject.transform.parent.name+" replace with " +newObject.name+"-"+ newObject.transform.GetComponent<Data>().level);
 
         return newObject;
     }
@@ -215,10 +209,11 @@ public class DamageGenerator : MonoBehaviour {
     {
 
         List<GameObject> insulatorList = new List<GameObject>();
-        for(int i=0; i<pole.transform.childCount; i++)
+        for (int i = 0; i < pole.transform.childCount; i++)
         {
             GameObject temp = pole.transform.GetChild(i).gameObject;
-            if (temp.name.Contains("Insulator")){
+            if (temp.name.Contains("Insulator"))
+            {
                 insulatorList.Add(temp);
             }
         }

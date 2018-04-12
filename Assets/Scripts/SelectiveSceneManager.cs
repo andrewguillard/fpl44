@@ -10,7 +10,7 @@ public class SelectiveSceneManager : MonoBehaviour {
 
         //trigger pole generator'
         if (GameObject.Find("PoleGenerator") == null) {
-            print("Can't find pole generator");
+            Debug.LogError("Can't find pole generator");
             return;
         }
         
@@ -21,7 +21,7 @@ public class SelectiveSceneManager : MonoBehaviour {
         //trigger equipment generator
         if (GameObject.Find("EquipmentGenerator") == null)
         {
-            print("Can't find equipment generator");
+            Debug.LogError("Can't find equipment generator");
             return;
         }
         EquipmentGenerator equipGen = GameObject.Find("EquipmentGenerator").GetComponent<EquipmentGenerator>();
@@ -29,19 +29,19 @@ public class SelectiveSceneManager : MonoBehaviour {
 
         //Prepare and Rearrange equipment before add damage
 
-        //    //trigger damage generator
-        //    if (GameObject.Find("DamageGenerator") == null)
-        //    {
-        //        print("Can't find damage generator");
-        //    }
-        //    else
-        //    {
-        //        DamageGenerator damageGenerator = GameObject.Find("DamageGenerator").GetComponent<DamageGenerator>();
-        //        damageGenerator.damageSet.SetActive(true);
-        //        damageGenerator.generateDamage();
-        //        damageGenerator.damageSet.SetActive(false);
+        ////trigger damage generator
+        //if (GameObject.Find("DamageGenerator") == null)
+        //{
+        //    print("Can't find damage generator");
+        //}
+        //else
+        //{
+        //    DamageGenerator damageGenerator = GameObject.Find("DamageGenerator").GetComponent<DamageGenerator>();
+        //    damageGenerator.damageSet.SetActive(true);
+        //    damageGenerator.generateDamage();
+        //    damageGenerator.damageSet.SetActive(false);
 
-        //    }
+        //}
 
         //    //go throught list all call all neccessary functions
         //    foreach (Transform pole in data.getPolesTransform())

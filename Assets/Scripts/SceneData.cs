@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 using System;
 
 public class SceneData : MonoBehaviour {
-    public static string framing;
+    public static string framing ="T";
     public static int damageLevel = -1;
     GameObject[] poles;
 
@@ -17,16 +17,16 @@ public class SceneData : MonoBehaviour {
     private static List<string> damages = new List<string>();
 
     //constant list
-    readonly string[] OHSWITCH = { "Disconnect Switch", "Overhead Switch Pothead " };
+    readonly string[] OHSWITCH = { "Disconnect Switch", "OH Pothead Switch " };
     readonly string[] LA = {"Lightning Arrester Polymer", "Lightning Arrester Ceramic"};
-    readonly string[] INSULATOR = {"Insulator Ceramic", "Insulator Polymer", "Deadend Insulator"};
+    readonly string[] INSULATOR = {"HInsulator", "VInsulator", "LInsulator"};
     readonly string[] POLE = {"Wooden Pole", "Concrete Pole"};
     readonly string[] CROSSARM = {"Wooden Pole Single Cross Arm", "Concrete Pole Single Cross Arm", "Wooden Pole Double Cross Arm", "Concrete Pole Double Cross Arm"};
     readonly string[] VEGETATION = {"Palm Tree", "Oak Tree"};
     readonly string[] CONDUCTOR ={"Power line", "Jumper", "Stirrup"};
     readonly string[] OHTRANSFORMER = {"Transformer Single","Transformer Double","Transformer Triple"};
-    readonly string[] OHFUSE = { "Overhead Fuse Switch", "Fuse Switch", "Overhead Fuse Switch ALS" };
-    readonly string[] CAPACITOR = {"Capacitor Bank","Recloser OCR"};
+    readonly string[] OHFUSE = { "OH Fuse Switch", "OH Fuse Switch ALS" }; 
+    readonly string[] CAPACITOR = {"Capacitor Bank"};
     readonly string[] RECLOSER = {"Recloser" };
     readonly string[] CONNECTIONS = { "Splice"};
     readonly string[] NEST = { "Nest"};
@@ -40,12 +40,13 @@ public class SceneData : MonoBehaviour {
     //getter functions
     public string getFraming(){return framing;}
 	public string[] getDamageEquipmentArray(){
-        if(damages == null)
+        if(damages == null || damages.Count == 0)
         {
             //this only for development 
             damages = new List<string>();
-            foreach(string t in testingData)
+            foreach(string data in testingData)
             {
+                string t = data.Replace(" ", string.Empty);
                 this.addDamageEquipment(t);
             }
         }
@@ -93,23 +94,26 @@ public class SceneData : MonoBehaviour {
         {
             case "OHSwitch":
                 //add equipment to equipment list 
-                addToList(OHSWITCH, equipments);
+                equipments.Add("OHPotheadSwitch");
                 //add equipment to generate damage
+                addToList(OHSWITCH, damages);
 
                 break;
             case "Insulator":
                 //not add anything for equipment
-                damages.Add("Insulator");
+                addToList(INSULATOR, damages);
                 break;
+
             case "Pole":
                 addToList(POLE, damages);
                 //not add anything for equipment
+
                 break;
             case "LightningArrester":
                 break;
             case "CrossArm":
                 //set framming is crossarm
-
+                setFraming("C");
                 break;
             case "Vegetation":
                 break;
@@ -121,8 +125,9 @@ public class SceneData : MonoBehaviour {
                 break;
             case "OHFuse":
                 //not add fuse switch to damage , add OH-FSand ALS
-
+                addToList(OHFUSE, equipments);
                 //add all to damage
+                addToList(new string[] { "FuseSwitch", "ALS"}, damages);
 
                 break;
             case "Capacitor":
@@ -132,9 +137,10 @@ public class SceneData : MonoBehaviour {
                 break;
             case "Nest":
                 break;
-            case "Down Guy":
+            case "DownGuy":
+                addToList(DOWNGUY, equipments);
                 break;
-            case "Riser Shield":
+            case "RiserShield":
                 break;
             case "ForeignObject":
                 break;
@@ -144,8 +150,11 @@ public class SceneData : MonoBehaviour {
                 break;
             case "FeildRegulator":
                 break;
+            case "Recloser":
+                addToList(RECLOSER, equipments);
+                break;
             default:
-                Debug.LogError("Not a selection of equipment");
+                Debug.LogError("Not a selection of equipment" + t);
                 break;
         }
     }
@@ -166,6 +175,7 @@ public class SceneData : MonoBehaviour {
         addToList(fromArray, toList);
         addToList(fromArray, to2List);
     }
+
 
     public void clearEquip()
     {

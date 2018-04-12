@@ -7,7 +7,13 @@ public class EquipmentGenerator : MonoBehaviour {
 
     public void generateEquipment(SceneData data)
     {
-        string[] equips = data.getDamageEquipmentArray();
+        if(EquipmentSet == null)
+        {
+            Debug.LogError("No equipment set to spawn");
+        }
+
+        EquipmentSet.SetActive(true);
+        string[] equips = data.getEquipmentArray();
         GameObject[] poleList = data.getPoles();
 
         //list of prefab to store and spawn
@@ -18,10 +24,6 @@ public class EquipmentGenerator : MonoBehaviour {
         {
             //Declare and initialize
             GameObject prefab = getEquipPrefab(equip);
-
-            //debug
-            print("equipment = " + equip);
-
 
             if (equip.Contains("Pole") || equip.Contains("Insulator")) //all pole comes with it
                 continue;
@@ -53,9 +55,17 @@ public class EquipmentGenerator : MonoBehaviour {
         GameObject[] prefabArray= new GameObject[listPrefab.Count];
         listPrefab.CopyTo(prefabArray);
 
-        //for each pole , random choose a prefab and spawn
-        foreach(GameObject pole in poleList)
+        //debug
+        foreach (GameObject g in prefabArray)
         {
+            print("prefab equip " + g.name);
+        }
+        print("pole length = " + poleList.Length);
+
+        //for each pole , random choose a prefab and spawn
+        foreach (GameObject pole in poleList)
+        {
+
             //if corner pole skip
             if (pole.transform.GetComponent<PoleData>().poleIndex == poleList.Length / 2)
                 continue;
@@ -67,16 +77,9 @@ public class EquipmentGenerator : MonoBehaviour {
 
             int randomIndex = Random.Range(0, prefabArray.Length);
 
-
             GameObject eq = Instantiate(prefabArray[randomIndex], pole.transform);
             eq.transform.parent = pole.transform;
             eq.name = prefabArray[randomIndex].name;
-
-            ////call appriate function for different type of equipment
-            //if (eq.name == "CapacitorBank")
-            //{
-            //    eq.GetComponent<CapacitorBank2>().fillwire();
-            //}
 
             //add more equipment in this pole
         }
@@ -109,6 +112,7 @@ public class EquipmentGenerator : MonoBehaviour {
         }
         else if(EquipmentSet.transform.Find(name) == null)
         {
+            Debug.LogError("can't find prefab for " + name);
             return null;
         }
 

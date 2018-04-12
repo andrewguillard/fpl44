@@ -6,7 +6,7 @@ public class PoleData : MonoBehaviour
 {
     Data[] poleData;
     public int poleIndex;
-
+    public string wireDirection;
     void Start()
     {
         poleData = getData();
@@ -31,4 +31,5 @@ public class PoleData : MonoBehaviour
     {
         return null;
     }
+
 }
