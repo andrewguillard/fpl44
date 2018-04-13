@@ -758,8 +758,6 @@ public class PoleSpawner : MonoBehaviour
 
 
     public void generateAfs(int i) {
-        //afsMaterial
-        //spawnAfs
         if (i <= 9)
         {
             Quaternion rotateAfs = Quaternion.Euler(0, 90, 0);
@@ -776,21 +774,16 @@ public class PoleSpawner : MonoBehaviour
     }
 
     public void generatePothead(int i) {
-        //potheadMaterial;
-        //spawnPothead;
         if (i <= 9)
         {
-            //RIGHT
-            //Quaternion rotateTranRight = Quaternion.Euler(0, -90, 0);
-            Vector3 afsVec = new Vector3(spawnPothead[i].transform.position.x, spawnPothead[i].transform.position.y, spawnPothead[i].transform.position.z);
-            Instantiate(potheadMaterial[0], afsVec, Quaternion.identity);
+            Vector3 potheadVec = new Vector3(spawnPothead[i].transform.position.x, spawnPothead[i].transform.position.y, spawnPothead[i].transform.position.z);
+            Instantiate(potheadMaterial[0], potheadVec, Quaternion.identity);
         }
         else if (i > 9)
         {
-            //RIGHT
-            //Quaternion rotateTranRight = Quaternion.Euler(0, -180, 0);
-            Vector3 afsVec = new Vector3(spawnPothead[i].transform.position.x, spawnPothead[i].transform.position.y, spawnPothead[i].transform.position.z);
-            Instantiate(potheadMaterial[0], afsVec, Quaternion.identity);
+            Quaternion rotatePothead = Quaternion.Euler(0, -90, 0);
+            Vector3 potheadVec = new Vector3(spawnPothead[i].transform.position.x, spawnPothead[i].transform.position.y, spawnPothead[i].transform.position.z);
+            Instantiate(potheadMaterial[0], potheadVec, rotatePothead);
         }
     }
 
@@ -799,7 +792,6 @@ public class PoleSpawner : MonoBehaviour
         //spawnDcSwitch;
         if (i <= 9)
         {
-            //RIGHT
             //Quaternion rotateTranRight = Quaternion.Euler(0, -90, 0);
             Vector3 afsVec = new Vector3(spawnDcSwitch[i].transform.position.x, spawnDcSwitch[i].transform.position.y, spawnDcSwitch[i].transform.position.z);
             Instantiate(dcSwitchMaterial[0], afsVec, Quaternion.identity);
@@ -886,10 +878,6 @@ public class PoleSpawner : MonoBehaviour
         else if (poleObjectArray[i].getEquipmentType() == 3)
             generateRecloser(i);
     }
-
-
-    //public GameObject[] CAFMaterial;
-    //public Transform[] spawnCAFLocation;
 
     public void spawnCAF(int i) {
         if (i <= 9) {
@@ -1068,8 +1056,12 @@ public class PoleSpawner : MonoBehaviour
                 }
             }
             //spawnEquipmentType(i);
-            generateAfs(i);
 
+            generatePothead(i);
+            if (i == 0)
+                generateDcSwitch(i);
+
+            //generateAfs(i);
             //generateCapcitorBank(i);
             //generateFuseSwitch(i);
             //generateRecloser(i);
