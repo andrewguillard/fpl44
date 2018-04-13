@@ -61,7 +61,7 @@ public class EquipmentGenerator : MonoBehaviour {
         {
             print("prefab equip " + g.name);
         }
-        print("pole length = " + poleList.Length);
+        print("prefab length = " + prefabArray.Length);
 
         //for each pole , random choose a prefab and spawn
         foreach (GameObject pole in poleList)
@@ -116,7 +116,6 @@ public class EquipmentGenerator : MonoBehaviour {
             Debug.LogError("can't find prefab for " + name);
             return null;
         }
-
         return EquipmentSet.transform.Find(name).gameObject;
     }
 }

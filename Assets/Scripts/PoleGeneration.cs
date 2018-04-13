@@ -113,7 +113,9 @@ public class PoleGeneration : MonoBehaviour {
 
                 //get pole name
                 string name = "pole" + index + temp.transform.name;
-                
+                //print("spawn pole type " + temp.transform.name);
+
+                //spawn pole
                 if (index < (numberOfPole / 2))
                     poleList[index] = Instantiate(temp, tempStart, temp.transform.rotation);
                 else {
@@ -122,14 +124,19 @@ public class PoleGeneration : MonoBehaviour {
 
                     poleList[index] = Instantiate(temp, tempStart, Quaternion.Euler(tempAngle));
                 }
+
+
                 poleList[index].name = name;
                 poleList[index].transform.SetParent(transform);
-                poleList[index].AddComponent<PoleData>();
-                poleList[index].GetComponent<PoleData>().poleIndex = index;
-                poleList[index].GetComponent<PoleData>().wireDirection = (index < numberOfPole/2)?"x":"z";
-
-
-
+                PoleData poleData = poleList[index].GetComponent<PoleData>();
+                if (poleData == null)
+                {
+                    poleList[index].AddComponent<PoleData>();
+                    poleData = poleList[index].GetComponent<PoleData>();
+                }
+                poleData.poleIndex = index;
+                poleData.wireDirection = (index < numberOfPole/2)?"x":"z";
+                poleData.poleType = temp.transform.name;
 
                 //set new location
                 if (index <= (numberOfPole/2))

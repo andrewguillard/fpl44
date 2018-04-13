@@ -9,7 +9,7 @@ public class PoleData : MonoBehaviour
     public string wireDirection;
     public GameObject[] wireInPoints;
     public GameObject[] wireOutPoints;
-
+    public string poleType;
     void Start()
     {
         poleData = getData();

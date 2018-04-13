@@ -110,6 +110,7 @@ public class SceneData : MonoBehaviour {
 
                 break;
             case "LightningArrester":
+                equipments.Add("LightningArrester");
                 break;
             case "CrossArm":
                 //set framming is crossarm
@@ -148,7 +149,7 @@ public class SceneData : MonoBehaviour {
                 break;
             case "FCI":
                 break;
-            case "FeildRegulator":
+            case "FieldRegulator":
                 break;
             case "Recloser":
                 addToList(RECLOSER, equipments);
