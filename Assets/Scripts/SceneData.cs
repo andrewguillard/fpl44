@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 using System;
 
 public class SceneData : MonoBehaviour {
-    public static string framing ="T";
+    public static string framing;
     public static int damageLevel = -1;
     GameObject[] poles;
 
@@ -25,7 +25,7 @@ public class SceneData : MonoBehaviour {
     readonly string[] VEGETATION = {"Palm Tree", "Oak Tree"};
     readonly string[] CONDUCTOR ={"Power line", "Jumper", "Stirrup"};
     readonly string[] OHTRANSFORMER = {"Transformer Single","Transformer Double","Transformer Triple"};
-    readonly string[] OHFUSE = { "OH Fuse Switch", "OH Fuse Switch ALS" }; 
+    readonly string[] OHFUSE = { "OH Fuse Switch ALS" }; // "OH Fuse Switch",
     readonly string[] CAPACITOR = {"Capacitor Bank"};
     readonly string[] RECLOSER = {"Recloser" };
     readonly string[] CONNECTIONS = { "Splice"};

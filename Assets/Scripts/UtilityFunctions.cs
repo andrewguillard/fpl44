@@ -19,7 +19,10 @@ public class UtilityFunctions : MonoBehaviour
     {
         if (start.GetComponent<CableScript>() == null)
             start.AddComponent<CableScript>();
-
+        else
+        {
+            Debug.LogError("Not found cable Script");
+        }
 
         LineRenderer wire = start.GetComponent<LineRenderer>();
         wire.startWidth = size;
@@ -65,36 +68,36 @@ public class UtilityFunctions : MonoBehaviour
     }
 
 
-    public static GameObject extendPoint(GameObject point, string newPointName, string moveDirection, float distance)
+    public static GameObject extendPoint(GameObject oldPoint, string newPointName, string moveDirection, float distance)
     {
         float d = Mathf.Abs(distance);
 
         //copy old point
-        GameObject ret = new GameObject();
-        ret.transform.position = point.transform.position;
-        ret.transform.parent = point.transform.parent;
+        GameObject newPoint = new GameObject();
+        newPoint.transform.position = oldPoint.transform.position;
+        newPoint.transform.parent = oldPoint.transform.parent;
 
         if (Mathf.Sign(distance) == 1)
         {
             //move point to left
             if (moveDirection == "x")
-                point.transform.position += new Vector3(d, 0.0f, 0.0f);
+                oldPoint.transform.position += new Vector3(d, 0.0f, 0.0f);
             else if (moveDirection == "z")
-                point.transform.position += new Vector3(0.0f, 0.0f, d);
+                oldPoint.transform.position += new Vector3(0.0f, 0.0f, d);
         }
         else
         {
             //move point to right
             if (moveDirection == "x")
-                point.transform.position += new Vector3(-d, 0.0f, 0.0f);
+                oldPoint.transform.position += new Vector3(-d, 0.0f, 0.0f);
             else if (moveDirection == "z")
-                point.transform.position += new Vector3(0.0f, 0.0f, -d);
+                oldPoint.transform.position += new Vector3(0.0f, 0.0f, -d);
         }
 
 
         //change name
-        ret.name = newPointName;
+        newPoint.name = newPointName;
 
-        return ret;
+        return newPoint;
     }
 }

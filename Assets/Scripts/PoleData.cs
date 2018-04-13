@@ -7,6 +7,9 @@ public class PoleData : MonoBehaviour
     Data[] poleData;
     public int poleIndex;
     public string wireDirection;
+    public GameObject[] wireInPoints;
+    public GameObject[] wireOutPoints;
+
     void Start()
     {
         poleData = getData();
