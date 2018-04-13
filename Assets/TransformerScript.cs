@@ -19,12 +19,10 @@ public class TransformerScript : MonoBehaviour {
         if (transform.parent.parent.name != "EquipmentSet")
         {
             pole = transform.parent.parent.gameObject;
-            fillWire();
         }
-
     }
 
-    void fillWire()
+    public void fillWire()
     {
         //fill wire between transformer and FuseSwitch
         UtilityFunctions.lineConnect(Arrester1, Insulator1, 0.02f, 5, -0.3f);
@@ -40,9 +38,6 @@ public class TransformerScript : MonoBehaviour {
             case "C":
                 break;
         }
-
-        //connect wire
-
     }
 
 

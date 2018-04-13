@@ -4,25 +4,10 @@ using UnityEngine;
 
 public class UtilityFunctions : MonoBehaviour
 {
-    //public GameObject s;
-    //public GameObject end;
-    //public void Start()
-    //{
-    //    UtilityFunctions.lineConnect(s, end, 0.07f);
-    //}
-    //public void Update()
-    //{
-    //    UtilityFunctions.lineConnect(s, end, 0.07f);
-    //}
-
     public static void lineConnect(GameObject start, GameObject end, float size)
     {
         if (start.GetComponent<CableScript>() == null)
             start.AddComponent<CableScript>();
-        else
-        {
-            Debug.LogError("Not found cable Script");
-        }
 
         LineRenderer wire = start.GetComponent<LineRenderer>();
         wire.startWidth = size;
@@ -99,5 +84,22 @@ public class UtilityFunctions : MonoBehaviour
         newPoint.name = newPointName;
 
         return newPoint;
+    }
+
+    public static void AdjustineConnect(GameObject start, GameObject end, GameObject middle)
+    {
+        CableScript startCable = start.GetComponent<CableScript>();
+        if (startCable != null)
+        {
+            startCable.setEndPoint(middle);
+        }
+        else
+        {
+            //no cable script in start
+            lineConnect(start, middle, 0.07f, 5, 0.0f);
+        }
+
+        //connect middle to end
+        lineConnect(middle, end, 0.07f, 5, 0.0f);
     }
 }
