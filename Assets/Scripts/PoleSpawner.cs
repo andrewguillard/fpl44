@@ -71,7 +71,10 @@ public class PoleSpawner : MonoBehaviour
     public Transform[] spawnAutomaticLineSwitch;
 
     public GameObject[] treeMaterial;
-    public Transform[] spawnTree;
+    public Transform[] spawnTreeLoc5;
+    public Transform[] spawnTreeLoc3;
+    public Transform[] spawnTreeLoc1;
+    public Transform[] spawnTreeLoc0;
 
     public GameObject[] nestMaterial;
     public Transform[] spawnNest;
@@ -91,7 +94,7 @@ public class PoleSpawner : MonoBehaviour
         return randomInt;
     }
 
-    PoleObject[] poleObjectArray = new PoleObject[20];
+    PoleObject[] poleObjectArray = new PoleObject[21];
 
     //
     // Insulator generation functions
@@ -822,6 +825,10 @@ public class PoleSpawner : MonoBehaviour
             Instantiate(automaticLineSwitchMaterial[0], alsVec, rotateAls);
         }
     }
+    //spawnTreeLoc5;
+    //spawnTreeLoc3;
+    //spawnTreeLoc1;
+    //spawnTreeLoc0;
 
     public void generateTree(int i) {
         //treeMaterial
@@ -830,15 +837,15 @@ public class PoleSpawner : MonoBehaviour
         {
             //RIGHT
             //Quaternion rotateTranRight = Quaternion.Euler(0, -90, 0);
-            Vector3 afsVec = new Vector3(spawnTree[i].transform.position.x, spawnTree[i].transform.position.y, spawnTree[i].transform.position.z);
-            Instantiate(treeMaterial[0], afsVec, Quaternion.identity);
+            Vector3 treeVec = new Vector3(spawnTreeLoc5[i].transform.position.x, spawnTreeLoc5[i].transform.position.y, spawnTreeLoc5[i].transform.position.z);
+            Instantiate(treeMaterial[0], treeVec, Quaternion.identity);
         }
         else if (i > 9)
         {
             //RIGHT
             //Quaternion rotateTranRight = Quaternion.Euler(0, -180, 0);
-            Vector3 afsVec = new Vector3(spawnTree[i].transform.position.x, spawnTree[i].transform.position.y, spawnTree[i].transform.position.z);
-            Instantiate(treeMaterial[0], afsVec, Quaternion.identity);
+            Vector3 treeVec = new Vector3(spawnTreeLoc5[i].transform.position.x, spawnTreeLoc5[i].transform.position.y, spawnTreeLoc5[i].transform.position.z);
+            Instantiate(treeMaterial[0], treeVec, Quaternion.identity);
         }
 
     }
@@ -927,7 +934,7 @@ public class PoleSpawner : MonoBehaviour
     {
 
         //this is so that we can add class style fields to the objects...unless there is a better way.
-        arrayOfPoles = new GameObject[20];
+        arrayOfPoles = new GameObject[21];
 
         List<string> shuffle = new List<string>(poleTypes);
         shuffle.ShuffleList();
@@ -939,7 +946,7 @@ public class PoleSpawner : MonoBehaviour
         //shuffle.Add(poleTypes[1]);
         //shuffle.Add(poleTypes[1]);
 
-        for (int i = 0; i < 20; i++)
+        for (int i = 0; i < 21; i++)
         {
             poleObjectArray[i] = new PoleObject();
             poleObjectArray[i].setEquipmentType(getRandom(7));
@@ -1024,6 +1031,8 @@ public class PoleSpawner : MonoBehaviour
 
                 }
             }
+            //else if (i == 10)
+                //continue;
             else if (i >= 10 && i <= 14)
             {
 
@@ -1055,7 +1064,7 @@ public class PoleSpawner : MonoBehaviour
                     generateCrossarmInsulators(i, loc, shuffle);
                 }
             }
-            else if (i > 14)
+            else if (i > 14 && i <21)
             {
                 //Vertical insulator: poles 15-19
 
@@ -1088,7 +1097,10 @@ public class PoleSpawner : MonoBehaviour
             }
             //This randomizes equipment
             //spawnEquipmentType(i);
-            generateNest(i);
+            if(i == 0)
+            generateTree(i);
+            
+            //generateNest(i);
 
             //generateAutomaticLineSwitch(i);
             //generatePothead(i);
@@ -1122,7 +1134,10 @@ public class PoleSpawner : MonoBehaviour
             }
         }
 
-        
+        Debug.Log("Number of pole objects: " + poleObjectArray.Length);
+
+        //spawnPoleLocation
+        Debug.Log("Number of pole spawn locations: " + poleObjectArray.Length);
     }
     void Update() {
 
