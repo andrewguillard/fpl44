@@ -5,32 +5,34 @@ using UnityEngine;
 public class EquipmentGenerator : MonoBehaviour {
     public GameObject EquipmentSet;
 
-    public void generateEquipment()
-    {
-
-    }
-
     public void generateEquipment(SceneData data)
     {
-        string[] equips = data.getDamageEquipmentArray();
+        print("Equipment start");
+        EquipmentSet.SetActive(true);
+        if(EquipmentSet == null)
+        {
+            Debug.LogError("No equipment set to spawn");
+        }
+
+        EquipmentSet.SetActive(true);
+        string[] equips = data.getEquipmentArray();
         GameObject[] poleList = data.getPoles();
 
         //list of prefab to store and spawn
         HashSet<GameObject> listPrefab = new HashSet<GameObject>();
-
+        
         //get list of prefab to spawn
         foreach (string equip in equips)
         {
-            print("equipment = " + equip);
+            //Declare and initialize
+            GameObject prefab = getEquipPrefab(equip);
 
             if (equip.Contains("Pole") || equip.Contains("Insulator")) //all pole comes with it
                 continue;
 
-            GameObject prefab = getEquip(equip);
             //feed the equipment to the pole 
             if (prefab != null)
             {
-                //equiment is in the equipment set
                 listPrefab.Add(prefab);
             }
             else
@@ -64,16 +66,38 @@ public class EquipmentGenerator : MonoBehaviour {
                 GameObject eq = Instantiate(prefabArray[randomIndex], pole.transform);
                 eq.transform.parent = pole.transform;
                 eq.name = prefabArray[randomIndex].name;
+        //debug
+        foreach (GameObject g in prefabArray)
+        {
+            print("prefab equip " + g.name);
+        }
+        print("prefab length = " + prefabArray.Length);
 
+        //for each pole , random choose a prefab and spawn
+        foreach (GameObject pole in poleList)
+        {
 
-                //add more equipment in this pole
+            //if corner pole skip
+            if (pole.transform.GetComponent<PoleData>().poleIndex == poleList.Length / 2)
+                continue;
 
-            }
+            //a new random generator to put a empty pole
+            int random = Random.Range(0, 10); // p = 0.1 
+            if (random.Equals(9))
+                continue;
+
+            int randomIndex = Random.Range(0, prefabArray.Length);
+
+            GameObject eq = Instantiate(prefabArray[randomIndex], pole.transform);
+            eq.transform.parent = pole.transform;
+            eq.name = prefabArray[randomIndex].name;
         }
 
 
 
         disableEquipmentSet();
+        print("Equipment ended" );
+
     }
 
     void disableEquipmentSet()
@@ -84,17 +108,24 @@ public class EquipmentGenerator : MonoBehaviour {
         }
     }
 
-    GameObject getEquip(string name)
+    GameObject getEquipPrefab(string name)
     {
+        //special Cases
+        if(name == "Transformer")
+        {
+            int ran = Random.Range(1,4);
+            name += ran;
+        }
+
         if(EquipmentSet == null)
         {
             print("Equipment set is empty");
         }
         else if(EquipmentSet.transform.Find(name) == null)
         {
+            Debug.LogError("can't find prefab for " + name);
             return null;
         }
-
         return EquipmentSet.transform.Find(name).gameObject;
     }
 }

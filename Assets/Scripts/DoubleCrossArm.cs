@@ -13,8 +13,8 @@ public class DoubleCrossArm : MonoBehaviour {
             string sName = phases[i] + "1";
             string eName = phases[i] + "2";
 
-            GameObject sPoint = transform.Find(sName).gameObject;
-            GameObject ePoint = transform.Find(eName).gameObject;
+            GameObject sPoint = UtilityFunctions.findInChild(transform,sName).gameObject;
+            GameObject ePoint = UtilityFunctions.findInChild(transform, eName).gameObject;
 
             UtilityFunctions.lineConnect(sPoint, ePoint, 0.07f, 5, 0.01f);
 

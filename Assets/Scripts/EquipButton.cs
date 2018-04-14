@@ -26,23 +26,12 @@ public class EquipButton : MonoBehaviour
 
     void TaskOnClick()
     {
-        string[] pole = { "WoodPole", "ConcretePole" };
-        string[] insulator = { "HInsulator", "VInsulator", "LInsulator" };
-        string[] tempName;
-
-        if (equip == "Insulator") tempName = insulator;
-        else if(equip == "Pole") tempName = pole;
-        else 
-            tempName = new string[] { equip };
-
         if (!isClicked)
         {
-            data.addDamageEquipment(tempName);
             transform.GetComponent<Image>().overrideSprite = clicked;
         }
         else
         {
-            data.removeDamageEquipment(tempName);
             transform.GetComponent<Image>().overrideSprite = normal;
         }
 
