@@ -898,15 +898,13 @@ public class PoleSpawner : MonoBehaviour
     public void generateNest(int i) {
         if (i <= 9)
         {
-            Quaternion rotateNest = Quaternion.Euler(-90, 0, 0);
             Vector3 nestVec = new Vector3(spawnNest[i].transform.position.x, spawnNest[i].transform.position.y, spawnNest[i].transform.position.z);
-            Instantiate(nestMaterial[0], nestVec, rotateNest);
+            Instantiate(nestMaterial[0], nestVec, Quaternion.identity);
         }
         else if (i > 9)
         {
-            Quaternion rotateNest = Quaternion.Euler(-90, 0, 0);
             Vector3 nestVec = new Vector3(spawnNest[i].transform.position.x, spawnNest[i].transform.position.y, spawnNest[i].transform.position.z);
-            Instantiate(nestMaterial[0], nestVec, rotateNest);
+            Instantiate(nestMaterial[0], nestVec, Quaternion.identity);
         }
     }
 
@@ -915,17 +913,15 @@ public class PoleSpawner : MonoBehaviour
         //spawnBalloon
         if (i <= 9)
         {
-            //RIGHT
             //Quaternion rotateTranRight = Quaternion.Euler(0, -90, 0);
             Vector3 afsVec = new Vector3(spawnBalloon[i].transform.position.x, spawnBalloon[i].transform.position.y, spawnBalloon[i].transform.position.z);
             Instantiate(balloonMaterial[0], afsVec, Quaternion.identity);
         }
         else if (i > 9)
         {
-            //RIGHT
-            //Quaternion rotateTranRight = Quaternion.Euler(0, -180, 0);
+            Quaternion rotateBalloon = Quaternion.Euler(0, -90, 0);
             Vector3 afsVec = new Vector3(spawnBalloon[i].transform.position.x, spawnBalloon[i].transform.position.y, spawnBalloon[i].transform.position.z);
-            Instantiate(balloonMaterial[0], afsVec, Quaternion.identity);
+            Instantiate(balloonMaterial[0], afsVec, rotateBalloon);
         }
     }
 
@@ -1078,7 +1074,7 @@ public class PoleSpawner : MonoBehaviour
                 }
             }
             //else if (i == 10)
-                //continue;
+            //continue;
             else if (i >= 10 && i <= 14)
             {
 
@@ -1110,7 +1106,7 @@ public class PoleSpawner : MonoBehaviour
                     generateCrossarmInsulators(i, loc, shuffle);
                 }
             }
-            else if (i > 14 && i <21)
+            else if (i > 14 && i < 21)
             {
                 //Vertical insulator: poles 15-19
 
@@ -1143,12 +1139,12 @@ public class PoleSpawner : MonoBehaviour
             }
             //This randomizes equipment
             //spawnEquipmentType(i);
-           
-            //if(i ==0)
-            generateTree(i, Random.Range(0,4), Random.Range(0, 2));
-            
-            //generateNest(i);
 
+            //if(i <12)
+            generateBalloon(i);
+            //generateNest(i);
+            //generateTree(i, Random.Range(0, 4), Random.Range(0, 2));
+            //generateNest(i);
             //generateAutomaticLineSwitch(i);
             //generatePothead(i);
             //generateDcSwitch(i);
