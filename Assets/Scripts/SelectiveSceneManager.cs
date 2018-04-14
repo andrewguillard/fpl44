@@ -3,29 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class SelectiveSceneManager : MonoBehaviour {
-    public GameObject screenPrefab;
+    [SerializeField] private GameObject screenPrefab;
+    [SerializeField] private SceneData data;
+    [SerializeField] private PoleGeneration poleGenerator;
+    [SerializeField] private EquipmentGenerator equipGen;
+    [SerializeField] private DamageGenerator damageGenerator;
+    [SerializeField] private wireConnect2 wireConnector;
+
     // Use this for initialization
     void Start () {
-        SceneData data = transform.GetComponent<SceneData>();
+        print("scene Manager "  + transform.GetSiblingIndex());
 
-        //trigger pole generator'
-        if (GameObject.Find("PoleGenerator") == null) {
-            Debug.LogError("Can't find pole generator");
-            return;
-        }
-        
-        PoleGeneration poleGenerator =  GameObject.Find("PoleGenerator").GetComponent<PoleGeneration>();
-        poleGenerator.generatePoles();
-        data.setPoles(poleGenerator.getPoleList());
+        if(data ==null)
+            data = transform.GetComponent<SceneData>();
 
-        //trigger equipment generator
-        if (GameObject.Find("EquipmentGenerator") == null)
-        {
-            Debug.LogError("Can't find equipment generator");
-            return;
-        }
-        EquipmentGenerator equipGen = GameObject.Find("EquipmentGenerator").GetComponent<EquipmentGenerator>();
-        equipGen.generateEquipment(data);
+        poleGenerate();
+        equipmentGenerate();
+        wireGenerate();
 
         //Prepare and Rearrange equipment before add damage
 
@@ -60,16 +54,7 @@ public class SelectiveSceneManager : MonoBehaviour {
 
 
 
-        //    //trigger wire connector
-        //    if (GameObject.Find("WireConnector") == null)
-        //    {
-        //        print("Can't find wire Connector");
-        //    }
-        //    else
-        //    {
-        //        wireConnect2 wireConnector = GameObject.Find("WireConnector").GetComponent<wireConnect2>();
-        //        wireConnector.connectWire();
-        //    }
+        
 
 
         //    //CAF generator 
@@ -116,6 +101,53 @@ public class SelectiveSceneManager : MonoBehaviour {
         //    }
 
         //    screenPrefab.SetActive(false);
+    }
+
+    void poleGenerate()
+    {
+        //trigger pole generator'
+        if (GameObject.Find("PoleGenerator") == null)
+        {
+            Debug.LogError("Can't find pole generator");
+            return;
+        }
+        else
+        {
+            if (poleGenerator == null)
+                poleGenerator = GameObject.Find("PoleGenerator").GetComponent<PoleGeneration>();
+             poleGenerator.generatePoles();
+            data.setPoles(poleGenerator.getPoleList());
+        }
+    }
+
+    void equipmentGenerate()
+    {
+        //trigger equipment generator
+        if (GameObject.Find("EquipmentGenerator") == null)
+        {
+            Debug.LogError("Can't find equipment generator");
+            return;
+        }
+        else
+        {
+            if (equipGen == null)
+                equipGen = GameObject.Find("EquipmentGenerator").GetComponent<EquipmentGenerator>();
+            else
+                equipGen.generateEquipment(data);
+        }
+    }
+
+    void wireGenerate()
+    {
+        //trigger wire connector
+        if (GameObject.Find("WireConnector") == null)
+        {
+            print("Can't find wire Connector");
+        }
+        else
+        {
+            wireConnector.WireConnect();
+        }
     }
 
 }

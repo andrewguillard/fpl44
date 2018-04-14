@@ -135,6 +135,8 @@ public class SceneData : MonoBehaviour {
                 addToList(CAPACITOR, equipments,damages);
                 break;
             case "Connections":
+                addToList(CONNECTIONS, equipments);
+
                 break;
             case "Nest":
                 break;

@@ -33,12 +33,13 @@ public class OHFuseALSScript : MonoBehaviour {
         {
             string nameOldIn = "M_" + wireInPoints[i].name;
             GameObject oldIn = UtilityFunctions.extendPoint(wireInPoints[i], nameOldIn, pole.GetComponent<PoleData>().wireDirection,1.5f);
+            UtilityFunctions.AdjustineConnect(wireInPoints[i], wireOutPoints[i], oldIn);
 
             string nameOldOut = "M_" + wireOutPoints[i].name;
             GameObject oldOut = UtilityFunctions.extendPoint(wireOutPoints[i], nameOldIn, pole.GetComponent<PoleData>().wireDirection, -1.5f);
+            UtilityFunctions.AdjustineConnect(oldIn, wireOutPoints[i], oldOut);
 
             //connect oldIn and oldOut
-
             //connect ALS to newIn and NewOut
             UtilityFunctions.lineConnect(ALSs[i].bottom, wireInPoints[i], 0.03f, 5, 0.5f);
             UtilityFunctions.lineConnect(ALSs[i].top, wireOutPoints[i], 0.03f, 5, 0.5f);

@@ -7,6 +7,7 @@ public class EquipmentGenerator : MonoBehaviour {
 
     public void generateEquipment(SceneData data)
     {
+        print("Equipment start");
         EquipmentSet.SetActive(true);
         if(EquipmentSet == null)
         {
@@ -87,6 +88,8 @@ public class EquipmentGenerator : MonoBehaviour {
 
 
         disableEquipmentSet();
+        print("Equipment ended" );
+
     }
 
     void disableEquipmentSet()
@@ -96,7 +99,6 @@ public class EquipmentGenerator : MonoBehaviour {
             EquipmentSet.SetActive(false);
         }
     }
-
 
     GameObject getEquipPrefab(string name)
     {

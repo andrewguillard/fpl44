@@ -6,8 +6,6 @@ using UnityEngine;
 //[ExecuteInEditMode]
 public class CableScript : MonoBehaviour
 {
-
-
     LineRenderer line;
 
     //the Start of the cable will be the transform of the Gameobject that has this component.
@@ -28,6 +26,10 @@ public class CableScript : MonoBehaviour
     public void setEndPoint(GameObject t)
     {
         endPointTransform = t.transform;
+    }
+    public GameObject getEndPoint()
+    {
+        return endPointTransform.gameObject;
     }
     void Start()
     {

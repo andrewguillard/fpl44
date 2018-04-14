@@ -100,6 +100,9 @@ public class UtilityFunctions : MonoBehaviour
         }
 
         //connect middle to end
-        lineConnect(middle, end, 0.07f, 5, 0.0f);
+        if (middle.GetComponents<CableScript>() == null)
+            lineConnect(middle, end, 0.07f, 5, 0.0f);
+        else
+            middle.GetComponent<CableScript>().setEndPoint(end);
     }
 }

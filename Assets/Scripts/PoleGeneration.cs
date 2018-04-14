@@ -16,6 +16,8 @@ public class PoleGeneration : MonoBehaviour {
     // Use this for initialization
     public void generatePoles()
     {
+        print(" pole Manager " + transform.GetSiblingIndex());
+
         //make this gameobject is where stores all poles that instatiated
         this.name = "ListOfPoles";
 
