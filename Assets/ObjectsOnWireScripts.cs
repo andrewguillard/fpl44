@@ -11,7 +11,7 @@ public class ObjectsOnWireScripts : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	    if(transform.parent.name != "EquipmentSet")
+	    if(transform.parent.name != "EquipmentSet" && transform.parent.name != "DamageSet")
         {
             pole = transform.parent.GetComponent<PoleData>();
 

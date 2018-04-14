@@ -9,7 +9,7 @@ public class Vegetation : MonoBehaviour {
     private float distance = 5.0f;
     void Start()
     {
-        if (transform.parent.name == "EquipmentSet")
+        if (transform.parent.name == "EquipmentSet" || transform.parent.name == "DamageSet")
             return;
 
         pole = transform.parent.GetComponent<PoleData>();

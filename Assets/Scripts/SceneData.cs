@@ -33,7 +33,7 @@ public class SceneData : MonoBehaviour {
     readonly string[] RISERSHIELD = { "Riser Shield"};
     readonly string[] OBJECT=  { "Kite" ,"Ballon"}; 
     readonly string[] AFS = {"Automatic Feeder Switch" }; 
-    readonly string[] FCI = { "Fault Current Indicator" }; 
+    readonly string[] FCI = { "FCI" }; 
 
     //getter functions
     public string getFraming(){return framing;}
@@ -115,7 +115,7 @@ public class SceneData : MonoBehaviour {
                 setFraming("C");
                 break;
             case "Vegetation":
-                equipments.Add("Vegetation");
+                damages.Add("Vegetation");
                 break;
             case "Conductor":
                 break;
@@ -138,6 +138,7 @@ public class SceneData : MonoBehaviour {
 
                 break;
             case "Nest":
+                damages.Add("Nest");
                 break;
             case "DownGuy":
                 addToList(DOWNGUY, equipments);
@@ -145,11 +146,13 @@ public class SceneData : MonoBehaviour {
             case "RiserShield":
                 break;
             case "ForeignObject":
-                equipments.Add("ObjectsOnWire");
+                damages.Add("ObjectsOnWire");
                 break;
             case "AFS":
+                equipments.Add("AFS");
                 break;
             case "FCI":
+                equipments.Add("FCI");
                 break;
             case "Recloser":
                 addToList(RECLOSER, equipments);
