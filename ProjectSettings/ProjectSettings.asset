@@ -273,7 +273,10 @@ PlayerSettings:
   - m_BuildTarget: Standalone
     m_StaticBatching: 1
     m_DynamicBatching: 1
-  m_BuildTargetGraphicsAPIs: []
+  m_BuildTargetGraphicsAPIs:
+  - m_BuildTarget: WindowsStandaloneSupport
+    m_APIs: 02000000
+    m_Automatic: 1
   m_BuildTargetVRSettings:
   - m_BuildTarget: Android
     m_Enabled: 0
@@ -737,7 +740,7 @@ PlayerSettings:
   facebookSdkVersion: 7.9.4
   apiCompatibilityLevel: 2
   cloudProjectId: 478f7033-916e-483c-8e41-e55903fc6fea
-  projectName: 
+  projectName: Condition Assessment Training
   organizationId: juliagalimidi
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0

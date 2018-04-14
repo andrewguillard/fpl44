@@ -7,7 +7,11 @@ public class ButtonController : MonoBehaviour {
     public void loadScene(string sceneName)
     {
         print("button click and  load scene " + sceneName);
-        SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
+        //SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
+        SceneManager.LoadScene(sceneName);
+
+        //SteamVR_LoadLevel.Begin(sceneName);
+
     }
 
     //platform specific compilation: code will run differently depending on if it's being run on Unity or not
