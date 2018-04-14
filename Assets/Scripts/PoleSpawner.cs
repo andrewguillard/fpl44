@@ -792,16 +792,14 @@ public class PoleSpawner : MonoBehaviour
         //spawnDcSwitch;
         if (i <= 9)
         {
-            //Quaternion rotateTranRight = Quaternion.Euler(0, -90, 0);
-            Vector3 afsVec = new Vector3(spawnDcSwitch[i].transform.position.x, spawnDcSwitch[i].transform.position.y, spawnDcSwitch[i].transform.position.z);
-            Instantiate(dcSwitchMaterial[0], afsVec, Quaternion.identity);
+            Vector3 dcVec = new Vector3(spawnDcSwitch[i].transform.position.x, spawnDcSwitch[i].transform.position.y, spawnDcSwitch[i].transform.position.z);
+            Instantiate(dcSwitchMaterial[0], dcVec, Quaternion.identity);
         }
         else if (i > 9)
         {
-            //RIGHT
-            //Quaternion rotateTranRight = Quaternion.Euler(0, -180, 0);
-            Vector3 afsVec = new Vector3(spawnDcSwitch[i].transform.position.x, spawnDcSwitch[i].transform.position.y, spawnDcSwitch[i].transform.position.z);
-            Instantiate(dcSwitchMaterial[0], afsVec, Quaternion.identity);
+            Quaternion rotateDcSwitch = Quaternion.Euler(0, -90, 0);
+            Vector3 dcVec = new Vector3(spawnDcSwitch[i].transform.position.x, spawnDcSwitch[i].transform.position.y, spawnDcSwitch[i].transform.position.z);
+            Instantiate(dcSwitchMaterial[0], dcVec, rotateDcSwitch);
         }
     }
 
@@ -1058,8 +1056,7 @@ public class PoleSpawner : MonoBehaviour
             //spawnEquipmentType(i);
 
             generatePothead(i);
-            if (i == 0)
-                generateDcSwitch(i);
+            generateDcSwitch(i);
 
             //generateAfs(i);
             //generateCapcitorBank(i);
