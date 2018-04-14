@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SelectiveSceneManager : MonoBehaviour {
+public class SelectiveSceneManager : MonoBehaviour
+{
     [SerializeField] private GameObject screenPrefab;
     [SerializeField] private SceneData data;
     [SerializeField] private PoleGeneration poleGenerator;
@@ -11,10 +12,11 @@ public class SelectiveSceneManager : MonoBehaviour {
     [SerializeField] private wireConnect2 wireConnector;
 
     // Use this for initialization
-    void Start () {
-        print("scene Manager "  + transform.GetSiblingIndex());
+    void Start()
+    {
+        print("scene Manager " + transform.GetSiblingIndex());
 
-        if(data ==null)
+        if (data == null)
             data = transform.GetComponent<SceneData>();
 
         poleGenerate();
@@ -51,6 +53,11 @@ public class SelectiveSceneManager : MonoBehaviour {
         //            }
         //        }
         //    }
+
+
+
+
+
 
         //    //CAF generator 
         //    GameObject CAFs = new GameObject("CAFs");
@@ -110,7 +117,7 @@ public class SelectiveSceneManager : MonoBehaviour {
         {
             if (poleGenerator == null)
                 poleGenerator = GameObject.Find("PoleGenerator").GetComponent<PoleGeneration>();
-             poleGenerator.generatePoles();
+            poleGenerator.generatePoles();
             data.setPoles(poleGenerator.getPoleList());
         }
     }

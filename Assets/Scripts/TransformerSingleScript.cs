@@ -20,22 +20,22 @@ public class TransformerSingleScript : MonoBehaviour {
         transformer.fillWire();
 
         //connect fuse switch to wire
-        int rNum = Random.RandomRange(0, 3);
+        int rNum = Random.Range(0, 3);
 
         //extend wire
         GameObject newPoint;
-        if (rNum != 1)
-        {
-            newPoint = UtilityFunctions.extendPoint(pole.wireInPoints[rNum], ("M_" + rNum), pole.wireDirection, 0.7f);
-            UtilityFunctions.AdjustineConnect(pole.wireInPoints[rNum], pole.wireOutPoints[rNum], newPoint);
-            UtilityFunctions.lineConnect(FuseSwitch.top, pole.wireInPoints[rNum], 0.02f, 5, 0.3f);
-        }
-        else
-        {
+        //if (rNum != 1)
+        //{
+        //    newPoint = UtilityFunctions.extendPoint(pole.wireInPoints[rNum], ("M_" + rNum), pole.wireDirection,0.7f);
+        //    UtilityFunctions.AdjustineConnect(pole.wireInPoints[rNum], pole.wireOutPoints[rNum], newPoint);
+        //    UtilityFunctions.lineConnect(FuseSwitch.top, pole.wireInPoints[rNum], 0.02f, 5, 0.3f);
+        //}
+        //else
+        //{
             newPoint = UtilityFunctions.extendPoint(pole.wireOutPoints[rNum], ("M_" + rNum), pole.wireDirection, -0.7f);
             UtilityFunctions.AdjustineConnect(pole.wireInPoints[rNum], pole.wireOutPoints[rNum], newPoint);
             UtilityFunctions.lineConnect(FuseSwitch.top, pole.wireOutPoints[rNum], 0.02f, 5, 0.3f);
-        }
+        //}
 
 
     }

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -100,9 +101,13 @@ public class UtilityFunctions : MonoBehaviour
         }
 
         //connect middle to end
-        if (middle.GetComponents<CableScript>() == null)
+        if (middle.GetComponent<CableScript>() ==null)
+        {
             lineConnect(middle, end, 0.07f, 5, 0.0f);
+        }
         else
+        {
             middle.GetComponent<CableScript>().setEndPoint(end);
+        }
     }
 }
