@@ -67,6 +67,9 @@ public class PoleSpawner : MonoBehaviour
     public GameObject[] dcSwitchMaterial;
     public Transform[] spawnDcSwitch;
 
+    public GameObject[] automaticLineSwitchMaterial;
+    public Transform[] spawnAutomaticLineSwitch;
+
     public GameObject[] treeMaterial;
     public Transform[] spawnTree;
 
@@ -803,6 +806,23 @@ public class PoleSpawner : MonoBehaviour
         }
     }
 
+    public void generateAutomaticLineSwitch(int i)
+    {
+        //automaticLineSwitchMaterial;
+        //spawnAutomaticLineSwitch;
+        if (i <= 9)
+        {
+            Vector3 alsVec = new Vector3(spawnAutomaticLineSwitch[i].transform.position.x, spawnAutomaticLineSwitch[i].transform.position.y, spawnAutomaticLineSwitch[i].transform.position.z);
+            Instantiate(automaticLineSwitchMaterial[0], alsVec, Quaternion.identity);
+        }
+        else if (i > 9)
+        {
+            Quaternion rotateAls = Quaternion.Euler(0, -90, 0);
+            Vector3 alsVec = new Vector3(spawnAutomaticLineSwitch[i].transform.position.x, spawnAutomaticLineSwitch[i].transform.position.y, spawnAutomaticLineSwitch[i].transform.position.z);
+            Instantiate(automaticLineSwitchMaterial[0], alsVec, rotateAls);
+        }
+    }
+
     public void generateTree(int i) {
         //treeMaterial
         //spawnTree
@@ -1053,10 +1073,14 @@ public class PoleSpawner : MonoBehaviour
                     generateCrossarmInsulators(i, loc, shuffle);
                 }
             }
+            //This randomizes equipment
             //spawnEquipmentType(i);
 
-            generatePothead(i);
-            generateDcSwitch(i);
+
+            generateAutomaticLineSwitch(i);
+
+            //generatePothead(i);
+            //generateDcSwitch(i);
 
             //generateAfs(i);
             //generateCapcitorBank(i);
