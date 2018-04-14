@@ -881,6 +881,12 @@ public class PoleSpawner : MonoBehaviour
     }
 
 
+    //generatePothead(i);
+    //generateDcSwitch(i);
+    //generateAfs(i);
+    //generateAutomaticLineSwitch(i);
+
+
     public void spawnEquipmentType(int i) {
         if (poleObjectArray[i].getEquipmentType() == 0)
             return;
@@ -893,8 +899,19 @@ public class PoleSpawner : MonoBehaviour
         {
             generateTransformer(i);
         }
-        else if (poleObjectArray[i].getEquipmentType() == 3)
+        else if (poleObjectArray[i].getEquipmentType() == 3) {
             generateRecloser(i);
+        }
+        else if (poleObjectArray[i].getEquipmentType() == 4) {
+            generateAfs(i);
+        }
+        else if (poleObjectArray[i].getEquipmentType() == 5) {
+            generatePothead(i);
+            generateDcSwitch(i);
+        }
+        else if (poleObjectArray[i].getEquipmentType() == 6) {
+            generateAutomaticLineSwitch(i);
+        }
     }
 
     public void spawnCAF(int i) {
@@ -929,7 +946,7 @@ public class PoleSpawner : MonoBehaviour
         for (int i = 0; i < 20; i++)
         {
             poleObjectArray[i] = new PoleObject();
-            poleObjectArray[i].setEquipmentType(getRandom(4));
+            poleObjectArray[i].setEquipmentType(getRandom(7));
         }
 
 
@@ -1074,18 +1091,18 @@ public class PoleSpawner : MonoBehaviour
                 }
             }
             //This randomizes equipment
-            //spawnEquipmentType(i);
+            spawnEquipmentType(i);
 
 
-            generateAutomaticLineSwitch(i);
-
+            //generateAutomaticLineSwitch(i);
             //generatePothead(i);
             //generateDcSwitch(i);
-
             //generateAfs(i);
+
             //generateCapcitorBank(i);
             //generateFuseSwitch(i);
             //generateRecloser(i);
+
             //spawnCAF(i);
         }
         /*
