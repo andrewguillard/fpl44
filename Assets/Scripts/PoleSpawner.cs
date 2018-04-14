@@ -830,25 +830,71 @@ public class PoleSpawner : MonoBehaviour
     //spawnTreeLoc1;
     //spawnTreeLoc0;
 
-    public void generateTree(int i) {
+    public void generateTree(int i, int severityLevel, int materialLevel) {
         //treeMaterial
         //spawnTree
-        if (i <= 9)
+        if (severityLevel == 3)
         {
-            //RIGHT
-            //Quaternion rotateTranRight = Quaternion.Euler(0, -90, 0);
-            Vector3 treeVec = new Vector3(spawnTreeLoc5[i].transform.position.x, spawnTreeLoc5[i].transform.position.y, spawnTreeLoc5[i].transform.position.z);
-            Instantiate(treeMaterial[0], treeVec, Quaternion.identity);
+            if (i <= 9)
+            {
+                //Quaternion rotateTranRight = Quaternion.Euler(0, -90, 0);
+                Vector3 treeVec = new Vector3(spawnTreeLoc5[i].transform.position.x, spawnTreeLoc5[i].transform.position.y, spawnTreeLoc5[i].transform.position.z);
+                Instantiate(treeMaterial[materialLevel], treeVec, Quaternion.identity);
+            }
+            else if (i > 9)
+            {
+                //Quaternion rotateTranRight = Quaternion.Euler(0, -180, 0);
+                Vector3 treeVec = new Vector3(spawnTreeLoc5[i].transform.position.x, spawnTreeLoc5[i].transform.position.y, spawnTreeLoc5[i].transform.position.z);
+                Instantiate(treeMaterial[materialLevel], treeVec, Quaternion.identity);
+            }
         }
-        else if (i > 9)
+        else if (severityLevel == 2)
         {
-            //RIGHT
-            //Quaternion rotateTranRight = Quaternion.Euler(0, -180, 0);
-            Vector3 treeVec = new Vector3(spawnTreeLoc5[i].transform.position.x, spawnTreeLoc5[i].transform.position.y, spawnTreeLoc5[i].transform.position.z);
-            Instantiate(treeMaterial[0], treeVec, Quaternion.identity);
+            if (i <= 9)
+            {
+                //Quaternion rotateTranRight = Quaternion.Euler(0, -90, 0);
+                Vector3 treeVec = new Vector3(spawnTreeLoc3[i].transform.position.x, spawnTreeLoc3[i].transform.position.y, spawnTreeLoc3[i].transform.position.z);
+                Instantiate(treeMaterial[materialLevel], treeVec, Quaternion.identity);
+            }
+            else if (i > 9)
+            {
+                //Quaternion rotateTranRight = Quaternion.Euler(0, -180, 0);
+                Vector3 treeVec = new Vector3(spawnTreeLoc3[i].transform.position.x, spawnTreeLoc3[i].transform.position.y, spawnTreeLoc3[i].transform.position.z);
+                Instantiate(treeMaterial[materialLevel], treeVec, Quaternion.identity);
+            }
         }
-
+        else if (severityLevel == 1)
+        {
+            if (i <= 9)
+            {
+                //Quaternion rotateTranRight = Quaternion.Euler(0, -90, 0);
+                Vector3 treeVec = new Vector3(spawnTreeLoc1[i].transform.position.x, spawnTreeLoc1[i].transform.position.y, spawnTreeLoc1[i].transform.position.z);
+                Instantiate(treeMaterial[materialLevel], treeVec, Quaternion.identity);
+            }
+            else if (i > 9)
+            {
+                //Quaternion rotateTranRight = Quaternion.Euler(0, -180, 0);
+                Vector3 treeVec = new Vector3(spawnTreeLoc1[i].transform.position.x, spawnTreeLoc1[i].transform.position.y, spawnTreeLoc1[i].transform.position.z);
+                Instantiate(treeMaterial[materialLevel], treeVec, Quaternion.identity);
+            }
+        }
+        else if (severityLevel == 0)
+        {
+            if (i <= 9)
+            {
+                //Quaternion rotateTranRight = Quaternion.Euler(0, -90, 0);
+                Vector3 treeVec = new Vector3(spawnTreeLoc0[i].transform.position.x, spawnTreeLoc0[i].transform.position.y, spawnTreeLoc0[i].transform.position.z);
+                Instantiate(treeMaterial[materialLevel], treeVec, Quaternion.identity);
+            }
+            else if (i > 9)
+            {
+                //Quaternion rotateTranRight = Quaternion.Euler(0, -180, 0);
+                Vector3 treeVec = new Vector3(spawnTreeLoc0[i].transform.position.x, spawnTreeLoc0[i].transform.position.y, spawnTreeLoc0[i].transform.position.z);
+                Instantiate(treeMaterial[materialLevel], treeVec, Quaternion.identity);
+            }
+        }
     }
+
     public void generateNest(int i) {
         if (i <= 9)
         {
@@ -1097,8 +1143,9 @@ public class PoleSpawner : MonoBehaviour
             }
             //This randomizes equipment
             //spawnEquipmentType(i);
-            if(i == 0)
-            generateTree(i);
+           
+            //if(i ==0)
+            generateTree(i, Random.Range(0,4), Random.Range(0, 2));
             
             //generateNest(i);
 
