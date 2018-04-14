@@ -17,24 +17,23 @@ public class SceneData : MonoBehaviour {
     private static List<string> damages = new List<string>();
 
     //constant list
-    readonly string[] OHSWITCH = { "Disconnect Switch", "OH Pothead Switch " };
-    readonly string[] LA = {"Lightning Arrester Polymer", "Lightning Arrester Ceramic"};
+    readonly string[] OHSWITCH = { "Disconnect Switch", "OH Pothead Switch " }; //done
+    readonly string[] LA = {"Lightning Arrester Polymer", "Lightning Arrester Ceramic"}; //done
     readonly string[] INSULATOR = {"HInsulator", "VInsulator", "LInsulator"};
     readonly string[] POLE = {"Wooden Pole", "Concrete Pole"};
-    readonly string[] CROSSARM = {"Wooden Pole Single Cross Arm", "Concrete Pole Single Cross Arm", "Wooden Pole Double Cross Arm", "Concrete Pole Double Cross Arm"};
-    readonly string[] VEGETATION = {"Palm Tree", "Oak Tree"};
-    readonly string[] CONDUCTOR ={"Power line", "Jumper", "Stirrup"};
-    readonly string[] OHTRANSFORMER = {"Transformer Single","Transformer Double","Transformer Triple"};
+    readonly string[] CROSSARM = {"Wooden Pole Single Cross Arm", "Concrete Pole Single Cross Arm", "Wooden Pole Double Cross Arm", "Concrete Pole Double Cross Arm"}; //done
+    readonly string[] VEGETATION = {"Palm Tree", "Oak Tree"}; //done 
+    readonly string[] OHTRANSFORMER = {"Transformer Single","Transformer Double","Transformer Triple"};//done
     readonly string[] OHFUSE = { "OH Fuse Switch ALS" }; // "OH Fuse Switch",
     readonly string[] CAPACITOR = {"Capacitor Bank"};
-    readonly string[] RECLOSER = {"Recloser" };
-    readonly string[] CONNECTIONS = { "Splice"};
+    readonly string[] RECLOSER = {"Recloser" }; //done
+    readonly string[] CONNECTIONS = { "Splice"};//done
     readonly string[] NEST = { "Nest"};
-    readonly string[] DOWNGUY= {"Down Guy" };
+    readonly string[] DOWNGUY= {"Down Guy" };//done
     readonly string[] RISERSHIELD = { "Riser Shield"};
-    readonly string[] OBJECT=  { "Kite" ,"Ballon"};
-    readonly string[] AFS = {"Automatic Feeder Switch" };
-    readonly string[] FCI = { "Fault Current Indicator" };
+    readonly string[] OBJECT=  { "Kite" ,"Ballon"}; 
+    readonly string[] AFS = {"Automatic Feeder Switch" }; 
+    readonly string[] FCI = { "FCI" }; 
 
     //getter functions
     public string getFraming(){return framing;}
@@ -116,6 +115,7 @@ public class SceneData : MonoBehaviour {
                 setFraming("C");
                 break;
             case "Vegetation":
+                damages.Add("Vegetation");
                 break;
             case "Conductor":
                 break;
@@ -138,6 +138,7 @@ public class SceneData : MonoBehaviour {
 
                 break;
             case "Nest":
+                damages.Add("Nest");
                 break;
             case "DownGuy":
                 addToList(DOWNGUY, equipments);
@@ -145,10 +146,13 @@ public class SceneData : MonoBehaviour {
             case "RiserShield":
                 break;
             case "ForeignObject":
+                damages.Add("ObjectsOnWire");
                 break;
             case "AFS":
+                equipments.Add("AFS");
                 break;
             case "FCI":
+                equipments.Add("FCI");
                 break;
             case "Recloser":
                 addToList(RECLOSER, equipments);
