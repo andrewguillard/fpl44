@@ -189,6 +189,36 @@ public class ConditionAssessment : MonoBehaviour
         AnswerKeyTest.Add(form);
     }
 
+    private Form[] getDataFromSelectiveScence(GameObject poles)
+    {
+        List<Form> ret = new List<Form>();
+        foreach (Transform pole in poles.transform)
+        {
+            PoleData pData = pole.GetComponent<PoleData>();
+
+            Data[] datas = pData.getData();
+            foreach (Data d in datas)
+            {
+                Form tempForm = new Form();
+                tempForm.iconName = d.name;
+                if (d.phase == 'A') { tempForm.phaseA = true; }
+                else if (d.phase == 'B') { tempForm.phaseB = true; }
+                else { tempForm.phaseC = true; }
+
+                if (d.level == 1) { tempForm.DL1 = true; }
+                else if (d.level == 2) { tempForm.DL3 = true; }
+                else { tempForm.DL5 = true; }
+
+                ret.Add(tempForm);
+            }
+        }
+
+        if (ret.Count == 0)
+            return null;
+        else
+            return ret.ToArray();
+    }
+
     private void myDropdownValueChangedHandler(Dropdown target)
     {
         currentEquipmentName = EQUIPMENT_DROPDWN.options[EQUIPMENT_DROPDWN.value].text;

@@ -2,64 +2,145 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SelectiveSceneManager : MonoBehaviour {
-    public GameObject screenPrefab;
+public class SelectiveSceneManager : MonoBehaviour
+{
+    [SerializeField] private GameObject screenPrefab;
+    [SerializeField] private SceneData data;
+    [SerializeField] private PoleGeneration poleGenerator;
+    [SerializeField] private EquipmentGenerator equipGen;
+    [SerializeField] private DamageGenerator damageGenerator;
+    [SerializeField] private wireConnect2 wireConnector;
+
     // Use this for initialization
-    void Start () {
-        SceneData data = transform.GetComponent<SceneData>();
+    void Start()
+    {
+        print("scene Manager " + transform.GetSiblingIndex());
 
-        //debug 
-        print("Selective trainning");
-        string l = "";
-        foreach (string n in data.getDamageEquipmentArray())
-            l += n + "--";
-        print(l + "\n" + data.getDamageLevel() + "\n" + data.getFraming());
+        if (data == null)
+            data = transform.GetComponent<SceneData>();
 
+        poleGenerate();
+        equipmentGenerate();
+        wireGenerate();
+
+        //Prepare and Rearrange equipment before add damage
+
+        ////trigger damage generator
+        //if (GameObject.Find("DamageGenerator") == null)
+        //{
+        //    print("Can't find damage generator");
+        //}
+        //else
+        //{
+        //    DamageGenerator damageGenerator = GameObject.Find("DamageGenerator").GetComponent<DamageGenerator>();
+        //    damageGenerator.damageSet.SetActive(true);
+        //    damageGenerator.generateDamage();
+        //    damageGenerator.damageSet.SetActive(false);
+
+        //}
+
+        //    //go throught list all call all neccessary functions
+        //    foreach (Transform pole in data.getPolesTransform())
+        //    {
+        //        foreach(Transform child in pole)
+        //        {
+        //            if(child.name == "CapacitorBank")
+        //            {
+        //                child.GetComponent<CapacitorBank2>().fillwire();
+        //            }
+        //            else if (child.name.Contains("Transformer")){
+        //                child.GetComponent<Transformer>().fillWire();
+        //            }
+        //        }
+        //    }
+
+
+
+
+
+
+        //    //CAF generator 
+        //    GameObject CAFs = new GameObject("CAFs");
+        //    GameObject[] poles = poleGenerator.getPoleList();
+        //    foreach (GameObject pole in poles)
+        //    {
+        //        Vector3 location = pole.transform.position;
+
+        //        int poleIndex = pole.GetComponent<PoleData>().poleIndex;
+        //        if (poleIndex < poles.Length / 2)
+        //        {
+        //            location += new Vector3(2.7f, 0.0f, 3.0f);
+        //        }
+        //        else
+        //        {
+        //            location += new Vector3(-3.0f, 0.0f, 2.7f);
+        //        }
+
+        //        GameObject tempScene = Instantiate(screenPrefab, location, screenPrefab.transform.rotation);
+        //        if (poleIndex > poles.Length / 2)
+        //        {
+        //            tempScene.transform.Rotate(0, -90, 0);
+        //        }
+        //        else if (poleIndex == poles.Length / 2)
+        //        {
+        //            tempScene.transform.Rotate(0, -45, 0);
+        //        }
+
+        //        tempScene.name = "CAF" + poleIndex;
+        //        string searchString = tempScene.name + "/CAF_CANVAS";
+
+        //        ConditionAssessment aform;
+        //        //search for condition 
+        //        if (tempScene.transform.Find("CAF_CANVAS") != null)
+        //        {
+        //            aform = tempScene.transform.Find("CAF_CANVAS").GetComponent<ConditionAssessment>();
+        //            aform.pole = pole;
+        //        }
+        //        else
+        //            print("Can't find the condition assessment script in CAF_CANVAS");
+
+        //        tempScene.transform.parent = CAFs.transform;
+        //    }
+
+        //    screenPrefab.SetActive(false);
+    }
+
+    void poleGenerate()
+    {
         //trigger pole generator'
-        if (GameObject.Find("PoleGenerator") == null) {
-            print("Can't find pole generator");
-            return;
-        }
-        
-        PoleGeneration poleGenerator =  GameObject.Find("PoleGenerator").GetComponent<PoleGeneration>();
-        poleGenerator.generatePoles();
-        data.setPoles(poleGenerator.getPoleList());
-
-        //trigger equipment generator
-        if (GameObject.Find("EquipmentGenerator") == null)
+        if (GameObject.Find("PoleGenerator") == null)
         {
-            print("Can't find equipment generator");
+            Debug.LogError("Can't find pole generator");
             return;
-        }
-        EquipmentGenerator equipGen = GameObject.Find("EquipmentGenerator").GetComponent<EquipmentGenerator>();
-        equipGen.generateEquipment(data);
-
-
-        //trigger damage generator
-        if (GameObject.Find("DamageGenerator") == null)
-        {
-            print("Can't find damage generator");
         }
         else
         {
-            DamageGenerator damageGenerator = GameObject.Find("DamageGenerator").GetComponent<DamageGenerator>();
-            damageGenerator.generateDamage();
+            if (poleGenerator == null)
+                poleGenerator = GameObject.Find("PoleGenerator").GetComponent<PoleGeneration>();
+            poleGenerator.generatePoles();
+            data.setPoles(poleGenerator.getPoleList());
         }
+    }
 
-        //go throught list all call all neccessary functions
-        foreach(Transform pole in data.getPolesTransform())
+    void equipmentGenerate()
+    {
+        //trigger equipment generator
+        if (GameObject.Find("EquipmentGenerator") == null)
         {
-            foreach(Transform child in pole)
-            {
-                if(child.name == "CapacitorBank")
-                {
-                    child.GetComponent<CapacitorBank2>().fillwire();
-                }
-            }
+            Debug.LogError("Can't find equipment generator");
+            return;
         }
+        else
+        {
+            if (equipGen == null)
+                equipGen = GameObject.Find("EquipmentGenerator").GetComponent<EquipmentGenerator>();
+            else
+                equipGen.generateEquipment(data);
+        }
+    }
 
-
-
+    void wireGenerate()
+    {
         //trigger wire connector
         if (GameObject.Find("WireConnector") == null)
         {
@@ -67,55 +148,8 @@ public class SelectiveSceneManager : MonoBehaviour {
         }
         else
         {
-            wireConnect2 wireConnector = GameObject.Find("WireConnector").GetComponent<wireConnect2>();
-            wireConnector.connectWire();
+            wireConnector.WireConnect();
         }
-
-
-        //CAF generator 
-        GameObject CAFs = new GameObject("CAFs");
-        GameObject[] poles = poleGenerator.getPoleList();
-        foreach (GameObject pole in poles)
-        {
-            Vector3 location = pole.transform.position;
-
-            int poleIndex = pole.GetComponent<PoleData>().poleIndex;
-            if (poleIndex < poles.Length / 2)
-            {
-                location += new Vector3(0.0f, 0.0f, 3.0f);
-            }
-            else
-            {
-                location += new Vector3(-3.0f, 0.0f, 0.0f);
-            }
-
-            GameObject tempScene = Instantiate(screenPrefab, location, screenPrefab.transform.rotation);
-            if (poleIndex > poles.Length / 2)
-            {
-                tempScene.transform.Rotate(0, -90, 0);
-            }
-            else if (poleIndex == poles.Length / 2)
-            {
-                tempScene.transform.Rotate(0, -45, 0);
-            }
-
-            tempScene.name = "CAF" + poleIndex;
-            string searchString = tempScene.name + "/CAF_CANVAS";
-
-            ConditionAssessment aform;
-            //search for condition 
-            if (tempScene.transform.Find("CAF_CANVAS") != null)
-            {
-                aform = tempScene.transform.Find("CAF_CANVAS").GetComponent<ConditionAssessment>();
-                aform.pole = pole;
-            }
-            else
-                print("Can't find the condition assessment script in CAF_CANVAS");
-
-            tempScene.transform.parent = CAFs.transform;
-        }
-
-        screenPrefab.SetActive(false);
     }
 
 }

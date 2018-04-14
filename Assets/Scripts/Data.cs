@@ -7,6 +7,8 @@ public class Data : MonoBehaviour {
     public char phase;
     public int level;
 
+    public int extraIndex;
+
     public void setData(Data d)
     {
         equipmentName= d.equipmentName;

@@ -2,32 +2,61 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using System;
 
 public class SceneData : MonoBehaviour {
     public static string framing;
-	public static List<string> damageEquipment;
-	public static int damageLevel  = -1;
+    public static int damageLevel = -1;
     GameObject[] poles;
+
+    //for debug
     public string[] testingData;
 
-    //get functions
+    //data generate from user selection;
+    private static List<string> equipments = new List<string>();
+    private static List<string> damages = new List<string>();
+
+    //constant list
+    readonly string[] OHSWITCH = { "Disconnect Switch", "OH Pothead Switch " }; //done
+    readonly string[] LA = {"Lightning Arrester Polymer", "Lightning Arrester Ceramic"}; //done
+    readonly string[] INSULATOR = {"HInsulator", "VInsulator", "LInsulator"};
+    readonly string[] POLE = {"Wooden Pole", "Concrete Pole"};
+    readonly string[] CROSSARM = {"Wooden Pole Single Cross Arm", "Concrete Pole Single Cross Arm", "Wooden Pole Double Cross Arm", "Concrete Pole Double Cross Arm"}; //done
+    readonly string[] VEGETATION = {"Palm Tree", "Oak Tree"}; //done 
+    readonly string[] OHTRANSFORMER = {"Transformer Single","Transformer Double","Transformer Triple"};//done
+    readonly string[] OHFUSE = { "OH Fuse Switch ALS" }; // "OH Fuse Switch",
+    readonly string[] CAPACITOR = {"Capacitor Bank"};
+    readonly string[] RECLOSER = {"Recloser" }; //done
+    readonly string[] CONNECTIONS = { "Splice"};//done
+    readonly string[] NEST = { "Nest"};
+    readonly string[] DOWNGUY= {"Down Guy" };//done
+    readonly string[] RISERSHIELD = { "Riser Shield"};
+    readonly string[] OBJECT=  { "Kite" ,"Ballon"}; 
+    readonly string[] AFS = {"Automatic Feeder Switch" }; 
+    readonly string[] FCI = { "FCI" }; 
+
+    //getter functions
     public string getFraming(){return framing;}
 	public string[] getDamageEquipmentArray(){
-        if(damageEquipment == null)
+        if(damages == null || damages.Count == 0)
         {
             //this only for development 
-            damageEquipment = new List<string>();
-            foreach(string t in testingData)
+            damages = new List<string>();
+            foreach(string data in testingData)
             {
-                damageEquipment.Add(t);
+                string t = data.Replace(" ", string.Empty);
+                this.addDamageEquipment(t);
             }
-
-
         }
 
-        return damageEquipment.ToArray();
+        return damages.ToArray();
     }
+
+    public string[] getEquipmentArray()
+    {
+        return equipments.ToArray();
+    }
+
 	public int getDamageLevel(){ return damageLevel;}
     public GameObject[] getPoles() { return poles; }
     public Transform[] getPolesTransform()
@@ -39,6 +68,8 @@ public class SceneData : MonoBehaviour {
         }
         return ret;
     }
+    
+    
     //setfunctions
     public void setFraming(string f) {
         if (f == "any")
@@ -57,26 +88,111 @@ public class SceneData : MonoBehaviour {
     }
 
 	public void addDamageEquipment(string t){
-        if(damageEquipment == null)
+        switch (t)
         {
-            damageEquipment = new List<string>();
+            case "OHSwitch":
+                //add equipment to equipment list 
+                equipments.Add("OHPotheadSwitch");
+                //add equipment to generate damage
+                addToList(OHSWITCH, damages);
+
+                break;
+            case "Insulator":
+                //not add anything for equipment
+                addToList(INSULATOR, damages);
+                break;
+
+            case "Pole":
+                addToList(POLE, damages);
+                //not add anything for equipment
+
+                break;
+            case "LightningArrester":
+                equipments.Add("LightningArrester");
+                break;
+            case "CrossArm":
+                //set framming is crossarm
+                setFraming("C");
+                break;
+            case "Vegetation":
+                damages.Add("Vegetation");
+                break;
+            case "Conductor":
+                break;
+            case "OHTransformer":
+                addToList(OHTRANSFORMER, equipments);
+                damages.Add("Transformer");
+                break;
+            case "OHFuse":
+                //not add fuse switch to damage , add OH-FSand ALS
+                addToList(OHFUSE, equipments);
+                //add all to damage
+                addToList(new string[] { "FuseSwitch", "ALS"}, damages);
+
+                break;
+            case "Capacitor":
+                addToList(CAPACITOR, equipments,damages);
+                break;
+            case "Connections":
+                addToList(CONNECTIONS, equipments);
+
+                break;
+            case "Nest":
+                damages.Add("Nest");
+                break;
+            case "DownGuy":
+                addToList(DOWNGUY, equipments);
+                break;
+            case "RiserShield":
+                break;
+            case "ForeignObject":
+                damages.Add("ObjectsOnWire");
+                break;
+            case "AFS":
+                equipments.Add("AFS");
+                break;
+            case "FCI":
+                equipments.Add("FCI");
+                break;
+            case "Recloser":
+                addToList(RECLOSER, equipments);
+                break;
+            default:
+                Debug.LogError("Not a selection of equipment" + t);
+                break;
         }
-
-        damageEquipment.Add(t);
-
-        //printDamageEquip();
-	}
-
-    public void removeDamageEquipment(string t)
-    {
-        damageEquipment.Remove(t);
-        //printDamageEquip();
     }
+
+    private void addToList(string[] fromArray, List<string> toList)
+    {
+        if (toList == null)
+            toList = new List<string>();
+
+        foreach(string str in fromArray)
+        {
+            string s = str.Replace(" ", string.Empty);
+            toList.Add(s);
+        }
+    }
+    private void addToList(string[] fromArray, List<string> toList, List<String> to2List)
+    {
+        addToList(fromArray, toList);
+        addToList(fromArray, to2List);
+    }
+
 
     public void clearEquip()
     {
-        if(damageEquipment != null)
-            damageEquipment.Clear();
+        if(damages != null )
+            damages.Clear();
+        if (equipments != null)
+            equipments.Clear();
+    }
+
+    private void submitSelection()
+    {
+        //go through all button and add equipment
+
     }
 
 	public void setDamageLevel(int i){
@@ -113,35 +229,11 @@ public class SceneData : MonoBehaviour {
         #endif
     }
 
-    public void printDamageEquip()
-    {
-        string t = "";
-        foreach(string equip in damageEquipment)
-        {
-            t += equip + "|";
-        }
-        print(t);
-    }
-
     public void clearData()
     {
         framing = null;
-        damageEquipment = null;
+        damages = null;
+        equipments = null;
         damageLevel = -1;
-    }
-
-    public void addDamageEquipment(string[] list)
-    {
-        foreach(string t in list)
-        {
-            addDamageEquipment(t);
-        }
-    }
-    public void removeDamageEquipment(string[] list)
-    {
-        foreach (string t in list)
-        {
-            removeDamageEquipment(t);
-        }
     }
 }
