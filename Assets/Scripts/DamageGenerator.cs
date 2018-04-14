@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor;
+//using UnityEditor;
 using System.Linq;
 using System.Text.RegularExpressions;
 
@@ -174,7 +174,6 @@ public class DamageGenerator : MonoBehaviour {
     GameObject replaceObject(GameObject oldObject, GameObject damagePrefab)
     {
         GameObject newObject;
-
         newObject = (GameObject)PrefabUtility.InstantiatePrefab(damagePrefab);
         if (PrefabUtility.GetPrefabType(damagePrefab) == PrefabType.Prefab)
         {
@@ -184,7 +183,7 @@ public class DamageGenerator : MonoBehaviour {
         {
             newObject = Instantiate(damagePrefab);
             newObject.name = oldObject.name;
-        }
+        //}
 
         if (newObject == null)
         {

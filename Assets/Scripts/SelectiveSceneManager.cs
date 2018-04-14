@@ -52,11 +52,6 @@ public class SelectiveSceneManager : MonoBehaviour {
         //        }
         //    }
 
-
-
-        
-
-
         //    //CAF generator 
         //    GameObject CAFs = new GameObject("CAFs");
         //    GameObject[] poles = poleGenerator.getPoleList();

@@ -24,6 +24,9 @@ public class PoleObject {
     public bool balloon;
     public bool nest;
 
+    public int equipmentType;
+    public int transformerCount;
+
     public PoleObject(){
         poleMaterial =0;
         insulatorType="null";
@@ -44,6 +47,8 @@ public class PoleObject {
         oak = false;
         balloon = false;
         nest = false;
+        equipmentType = 0;
+        transformerCount = 0;
     }
 
     public void setPoleMaterial(int i) {
@@ -58,6 +63,23 @@ public class PoleObject {
     }
     public string getInsulatorType() {
         return this.insulatorType;
+    }
+
+    public void setEquipmentType(int i) {
+        this.equipmentType = i;
+        if (i == 2){
+            setTransformerCount(Random.Range(1,4));
+        }
+    }
+    public int getEquipmentType() {
+        return this.equipmentType;
+    }
+
+    public void setTransformerCount(int i){
+        this.transformerCount = i;
+    }
+    public int getTransformerCount() {
+        return this.transformerCount;
     }
 
 }
