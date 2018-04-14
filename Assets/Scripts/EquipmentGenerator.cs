@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EquipmentGenerator : MonoBehaviour {
+public class EquipmentGenerator : MonoBehaviour
+{
     public GameObject EquipmentSet;
 
     public void generateEquipment(SceneData data)
     {
-        print("Equipment start");
         EquipmentSet.SetActive(true);
-        if(EquipmentSet == null)
+        if (EquipmentSet == null)
         {
             Debug.LogError("No equipment set to spawn");
         }
@@ -20,7 +20,7 @@ public class EquipmentGenerator : MonoBehaviour {
 
         //list of prefab to store and spawn
         HashSet<GameObject> listPrefab = new HashSet<GameObject>();
-        
+
         //get list of prefab to spawn
         foreach (string equip in equips)
         {
@@ -44,7 +44,7 @@ public class EquipmentGenerator : MonoBehaviour {
                     {
                         if (grandchild.name.Contains(equip))
                         {
-                            if(listPrefab.Add(eq.gameObject))
+                            if (listPrefab.Add(eq.gameObject))
                                 listPrefab.Add(eq.gameObject);
                             break;
                         }
@@ -53,25 +53,16 @@ public class EquipmentGenerator : MonoBehaviour {
             }
         }
 
-        if(listPrefab.Count != 0) { 
-   
-            //decide what pole and what equipment to spawn
-            GameObject[] prefabArray = new GameObject[listPrefab.Count];
-            listPrefab.CopyTo(prefabArray);
+        //decide what pole and what equipment to spawn
+        GameObject[] prefabArray = new GameObject[listPrefab.Count];
+        listPrefab.CopyTo(prefabArray);
 
-            //for each pole 
-            foreach (GameObject pole in poleList)
-            {
-                int randomIndex = Random.Range(0, prefabArray.Length);
-                GameObject eq = Instantiate(prefabArray[randomIndex], pole.transform);
-                eq.transform.parent = pole.transform;
-                eq.name = prefabArray[randomIndex].name;
-        //debug
-        foreach (GameObject g in prefabArray)
-        {
-            print("prefab equip " + g.name);
-        }
-        print("prefab length = " + prefabArray.Length);
+        ////debug
+        //foreach (GameObject g in prefabArray)
+        //{
+        //    print("prefab equip " + g.name);
+        //}
+        //print("prefab length = " + prefabArray.Length);
 
         //for each pole , random choose a prefab and spawn
         foreach (GameObject pole in poleList)
@@ -91,18 +82,17 @@ public class EquipmentGenerator : MonoBehaviour {
             GameObject eq = Instantiate(prefabArray[randomIndex], pole.transform);
             eq.transform.parent = pole.transform;
             eq.name = prefabArray[randomIndex].name;
+
+            //add more equipment in this pole
         }
 
 
-
         disableEquipmentSet();
-        print("Equipment ended" );
-
     }
 
     void disableEquipmentSet()
     {
-        if(EquipmentSet != null)
+        if (EquipmentSet != null)
         {
             EquipmentSet.SetActive(false);
         }
@@ -111,17 +101,17 @@ public class EquipmentGenerator : MonoBehaviour {
     GameObject getEquipPrefab(string name)
     {
         //special Cases
-        if(name == "Transformer")
+        if (name == "Transformer")
         {
-            int ran = Random.Range(1,4);
+            int ran = Random.Range(1, 4);
             name += ran;
         }
 
-        if(EquipmentSet == null)
+        if (EquipmentSet == null)
         {
             print("Equipment set is empty");
         }
-        else if(EquipmentSet.transform.Find(name) == null)
+        else if (EquipmentSet.transform.Find(name) == null)
         {
             Debug.LogError("can't find prefab for " + name);
             return null;

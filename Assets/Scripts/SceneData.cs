@@ -35,7 +35,6 @@ public class SceneData : MonoBehaviour {
     readonly string[] OBJECT=  { "Kite" ,"Ballon"};
     readonly string[] AFS = {"Automatic Feeder Switch" };
     readonly string[] FCI = { "Fault Current Indicator" };
-    readonly string[] FIELDREGULATOR = { "Regulator"};
 
     //getter functions
     public string getFraming(){return framing;}
@@ -150,8 +149,6 @@ public class SceneData : MonoBehaviour {
             case "AFS":
                 break;
             case "FCI":
-                break;
-            case "FieldRegulator":
                 break;
             case "Recloser":
                 addToList(RECLOSER, equipments);
