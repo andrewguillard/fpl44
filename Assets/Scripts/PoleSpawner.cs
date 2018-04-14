@@ -843,21 +843,17 @@ public class PoleSpawner : MonoBehaviour
 
     }
     public void generateNest(int i) {
-        //nestMaterial
-        //spawnNest
         if (i <= 9)
         {
-            //RIGHT
-            //Quaternion rotateTranRight = Quaternion.Euler(0, -90, 0);
-            Vector3 afsVec = new Vector3(spawnNest[i].transform.position.x, spawnNest[i].transform.position.y, spawnNest[i].transform.position.z);
-            Instantiate(nestMaterial[0], afsVec, Quaternion.identity);
+            Quaternion rotateNest = Quaternion.Euler(-90, 0, 0);
+            Vector3 nestVec = new Vector3(spawnNest[i].transform.position.x, spawnNest[i].transform.position.y, spawnNest[i].transform.position.z);
+            Instantiate(nestMaterial[0], nestVec, rotateNest);
         }
         else if (i > 9)
         {
-            //RIGHT
-            //Quaternion rotateTranRight = Quaternion.Euler(0, -180, 0);
-            Vector3 afsVec = new Vector3(spawnNest[i].transform.position.x, spawnNest[i].transform.position.y, spawnNest[i].transform.position.z);
-            Instantiate(nestMaterial[0], afsVec, Quaternion.identity);
+            Quaternion rotateNest = Quaternion.Euler(-90, 0, 0);
+            Vector3 nestVec = new Vector3(spawnNest[i].transform.position.x, spawnNest[i].transform.position.y, spawnNest[i].transform.position.z);
+            Instantiate(nestMaterial[0], nestVec, rotateNest);
         }
     }
 
@@ -1091,8 +1087,8 @@ public class PoleSpawner : MonoBehaviour
                 }
             }
             //This randomizes equipment
-            spawnEquipmentType(i);
-
+            //spawnEquipmentType(i);
+            generateNest(i);
 
             //generateAutomaticLineSwitch(i);
             //generatePothead(i);
