@@ -46,14 +46,14 @@ public class DamageGenerator : MonoBehaviour
                 }
                  
             }
-            foreach (Transform t in properEquips)
-            {
-                print("\t**" + t.name);
-            }
-            foreach (Transform t in finalList)
-            {
-                print("**" + t.name);
-            }
+            //foreach (Transform t in properEquips)
+            //{
+            //    print("\t**" + t.name);
+            //}
+            //foreach (Transform t in finalList)
+            //{
+            //    print("**" + t.name);
+            //}
             foreach (Transform obj in finalList)
             {
                 DamagesScript dScript = obj.GetComponent<DamagesScript>();
@@ -106,7 +106,7 @@ public class DamageGenerator : MonoBehaviour
         for (int i =0; i< retArray.Length;i++)
         {
             retArray[i] = sanitizeName(retArray[i]);
-            print("name** " + retArray[i]);
+            //print("name** " + retArray[i]);
         }
         return retArray;
     }

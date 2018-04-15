@@ -17,7 +17,7 @@ public class SceneData : MonoBehaviour {
     private static List<string> damages = new List<string>();
 
     //constant list
-    readonly string[] OHSWITCH = { "Disconnect Switch", "OH Pothead Switch " }; //done 
+    readonly string[] OHSWITCH = {"OH Pothead Switch " }; //done 
     readonly string[] LA = {"Lightning Arrester Polymer", "Lightning Arrester Ceramic"}; //done
     readonly string[] INSULATOR = {"HInsulator", "VInsulator", "LInsulator"};
     readonly string[] POLE = {"Wooden Pole", "Concrete Pole"};
@@ -117,14 +117,16 @@ public class SceneData : MonoBehaviour {
                 equipments.Add("OHPotheadSwitch");
                 //add equipment to generate damage
                 addToList(OHSWITCH, damages);
-
+                break;
+            case "Recloser":
+                addToList(RECLOSER, equipments,damages);
+                break;
+            case "Vegetation":
+                addToList(new String[] { "Vegetation" }, equipments, damages);
                 break;
             case "CrossArm":
                 //set framming is crossarm
                 setFraming("C");
-                break;
-            case "Vegetation":
-                damages.Add("Vegetation");
                 break;
             case "Conductor":
                 break;
@@ -158,9 +160,6 @@ public class SceneData : MonoBehaviour {
                 break;
             case "FCI":
                 equipments.Add("FCI");
-                break;
-            case "Recloser":
-                addToList(RECLOSER, equipments);
                 break;
             default:
                 Debug.LogError("Not a selection of equipment" + t);
