@@ -12,15 +12,12 @@ public class wireConnect2 : MonoBehaviour
 
     void Start()
     {
-        print("wire Manager " + transform.GetSiblingIndex());
 
-        print("WireConnect start");
     }
 
     // Use this for initialization
     public void WireConnect()
     {
-        print("Wire Connect activated");
         if (poleSpawnObject.GetComponent<PoleGeneration>() != null)
             poles = poleSpawnObject.GetComponent<PoleGeneration>().getPoleList();
         else

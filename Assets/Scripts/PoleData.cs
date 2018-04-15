@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class PoleData : MonoBehaviour
 {
-    Data[] poleData;
+    public Data[] poleData;
     public int poleIndex;
     public string wireDirection;
     public GameObject[] wireInPoints;
     public GameObject[] wireOutPoints;
     public string poleType;
+    public List<GameObject> equipments;
+
     void Start()
     {
-        poleData = getData();
+
     }
 
     public Data[] getData()
@@ -21,9 +23,18 @@ public class PoleData : MonoBehaviour
         foreach(Transform i in transform)
         {
             Data childData = i.GetComponent<Data>();
-            if (childData != null)
+            if (childData != null && childData.level != 0)
             {
                 ret.Add(childData);
+            }
+
+            foreach(Transform anotherI in i)
+            {
+                Data grandChildData = anotherI.GetComponent<Data>();
+                if (grandChildData != null && grandChildData.level != 0)
+                {
+                    ret.Add(grandChildData);
+                }
             }
         }
 

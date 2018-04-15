@@ -8,9 +8,10 @@ public class TransformerSingleScript : MonoBehaviour {
     private PoleData pole;
     void Start()
     {
-        if(transform.parent.name != "EquipmentSet")
+        if(transform.parent.name != "EquipmentSet"  && transform.parent.name != "DamageSet")
         {
             pole = transform.parent.GetComponent<PoleData>();
+
             fillWire();
         }
     }
@@ -32,6 +33,7 @@ public class TransformerSingleScript : MonoBehaviour {
         //}
         //else
         //{
+        print(transform.parent);
             newPoint = UtilityFunctions.extendPoint(pole.wireOutPoints[rNum], ("M_" + rNum), pole.wireDirection, -0.7f);
             UtilityFunctions.AdjustineConnect(pole.wireInPoints[rNum], pole.wireOutPoints[rNum], newPoint);
             UtilityFunctions.lineConnect(FuseSwitch.top, pole.wireOutPoints[rNum], 0.02f, 5, 0.3f);

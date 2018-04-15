@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 using System;
 
 public class SceneData : MonoBehaviour {
-    public static string framing;
+    public static string framing = "C";
     public static int damageLevel = -1;
     GameObject[] poles;
 
@@ -17,7 +17,7 @@ public class SceneData : MonoBehaviour {
     private static List<string> damages = new List<string>();
 
     //constant list
-    readonly string[] OHSWITCH = { "Disconnect Switch", "OH Pothead Switch " }; //done
+    readonly string[] OHSWITCH = {"OH Pothead Switch " }; //done 
     readonly string[] LA = {"Lightning Arrester Polymer", "Lightning Arrester Ceramic"}; //done
     readonly string[] INSULATOR = {"HInsulator", "VInsulator", "LInsulator"};
     readonly string[] POLE = {"Wooden Pole", "Concrete Pole"};
@@ -30,7 +30,6 @@ public class SceneData : MonoBehaviour {
     readonly string[] CONNECTIONS = { "Splice"};//done
     readonly string[] NEST = { "Nest"};
     readonly string[] DOWNGUY= {"Down Guy" };//done
-    readonly string[] RISERSHIELD = { "Riser Shield"};
     readonly string[] OBJECT=  { "Kite" ,"Ballon"}; 
     readonly string[] AFS = {"Automatic Feeder Switch" }; 
     readonly string[] FCI = { "FCI" }; 
@@ -90,38 +89,52 @@ public class SceneData : MonoBehaviour {
 	public void addDamageEquipment(string t){
         switch (t)
         {
-            case "OHSwitch":
-                //add equipment to equipment list 
-                equipments.Add("OHPotheadSwitch");
-                //add equipment to generate damage
-                addToList(OHSWITCH, damages);
-
-                break;
+            
             case "Insulator":
                 //not add anything for equipment
                 addToList(INSULATOR, damages);
                 break;
 
             case "Pole":
+                //not add anything for equipment , only for damages
                 addToList(POLE, damages);
-                //not add anything for equipment
 
                 break;
             case "LightningArrester":
                 equipments.Add("LightningArrester");
+                damages.Add("LightningArrester");
+                break;
+            case "ForeignObject":
+                equipments.Add("ObjectsOnWire");
+                damages.Add("ObjectsOnWire");
+                break;
+            case "Nest":
+                addToList(NEST, equipments, damages);
+                break;
+            case "Recloser":
+                addToList(RECLOSER, equipments,damages);
+                break;
+            case "Vegetation":
+                addToList(new String[] { "Vegetation" }, equipments, damages);
+                break;
+            case "OHTransformer":
+                addToList(OHTRANSFORMER, equipments,damages);
+                break;
+            case "Capacitor":
+                addToList(CAPACITOR, equipments,damages);
+                break;
+            case "DownGuy":
+                addToList(DOWNGUY, equipments,damages);
                 break;
             case "CrossArm":
                 //set framming is crossarm
                 setFraming("C");
                 break;
-            case "Vegetation":
-                damages.Add("Vegetation");
-                break;
-            case "Conductor":
-                break;
-            case "OHTransformer":
-                addToList(OHTRANSFORMER, equipments);
-                damages.Add("Transformer");
+            case "OHSwitch":
+                //add equipment to equipment list 
+                equipments.Add("OHPotheadSwitch");
+                //add equipment to generate damage
+                addToList(OHSWITCH, damages);
                 break;
             case "OHFuse":
                 //not add fuse switch to damage , add OH-FSand ALS
@@ -130,32 +143,15 @@ public class SceneData : MonoBehaviour {
                 addToList(new string[] { "FuseSwitch", "ALS"}, damages);
 
                 break;
-            case "Capacitor":
-                addToList(CAPACITOR, equipments,damages);
-                break;
             case "Connections":
                 addToList(CONNECTIONS, equipments);
-
-                break;
-            case "Nest":
-                damages.Add("Nest");
-                break;
-            case "DownGuy":
-                addToList(DOWNGUY, equipments);
-                break;
-            case "RiserShield":
-                break;
-            case "ForeignObject":
-                damages.Add("ObjectsOnWire");
+				//damage- T/F- more than 3 in 1 cable.
                 break;
             case "AFS":
                 equipments.Add("AFS");
                 break;
             case "FCI":
                 equipments.Add("FCI");
-                break;
-            case "Recloser":
-                addToList(RECLOSER, equipments);
                 break;
             default:
                 Debug.LogError("Not a selection of equipment" + t);

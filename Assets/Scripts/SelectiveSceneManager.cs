@@ -14,8 +14,6 @@ public class SelectiveSceneManager : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        print("scene Manager " + transform.GetSiblingIndex());
-
         if (data == null)
             data = transform.GetComponent<SceneData>();
 
@@ -25,84 +23,82 @@ public class SelectiveSceneManager : MonoBehaviour
 
         //Prepare and Rearrange equipment before add damage
 
-        ////trigger damage generator
-        //if (GameObject.Find("DamageGenerator") == null)
-        //{
-        //    print("Can't find damage generator");
-        //}
-        //else
-        //{
-        //    DamageGenerator damageGenerator = GameObject.Find("DamageGenerator").GetComponent<DamageGenerator>();
-        //    damageGenerator.damageSet.SetActive(true);
-        //    damageGenerator.generateDamage();
-        //    damageGenerator.damageSet.SetActive(false);
+        //trigger damage generator
+        if (GameObject.Find("DamageGenerator") == null)
+        {
+            print("Can't find damage generator");
+        }
+        else
+        {
+            //DamageGenerator damageGenerator = GameObject.Find("DamageGenerator").GetComponent<DamageGenerator>();
+            damageGenerator.damageSet.SetActive(true);
+            damageGenerator.generateDamage();
+            damageGenerator.damageSet.SetActive(false);
+        }
+            //}
 
-        //}
-
-        //    //go throught list all call all neccessary functions
-        //    foreach (Transform pole in data.getPolesTransform())
-        //    {
-        //        foreach(Transform child in pole)
-        //        {
-        //            if(child.name == "CapacitorBank")
-        //            {
-        //                child.GetComponent<CapacitorBank2>().fillwire();
-        //            }
-        //            else if (child.name.Contains("Transformer")){
-        //                child.GetComponent<Transformer>().fillWire();
-        //            }
-        //        }
-        //    }
-
-
+            //    //go throught list all call all neccessary functions
+            //    foreach (Transform pole in data.getPolesTransform())
+            //    {
+            //        foreach(Transform child in pole)
+            //        {
+            //            if(child.name == "CapacitorBank")
+            //            {
+            //                child.GetComponent<CapacitorBank2>().fillwire();
+            //            }
+            //            else if (child.name.Contains("Transformer")){
+            //                child.GetComponent<Transformer>().fillWire();
+            //            }
+            //        }
+            //    }
 
 
 
 
-        //    //CAF generator 
-        //    GameObject CAFs = new GameObject("CAFs");
-        //    GameObject[] poles = poleGenerator.getPoleList();
-        //    foreach (GameObject pole in poles)
-        //    {
-        //        Vector3 location = pole.transform.position;
+            //CAF generator 
+            GameObject CAFs = new GameObject("CAFs");
+        GameObject[] poles = poleGenerator.getPoleList();
+        foreach (GameObject pole in poles)
+        {
+            Vector3 location = pole.transform.position;
 
-        //        int poleIndex = pole.GetComponent<PoleData>().poleIndex;
-        //        if (poleIndex < poles.Length / 2)
-        //        {
-        //            location += new Vector3(2.7f, 0.0f, 3.0f);
-        //        }
-        //        else
-        //        {
-        //            location += new Vector3(-3.0f, 0.0f, 2.7f);
-        //        }
+            int poleIndex = pole.GetComponent<PoleData>().poleIndex;
+            if (poleIndex < poles.Length / 2)
+            {
+                location += new Vector3(2.7f, 0.0f, 3.0f);
+            }
+            else
+            {
+                location += new Vector3(-3.0f, 0.0f, 2.7f);
+            }
 
-        //        GameObject tempScene = Instantiate(screenPrefab, location, screenPrefab.transform.rotation);
-        //        if (poleIndex > poles.Length / 2)
-        //        {
-        //            tempScene.transform.Rotate(0, -90, 0);
-        //        }
-        //        else if (poleIndex == poles.Length / 2)
-        //        {
-        //            tempScene.transform.Rotate(0, -45, 0);
-        //        }
+            GameObject tempScene = Instantiate(screenPrefab, location, screenPrefab.transform.rotation);
+            if (poleIndex > poles.Length / 2)
+            {
+                tempScene.transform.Rotate(0, -90, 0);
+            }
+            else if (poleIndex == poles.Length / 2)
+            {
+                tempScene.transform.Rotate(0, -45, 0);
+            }
 
-        //        tempScene.name = "CAF" + poleIndex;
-        //        string searchString = tempScene.name + "/CAF_CANVAS";
+            tempScene.name = "CAF" + poleIndex;
+            string searchString = tempScene.name + "/CAF_CANVAS";
 
-        //        ConditionAssessment aform;
-        //        //search for condition 
-        //        if (tempScene.transform.Find("CAF_CANVAS") != null)
-        //        {
-        //            aform = tempScene.transform.Find("CAF_CANVAS").GetComponent<ConditionAssessment>();
-        //            aform.pole = pole;
-        //        }
-        //        else
-        //            print("Can't find the condition assessment script in CAF_CANVAS");
+            ConditionAssessment aform;
+            //search for condition 
+            if (tempScene.transform.Find("CAF_CANVAS") != null)
+            {
+                aform = tempScene.transform.Find("CAF_CANVAS").GetComponent<ConditionAssessment>();
+                aform.pole = pole;
+            }
+            else
+                print("Can't find the condition assessment script in CAF_CANVAS");
 
-        //        tempScene.transform.parent = CAFs.transform;
-        //    }
+            tempScene.transform.parent = CAFs.transform;
+        }
 
-        //    screenPrefab.SetActive(false);
+        screenPrefab.SetActive(false);
     }
 
     void poleGenerate()

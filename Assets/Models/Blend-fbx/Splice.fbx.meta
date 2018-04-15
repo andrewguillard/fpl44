@@ -25,7 +25,12 @@ ModelImporter:
     4300000: Cylinder.001
     4300002: outpoint
     4300004: inpoint
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: No Name
+    second: {fileID: 2100000, guid: 4ae60b7835d35104abaa85bbd1b7a282, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

@@ -41,7 +41,27 @@ ModelImporter:
     4300006: HInsulator
     4300008: HInsulator.001
     4300010: HInsulator.002
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Ceramic
+    second: {fileID: 2100000, guid: 138ec4445db9edd4abd207c16f212a6a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wire
+    second: {fileID: 2100000, guid: 2a8234130e7aeb8488b60a145af9e858, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wood
+    second: {fileID: 2100000, guid: 07ab86ac4e252ea438598728a0d92d4b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Yellow
+    second: {fileID: 2100000, guid: b43e5571a9fe23946bf3070cdfceb1b0, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

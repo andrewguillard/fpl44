@@ -43,7 +43,27 @@ ModelImporter:
     4300006: Plane.001
     4300008: Kite
     4300010: CenterPoint
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Kite
+    second: {fileID: 2100000, guid: 33af27359b49eda48829e2c0bf1e12b8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: No Name
+    second: {fileID: 2100000, guid: 5f566d982471cf9428c546426bf84db3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Ribbon
+    second: {fileID: 2100000, guid: 5f566d982471cf9428c546426bf84db3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: rod
+    second: {fileID: 2100000, guid: 2fbc8cf5a466d4742a0aa82c0923504a, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

@@ -17,8 +17,6 @@ public class EquipButton : MonoBehaviour
     {
         normal = Resources.Load<Sprite>("Button/Rects/rectRy8");
         clicked = Resources.Load<Sprite>("Button/Rects/rect4pxRy8");
-        data = GameObject.Find("SceneData").GetComponent<SceneData>();
-        equip = transform.Find("Text").GetComponent<Text>().text.Replace(" ", string.Empty);
 
         Button btn = transform.GetComponent<Button>();
         btn.onClick.AddListener(TaskOnClick);

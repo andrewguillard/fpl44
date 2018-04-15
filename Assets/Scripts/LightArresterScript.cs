@@ -11,8 +11,8 @@ public class LightArresterScript : MonoBehaviour {
     [SerializeField] private GameObject c2Wood;
     [SerializeField] private GameObject c2Concrete;
     private GameObject pole;
-    private LAScript currentLA;
-    void Start()
+    public LAScript currentLA;
+    void Awake()
     {
         if (transform.parent.name != "EquipmentSet")
         {
@@ -27,6 +27,7 @@ public class LightArresterScript : MonoBehaviour {
                 }
             }
             fillWire();
+
         }
     }
 
@@ -118,7 +119,7 @@ public class LightArresterScript : MonoBehaviour {
                     //extend points;
                     GameObject newPoint = UtilityFunctions.extendPoint(poleData.wireInPoints[i], ("M_" + i),poleData.wireDirection, 0.7f);
                     UtilityFunctions.AdjustineConnect(poleData.wireInPoints[i], poleData.wireOutPoints[i], newPoint);
-                    UtilityFunctions.lineConnect(currentLA.topPoints[i], poleData.wireInPoints[i], 0.02f, 5, 0.2f);
+                    UtilityFunctions.lineConnect(currentLA.topPoints[i], poleData.wireInPoints[i], 0.02f, 3, 0.2f);
             }
         else if(currentLA.gameObject == cConcrete)
         {
@@ -127,7 +128,7 @@ public class LightArresterScript : MonoBehaviour {
                 //extend points;
                 GameObject newPoint = UtilityFunctions.extendPoint(poleData.wireOutPoints[i], ("M_" + i), poleData.wireDirection, -0.7f);
                 UtilityFunctions.AdjustineConnect(poleData.wireInPoints[i], poleData.wireOutPoints[i], newPoint);
-                UtilityFunctions.lineConnect(currentLA.topPoints[i], poleData.wireOutPoints[i], 0.02f, 5, 0.2f);
+                UtilityFunctions.lineConnect(currentLA.topPoints[i], poleData.wireOutPoints[i], 0.02f, 3, 0.2f);
             }
         }
         else if(currentLA.gameObject == v || currentLA.gameObject == mv)
@@ -141,7 +142,7 @@ public class LightArresterScript : MonoBehaviour {
                 else
                     newPoint = UtilityFunctions.extendPoint(poleData.wireInPoints[i], ("M_" + i), poleData.wireDirection,-0.7f);
                 UtilityFunctions.AdjustineConnect(poleData.wireInPoints[i], poleData.wireOutPoints[i], newPoint);
-                UtilityFunctions.lineConnect(currentLA.topPoints[i], poleData.wireInPoints[i], 0.07f, 5, 0.3f);
+                UtilityFunctions.lineConnect(currentLA.topPoints[i], poleData.wireInPoints[i], 0.07f, 3, 0.3f);
             }
         }
         else
@@ -160,6 +161,20 @@ public class LightArresterScript : MonoBehaviour {
                 UtilityFunctions.AdjustineConnect(poleData.wireInPoints[i], poleData.wireOutPoints[i], newPoint);
                 UtilityFunctions.lineConnect(currentLA.topPoints[i], poleData.wireInPoints[i], 0.07f, 5, 0.3f);
             }
+        }
+
+
+        //fill location of equipment location need to swap
+        DamagesScript damageScript = transform.GetComponent<DamagesScript>();
+        damageScript.equipLocation = new GameObject[3];
+        if (damageScript == null)
+        {
+            Debug.LogError("can't find damageScript");
+        }
+        for (int i = 0; i < 3; i++)
+        {
+
+            damageScript.equipLocation[i] = currentLA.GetComponent<LAScript>().insulator[i];
         }
 
     }
