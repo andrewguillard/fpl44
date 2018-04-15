@@ -36,8 +36,12 @@ public class ObjectsOnWireScripts : MonoBehaviour {
             obj.transform.position = pos;
 
             //connect wire
-            GameObject endPoint = poleGenerator.getPoleList()[pole.poleIndex + 1].GetComponent<PoleData>().wireInPoints[rNum];
-            UtilityFunctions.AdjustineConnect(pole.wireOutPoints[rNum], endPoint, centerPoint);
+            if(pole.poleIndex < poleGenerator.getPoleList().Length)
+            {
+                GameObject endPoint = poleGenerator.getPoleList()[pole.poleIndex + 1].GetComponent<PoleData>().wireInPoints[rNum];
+                UtilityFunctions.AdjustineConnect(pole.wireOutPoints[rNum], endPoint, centerPoint);
+
+            }
 
         }	
 	}

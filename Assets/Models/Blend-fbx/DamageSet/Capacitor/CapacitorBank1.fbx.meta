@@ -1,0 +1,196 @@
+fileFormatVersion: 2
+guid: 295b6553201e64d46b612ce1a3b1d051
+timeCreated: 1523807818
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: A
+    100002: B
+    100004: Bottom
+    100006: Bottom.001
+    100008: Bottom.002
+    100010: C
+    100012: CapacitorBank
+    100014: //RootNode
+    100016: CrossArmMetal
+    100018: FuseSwitchA
+    100020: FuseSwitchB
+    100022: FuseSwitchC
+    100024: Top
+    100026: Top.001
+    100028: Top.002
+    400000: A
+    400002: B
+    400004: Bottom
+    400006: Bottom.001
+    400008: Bottom.002
+    400010: C
+    400012: CapacitorBank
+    400014: //RootNode
+    400016: CrossArmMetal
+    400018: FuseSwitchA
+    400020: FuseSwitchB
+    400022: FuseSwitchC
+    400024: Top
+    400026: Top.001
+    400028: Top.002
+    2100000: No Name
+    2100002: CrossArmSteel
+    2100004: LineMaterial
+    2100006: Bracket
+    2100008: Rust
+    2100010: Insulator
+    2100012: Capacitor
+    2300000: A
+    2300002: B
+    2300004: Bottom
+    2300006: Bottom.001
+    2300008: Bottom.002
+    2300010: C
+    2300012: CapacitorBank
+    2300014: CrossArmMetal
+    2300016: FuseSwitchA
+    2300018: FuseSwitchB
+    2300020: FuseSwitchC
+    2300022: Top
+    2300024: Top.001
+    2300026: Top.002
+    3300000: A
+    3300002: B
+    3300004: Bottom
+    3300006: Bottom.001
+    3300008: Bottom.002
+    3300010: C
+    3300012: CapacitorBank
+    3300014: CrossArmMetal
+    3300016: FuseSwitchA
+    3300018: FuseSwitchB
+    3300020: FuseSwitchC
+    3300022: Top
+    3300024: Top.001
+    3300026: Top.002
+    4300000: FuseSwitchC
+    4300002: Top
+    4300004: Bottom
+    4300006: FuseSwitchA
+    4300008: Top.002
+    4300010: Bottom.002
+    4300012: CrossArmMetal
+    4300014: FuseSwitchB
+    4300016: Bottom.001
+    4300018: Top.001
+    4300020: CapacitorBank
+    4300022: C
+    4300024: B
+    4300026: A
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Bracket
+    second: {fileID: 2100000, guid: afc36dd559bd61b4ba737a26cf727c4e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Capacitor
+    second: {fileID: 2100000, guid: 8381d2a8dcce4804aa259e10def98c01, type: 3}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CrossArmSteel
+    second: {fileID: 2100000, guid: d57dd6a0bff5fc248a9b62b28c98e007, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Insulator
+    second: {fileID: 2100000, guid: 138ec4445db9edd4abd207c16f212a6a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: LineMaterial
+    second: {fileID: 2100000, guid: 20429297cc5a2d04f977f3c3d04ce934, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Rust
+    second: {fileID: 2100000, guid: 7447065f669cf434788baf4d9b18c9d0, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

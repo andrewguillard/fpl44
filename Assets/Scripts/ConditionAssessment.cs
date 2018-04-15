@@ -16,7 +16,7 @@ public class ConditionAssessment : MonoBehaviour
     ArrayList AnswerKeyTest = new ArrayList();
 
     public GameObject pole;
-
+    public Data[] poleData;
     public bool LD1;
     public bool LD3;
     public bool LD5;
@@ -184,30 +184,35 @@ public class ConditionAssessment : MonoBehaviour
         form.phaseB = false;
         form.phaseC = false;
         AnswerKeyTest.Add(form);
+
+        if(pole != null)
+            getDataFromSelectiveScence(pole);
     }
 
-    private Form[] getDataFromSelectiveScence(GameObject poles)
+    private Form[] getDataFromSelectiveScence(GameObject currentPole)
     {
         List<Form> ret = new List<Form>();
-        foreach (Transform pole in poles.transform)
+        Data[] pData = currentPole.GetComponent<PoleData>().getData();
+        poleData = pData;
+        //for each
+        foreach(Data d in pData)
         {
-            PoleData pData = pole.GetComponent<PoleData>();
+            Form tempForm = new Form();
+                
+            //get name
+            tempForm.iconName = d.name;
+            
+            //getPhase
+            if (d.phase == 'A') { tempForm.phaseA = true; }
+            else if (d.phase == 'B') { tempForm.phaseB = true; }
+            else { tempForm.phaseC = true; }
 
-            Data[] datas = pData.getData();
-            foreach (Data d in datas)
-            {
-                Form tempForm = new Form();
-                tempForm.iconName = d.name;
-                if (d.phase == 'A') { tempForm.phaseA = true; }
-                else if (d.phase == 'B') { tempForm.phaseB = true; }
-                else { tempForm.phaseC = true; }
+            //getLevel
+            if (d.level == 1) { tempForm.DL1 = true; }
+            else if (d.level == 2) { tempForm.DL3 = true; }
+            else { tempForm.DL5 = true; }
 
-                if (d.level == 1) { tempForm.DL1 = true; }
-                else if (d.level == 2) { tempForm.DL3 = true; }
-                else { tempForm.DL5 = true; }
-
-                ret.Add(tempForm);
-            }
+            ret.Add(tempForm);
         }
 
         if (ret.Count == 0)

@@ -7,7 +7,7 @@ public class SpliceScript : MonoBehaviour
     public GameObject inpoint;
     public GameObject outpoint;
     public PoleData pole;
-    private readonly int minDistance  = 4 ;
+    private readonly int minDistance  = 5 ;
     private readonly int maxDistance = 10;
     public int phaseNum;
     [SerializeField] private PoleGeneration poleGenerator;
