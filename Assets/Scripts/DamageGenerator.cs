@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor;
 using System.Linq;
 using System.Text.RegularExpressions;
 
@@ -13,8 +12,54 @@ public class DamageGenerator : MonoBehaviour
     public SceneData data;
     public GameObject damageSet;
 
+	public void generateDamage(){
+		//get damage equipment 
+		string[] dEquip = data.getDamageEquipmentArray();
+        int level = data.getDamageLevel();
+
+        //debug 
+        foreach(string t in dEquip)
+        {
+            print("damage = " + t);
+        }
+        //get all pole gameobject to an gameobject array
+
+        //PoleData[] Poles = new PoleData[poleListObj.transform.childCount];
+        //for(int i = 0; i< Poles.Length; i++)
+        //{
+        //    Poles[i] = poleListObj.transform.GetChild(i).GetComponent<PoleData>();
+        //}
+
+        GameObject[] Poles = UtilityFunctions.getChildObjects(poleListObj);
+
+        for(int i=0; i< Poles.Length; i++)
+        {
+            //gothrough all child
+            foreach(Transform child in Poles[i].transform)
+            {
+                int l = level;
+                if(level== -1)
+                {
+                    l = Random.Range(1, 4);
+                }
+                Data data = child.GetComponent<Data>();
+                if (data != null)
+                {
+                    if (dEquip.Contains(data.name))
+                    {
+                        if (child.GetComponent<DamagesScript>() != null)
+                            //if that equip should have damage
+                            child.GetComponent<DamagesScript>().setDamage(l);
+                    }
+                }
+            }
+        }
+    }
+
+
     // Use this for initialization
-    public void generateDamage()
+    /*
+	public void generateDamage()
     {
         //get damage equipment array
         string[] equipments = data.getDamageEquipmentArray();
@@ -225,4 +270,5 @@ public class DamageGenerator : MonoBehaviour
         return insulatorList.ToArray()[index];
 
     }
+    */
 }
