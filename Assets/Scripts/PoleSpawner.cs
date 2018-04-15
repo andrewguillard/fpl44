@@ -464,21 +464,22 @@ public class PoleSpawner : MonoBehaviour
        
         if (i <= 9)
         {
-            //Quaternion rotateCapictor = Quaternion.Euler(-90, 0, -90);
+            Quaternion rotateCapictor = Quaternion.Euler(-90, 0, 0);
             Vector3 BankVec = new Vector3(spawnCapacitorBank[i].transform.position.x, spawnCapacitorBank[i].transform.position.y, spawnCapacitorBank[i].transform.position.z);
-            Instantiate(capcitorBank[0], BankVec, Quaternion.identity);
+            Instantiate(capcitorBank[0], BankVec, rotateCapictor);
 
 
             spawnFuseHolder(i);
 
         }
         else if (i > 9) {
-            Quaternion rotateCapictor = Quaternion.Euler(0, -90, 0);
+            Quaternion rotateCapictor = Quaternion.Euler(-90, -90, 0);
             Vector3 BankVec = new Vector3(spawnCapacitorBank[i].transform.position.x, spawnCapacitorBank[i].transform.position.y, spawnCapacitorBank[i].transform.position.z);
             Instantiate(capcitorBank[0], BankVec, rotateCapictor);
 
             spawnFuseHolder(i);
         }
+        /*
         string[] phases = { "A", "B", "C" };
 
         //connect transformer to fuse switch
@@ -497,7 +498,7 @@ public class PoleSpawner : MonoBehaviour
         //Debug.Log("The " + i + " pole insulator type is0..." + poleObjectArray[i].getInsulatorType());
         //B3, A3, C3
         //V, M, T, SC, DC
-
+        */
     }
     public void spawnCapacitorWires(int i) {
         if (poleObjectArray[i].getInsulatorType() == "V")
@@ -975,7 +976,7 @@ public class PoleSpawner : MonoBehaviour
         else if (poleObjectArray[i].getEquipmentType() == 1) {
             generateCapcitorBank(i);
             generateFuseSwitch(i);
-            spawnCapacitorWires(i);
+            //spawnCapacitorWires(i);
         }
         else if (poleObjectArray[i].getEquipmentType() == 2)
         {
@@ -993,6 +994,10 @@ public class PoleSpawner : MonoBehaviour
         }
         else if (poleObjectArray[i].getEquipmentType() == 6) {
             generateAutomaticLineSwitch(i);
+        }
+        else if (poleObjectArray[i].getEquipmentType() == 7)
+        {
+            generateLa(i);
         }
     }
 
@@ -1028,7 +1033,8 @@ public class PoleSpawner : MonoBehaviour
         for (int i = 0; i < 21; i++)
         {
             poleObjectArray[i] = new PoleObject();
-            poleObjectArray[i].setEquipmentType(getRandom(7));
+            poleObjectArray[i].setEquipmentType(getRandom(8));
+            poleObjectArray[i].setNumberOfDamagedEquip(getRandom(4));
         }
 
 
@@ -1175,10 +1181,10 @@ public class PoleSpawner : MonoBehaviour
                 }
             }
             //This randomizes equipment
-            //spawnEquipmentType(i);
+            spawnEquipmentType(i);
 
 
-            generateLa(i);
+            //generateLa(i);
 
             //generateBalloon(i);
             //generateNest(i);
@@ -1192,7 +1198,7 @@ public class PoleSpawner : MonoBehaviour
             //generateCapcitorBank(i);
             //generateFuseSwitch(i);
             //generateRecloser(i);
-
+            
             //spawnCAF(i);
         }
         /*
@@ -1211,15 +1217,15 @@ public class PoleSpawner : MonoBehaviour
 
         for (int i = 0; i < 20; i++)
         {
-            if (poleObjectArray[i].getEquipmentType() == 2){
-                Debug.Log("the num of transistors is: " + poleObjectArray[i].getTransformerCount()+"and the pole number is: "+ i);
-            }
+            Debug.Log("The number of damaged items is: "+poleObjectArray[i].getNumberOfDamagedEquip() );
         }
 
-        Debug.Log("Number of pole objects: " + poleObjectArray.Length);
+        //Debug.Log("Number of pole objects: " + poleObjectArray.Length);
 
         //spawnPoleLocation
-        Debug.Log("Number of pole spawn locations: " + poleObjectArray.Length);
+        //Debug.Log("Number of pole spawn locations: " + poleObjectArray.Length);
+
+
     }
     void Update() {
 
