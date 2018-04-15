@@ -8,7 +8,7 @@ public class Data : MonoBehaviour {
     public int level;
 
     public int extraIndex;
-
+    public string subName;
     public void setData(Data d)
     {
         equipmentName= d.equipmentName;

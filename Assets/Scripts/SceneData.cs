@@ -30,7 +30,6 @@ public class SceneData : MonoBehaviour {
     readonly string[] CONNECTIONS = { "Splice"};//done
     readonly string[] NEST = { "Nest"};
     readonly string[] DOWNGUY= {"Down Guy" };//done
-    readonly string[] RISERSHIELD = { "Riser Shield"};
     readonly string[] OBJECT=  { "Kite" ,"Ballon"}; 
     readonly string[] AFS = {"Automatic Feeder Switch" }; 
     readonly string[] FCI = { "FCI" }; 
@@ -112,27 +111,30 @@ public class SceneData : MonoBehaviour {
             case "Nest":
                 addToList(NEST, equipments, damages);
                 break;
-            case "OHSwitch":
-                //add equipment to equipment list 
-                equipments.Add("OHPotheadSwitch");
-                //add equipment to generate damage
-                addToList(OHSWITCH, damages);
-                break;
             case "Recloser":
                 addToList(RECLOSER, equipments,damages);
                 break;
             case "Vegetation":
                 addToList(new String[] { "Vegetation" }, equipments, damages);
                 break;
+            case "OHTransformer":
+                addToList(OHTRANSFORMER, equipments,damages);
+                break;
+            case "Capacitor":
+                addToList(CAPACITOR, equipments,damages);
+                break;
+            case "DownGuy":
+                addToList(DOWNGUY, equipments,damages);
+                break;
             case "CrossArm":
                 //set framming is crossarm
                 setFraming("C");
                 break;
-            case "Conductor":
-                break;
-            case "OHTransformer":
-                addToList(OHTRANSFORMER, equipments);
-                damages.Add("Transformer");
+            case "OHSwitch":
+                //add equipment to equipment list 
+                equipments.Add("OHPotheadSwitch");
+                //add equipment to generate damage
+                addToList(OHSWITCH, damages);
                 break;
             case "OHFuse":
                 //not add fuse switch to damage , add OH-FSand ALS
@@ -141,19 +143,9 @@ public class SceneData : MonoBehaviour {
                 addToList(new string[] { "FuseSwitch", "ALS"}, damages);
 
                 break;
-            case "Capacitor":
-                addToList(CAPACITOR, equipments,damages);
-                break;
             case "Connections":
                 addToList(CONNECTIONS, equipments);
-				
 				//damage- T/F- more than 3 in 1 cable.
-
-                break;
-            case "DownGuy":
-                addToList(DOWNGUY, equipments);
-                break;
-            case "RiserShield":
                 break;
             case "AFS":
                 equipments.Add("AFS");

@@ -141,6 +141,10 @@ public class DamageGenerator : MonoBehaviour
     {   
         if (name.Equals("HInsulator") || name.Equals("VInsulator") || name.Equals("LInsulator"))
             return "Insulator";
+        else if (name.Equals("TransformerSingle") || name.Equals("TransformerDouble") || name.Equals("TransformerTriple"))
+        {
+            return "Transformer";
+        }
         else
             return name;
     }

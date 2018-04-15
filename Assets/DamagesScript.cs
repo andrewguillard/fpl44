@@ -21,8 +21,8 @@ public class DamagesScript : MonoBehaviour {
         //if no equip location;
         if (equipLocation == null || equipLocation.Length == 0)
         {
-            //print(transform.parent.name+" Replace " + gameObject + " with " + Damages[level - 1]);
-            
+            print(transform.parent.name + " Replace " + gameObject + " with " + Damages[level - 1]);
+
             GameObject newObj = UtilityFunctions.replaceObject(gameObject, Damages[level - 1]);
 
             Data equipData = newObj.GetComponent<Data>();
