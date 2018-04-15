@@ -1034,7 +1034,7 @@ public class PoleSpawner : MonoBehaviour
         {
             poleObjectArray[i] = new PoleObject();
             poleObjectArray[i].setEquipmentType(getRandom(8));
-            poleObjectArray[i].setNumberOfDamagedEquip(Random.Range(0,2));
+            poleObjectArray[i].setNumberOfDamagedEquip(Random.Range(0,4));
             poleObjectArray[i].setDamageToItems();
         }
 
@@ -1199,8 +1199,9 @@ public class PoleSpawner : MonoBehaviour
             //generateCapcitorBank(i);
             //generateFuseSwitch(i);
             //generateRecloser(i);
-            
+
             //spawnCAF(i);
+            
         }
         /*
         for (int i = 0; i < 21; i++) {
@@ -1219,6 +1220,12 @@ public class PoleSpawner : MonoBehaviour
         for (int i = 0; i < 21; i++)
         {
             Debug.Log("The number of damaged items is: "+poleObjectArray[i].getNumberOfDamagedEquip() );
+        }
+        //printDamagedList();
+        for (int i = 0; i < 21; i++)
+        {
+            Debug.Log("Damage list for pole #"+i+" with "+ poleObjectArray[i].getNumberOfDamagedEquip() + " dmg equipment:");
+            poleObjectArray[i].printDamagedList();
         }
 
         //Debug.Log("Number of pole objects: " + poleObjectArray.Length);

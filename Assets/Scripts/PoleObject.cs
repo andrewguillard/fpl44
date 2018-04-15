@@ -39,7 +39,7 @@ public class PoleObject {
     public int equipmentType;
     public int transformerCount;
 
-    public ArrayList listOfDamagedEquip = new ArrayList();
+    public List<string> listOfDamagedEquip;
 
     public PoleObject() {
 
@@ -77,12 +77,15 @@ public class PoleObject {
         equipmentType = 0;
         transformerCount = 0;
 
-        listOfDamagedEquip = null;
+        listOfDamagedEquip = new List<string>(); 
 
     }
     public void setNumberOfDamagedEquip(int i)
     {
-        this.numberOfDamagedEquip = i;
+        if(getEquipmentType() == 0)
+            this.numberOfDamagedEquip = 0;
+        else
+            this.numberOfDamagedEquip = i;
     }
     public int getNumberOfDamagedEquip()
     {
@@ -315,9 +318,26 @@ public class PoleObject {
         return this.kite;
     }
 
+    public void addToDamageList(string p) {
+        listOfDamagedEquip.Add(p);
+
+    }
+
+    public List<string> getDamagedList() {
+        return listOfDamagedEquip;
+    }
+
+    public void printDamagedList() {
+        foreach (string i in listOfDamagedEquip)
+        {
+            Debug.Log(i);
+        }
+    }
+
     public void setDamageToItems() {
         //NO DAMAGE
         if (getNumberOfDamagedEquip() == 0) {
+            addToDamageList("There is no damage");
             int tempRand = Random.Range(0, 2);
             if (tempRand == 0)
                 setPalm(0);
@@ -328,7 +348,6 @@ public class PoleObject {
             else if (tempRand == 3)
                 return;
         }
-        //getNumberOfDamagedEquip != 0
         else
         { 
             assignRandomEquip();
@@ -339,6 +358,8 @@ public class PoleObject {
     public void assignRandomEquip() {
 
         if (getEquipmentType() == 0) {
+            Debug.Log("why is this here");
+            addToDamageList("There is no damage");
             return;
         }
         //Capacitor bank
@@ -369,20 +390,28 @@ public class PoleObject {
         else if (getEquipmentType() == 7) { 
             randomLightningArrestor();
         }
-        else
+        else { 
             Debug.Log("Bug happened");
+            addToDamageList("This is a bug");
+        }
     }
 
     //Insulator
     public void randomAssignInsulator(int x) {
         if (x == 1) {
             int temp = Random.Range(1, 4);
-            if (temp == 1)
-                setInsulatorA(true);
-            else if (temp == 2)
-                setInsulatorB(true);
-            else if (temp == 3)
-                setInsulatorC(true);
+            if (temp == 1) { 
+            setInsulatorA(true);
+            addToDamageList("InsulatorA"+" sevlevel "+getInsulatorDamage());
+            }
+        else if (temp == 2) { 
+            setInsulatorB(true);
+            addToDamageList("InsulatorB" + " sevlevel " + getInsulatorDamage());
+            }
+            else if (temp == 3) { 
+            setInsulatorC(true);
+            addToDamageList("InsulatorC" + " sevlevel " + getInsulatorDamage());
+            }
         }
         else if (x == 2) {
             int temp = Random.Range(1, 4);
@@ -390,22 +419,31 @@ public class PoleObject {
             {
                 setInsulatorA(true);
                 setInsulatorB(true);
+                addToDamageList("InsulatorA" + " sevlevel " + getInsulatorDamage());
+                addToDamageList("InsulatorB" + " sevlevel " + getInsulatorDamage());
             }
             else if (temp == 2)
             {
                 setInsulatorB(true);
                 setInsulatorC(true);
+                addToDamageList("InsulatorB" + " sevlevel " + getInsulatorDamage());
+                addToDamageList("InsulatorC" + " sevlevel " + getInsulatorDamage());
             }
             else if (temp == 3)
             {
                 setInsulatorA(true);
                 setInsulatorC(true);
+                addToDamageList("InsulatorA" + " sevlevel " + getInsulatorDamage());
+                addToDamageList("InsulatorC" + " sevlevel " + getInsulatorDamage());
             }
         }
         else if (x == 3) {
             setInsulatorA(true);
             setInsulatorB(true);
             setInsulatorC(true);
+            addToDamageList("InsulatorA" + " sevlevel " + getInsulatorDamage());
+            addToDamageList("InsulatorB" + " sevlevel " + getInsulatorDamage());
+            addToDamageList("InsulatorC" + " sevlevel " + getInsulatorDamage());
         }
 
     }
@@ -418,19 +456,21 @@ public class PoleObject {
         //CapacitorBank
         while (n < getNumberOfDamagedEquip() ) {
 
-            start:
+            //start:
             int tempEquipType = Random.Range(0, 3);
             int tempSev = Random.Range(1, 4);
             if (tempEquipType == 0 && !tempArray.Contains("Capictorbank"))
             {
                 setCapacitorBank(tempSev);
                 tempArray.Add("Capictorbank");
+                addToDamageList("Capictorbank");
                 n++;
             }
             else if (tempEquipType == 1 && !tempArray.Contains("Fuseswitch"))
             {
                 setFuseSwitch(tempSev);
                 tempArray.Add("Fuseswitch");
+                addToDamageList("Fuseswitch");
                 n++;
             }
             else if (tempEquipType == 2 )
@@ -451,49 +491,56 @@ public class PoleObject {
                 {
                     setFci(tempInt);
                     tempArray.Add("Fci");
+                    addToDamageList("Fci");
                     n++;
                 }
                 else if (tempEquip == 4 && !tempArray.Contains("Splice"))
                 {
                     setSplice(true);
                     tempArray.Add("Splice");
+                    addToDamageList("Splice");
                     n++;
                 }
                 else if (tempEquip == 5 && !tempArray.Contains("Balloon"))
                 {
                     setBallon(true);
                     tempArray.Add("Balloon");
+                    addToDamageList("Balloon");
                     n++;
                 }
-                else if (tempEquip == 6 && !tempArray.Contains("Palm")) 
+                else if (tempEquip == 6 && !tempArray.Contains("Palm"))
                 {
                     setPalm(tempInt);
                     tempArray.Add("Palm");
+                    addToDamageList("Palm");
                     n++;
                 }
                 else if (tempEquip == 7 && !tempArray.Contains("Nest"))
                 {
                     setNest(true);
                     tempArray.Add("Nest");
+                    addToDamageList("Nest");
                     n++;
                 }
                 else if (tempEquip == 8 && !tempArray.Contains("Oak"))
                 {
                     setOak(tempInt);
                     tempArray.Add("Oak");
+                    addToDamageList("Oak");
                     n++;
                 }
                 else if (tempEquip == 9 && !tempArray.Contains("Kite"))
                 {
                     setKite(true);
                     tempArray.Add("Kite");
+                    addToDamageList("Kite");
                     n++;
                 }
             }
-            else
-                goto start;
+            //else
+                //goto start;
         }
-        Debug.Log("DMG ARRAY"+ tempArray);
+
     }
 
     public void randomTransformer()
@@ -504,19 +551,21 @@ public class PoleObject {
         //CapacitorBank
         while (n < getNumberOfDamagedEquip())
         {
-            start:
+            //start:
             int tempEquipType = Random.Range(0, 3);
             int tempSev = Random.Range(1, 4);
             if (tempEquipType == 0 && !tempArray.Contains("Transformer"))
             {
                 setTransformer(tempSev);
                 tempArray.Add("Transformer");
+                addToDamageList("Transformer");
                 n++;
             }
             else if (tempEquipType == 1 && !tempArray.Contains("Fuseswitch"))
             {
                 setFuseSwitch(tempSev);
                 tempArray.Add("Fuseswitch");
+                addToDamageList("Fuseswitch");
                 n++;
             }
             else if (tempEquipType == 2)
@@ -537,49 +586,56 @@ public class PoleObject {
                 {
                     setFci(tempInt);
                     tempArray.Add("Fci");
+                    addToDamageList("Fci");
                     n++;
                 }
                 else if (tempEquip == 4 && !tempArray.Contains("Splice"))
                 {
                     setSplice(true);
                     tempArray.Add("Splice");
+                    addToDamageList("Splice");
                     n++;
                 }
                 else if (tempEquip == 5 && !tempArray.Contains("Balloon"))
                 {
                     setBallon(true);
                     tempArray.Add("Balloon");
+                    addToDamageList("Balloon");
                     n++;
                 }
                 else if (tempEquip == 6 && !tempArray.Contains("Palm"))
                 {
                     setPalm(tempInt);
                     tempArray.Add("Palm");
+                    addToDamageList("Palm");
                     n++;
                 }
                 else if (tempEquip == 7 && !tempArray.Contains("Nest"))
                 {
                     setNest(true);
                     tempArray.Add("Nest");
+                    addToDamageList("Nest");
                     n++;
                 }
                 else if (tempEquip == 8 && !tempArray.Contains("Oak"))
                 {
                     setOak(tempInt);
                     tempArray.Add("Oak");
+                    addToDamageList("Oak");
                     n++;
                 }
                 else if (tempEquip == 9 && !tempArray.Contains("Kite"))
                 {
                     setKite(true);
                     tempArray.Add("Kite");
+                    addToDamageList("Kite");
                     n++;
                 }
             }
-            else
-                goto start;
+            //else
+                //goto start;
         }
-        Debug.Log("DMG ARRAY" + tempArray);
+        
     }
 
     //Recloser
@@ -591,13 +647,14 @@ public class PoleObject {
         //CapacitorBank
         while (n < getNumberOfDamagedEquip())
         {
-            start:
+            //start:
             int tempEquipType = Random.Range(0, 2);
             int tempSev = Random.Range(1, 4);
             if (tempEquipType == 0 && !tempArray.Contains("Recloser"))
             {
                 setRecloser(tempSev);
                 tempArray.Add("Recloser");
+                addToDamageList("Recloser");
                 n++;
             }
             else if (tempEquipType == 1)
@@ -618,49 +675,59 @@ public class PoleObject {
                 {
                     setFci(tempInt);
                     tempArray.Add("Fci");
+                    addToDamageList("Fci");
                     n++;
                 }
                 else if (tempEquip == 4 && !tempArray.Contains("Splice"))
                 {
                     setSplice(true);
                     tempArray.Add("Splice");
+                    addToDamageList("Splice");
                     n++;
                 }
                 else if (tempEquip == 5 && !tempArray.Contains("Balloon"))
                 {
                     setBallon(true);
                     tempArray.Add("Balloon");
+                    addToDamageList("Balloon");
                     n++;
                 }
                 else if (tempEquip == 6 && !tempArray.Contains("Palm"))
                 {
                     setPalm(tempInt);
                     tempArray.Add("Palm");
+                    addToDamageList("Palm");
                     n++;
                 }
                 else if (tempEquip == 7 && !tempArray.Contains("Nest"))
                 {
                     setNest(true);
                     tempArray.Add("Nest");
+                    addToDamageList("Nest");
                     n++;
                 }
                 else if (tempEquip == 8 && !tempArray.Contains("Oak"))
                 {
                     setOak(tempInt);
                     tempArray.Add("Oak");
+                    addToDamageList("Oak");
                     n++;
                 }
                 else if (tempEquip == 9 && !tempArray.Contains("Kite"))
                 {
                     setKite(true);
                     tempArray.Add("Kite");
+                    addToDamageList("Kite");
                     n++;
                 }
             }
-            else
-                goto start;
+            //else
+                //goto start;
         }
-        Debug.Log("DMG ARRAY" + tempArray);
+        foreach (string i in tempArray)
+        {
+            Debug.Log("DMG ARRAY" + i);
+        }
     }
 
     //Afs
@@ -671,13 +738,14 @@ public class PoleObject {
 
         while (n < getNumberOfDamagedEquip())
         {
-            start:
+            //start:
             int tempEquipType = Random.Range(0, 2);
             int tempSev = Random.Range(1, 4);
             if (tempEquipType == 0 && !tempArray.Contains("Afs"))
             {
                 setAfs(tempSev);
                 tempArray.Add("Afs");
+                addToDamageList("Afs");
                 n++;
             }
             else if (tempEquipType == 1)
@@ -692,55 +760,66 @@ public class PoleObject {
                     int tempMat = Random.Range(0, 2);
                     setInsulatorMaterial(tempMat);
                     randomAssignInsulator(tempIns);
+                    //addToDamageList("Insulator");
                     n++;
                 }
                 else if (tempEquip == 3 && !tempArray.Contains("Fci"))
                 {
                     setFci(tempInt);
                     tempArray.Add("Fci");
+                    addToDamageList("Fci");
                     n++;
                 }
                 else if (tempEquip == 4 && !tempArray.Contains("Splice"))
                 {
                     setSplice(true);
                     tempArray.Add("Splice");
+                    addToDamageList("Splice");
                     n++;
                 }
                 else if (tempEquip == 5 && !tempArray.Contains("Balloon"))
                 {
                     setBallon(true);
                     tempArray.Add("Balloon");
+                    addToDamageList("Balloon");
                     n++;
                 }
                 else if (tempEquip == 6 && !tempArray.Contains("Palm"))
                 {
                     setPalm(tempInt);
                     tempArray.Add("Palm");
+                    addToDamageList("Palm");
                     n++;
                 }
                 else if (tempEquip == 7 && !tempArray.Contains("Nest"))
                 {
                     setNest(true);
                     tempArray.Add("Nest");
+                    addToDamageList("Nest");
                     n++;
                 }
                 else if (tempEquip == 8 && !tempArray.Contains("Oak"))
                 {
                     setOak(tempInt);
                     tempArray.Add("Oak");
+                    addToDamageList("Oak");
                     n++;
                 }
                 else if (tempEquip == 9 && !tempArray.Contains("Kite"))
                 {
                     setKite(true);
                     tempArray.Add("Kite");
+                    addToDamageList("Kite");
                     n++;
                 }
             }
-            else
-                goto start;
+            //else
+                //goto start;
         }
-        Debug.Log("DMG ARRAY" + tempArray);
+        foreach (string i in tempArray)
+        {
+            Debug.Log("DMG ARRAY" + i);
+        }
     }
 
     //randomPotheadDcswitch();
@@ -751,19 +830,21 @@ public class PoleObject {
 
         while (n < getNumberOfDamagedEquip())
         {
-            start:
+            //start:
             int tempEquipType = Random.Range(0, 3);
             int tempSev = Random.Range(1, 4);
             if (tempEquipType == 0 && !tempArray.Contains("Pothead"))
             {
                 setPothead(tempSev);
                 tempArray.Add("Pothead");
+                addToDamageList("Pothead");
                 n++;
             }
             else if(tempEquipType == 1 && !tempArray.Contains("Disconnectswitch"))
             {
                 setDisconnectSwitch(tempSev);
                 tempArray.Add("Disconnectswitch");
+                addToDamageList("Disconnectswitch");
                 n++;
             }
             else if (tempEquipType == 2)
@@ -784,49 +865,59 @@ public class PoleObject {
                 {
                     setFci(tempInt);
                     tempArray.Add("Fci");
+                    addToDamageList("Fci");
                     n++;
                 }
                 else if (tempEquip == 4 && !tempArray.Contains("Splice"))
                 {
                     setSplice(true);
                     tempArray.Add("Splice");
+                    addToDamageList("Splice");
                     n++;
                 }
                 else if (tempEquip == 5 && !tempArray.Contains("Balloon"))
                 {
                     setBallon(true);
                     tempArray.Add("Balloon");
+                    addToDamageList("Balloon");
                     n++;
                 }
                 else if (tempEquip == 6 && !tempArray.Contains("Palm"))
                 {
                     setPalm(tempInt);
                     tempArray.Add("Palm");
+                    addToDamageList("Palm");
                     n++;
                 }
                 else if (tempEquip == 7 && !tempArray.Contains("Nest"))
                 {
                     setNest(true);
                     tempArray.Add("Nest");
+                    addToDamageList("Nest");
                     n++;
                 }
                 else if (tempEquip == 8 && !tempArray.Contains("Oak"))
                 {
                     setOak(tempInt);
                     tempArray.Add("Oak");
+                    addToDamageList("Oak");
                     n++;
                 }
                 else if (tempEquip == 9 && !tempArray.Contains("Kite"))
                 {
                     setKite(true);
                     tempArray.Add("Kite");
+                    addToDamageList("Kite");
                     n++;
                 }
             }
-            else
-                goto start;
+            //else
+                //goto start;
         }
-        Debug.Log("DMG ARRAY" + tempArray);
+        foreach (string i in tempArray)
+        {
+            Debug.Log("DMG ARRAY" + i);
+        }
     }
     //randomAutomaticLineSwitch
     public void randomAutomaticLineSwitch()
@@ -836,13 +927,14 @@ public class PoleObject {
 
         while (n < getNumberOfDamagedEquip())
         {
-            start:
+            //start:
             int tempEquipType = Random.Range(0, 2);
             int tempSev = Random.Range(1, 4);
             if (tempEquipType == 0 && !tempArray.Contains("Automaticlineswitch"))
             {
                 setAutomaticLineSwitch(tempSev);
                 tempArray.Add("Automaticlineswitch");
+                addToDamageList("Automaticlineswitch");
                 n++;
             }
             else if (tempEquipType == 1)
@@ -863,49 +955,59 @@ public class PoleObject {
                 {
                     setFci(tempInt);
                     tempArray.Add("Fci");
+                    addToDamageList("Fci");
                     n++;
                 }
                 else if (tempEquip == 4 && !tempArray.Contains("Splice"))
                 {
                     setSplice(true);
                     tempArray.Add("Splice");
+                    addToDamageList("Splice");
                     n++;
                 }
                 else if (tempEquip == 5 && !tempArray.Contains("Balloon"))
                 {
                     setBallon(true);
                     tempArray.Add("Balloon");
+                    addToDamageList("Balloon");
                     n++;
                 }
                 else if (tempEquip == 6 && !tempArray.Contains("Palm"))
                 {
                     setPalm(tempInt);
                     tempArray.Add("Palm");
+                    addToDamageList("Palm");
                     n++;
                 }
                 else if (tempEquip == 7 && !tempArray.Contains("Nest"))
                 {
                     setNest(true);
                     tempArray.Add("Nest");
+                    addToDamageList("Nest");
                     n++;
                 }
                 else if (tempEquip == 8 && !tempArray.Contains("Oak"))
                 {
                     setOak(tempInt);
                     tempArray.Add("Oak");
+                    addToDamageList("Oak");
                     n++;
                 }
                 else if (tempEquip == 9 && !tempArray.Contains("Kite"))
                 {
                     setKite(true);
                     tempArray.Add("Kite");
+                    addToDamageList("Kite");
                     n++;
                 }
             }
-            else
-                goto start;
+            //else
+                //goto start;
         }
-        Debug.Log("DMG ARRAY" + tempArray);
+        foreach (string i in tempArray)
+        {
+            Debug.Log("DMG ARRAY" + i);
+        }
     }
 
     //LightningArrestor()
@@ -916,7 +1018,7 @@ public class PoleObject {
 
         while (n < getNumberOfDamagedEquip())
         {
-            start:
+            //start:
             int tempEquipType = Random.Range(0, 2);
             int tempSev = Random.Range(1, 4);
             if (tempEquipType == 0 && !tempArray.Contains("Lightningarrestor"))
@@ -943,49 +1045,60 @@ public class PoleObject {
                 {
                     setFci(tempInt);
                     tempArray.Add("Fci");
+                    addToDamageList("Fci");
                     n++;
                 }
                 else if (tempEquip == 4 && !tempArray.Contains("Splice"))
                 {
                     setSplice(true);
                     tempArray.Add("Splice");
+                    addToDamageList("Splice");
                     n++;
                 }
                 else if (tempEquip == 5 && !tempArray.Contains("Balloon"))
                 {
                     setBallon(true);
                     tempArray.Add("Balloon");
+                    addToDamageList("Balloon");
                     n++;
                 }
                 else if (tempEquip == 6 && !tempArray.Contains("Palm"))
                 {
                     setPalm(tempInt);
                     tempArray.Add("Palm");
+                    addToDamageList("Palm");
                     n++;
                 }
                 else if (tempEquip == 7 && !tempArray.Contains("Nest"))
                 {
                     setNest(true);
                     tempArray.Add("Nest");
+                    addToDamageList("Nest");
                     n++;
                 }
                 else if (tempEquip == 8 && !tempArray.Contains("Oak"))
                 {
                     setOak(tempInt);
                     tempArray.Add("Oak");
+                    addToDamageList("Oak");
                     n++;
                 }
                 else if (tempEquip == 9 && !tempArray.Contains("Kite"))
                 {
                     setKite(true);
                     tempArray.Add("Kite");
+                    addToDamageList("Kite");
                     n++;
                 }
             }
-            else
-                goto start;
+            //else
+                //goto start;
         }
-        Debug.Log("DMG ARRAY" + tempArray);
+        foreach (string i in tempArray)
+        {
+            Debug.Log("DMG ARRAY" + i);
+        }
+        //Debug.Log("DMG ARRAY" + tempArray);
     }
 
     public void writeList(ArrayList list) {
