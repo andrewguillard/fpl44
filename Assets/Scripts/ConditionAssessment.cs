@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ConditionAssessment : MonoBehaviour
 {
@@ -108,6 +109,12 @@ public class ConditionAssessment : MonoBehaviour
 
     void Start()
     {
+        // Create a temporary reference to the current scene.
+        Scene currentScene = SceneManager.GetActiveScene();
+
+        // Retrieve the name of this scene.
+        string sceneName = currentScene.name;
+        print("SCENEEEEEEEEEEEEEEE" + sceneName);
 
         #region get all the components
         ICON_SELECTED_TXT = gameObject.transform.Find("ICON_SELECTED_TXT").GetComponent<Text>();
@@ -158,38 +165,11 @@ public class ConditionAssessment : MonoBehaviour
 
         resetToStart();
 
-        //form.iconName = "RECLOSER";
-        //form.DL1 = true;
-        //form.DL3 = false;
-        //form.DL5 = false;
-        //form.phaseA = false;
-        //form.phaseB = false;
-        //form.phaseC = false;
-        //AnswerKeyTest.Add(form);
-
-        //form.iconName = "CAPACITOR";
-        //form.DL1 = true;
-        //form.DL3 = false;
-        //form.DL5 = false;
-        //form.phaseA = false;
-        //form.phaseB = false;
-        //form.phaseC = false;
-        //AnswerKeyTest.Add(form);
-
-        //form.iconName = "AFS";
-        //form.DL1 = true;
-        //form.DL3 = false;
-        //form.DL5 = false;
-        //form.phaseA = false;
-        //form.phaseB = false;
-        //form.phaseC = false;
-        //AnswerKeyTest.Add(form);
-
-        if(pole != null)
+        if(sceneName == "SelectiveTraining" && pole != null)
             AnswerKeyTest = getDataFromSelectiveScence(pole);
     }
 
-    private ArrayList getDataFromSelectiveScence(GameObject currentPole)
+    public ArrayList getDataFromSelectiveScence(GameObject currentPole)
     {
         //List<Form> ret = new List<Form>();
         ArrayList ret = new ArrayList();
@@ -368,54 +348,49 @@ public class ConditionAssessment : MonoBehaviour
     {
         Image IMAGE = OH_SWITCH_IMG;
         currentEquipmentName = EQUIPMENT_DROPDWN.options[EQUIPMENT_DROPDWN.value].text;
-        print("currenteqname was just changed to: " + currentEquipmentName);
-        print("index" + target);
+        int flag = 0;
+        //for each form in the answerkey, check to see if we have clicked an icon that was in the answer list
+        foreach (Form la in AnswerKeyTest)
+        {
+            if (la.iconName == currentEquipmentName && HasBeenSubmitted)
+            {
+                print("got into has been submitted");
+                print("currentIconName: " + currentIconName);
+                if (currentIconName == "OH_SWITCH")
+                    IMAGE = OH_SWITCH_IMG;
+                if (currentIconName == "LIGHTNING_ARRESTER")
+                    IMAGE = LIGHTNING_ARRESTER_IMG;
+                if (currentIconName == "INSULATOR")
+                    IMAGE = INSULATOR_IMG;
+                if (currentIconName == "POLE")
+                    IMAGE = POLE_IMG;
+                if (currentIconName == "CROSS_ARM")
+                    IMAGE = CROSS_ARM_IMG;
+                if (currentIconName == "VEGETATION")
+                    IMAGE = VEGETATION_IMG;
+                if (currentIconName == "CONDUCTOR")
+                    IMAGE = CONDUCTOR_IMG;
+                if (currentIconName == "OH_TRANSFORMER")
+                    IMAGE = OH_TRANSFORMER_IMG;
+                if (currentIconName == "OH_FUSE_SWITCH")
+                    IMAGE = OH_FUSE_SWITCH_IMG;
+                if (currentIconName == "FOREIGN_OBJECT_IN_WIRE")
+                    IMAGE = FOREIGN_OBJECT_IN_WIRE_IMG;
 
+                if (currentEquipmentName == la.iconName)
+                {
+                    fillFormPostSub(currentEquipmentName, IMAGE);
+                    flag = 1;
+                }              
+            }
+        }
         foreach (Form la in UserInputList)
         {
-            print("comparing: " + la.iconName + " and " + currentEquipmentName);
-
-            //if the userInputList has data for the current equipment name
-            print("COMPARING iconName: " + la.iconName + "currentEquipmentName" + currentEquipmentName);
-            if (la.iconName == currentEquipmentName)
+            if (la.iconName == currentEquipmentName && !HasBeenSubmitted && flag == 0)
             {
-                print("found = true");
-                found = true;
-
-                if (found && HasBeenSubmitted)
-                {
-                    if (currentIconName == "OH_SWITCH")
-                        IMAGE = OH_SWITCH_IMG;
-                    if (currentIconName == "LIGHTNING_ARRESTER")
-                        IMAGE = LIGHTNING_ARRESTER_IMG;
-                    if (currentIconName == "INSULATOR")
-                        IMAGE = INSULATOR_IMG;
-                    if (currentIconName == "POLE")
-                        IMAGE = POLE_IMG;
-                    if (currentIconName == "CROSS_ARM")
-                        IMAGE = CROSS_ARM_IMG;
-                    if (currentIconName == "VEGETATION")
-                        IMAGE = VEGETATION_IMG;
-                    if (currentIconName == "CONDUCTOR")
-                        IMAGE = CONDUCTOR_IMG;
-                    if (currentIconName == "OH_TRANSFORMER")
-                        IMAGE = OH_TRANSFORMER_IMG;
-                    if (currentIconName == "OH_FUSE_SWITCH")
-                        IMAGE = OH_FUSE_SWITCH_IMG;
-                    if (currentIconName == "FOREIGN_OBJECT_IN_WIRE")
-                        IMAGE = FOREIGN_OBJECT_IN_WIRE_IMG;
-
-                    if (currentEquipmentName == la.iconName)
-                        fillFormPostSub(currentEquipmentName, IMAGE);
-                }
-
-                if (found && !HasBeenSubmitted)
-                {
-                    fillForm(currentEquipmentName, "active");
-                    print("got into found");
-                }
+                fillForm(currentEquipmentName, "active");
             }
-            else
+            else if(la.iconName != currentIconName && flag == 0)
             {
                 highlight(LD_1_IMG, "removed");
                 highlight(LD_3_IMG, "removed");
@@ -424,7 +399,7 @@ public class ConditionAssessment : MonoBehaviour
                 highlight(PHASE_B_IMG, "removed");
                 highlight(PHASE_C_IMG, "removed");
             }
-        }
+        }                
     }
 
     //Highlights the icon image depending on the state
@@ -1092,10 +1067,14 @@ public class ConditionAssessment : MonoBehaviour
         {
             print("USER INPUT:\t" + la.iconName + " :" + " \t DL1 = " + la.DL1 + "\t DL3 = " + la.DL3 + "\t DL5 = " + la.DL5 + "\t PHA = " + la.phaseA + "\t PHB = " + la.phaseB + "\t PHC = " + la.phaseC);
         }
-        foreach (Form lo in AnswerKeyTest)
+        if (AnswerKeyTest != null)
         {
-            print("ANSWER KEY:\t" + lo.iconName + " :" + " \t DL1 = " + lo.DL1 + "\t DL3 = " + lo.DL3 + "\t DL5 = " + lo.DL5 + "\t PHA = " + lo.phaseA + "\t PHB = " + lo.phaseB + "\t PHC = " + lo.phaseC);
+            foreach (Form lo in AnswerKeyTest)
+            {
+                print("ANSWER KEY:\t" + lo.iconName + " :" + " \t DL1 = " + lo.DL1 + "\t DL3 = " + lo.DL3 + "\t DL5 = " + lo.DL5 + "\t PHA = " + lo.phaseA + "\t PHB = " + lo.phaseB + "\t PHC = " + lo.phaseC);
+            }
         }
+
 
         foreach (Form la in UserInputList)
         {
@@ -1122,16 +1101,19 @@ public class ConditionAssessment : MonoBehaviour
             }
         }
 
-        foreach (Form lo in AnswerKeyTest)
+        if (AnswerKeyTest != null)
         {
-            if (!UserInputList.Contains(lo))
+            foreach (Form lo in AnswerKeyTest)
             {
-                //Highlight icon in red
-                highlightAfterSubmit(lo.iconName, "incorrect");
+                if (!UserInputList.Contains(lo))
+                {
+                    //Highlight icon in red
+                    highlightAfterSubmit(lo.iconName, "incorrect");
 
-                print(lo.iconName + "is in the answerkey but not in the userinput");
+                    print(lo.iconName + "is in the answerkey but not in the userinput");
 
-                points4quiz = 0;
+                    points4quiz = 0;
+                }
             }
         }
         print("POINTS: " + points4quiz);
