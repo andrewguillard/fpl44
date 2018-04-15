@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 using System;
 
 public class SceneData : MonoBehaviour {
-    public static string framing;
+    public static string framing = "C";
     public static int damageLevel = -1;
     GameObject[] poles;
 

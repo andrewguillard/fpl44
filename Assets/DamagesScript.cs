@@ -9,6 +9,7 @@ public class DamagesScript : MonoBehaviour {
     public void setDamage(int level)
     {
         //print(transform + " is level" + level);
+        char equipPhase = transform.GetComponent<Data>().phase;
 
         //if no damage set
         if(Damages.Length == 0)
@@ -17,7 +18,6 @@ public class DamagesScript : MonoBehaviour {
             return;
         }
 
-        print(transform + "has loc length = " + equipLocation.Length);
         //if no equip location;
         if (equipLocation == null || equipLocation.Length == 0)
         {
@@ -39,8 +39,8 @@ public class DamagesScript : MonoBehaviour {
                 }
                 else
                     equipData.level = level;
-
             }
+            equipData.phase = equipPhase;
         }
         else
         {
@@ -67,6 +67,8 @@ public class DamagesScript : MonoBehaviour {
                     equipData.level = level;
 
             }
+            equipData.phase = equipPhase;
+
         }
 
     }
