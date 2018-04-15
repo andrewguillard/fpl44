@@ -9,9 +9,9 @@ public class PoleObject {
     public int poleMaterial;        //0 = wood, 1 = concrete
     public string insulatorType;    //V, M, T, SC, DC   
     public int insulatorMaterial;   //0 for ..., 1 for polymer
-    public int insulatorA;
-    public int insulatorB;
-    public int insulatorC;
+    public bool insulatorA;
+    public bool insulatorB;
+    public bool insulatorC;
     public int insulatorDamage;
 
     public int deadendInsulator;
@@ -48,9 +48,9 @@ public class PoleObject {
         poleMaterial = 0;
         insulatorType = "null";
         insulatorMaterial = 0;
-        insulatorA = 0;
-        insulatorB = 0;
-        insulatorC = 0;
+        insulatorA = false;
+        insulatorB = false;
+        insulatorC = false;
         insulatorDamage = 0;
 
         deadendInsulator = 0;
@@ -102,6 +102,45 @@ public class PoleObject {
     public string getInsulatorType() {
         return this.insulatorType;
     }
+    
+    public void setInsulatorDamage(int i)
+    {
+        this.insulatorDamage = i;
+    }
+    public int getInsulatorDamage()
+    {
+        return this.insulatorDamage;
+    }
+
+    public void setInsulatorA(bool i)
+    {
+        this.insulatorA = true;
+    }
+
+    public bool getInsulatorA(bool i)
+    {
+        return this.insulatorA;
+    }
+
+    public void setInsulatorB(bool i)
+    {
+        this.insulatorB = true;
+    }
+
+    public bool getInsulatorB(bool i)
+    {
+        return this.insulatorB;
+    }
+
+    public void setInsulatorC(bool i)
+    {
+        this.insulatorC = true;
+    }
+
+    public bool getInsulatorC(bool i)
+    {
+        return this.insulatorC;
+    }
 
     public void setEquipmentType(int i) {
         this.equipmentType = i;
@@ -113,13 +152,13 @@ public class PoleObject {
         return this.equipmentType;
     }
 
-    public void setInsulatorDamage(int i)
+    public void setInsulatorMaterial (int i)
     {
-        this.insulatorDamage = i;
+        this.insulatorMaterial = i;
     }
-    public int getInsulatorDamage()
+    public int getInsulatorMaterial()
     {
-        return this.insulatorDamage;
+        return this.insulatorMaterial;
     }
 
     public void setCapacitorBank(int i)
@@ -318,26 +357,8 @@ public class PoleObject {
         if (getEquipmentType() == 0) {
             return;
         }
-        if (getEquipmentType() == 1)
-        {
-            int tempEquipType = Random.Range(0, 3);
-            int tempSev = Random.Range(1, 4);
-            if (tempEquipType == 0)
-            {
-                setCapacitorBank(tempSev);
-                //listOfDamagedEquip.Add("Capacitorbank");
-                //listOfDamagedEquip.Add("level " + tempSev);
-            }
-            else if (tempEquipType == 1)
-            {
-                setFuseSwitch(tempSev);
-                //listOfDamagedEquip.Add("Fuseswitch");
-                //listOfDamagedEquip.Add("level " + tempSev);
-            }
-            else if (tempEquipType == 2)
-            {
-                randomDump();
-            }
+        if (getEquipmentType() == 1) {
+            randomCapacitor();
         }
         //Transformer
         else if (getEquipmentType() == 2)
@@ -448,6 +469,42 @@ public class PoleObject {
     public void assignThreeRandomEquip() {
     }
 
+    public void randomAssignInsulator(int x) {
+        if (x == 1) {
+            int temp = Random.Range(1, 4);
+            if (temp == 1)
+                setInsulatorA(true);
+            else if (temp == 2)
+                setInsulatorB(true);
+            else if (temp == 3)
+                setInsulatorC(true);
+        }
+        else if (x == 2) {
+            int temp = Random.Range(1, 4);
+            if (temp == 1)
+            {
+                setInsulatorA(true);
+                setInsulatorB(true);
+            }
+            else if (temp == 2)
+            {
+                setInsulatorB(true);
+                setInsulatorC(true);
+            }
+            else if (temp == 3)
+            {
+                setInsulatorA(true);
+                setInsulatorC(true);
+            }
+        }
+        else if (x == 3) {
+            setInsulatorA(true);
+            setInsulatorB(true);
+            setInsulatorC(true);
+        }
+
+    }
+
 
     public void randomCapacitor() {
         int n = 0;
@@ -479,6 +536,10 @@ public class PoleObject {
                 {
                     setInsulatorDamage(tempInt);
                     tempArray.Add("Insulator");
+                    int tempIns = Random.Range(1, 4);
+                    int tempMat = Random.Range(0, 2);
+                    setInsulatorMaterial(tempMat);
+                    randomAssignInsulator(tempIns);
                     n++;
                 }
                 else if (tempEquip == 3 && !tempArray.Contains("Fci"))
@@ -529,6 +590,95 @@ public class PoleObject {
         }
 
     }
+
+
+    public void randomCapacitor()
+    {
+        int n = 0;
+        List<string> tempArray = new List<string>();
+
+        //CapacitorBank
+        while (n < getNumberOfDamagedEquip())
+        {
+
+            start:
+            int tempEquipType = Random.Range(0, 3);
+            int tempSev = Random.Range(1, 4);
+            if (tempEquipType == 0 && !tempArray.Contains("Capictorbank"))
+            {
+                setCapacitorBank(tempSev);
+                tempArray.Add("Capictorbank");
+                n++;
+            }
+            else if (tempEquipType == 1 && !tempArray.Contains("Fuseswitch"))
+            {
+                setFuseSwitch(tempSev);
+                tempArray.Add("Fuseswitch");
+                n++;
+            }
+            else if (tempEquipType == 2)
+            {
+                int tempEquip = Random.Range(2, 10);
+                int tempInt = Random.Range(1, 4);
+                if (tempEquip == 2 && !tempArray.Contains("Insulator"))
+                {
+                    setInsulatorDamage(tempInt);
+                    tempArray.Add("Insulator");
+                    int tempIns = Random.Range(1, 4);
+                    int tempMat = Random.Range(0, 2);
+                    setInsulatorMaterial(tempMat);
+                    randomAssignInsulator(tempIns);
+                    n++;
+                }
+                else if (tempEquip == 3 && !tempArray.Contains("Fci"))
+                {
+                    setFci(tempInt);
+                    tempArray.Add("Fci");
+                    n++;
+                }
+                else if (tempEquip == 4 && !tempArray.Contains("Splice"))
+                {
+                    setSplice(true);
+                    tempArray.Add("Splice");
+                    n++;
+                }
+                else if (tempEquip == 5 && !tempArray.Contains("Balloon"))
+                {
+                    setBallon(true);
+                    tempArray.Add("Balloon");
+                    n++;
+                }
+                else if (tempEquip == 6 && !tempArray.Contains("Palm"))
+                {
+                    setPalm(tempInt);
+                    tempArray.Add("Palm");
+                    n++;
+                }
+                else if (tempEquip == 7 && !tempArray.Contains("Nest"))
+                {
+                    setNest(true);
+                    tempArray.Add("Nest");
+                    n++;
+                }
+                else if (tempEquip == 8 && !tempArray.Contains("Oak"))
+                {
+                    setOak(tempInt);
+                    tempArray.Add("Oak");
+                    n++;
+                }
+                else if (tempEquip == 9 && !tempArray.Contains("Kite"))
+                {
+                    setKite(true);
+                    tempArray.Add("Kite");
+                    n++;
+                }
+            }
+            else
+                goto start;
+        }
+
+    }
+
 
     public void randomDump()
     {
