@@ -158,59 +158,202 @@ public class ConditionAssessment : MonoBehaviour
 
         resetToStart();
 
-        form.iconName = "RECLOSER";
-        form.DL1 = true;
-        form.DL3 = false;
-        form.DL5 = false;
-        form.phaseA = false;
-        form.phaseB = false;
-        form.phaseC = false;
-        AnswerKeyTest.Add(form);
+        //form.iconName = "RECLOSER";
+        //form.DL1 = true;
+        //form.DL3 = false;
+        //form.DL5 = false;
+        //form.phaseA = false;
+        //form.phaseB = false;
+        //form.phaseC = false;
+        //AnswerKeyTest.Add(form);
 
-        form.iconName = "CAPACITOR";
-        form.DL1 = true;
-        form.DL3 = false;
-        form.DL5 = false;
-        form.phaseA = false;
-        form.phaseB = false;
-        form.phaseC = false;
-        AnswerKeyTest.Add(form);
+        //form.iconName = "CAPACITOR";
+        //form.DL1 = true;
+        //form.DL3 = false;
+        //form.DL5 = false;
+        //form.phaseA = false;
+        //form.phaseB = false;
+        //form.phaseC = false;
+        //AnswerKeyTest.Add(form);
 
-        form.iconName = "AFS";
-        form.DL1 = true;
-        form.DL3 = false;
-        form.DL5 = false;
-        form.phaseA = false;
-        form.phaseB = false;
-        form.phaseC = false;
-        AnswerKeyTest.Add(form);
+        //form.iconName = "AFS";
+        //form.DL1 = true;
+        //form.DL3 = false;
+        //form.DL5 = false;
+        //form.phaseA = false;
+        //form.phaseB = false;
+        //form.phaseC = false;
+        //AnswerKeyTest.Add(form);
 
         if(pole != null)
-            getDataFromSelectiveScence(pole);
+            AnswerKeyTest = getDataFromSelectiveScence(pole);
     }
 
-    private Form[] getDataFromSelectiveScence(GameObject currentPole)
+    private ArrayList getDataFromSelectiveScence(GameObject currentPole)
     {
-        List<Form> ret = new List<Form>();
+        //List<Form> ret = new List<Form>();
+        ArrayList ret = new ArrayList();
         Data[] pData = currentPole.GetComponent<PoleData>().getData();
         poleData = pData;
         //for each
         foreach(Data d in pData)
         {
             Form tempForm = new Form();
-                
+
+            switch (d.equipmentName)
+            {
+                case "OH Pothead Switch":   //UPDATE
+                    d.equipmentName = "Disconnect Switch";
+                    break;
+
+                //case "OH Pothead Switch":   //UPDATE
+                //    d.equipmentName = "Overhead Switch Pothead";
+                //    break;
+
+                case "AFS":
+                    d.equipmentName = "AFS";
+                    break;
+
+                case "LightningArrester":   //UPDATE
+                    d.equipmentName = "Ceramic LA";
+                    break;
+
+                //case "LightningArrester":   //UPDATE
+                //    d.equipmentName = "Polymer LA";
+                //    break;
+
+                case "Insulator":            
+                    d.equipmentName = "Ceramic Insulator";
+                    break;
+
+                //case "Polymer Insulator":                      //UPDATE
+                //    d.equipmentName = "Polymer Insulator";
+                //    break;
+
+                //case "":
+                //    d.equipmentName = "Deadend Insulator";
+                //    break;
+
+                case "ConcretePole":
+                    d.equipmentName = "Concrete Pole";
+                    break;
+
+                case "WoodPole":
+                    d.equipmentName = "Wooden Pole";
+                    break;
+
+                //case "":
+                //    d.equipmentName = "Wooden Single";
+                //    break;
+
+                //case "":
+                //    d.equipmentName = "Wooden Double";
+                //    break;
+
+                //case "":
+                //    d.equipmentName = "Concrete Single";
+                //    break;
+
+                //case "":
+                //    d.equipmentName = "Concrete Double";
+                //    break;
+
+                case "Vegetation":      //UPDATE
+                    d.equipmentName = "Oak";
+                    break;
+
+                //case "Vegetation":      //UPDATE
+                //    d.equipmentName = "Palm";
+                //    break;
+
+                case "Transformer":     
+                    if(d.subName == "Transformer Single")
+                        d.equipmentName = "Single Transformer";
+                    else if(d.subName == "Transformer Double")
+                        d.equipmentName = "Double Transformer";
+                    else if(d.subName == "Transformer Triple")
+                        d.equipmentName = "Triple Transformer";
+                    break;
+
+                //case "":
+                //    d.equipmentName = "Fuse Switch";
+                //    break;
+
+                case "OH Fuse Switch ALS":
+                    d.equipmentName = "ALS";
+                    break;
+
+                case "ObjectsOnWire":   //UPDATE
+                    d.equipmentName = "Balloon";
+                    break;
+
+                //case "ObjectsOnWire":   //UPDATE
+                    //d.equipmentName = "Kite";
+                    //break;
+
+                case "CapacitorBank":
+                    d.equipmentName = "CAPACITOR";
+                    break;
+
+                case "Recloser":
+                    d.equipmentName = "RECLOSER";
+                    break;
+
+                case "Splice":
+                    d.equipmentName = "CONNECTIONS_ON_FEEDER_CONDUCTOR";
+                    break;
+
+                case "Nest":
+                    d.equipmentName = "NEST";
+                    break;
+
+                case "Down Guy":
+                    d.equipmentName = "DOWN_GUY";
+                    break;
+
+                case "FCI":
+                    d.equipmentName = "FAULT_CURRENT_INDICATOR";
+                    break;
+
+                default:
+                    print("Cuong to CAF Conversion incorrect");
+                    break;
+            }
+
             //get name
-            tempForm.iconName = d.name;
+            tempForm.iconName = d.equipmentName;
             
             //getPhase
-            if (d.phase == 'A') { tempForm.phaseA = true; }
-            else if (d.phase == 'B') { tempForm.phaseB = true; }
-            else { tempForm.phaseC = true; }
+            if (d.phase == 'A')
+            {
+                tempForm.phaseA = true;
+            }
+
+            if (d.phase == 'B')
+            {
+                tempForm.phaseB = true;
+            }
+
+            if (d.phase == 'C')
+            {
+                tempForm.phaseC = true;
+            }
 
             //getLevel
-            if (d.level == 1) { tempForm.DL1 = true; }
-            else if (d.level == 2) { tempForm.DL3 = true; }
-            else { tempForm.DL5 = true; }
+            if (d.level == 1)
+            {
+                tempForm.DL1 = true;
+            }
+
+            else if (d.level == 2)
+            {
+                tempForm.DL3 = true;
+            }
+
+            else if (d.level == 3)
+            {
+                tempForm.DL5 = true;
+            }
 
             ret.Add(tempForm);
         }
@@ -218,7 +361,7 @@ public class ConditionAssessment : MonoBehaviour
         if (ret.Count == 0)
             return null;
         else
-            return ret.ToArray();
+            return ret;
     }
 
     private void myDropdownValueChangedHandler(Dropdown target)
@@ -233,6 +376,7 @@ public class ConditionAssessment : MonoBehaviour
             print("comparing: " + la.iconName + " and " + currentEquipmentName);
 
             //if the userInputList has data for the current equipment name
+            print("COMPARING iconName: " + la.iconName + "currentEquipmentName" + currentEquipmentName);
             if (la.iconName == currentEquipmentName)
             {
                 print("found = true");
@@ -960,8 +1104,6 @@ public class ConditionAssessment : MonoBehaviour
             {
                 //Highlight icon in green
                 highlightAfterSubmit(la.iconName, "correct");
-
-                //Highlight correct answers in green
 
                 //Test print
                 print(la.iconName + "has been checked as correct");
