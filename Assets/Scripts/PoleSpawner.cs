@@ -1034,7 +1034,8 @@ public class PoleSpawner : MonoBehaviour
         {
             poleObjectArray[i] = new PoleObject();
             poleObjectArray[i].setEquipmentType(getRandom(8));
-            poleObjectArray[i].setNumberOfDamagedEquip(getRandom(4));
+            poleObjectArray[i].setNumberOfDamagedEquip(Random.Range(0,2));
+            poleObjectArray[i].setDamageToItems();
         }
 
 
@@ -1202,20 +1203,20 @@ public class PoleSpawner : MonoBehaviour
             //spawnCAF(i);
         }
         /*
-        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < 21; i++) {
             Debug.Log(poleObjectArray[i].getInsulatorType());
         }
-        for (int i = 0; i < 20; i++)
+        for (int i = 0; i < 21; i++)
         {
             Debug.Log(poleObjectArray[i].getPoleMaterial());
         }
         */
-        for (int i = 0; i < 20; i++)
+        for (int i = 0; i < 21; i++)
         {
-            Debug.Log(poleObjectArray[i].getEquipmentType());
+            Debug.Log("The equipment type is: "+poleObjectArray[i].getEquipmentType());
         }
 
-        for (int i = 0; i < 20; i++)
+        for (int i = 0; i < 21; i++)
         {
             Debug.Log("The number of damaged items is: "+poleObjectArray[i].getNumberOfDamagedEquip() );
         }
@@ -1224,7 +1225,7 @@ public class PoleSpawner : MonoBehaviour
 
         //spawnPoleLocation
         //Debug.Log("Number of pole spawn locations: " + poleObjectArray.Length);
-
+        //foreach(var item in listOfDamagedEquip )
 
     }
     void Update() {

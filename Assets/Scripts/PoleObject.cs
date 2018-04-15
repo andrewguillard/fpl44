@@ -39,7 +39,7 @@ public class PoleObject {
     public int equipmentType;
     public int transformerCount;
 
-    public List<string> listOfDamagedEquip = new List<string>();
+    public ArrayList listOfDamagedEquip = new ArrayList();
 
     public PoleObject() {
 
@@ -276,10 +276,12 @@ public class PoleObject {
         return this.kite;
     }
 
+    
+
     public void setDamageToItems() {
         //NO DAMAGE
         if (getNumberOfDamagedEquip() == 0) {
-            int tempRand = Random.Range(0, 4);
+            int tempRand = Random.Range(0, 2);
             if (tempRand == 0)
                 setPalm(0);
             else if (tempRand == 1)
@@ -290,6 +292,7 @@ public class PoleObject {
                 return;
         }
         else if (getNumberOfDamagedEquip() == 1) {
+            Debug.Log("it got here");
             assignOneRandomEquip();
         }
         else if (getNumberOfDamagedEquip() == 2) {
@@ -298,10 +301,11 @@ public class PoleObject {
         else if (getNumberOfDamagedEquip() == 3) {
             assignThreeRandomEquip();
         }
-
+        else
+            Debug.Log("inner loop bug");
     }
 
-    //capacitor banmk + fuse
+    //capacitor bank + fuse
     //transformer 
     //recloser
     //afs
@@ -311,99 +315,218 @@ public class PoleObject {
 
     public void assignOneRandomEquip() {
         //for capacitor bank
-        if (getEquipmentType() == 1) {
+        if (getEquipmentType() == 0) {
+            return;
+        }
+        if (getEquipmentType() == 1)
+        {
             int tempEquipType = Random.Range(0, 3);
-            int tempSev = Random.Range(1,4);
+            int tempSev = Random.Range(1, 4);
             if (tempEquipType == 0)
             {
                 setCapacitorBank(tempSev);
+                //listOfDamagedEquip.Add("Capacitorbank");
+                //listOfDamagedEquip.Add("level " + tempSev);
             }
             else if (tempEquipType == 1)
             {
                 setFuseSwitch(tempSev);
+                //listOfDamagedEquip.Add("Fuseswitch");
+                //listOfDamagedEquip.Add("level " + tempSev);
             }
-            else if (tempEquipType == 2) {
+            else if (tempEquipType == 2)
+            {
                 randomDump();
             }
         }
         //Transformer
-        else if (getEquipmentType() == 2) {
+        else if (getEquipmentType() == 2)
+        {
             int tempEquipType = Random.Range(0, 3);
             int tempSev = Random.Range(1, 4);
-            if (tempEquipType == 0)   {
+            if (tempEquipType == 0)
+            {
                 setTransformer(tempSev);
+                //listOfDamagedEquip.Add("Transformer");
+                //listOfDamagedEquip.Add("level " + tempSev);
             }
-            else if (tempEquipType == 1) {
+            else if (tempEquipType == 1)
+            {
                 setFuseSwitch(tempSev);
+                //listOfDamagedEquip.Add("Fuseswitch");
+                //listOfDamagedEquip.Add("level " + tempSev);
             }
-            else if (tempEquipType == 2)  {
+            else if (tempEquipType == 2)
+            {
                 randomDump();
             }
         }
         //Recloser
-        else if (getEquipmentType() == 3) {
+        else if (getEquipmentType() == 3)
+        {
             int tempEquipType = Random.Range(0, 2);
             int tempSev = Random.Range(1, 4);
-            if (tempEquipType == 0) {
+            if (tempEquipType == 0)
+            {
                 setRecloser(tempSev);
+                //listOfDamagedEquip.Add("Recloser");
+                //listOfDamagedEquip.Add("level " + tempSev);
             }
-            else if(tempEquipType == 1)
+            else if (tempEquipType == 1)
                 randomDump();
         }
         //AFS
-        else if (getEquipmentType() == 4) {
+        else if (getEquipmentType() == 4)
+        {
             int tempEquipType = Random.Range(0, 2);
             int tempSev = Random.Range(1, 4);
-            if (tempEquipType == 0)  {
+            if (tempEquipType == 0)
+            {
                 setAfs(tempSev);
+                //listOfDamagedEquip.Add("Afs");
+                //listOfDamagedEquip.Add("level " + tempSev);
             }
             else if (tempEquipType == 1)
                 randomDump();
         }
         //Pothead + dcswitch
-        else if (getEquipmentType() == 5) {
+        else if (getEquipmentType() == 5)
+        {
             int tempEquipType = Random.Range(0, 3);
             int tempSev = Random.Range(1, 4);
-            if (tempEquipType == 0)  {
+            if (tempEquipType == 0)
+            {
                 setPothead(tempSev);
+                //listOfDamagedEquip.Add("Pothead");
+                //listOfDamagedEquip.Add("level " + tempSev);
             }
-            else if (tempEquipType == 1) {
+            else if (tempEquipType == 1)
+            {
                 setDisconnectSwitch(tempSev);
+                //listOfDamagedEquip.Add("Disconnectswitch");
+                //listOfDamagedEquip.Add("level " + tempSev);
             }
             else if (tempEquipType == 2)
                 randomDump();
         }
         //Automatic line Switch
-        else if (getEquipmentType() == 6) {
+        else if (getEquipmentType() == 6)
+        {
             int tempEquipType = Random.Range(0, 2);
             int tempSev = Random.Range(1, 4);
             if (tempEquipType == 0)
             {
                 setAutomaticLineSwitch(tempSev);
+                //listOfDamagedEquip.Add("Automaticlineswitch");
+                //listOfDamagedEquip.Add("level " + tempSev);
             }
             else if (tempEquipType == 1)
                 randomDump();
         }
         //Lightning Arrestor
-        else if (getEquipmentType() == 7) {
+        else if (getEquipmentType() == 7)
+        {
             int tempEquipType = Random.Range(0, 2);
             int tempSev = Random.Range(1, 4);
             if (tempEquipType == 0)
             {
                 setLightningArrestor(tempSev);
+                //listOfDamagedEquip.Add("Lightningarrestor");
+                //listOfDamagedEquip.Add("level " + tempSev);
             }
             else if (tempEquipType == 1)
                 randomDump();
         }
+        else
+            Debug.Log("Bug happened");
+        //writeList(listOfDamagedEquip);
     }
 
     public void assignTwoRandomEquip() {
-
-
     }
 
     public void assignThreeRandomEquip() {
+    }
 
+
+    public void randomCapacitor() {
+        int n = 0;
+        List<string> tempArray = new List<string>();
+
+        //CapacitorBank
+        while (n < getNumberOfDamagedEquip() ) {
+
+            start:
+            int tempEquipType = Random.Range(0, 3);
+            int tempSev = Random.Range(1, 4);
+            if (tempEquipType == 0 && !tempArray.Contains("Capictorbank"))
+            {
+                setCapacitorBank(tempSev);
+                tempArray.Add("Capictorbank");
+                n++;
+            }
+            else if (tempEquipType == 1 && !tempArray.Contains("Fuseswitch"))
+            {
+                setFuseSwitch(tempSev);
+                tempArray.Add("Fuseswitch");
+                n++;
+            }
+            else if (tempEquipType == 2 )
+            {
+                int tempEquip = Random.Range(2, 10);
+                int tempInt = Random.Range(1, 4);
+                if (tempEquip == 2 && !tempArray.Contains("Insulator"))
+                {
+                    setInsulatorDamage(tempInt);
+                    tempArray.Add("Insulator");
+                    n++;
+                }
+                else if (tempEquip == 3 && !tempArray.Contains("Fci"))
+                {
+                    setFci(tempInt);
+                    tempArray.Add("Fci");
+                    n++;
+                }
+                else if (tempEquip == 4 && !tempArray.Contains("Splice"))
+                {
+                    setSplice(true);
+                    tempArray.Add("Splice");
+                    n++;
+                }
+                else if (tempEquip == 5 && !tempArray.Contains("Balloon"))
+                {
+                    setBallon(true);
+                    tempArray.Add("Balloon");
+                    n++;
+                }
+                else if (tempEquip == 6 && !tempArray.Contains("Palm")) 
+                {
+                    setPalm(tempInt);
+                    tempArray.Add("Palm");
+                    n++;
+                }
+                else if (tempEquip == 7 && !tempArray.Contains("Nest"))
+                {
+                    setNest(true);
+                    tempArray.Add("Nest");
+                    n++;
+                }
+                else if (tempEquip == 8 && !tempArray.Contains("Oak"))
+                {
+                    setOak(tempInt);
+                    tempArray.Add("Oak");
+                    n++;
+                }
+                else if (tempEquip == 9 && !tempArray.Contains("Kite"))
+                {
+                    setKite(true);
+                    tempArray.Add("Kite");
+                    n++;
+                }
+            }
+            else
+                goto start;
+        }
 
     }
 
@@ -414,36 +537,58 @@ public class PoleObject {
         if (tempEquipType == 2)
         {
             setInsulatorDamage(tempSev);
+            //listOfDamagedEquip.Add("Insulator");
+            //listOfDamagedEquip.Add("level " + tempSev);
         }
         else if (tempEquipType == 3)
         {
             setFci(tempSev);
+            //listOfDamagedEquip.Add("Fci");
+            //listOfDamagedEquip.Add("level " + tempSev);
         }
         else if (tempEquipType == 4)
         {
             setSplice(true);
+            //listOfDamagedEquip.Add("Splice");
+            //listOfDamagedEquip.Add("level " + tempSev);
         }
         else if (tempEquipType == 5)
         {
             setBallon(true);
+            //listOfDamagedEquip.Add("Balloon");
+            //listOfDamagedEquip.Add("level " + tempSev);
         }
         else if (tempEquipType == 6)
         {
             setPalm(tempSev);
+            //listOfDamagedEquip.Add("Palm");
+            //listOfDamagedEquip.Add("level " + tempSev);
         }
         else if (tempEquipType == 7)
         {
             setNest(true);
+            //listOfDamagedEquip.Add("Nest");
+            //listOfDamagedEquip.Add("level " + tempSev);
         }
         else if (tempEquipType == 8)
         {
             setOak(tempSev);
+            //listOfDamagedEquip.Add("Oak");
+            //listOfDamagedEquip.Add("level " + tempSev);
         }
         else if (tempEquipType == 9)
         {
             setKite(true);
+            //listOfDamagedEquip.Add("Kite");
+            //listOfDamagedEquip.Add("level " + tempSev);
         }
     }
 
+    public void writeList(ArrayList list) {
+        foreach (int i in list) {
+            Debug.Log(i);
+        }
+
+    }
 
 }
