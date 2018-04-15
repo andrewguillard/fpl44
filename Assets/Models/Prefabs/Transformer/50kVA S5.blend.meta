@@ -1,29 +1,30 @@
 fileFormatVersion: 2
-guid: 9ed802ff3f0f26941b7414358aae15e6
-timeCreated: 1523821512
+guid: b52801099ec82774ba28f0c12f3034b7
+timeCreated: 1523830393
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: Antenna_Thing_TOP_2
-    100002: Antenna_Thing_TOP_2_001
-    100004: Barcket
-    100006: Barcket_001
-    100008: Cylinder
-    100010: Long-Bracket
-    100012: Transformer
-    100014: //RootNode
-    400000: Antenna_Thing_TOP_2
-    400002: Antenna_Thing_TOP_2_001
-    400004: Barcket
-    400006: Barcket_001
-    400008: Cylinder
-    400010: Long-Bracket
-    400012: Transformer
-    400014: //RootNode
+    100000: //RootNode
+    100002: Antenna_Thing_TOP_2
+    100004: Antenna_Thing_TOP_2_001
+    100006: Barcket
+    100008: Barcket_001
+    100010: Cylinder
+    100012: Long-Bracket
+    100014: Transformer
+    400000: //RootNode
+    400002: Antenna_Thing_TOP_2
+    400004: Antenna_Thing_TOP_2_001
+    400006: Barcket
+    400008: Barcket_001
+    400010: Cylinder
+    400012: Long-Bracket
+    400014: Transformer
     2100000: Ceramic_White
     2100002: Metal
-    2100004: Ceramic_White_001
+    2100004: Burnt_Area
+    2100006: Ceramic_White_001
     2300000: Antenna_Thing_TOP_2
     2300002: Antenna_Thing_TOP_2_001
     2300004: Barcket
@@ -47,7 +48,27 @@ ModelImporter:
     4300012: Antenna_Thing_TOP_2_001
     7400000: Default Take
     9500000: //RootNode
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Burnt_Area
+    second: {fileID: 2100000, guid: cc765bc75f2dcaa44b715f3b6c49a03d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Ceramic_White
+    second: {fileID: 2100000, guid: 8af01415bff5c1e4f80cc5629f18a223, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Ceramic_White_001
+    second: {fileID: 2100000, guid: 8af01415bff5c1e4f80cc5629f18a223, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Metal
+    second: {fileID: 2100000, guid: 4ae60b7835d35104abaa85bbd1b7a282, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
