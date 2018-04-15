@@ -16,7 +16,12 @@ ModelImporter:
     3300002: //RootNode
     4300000: Cube
     4300002: ExWireIn
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: No Name
+    second: {fileID: 2100000, guid: 138ec4445db9edd4abd207c16f212a6a, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
