@@ -90,26 +90,34 @@ public class SceneData : MonoBehaviour {
 	public void addDamageEquipment(string t){
         switch (t)
         {
-            case "OHSwitch":
-                //add equipment to equipment list 
-                equipments.Add("OHPotheadSwitch");
-                //add equipment to generate damage
-                addToList(OHSWITCH, damages);
-
-                break;
+            
             case "Insulator":
                 //not add anything for equipment
                 addToList(INSULATOR, damages);
                 break;
 
             case "Pole":
+                //not add anything for equipment , only for damages
                 addToList(POLE, damages);
-                //not add anything for equipment
 
                 break;
             case "LightningArrester":
                 equipments.Add("LightningArrester");
                 damages.Add("LightningArrester");
+                break;
+            case "ForeignObject":
+                equipments.Add("ObjectsOnWire");
+                damages.Add("ObjectsOnWire");
+                break;
+            case "Nest":
+                addToList(NEST, equipments, damages);
+                break;
+            case "OHSwitch":
+                //add equipment to equipment list 
+                equipments.Add("OHPotheadSwitch");
+                //add equipment to generate damage
+                addToList(OHSWITCH, damages);
+
                 break;
             case "CrossArm":
                 //set framming is crossarm
@@ -140,16 +148,10 @@ public class SceneData : MonoBehaviour {
 				//damage- T/F- more than 3 in 1 cable.
 
                 break;
-            case "Nest":
-                damages.Add("Nest");
-                break;
             case "DownGuy":
                 addToList(DOWNGUY, equipments);
                 break;
             case "RiserShield":
-                break;
-            case "ForeignObject":
-                damages.Add("ObjectsOnWire");
                 break;
             case "AFS":
                 equipments.Add("AFS");

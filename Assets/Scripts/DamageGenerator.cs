@@ -11,6 +11,7 @@ public class DamageGenerator : MonoBehaviour
     public GameObject poleListObj;
     public SceneData data;
     public GameObject damageSet;
+    private int[] numDamList; //number of damage in a pole
 
 	public void generateDamage(){
 		//get damage equipment 
@@ -22,6 +23,7 @@ public class DamageGenerator : MonoBehaviour
         {
             print("damage = " + t);
         }
+        
         //get all pole gameobject to an gameobject array
 
         //PoleData[] Poles = new PoleData[poleListObj.transform.childCount];
@@ -34,22 +36,26 @@ public class DamageGenerator : MonoBehaviour
 
         for(int i=0; i< Poles.Length; i++)
         {
-            //gothrough all child
+            //gothrough all child find child that object to damage
             foreach(Transform child in Poles[i].transform)
             {
-                int l = level;
-                if(level== -1)
-                {
-                    l = Random.Range(1, 4);
-                }
+
                 Data data = child.GetComponent<Data>();
                 if (data != null)
                 {
                     if (dEquip.Contains(data.name))
                     {
+                        print("\t\t\t found " + data.name);
                         if (child.GetComponent<DamagesScript>() != null)
+                        {
+                            int l = level;
+                            if (level == -1)
+                            {
+                                l = Random.Range(1, child.GetComponent<DamagesScript>().Damages.Length+1);
+                            }
                             //if that equip should have damage
                             child.GetComponent<DamagesScript>().setDamage(l);
+                        }
                     }
                 }
             }
