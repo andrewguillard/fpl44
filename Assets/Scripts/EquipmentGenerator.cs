@@ -71,6 +71,9 @@ public class EquipmentGenerator : MonoBehaviour
             //if corner pole skip
             if (pole.transform.GetComponent<PoleData>().poleIndex == poleList.Length / 2)
                 continue;
+			//if no main equipment to spawn 
+			if (prefabArray.Length == 0)
+				break;
 
             //a new random generator to put a empty pole
             int random = Random.Range(0, 10); // p = 0.1 
@@ -84,6 +87,9 @@ public class EquipmentGenerator : MonoBehaviour
             eq.name = prefabArray[randomIndex].name;
 
             //add more equipment in this pole
+            //down guy , fci , splice, 
+
+            
         }
 
 

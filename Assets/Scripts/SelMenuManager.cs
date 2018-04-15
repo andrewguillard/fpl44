@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class SelMenuManager : MonoBehaviour {
+    public GameObject[] buttonList;
+    public readonly string[] nameList = { "" , ""};
 
     public void clearEquipMenu()
     {
@@ -23,4 +25,9 @@ public class SelMenuManager : MonoBehaviour {
             }
         }
     }
+
+    //public void loadSceneClick(string name)
+    //{
+    //    if(buttonList[])
+    //}
 }

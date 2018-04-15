@@ -17,7 +17,7 @@ public class SceneData : MonoBehaviour {
     private static List<string> damages = new List<string>();
 
     //constant list
-    readonly string[] OHSWITCH = { "Disconnect Switch", "OH Pothead Switch " }; //done
+    readonly string[] OHSWITCH = { "Disconnect Switch", "OH Pothead Switch " }; //done 
     readonly string[] LA = {"Lightning Arrester Polymer", "Lightning Arrester Ceramic"}; //done
     readonly string[] INSULATOR = {"HInsulator", "VInsulator", "LInsulator"};
     readonly string[] POLE = {"Wooden Pole", "Concrete Pole"};
@@ -109,6 +109,7 @@ public class SceneData : MonoBehaviour {
                 break;
             case "LightningArrester":
                 equipments.Add("LightningArrester");
+                damages.Add("LightningArrester");
                 break;
             case "CrossArm":
                 //set framming is crossarm
@@ -135,6 +136,8 @@ public class SceneData : MonoBehaviour {
                 break;
             case "Connections":
                 addToList(CONNECTIONS, equipments);
+				
+				//damage- T/F- more than 3 in 1 cable.
 
                 break;
             case "Nest":

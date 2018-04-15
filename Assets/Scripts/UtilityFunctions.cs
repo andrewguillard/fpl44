@@ -11,13 +11,14 @@ public class UtilityFunctions : MonoBehaviour
             start.AddComponent<CableScript>();
 
         LineRenderer wire = start.GetComponent<LineRenderer>();
-        wire.startWidth = size;
-        wire.endWidth = size;
 
         Material yourMaterial = (Material)Resources.Load("Black", typeof(Material));
         if (yourMaterial == null)
             print("can't find line renderer material");
         wire.material = yourMaterial;
+
+        wire.startWidth = size;
+        wire.endWidth = size;
 
         start.GetComponent<CableScript>().setEndPoint(end);
     }
@@ -109,5 +110,48 @@ public class UtilityFunctions : MonoBehaviour
         {
             middle.GetComponent<CableScript>().setEndPoint(end);
         }
+    }
+
+	public static GameObject replaceObject(GameObject oldObject, GameObject damagePrefab)
+	{
+		GameObject newObject;
+		newObject = Instantiate(damagePrefab);
+		newObject.name = oldObject.name;
+
+		newObject.transform.parent = oldObject.transform.parent;
+		newObject.transform.localPosition = oldObject.transform.localPosition;
+		newObject.transform.localRotation = oldObject.transform.localRotation;
+		newObject.transform.localScale = oldObject.transform.localScale;
+
+		DestroyImmediate (oldObject);
+        //oldObject.SetActive(false);
+
+        print("In " + newObject.transform.parent.name + " replace with " + newObject.name );
+
+        return newObject;
+	}
+
+    //find all children object in a gameobject
+    public static GameObject[] getChildObjects(GameObject parent)
+    {
+        List<GameObject> temp = new List<GameObject>();
+        foreach (Transform child in parent.transform)
+        {
+            temp.Add(child.gameObject);
+        }
+
+        return temp.ToArray();
+    }
+
+    public static T CopyComponent<T>(T original, GameObject destination) where T : Component
+    {
+        System.Type type = original.GetType();
+        Component copy = destination.AddComponent(type);
+        System.Reflection.FieldInfo[] fields = type.GetFields();
+        foreach (System.Reflection.FieldInfo field in fields)
+        {
+            field.SetValue(copy, field.GetValue(original));
+        }
+        return copy as T;
     }
 }
