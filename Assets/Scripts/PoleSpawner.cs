@@ -82,6 +82,11 @@ public class PoleSpawner : MonoBehaviour
     public GameObject[] balloonMaterial;
     public Transform[] spawnBalloon;
 
+    public GameObject[] laMaterial;
+    public Transform[] spawnLaBottom;
+    public Transform[] spawnLaMiddle;
+    public Transform[] spawnLaTop;
+
     private int randomInt;
 
     List<string> poleTypes = new List<string>(new string[] { "Vertical", "ModVertical", "Triangular", "Crossarm" });
@@ -908,29 +913,61 @@ public class PoleSpawner : MonoBehaviour
         }
     }
 
+    //Balloon == 0 or Kite  == 1
     public void generateBalloon(int i)  {
-        //balloonMaterial
-        //spawnBalloon
         if (i <= 9)
         {
             //Quaternion rotateTranRight = Quaternion.Euler(0, -90, 0);
             Vector3 afsVec = new Vector3(spawnBalloon[i].transform.position.x, spawnBalloon[i].transform.position.y, spawnBalloon[i].transform.position.z);
-            Instantiate(balloonMaterial[0], afsVec, Quaternion.identity);
+            Instantiate(balloonMaterial[1], afsVec, Quaternion.identity);
         }
         else if (i > 9)
         {
             Quaternion rotateBalloon = Quaternion.Euler(0, -90, 0);
             Vector3 afsVec = new Vector3(spawnBalloon[i].transform.position.x, spawnBalloon[i].transform.position.y, spawnBalloon[i].transform.position.z);
-            Instantiate(balloonMaterial[0], afsVec, rotateBalloon);
+            Instantiate(balloonMaterial[1], afsVec, rotateBalloon);
         }
     }
 
+    //laMaterial;
+    //spawnLa;
 
-    //generatePothead(i);
-    //generateDcSwitch(i);
-    //generateAfs(i);
-    //generateAutomaticLineSwitch(i);
+    //spawnLaBottom;
+    //spawnLaMiddle;
+    //spawnLaTop;
+    public void generateLa(int i)
+    {
 
+        if (i == 9)
+            return;
+        if (i <= 9)
+        {
+            Quaternion rotateLa = Quaternion.Euler(-90, 0, 0);
+            Vector3 laVec = new Vector3(spawnLaBottom[i].transform.position.x, spawnLaBottom[i].transform.position.y, spawnLaBottom[i].transform.position.z);
+            Instantiate(laMaterial[0], laVec, rotateLa);
+
+            Quaternion rotateLa2 = Quaternion.Euler(-90, 180, 0);
+            Vector3 la2Vec = new Vector3(spawnLaMiddle[i].transform.position.x, spawnLaMiddle[i].transform.position.y, spawnLaMiddle[i].transform.position.z);
+            Instantiate(laMaterial[0], la2Vec, rotateLa2);
+
+            Quaternion rotateLa3 = Quaternion.Euler(-90, 0, 0);
+            Vector3 la3Vec = new Vector3(spawnLaTop[i].transform.position.x, spawnLaTop[i].transform.position.y, spawnLaTop[i].transform.position.z);
+            Instantiate(laMaterial[0], la3Vec, rotateLa3);
+        }
+        else if (i > 10)
+        {
+            Quaternion rotateLa = Quaternion.Euler(90, 0, 90);
+            Vector3 laVec = new Vector3(spawnLaBottom[i].transform.position.x, spawnLaBottom[i].transform.position.y, spawnLaBottom[i].transform.position.z);
+            Instantiate(laMaterial[0], laVec, rotateLa);
+
+            Quaternion rotateLa2 = Quaternion.Euler(90, 90, 0);
+            Vector3 la2Vec = new Vector3(spawnLaMiddle[i].transform.position.x, spawnLaMiddle[i].transform.position.y, spawnLaMiddle[i].transform.position.z);
+            Instantiate(laMaterial[0], la2Vec, rotateLa2);
+
+            Vector3 la3Vec = new Vector3(spawnLaTop[i].transform.position.x, spawnLaTop[i].transform.position.y, spawnLaTop[i].transform.position.z);
+            Instantiate(laMaterial[0], la3Vec, rotateLa);
+        }
+    }
 
     public void spawnEquipmentType(int i) {
         if (poleObjectArray[i].getEquipmentType() == 0)
@@ -1140,8 +1177,10 @@ public class PoleSpawner : MonoBehaviour
             //This randomizes equipment
             //spawnEquipmentType(i);
 
-            //if(i <12)
-            generateBalloon(i);
+
+            generateLa(i);
+
+            //generateBalloon(i);
             //generateNest(i);
             //generateTree(i, Random.Range(0, 4), Random.Range(0, 2));
             //generateNest(i);
