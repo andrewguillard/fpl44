@@ -200,7 +200,7 @@ public class ConditionAssessment : MonoBehaviour
             Form tempForm = new Form();
                 
             //get name
-            tempForm.iconName = d.name;
+            tempForm.iconName = d.equipmentName;
             
             //getPhase
             if (d.phase == 'A') { tempForm.phaseA = true; }

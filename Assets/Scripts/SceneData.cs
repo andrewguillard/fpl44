@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 using System;
 
 public class SceneData : MonoBehaviour {
-    public static string framing = "C";
+    public static string framing ;
     public static int damageLevel = -1;
     GameObject[] poles;
 
@@ -144,7 +144,7 @@ public class SceneData : MonoBehaviour {
 
                 break;
             case "Connections":
-                addToList(CONNECTIONS, equipments);
+                addToList(CONNECTIONS, equipments,damages);
 				//damage- T/F- more than 3 in 1 cable.
                 break;
             case "AFS":

@@ -7,18 +7,18 @@ public class SpliceScript : MonoBehaviour
     public GameObject inpoint;
     public GameObject outpoint;
     public PoleData pole;
-    private readonly int minDistance  = 5 ;
+    private readonly int minDistance = 5;
     private readonly int maxDistance = 10;
     public int phaseNum;
     [SerializeField] private PoleGeneration poleGenerator;
-
     // Use this for initialization
     void Start()
     {
-        print("splice Manager " + transform.GetSiblingIndex());
-
         print("Splice");
-
+        if (poleGenerator == null)
+        {
+            poleGenerator = GameObject.Find("PoleGenerator").GetComponent<PoleGeneration>();
+        }
         if (transform.parent.name != "EquipmentSet") {
             pole = transform.parent.GetComponent<PoleData>();
             //print(transform.parent.name);
@@ -57,9 +57,14 @@ public class SpliceScript : MonoBehaviour
             }
             else
             {
-                GameObject endPoint = poleGenerator.getPoleList()[pole.poleIndex + 1].GetComponent<PoleData>().wireInPoints[phaseNum]; //sorry ^^
-                UtilityFunctions.lineConnect(startPoint, inpoint, 0.07f, 5, 0.1f);
-                UtilityFunctions.lineConnect(outpoint, inpoint, 0.07f, 5, 0.1f);
+                print("Poole index" + pole.poleIndex);
+                if (pole.poleIndex < poleGenerator.getPoleList().Length-1)
+                {
+                    GameObject endPoint = poleGenerator.getPoleList()[pole.poleIndex + 1].GetComponent<PoleData>().wireInPoints[phaseNum]; //sorry ^^
+                    UtilityFunctions.lineConnect(startPoint, inpoint, 0.07f, 5, 0.1f);
+                    UtilityFunctions.lineConnect(outpoint, inpoint, 0.07f, 5, 0.1f);
+
+                }
 
             }
         }

@@ -37,7 +37,7 @@ public class DamageGenerator : MonoBehaviour
                 if (count > childrenNames.Length)
                     break;
 
-                string objName = obj.GetComponent<Data>().equipmentName;
+                string objName = obj.GetComponent<Data>().equipmentName.Replace(" ", string.Empty);
                 if (childrenNames.Contains(objName) && !taken.Contains(objName) )
                 {
                     finalList.Add(obj);
@@ -52,7 +52,7 @@ public class DamageGenerator : MonoBehaviour
             //}
             //foreach (Transform t in finalList)
             //{
-            //    print("**" + t.name);
+            //    print("final**" + t.name);
             //}
             foreach (Transform obj in finalList)
             {
