@@ -167,8 +167,16 @@ public class ConditionAssessment : MonoBehaviour
 
         if (sceneName == "SelectiveTraining" && pole != null)
             AnswerKeyTest = getDataFromSelectiveScence(pole);
-        if (sceneName == "RandomizedTraining" || sceneName == "Quiz")
-            AnswerKeyTest = getDataFromSelectiveScence(pole);
+        //if (sceneName == "RandomizedTraining" || sceneName == "Quiz")
+            //AnswerKeyTest = getDataFromRandomizeScence(pole);
+    }
+    public ArrayList getDataFromRandomizeScence(GameObject currentPole) {
+        ArrayList templist = new ArrayList();
+
+        //PoleSpawner.poleObjectArray[0].printDamagedList();
+        //foreach(var i in )
+
+        return templist;
     }
 
     //Get Answer Array from Selective Training Scene
