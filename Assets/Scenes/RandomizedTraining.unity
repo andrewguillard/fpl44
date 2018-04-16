@@ -1223,8 +1223,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 94120985}
-  m_LocalRotation: {x: 0.058801338, y: 0.9397561, z: 0.2634431, w: -0.20975843}
-  m_LocalPosition: {x: 159.49977, y: -14.402939, z: 377.60904}
+  m_LocalRotation: {x: -0.08069868, y: 0.21949045, z: 0.018220011, w: 0.9721007}
+  m_LocalPosition: {x: 103.198, y: 1.6078472, z: 146.88388}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -9467,8 +9467,21 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  poleMaterialWood:
+  - {fileID: 100000, guid: fbf5d50dc371b0c4f929a243c4444695, type: 3}
+  - {fileID: 100000, guid: 36b4eaaf651b759459d9f71970aa1fb8, type: 3}
+  - {fileID: 100000, guid: 1b4f9e221a0f6004fa942396c22bd5e1, type: 3}
+  - {fileID: 100000, guid: 9f13d1cd53970cc4cb2a9b35942ccda6, type: 3}
+  poleMaterialConcrete:
+  - {fileID: 100000, guid: 3f02e7162fab26546a63f66c5a277ae4, type: 3}
+  - {fileID: 100000, guid: ce056c9dfa002b24a9097fc1dba13b01, type: 3}
+  - {fileID: 100000, guid: 7c4fb1396b88ba2438490156285e94ae, type: 3}
+  - {fileID: 100000, guid: 5b40013979a5ac847875fadfb2a13592, type: 3}
   capcitorBank:
   - {fileID: 100000, guid: 08e82581f036afa43affc81e021d59b8, type: 3}
+  - {fileID: 100000, guid: 78332b59aa70bbb4bab459fb28ad3f0c, type: 3}
+  - {fileID: 100000, guid: 8c1046d5709ddb843844195064e2a581, type: 3}
+  - {fileID: 100000, guid: 8c8c67910af58f448b31f489d8cea07b, type: 3}
   spawnCapacitorBank:
   - {fileID: 1725147293}
   - {fileID: 225994485}
@@ -9586,6 +9599,9 @@ MonoBehaviour:
   - {fileID: 1926115401}
   recloserMaterial:
   - {fileID: 1584363837842482, guid: fd8d4fcd81731a34a91a93655931af78, type: 2}
+  - {fileID: 1113334562525384, guid: a2cfffbd56250c64a83eeab03403f1c6, type: 2}
+  - {fileID: 1987745507855016, guid: 054fd54c039f867448160c8ca1326f52, type: 2}
+  - {fileID: 1647577917127328, guid: 03a64fc22640589468d7996a7b58ac67, type: 2}
   spawnRecloser:
   - {fileID: 1468693918}
   - {fileID: 759227433}
@@ -9610,6 +9626,9 @@ MonoBehaviour:
   - {fileID: 200825856}
   transformerMaterial:
   - {fileID: 100000, guid: 498c3342674348d44a37079a40fb504e, type: 3}
+  - {fileID: 100000, guid: d50ab8f5b282e9f479df50f2347a060c, type: 3}
+  - {fileID: 100000, guid: d50ab8f5b282e9f479df50f2347a060c, type: 3}
+  - {fileID: 100000, guid: d50ab8f5b282e9f479df50f2347a060c, type: 3}
   spawnTransformerLeft:
   - {fileID: 1789176134}
   - {fileID: 520415494}
@@ -9702,6 +9721,9 @@ MonoBehaviour:
   - {fileID: 1514297758}
   afsMaterial:
   - {fileID: 100000, guid: 9bc2cb591e403b0448303ec9fec73a70, type: 3}
+  - {fileID: 100000, guid: 85e46abb1976e1b4a8ffc9a7db5309ba, type: 3}
+  - {fileID: 100000, guid: cc0b0edd9952c3b43a89c6fbe93ed52d, type: 3}
+  - {fileID: 100000, guid: 9bcc3f91724e8ee44a404c8d45364ae2, type: 3}
   spawnAfs:
   - {fileID: 373652167}
   - {fileID: 1083318376}
@@ -9726,6 +9748,9 @@ MonoBehaviour:
   - {fileID: 1448740447}
   potheadMaterial:
   - {fileID: 100044, guid: 3553a3ba89940b144b8a4c701341576e, type: 3}
+  - {fileID: 100044, guid: 7f8d365444696634b9cef5b4f07b6e13, type: 3}
+  - {fileID: 100044, guid: b1a77a60a1de74c40b33d15ce9da54eb, type: 3}
+  - {fileID: 100044, guid: 7491c6ae1a6b0e44e811ea406290474e, type: 3}
   spawnPothead:
   - {fileID: 1331530708}
   - {fileID: 982985990}
