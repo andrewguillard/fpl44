@@ -1223,8 +1223,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 94120985}
-  m_LocalRotation: {x: 0.025427783, y: 0.97068447, z: 0.20720938, w: -0.119119294}
-  m_LocalPosition: {x: 257.23904, y: -27.574484, z: 412.31616}
+  m_LocalRotation: {x: 0.058801338, y: 0.9397561, z: 0.2634431, w: -0.20975843}
+  m_LocalPosition: {x: 159.49977, y: -14.402939, z: 377.60904}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -9796,7 +9796,6 @@ MonoBehaviour:
   - {fileID: 1985451901}
   - {fileID: 1336848453}
   - {fileID: 1231270386}
-  - {fileID: 0}
   treeMaterial:
   - {fileID: 1093585130354550, guid: 116250f27bad5c14c831edd205c1e975, type: 2}
   - {fileID: 1819778792049564, guid: d95af8a33f038a940bc72dce080a91e5, type: 2}
@@ -10053,7 +10052,7 @@ Camera:
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
-  m_AllowDynamicResolution: 0
+  m_AllowDynamicResolution: 1
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
@@ -20990,7 +20989,7 @@ Camera:
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
-  m_AllowDynamicResolution: 0
+  m_AllowDynamicResolution: 1
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
