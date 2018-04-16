@@ -18,6 +18,19 @@ public class TransformerSingleScript : MonoBehaviour {
 
     void fillWire()
     {
+        print(transform.parent.name + "/" + transform.name);
+        Transform temp = transform.Find("Transformer");
+        if( temp== null)
+        {
+            //debug;
+            StartCoroutine(wait(3));
+        }
+        else
+        {
+            transformer = temp.gameObject.GetComponent<TransformerScript>();
+        }
+
+        if(transformer == null)
         transformer.fillWire();
 
         //connect fuse switch to wire
@@ -41,4 +54,10 @@ public class TransformerSingleScript : MonoBehaviour {
 
 
     }
+
+    IEnumerator wait(int time)
+    {
+        yield return new WaitForSeconds(time);
+    }
+
 }

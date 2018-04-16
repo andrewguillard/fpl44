@@ -10,6 +10,7 @@ public class AFSScript : MonoBehaviour {
     [SerializeField] private GameObject[] leftWires;
     [SerializeField] private GameObject[] rightWires;
     [SerializeField] private PoleGeneration poleGenerator;
+    public GameObject equipment;
     private PoleData pole;
 
     // Use this for initialization

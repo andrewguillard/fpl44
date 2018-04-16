@@ -8,8 +8,8 @@ public class DamagesScript : MonoBehaviour {
     public string[] nameObjectToReplace;
     public void setDamage(int level)
     {
-        //print(transform + " is level" + level);
         char equipPhase = transform.GetComponent<Data>().phase;
+        string equipname = transform.GetComponent<Data>().name;
 
         //if no damage set
         if(Damages.Length == 0)
@@ -27,67 +27,89 @@ public class DamagesScript : MonoBehaviour {
             print(transform.parent.name + " Replace " + gameObject + " with " + Damages[level - 1]);
 
             newObj = UtilityFunctions.replaceObject(gameObject, Damages[level - 1]);
-            equipData = newObj.GetComponent<Data>();
-
-            if (equipData == null)
+        }
+        else if(equipLocation.Length > 0 && nameObjectToReplace.Length ==0)
+        {
+            //decide how many equip ex: LA is damage
+            int numberOfDamages = Random.Range(1, equipLocation.Length);
+            //get data to save the name phase 
+            equipData = transform.GetComponent<Data>();
+            
+            for(int i=0; i< numberOfDamages; i++)
             {
-                //Debug.LogError(newObj.transform.parent + "/" + newObj.name + " should have Datascript");
-                equipData = newObj.AddComponent<Data>();
-            }
-            else
-            {
-                if (Damages[level - 1].GetComponent<Data>() != null)
+                if (equipLocation[i] == null)
                 {
-                    equipData.level = Damages[level - 1].GetComponent<Data>().level;
+                    Debug.Log("Location of damage equip is null :" + ((transform.parent == null) ? null : transform.parent.name) + "/" + transform);
+                    continue;
                 }
                 else
-                    equipData.level = level;
+                {
+                    //go to each location and swap 
+                    newObj = UtilityFunctions.replaceObject(equipLocation[i], Damages[level - 1]);
+                }
+
             }
-            equipData.phase = equipPhase;
+
+           // //replace something else
+           //int numberOfDamages = Random.Range(1, equipLocation.Length);
+           //equipData = transform.GetComponent<Data>();
+
+           // if (nameObjectToReplace.Length !=0 )
+           //     for (int i=0; i< numberOfDamages; i++)
+           //     {
+           //         if(equipLocation[i] == null)
+           //         {
+           //             print("IN " + transform.parent);
+           //             string name = nameObjectToReplace[numberOfDamages];
+           //             print("need to find this name -" + name + "- gameobject in " + gameObject.name);
+           //             print(UtilityFunctions.findInChild(transform, name));
+
+           //             equipLocation[i] = UtilityFunctions.findInChild(transform,name).gameObject;
+           //         }
+           //         print("replace " + equipLocation[i] + "------" + Damages[level - 1]);
+           //         newObj=  UtilityFunctions.replaceObject(equipLocation[i], Damages[level - 1]);
+           //     }
+
         }
         else
         {
-            //replace something else
-            int numberOfDamages = Random.Range(1, equipLocation.Length);
-            equipData = transform.GetComponent<Data>();
-
-            if (nameObjectToReplace.Length !=0 )
-                for (int i=0; i< numberOfDamages; i++)
-                {
-                    if(equipLocation[i] == null)
-                    {
-                        print("IN " + transform.parent);
-                        string name = nameObjectToReplace[numberOfDamages];
-                        print("need to find this name -" + name + "- gameobject is " + gameObject.name + " equips is " + Damages[numberOfDamages].name);
-                        print(UtilityFunctions.findInChild(transform, name));
-                        foreach(Transform t in transform)
-                        {
-                            print("--------t= "+ t);
-                        }
-                        equipLocation[i] = UtilityFunctions.findInChild(transform,name).gameObject;
-                    }
-                    print("replace " + equipLocation[i] + "------" + Damages[level - 1]);
-                    newObj=  UtilityFunctions.replaceObject(equipLocation[i], Damages[level - 1]);
-                }
-
-            if (equipData == null)
+            //if list of name listed
+            for(int i=0;i<nameObjectToReplace.Length; i++)
             {
-                Debug.LogError(transform.parent + "/" + transform.name + " should have Datascript");
-                equipData = gameObject.AddComponent<Data>();
-            }
-            else
-            {
-                if(Damages[level-1].GetComponent<Data>()!= null)
+                string tempName = nameObjectToReplace[i];
+                GameObject oldObj;
+                //find object
+                //GameObject oldObj = UtilityFunctions.findInChild(transform, tempName).gameObject;
+                if (transform.name == "AFS")
+                    oldObj = transform.GetComponent<AFSScript>().equipment;
+                else
+                    oldObj = transform.parent.Find(tempName).gameObject;
+
+                //
+                if (oldObj == null)
                 {
-                    equipData.level = Damages[level - 1].GetComponent<Data>().level;
+                    print("Can't find " + tempName + " in " + ((transform.parent == null) ? null : transform.parent.name) + "/" + transform.name);
+                    continue;
                 }
                 else
-                    equipData.level = level;
+                {
+                    //found it 
+                    newObj = UtilityFunctions.replaceObject(oldObj, Damages[level - 1]);
 
+                }
             }
-            equipData.phase = equipPhase;
+
+
 
         }
-        print(newObj.transform.localScale);
+
+        //copy data
+        if(newObj.GetComponent<Data>() == null)
+        {
+            Data newData = newObj.gameObject.AddComponent<Data>();
+            newData.level = level;
+            newData.name = equipname;
+            newData.phase = equipPhase;
+        }
     }
 }

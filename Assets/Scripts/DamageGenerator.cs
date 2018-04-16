@@ -68,6 +68,14 @@ public class DamageGenerator : MonoBehaviour
                 if (level == -1)
                     l = Random.Range(1, dScript.Damages.Length+1);
 
+                print(transform + "---");
+                foreach(Transform t in obj)
+                {
+                    print("::"+t);
+                    foreach (Transform t2 in t)
+                        print("::"+t2);
+                }
+
                 //swap for damage equipment
                 dScript.setDamage(l);
             }
