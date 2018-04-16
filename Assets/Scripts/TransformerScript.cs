@@ -24,6 +24,7 @@ public class TransformerScript : MonoBehaviour {
 
     public void fillWire()
     {
+        
         //fill wire between transformer and FuseSwitch
         UtilityFunctions.lineConnect(Arrester1, Insulator1, 0.02f, 5, -0.3f);
         UtilityFunctions.lineConnect(Insulator_FS, FSBottom, 0.02f, 5, -0.2f);

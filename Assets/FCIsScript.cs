@@ -7,7 +7,6 @@ public class FCIsScript : MonoBehaviour {
     public GameObject[] FCIList;
 	// Use this for initialization
 	void Awake () {
-        print("populate FCI" + transform);
         if (transform.parent.name == "EquipmentSet" || transform.parent.name == "DamageSet")
             return;
 

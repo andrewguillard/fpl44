@@ -21,6 +21,8 @@ public class EquipmentGenerator : MonoBehaviour
         //list of prefab to store and spawn
         HashSet<GameObject> listPrefab = new HashSet<GameObject>();
 
+
+        
         //get list of prefab to spawn
         foreach (string equip in equips)
         {
@@ -29,6 +31,13 @@ public class EquipmentGenerator : MonoBehaviour
 
             if (equip.Contains("Pole") || equip.Contains("Insulator")) //all pole comes with it
                 continue;
+
+            if (equip.Equals("Down Guy") || equip.Equals("DownGuy"))
+            {
+                GameObject prefabDG = EquipmentSet.transform.Find("DownGuy").gameObject;
+                Instantiate(prefabDG, poleList[10].transform);
+                continue;
+            }
 
             //feed the equipment to the pole 
             if (prefab != null)

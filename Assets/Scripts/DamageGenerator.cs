@@ -8,7 +8,7 @@ using System.Text.RegularExpressions;
 public class DamageGenerator : MonoBehaviour
 {
     public GameObject damageSet;
-
+    //public string[] temp;
     [SerializeField]private GameObject poleListObj;
     [SerializeField] private SceneData data;
 
@@ -17,17 +17,24 @@ public class DamageGenerator : MonoBehaviour
         //get damage equipment 
 		string[] dEquip = data.getDamageEquipmentArray();
         int level = data.getDamageLevel();
-        //temp = dEquip;
-
+        ////temp = dEquip;
+        //foreach (string t in dEquip)
+        //{
+        //    print("string damages**" + t);
+        //}
         GameObject[] Poles = UtilityFunctions.getChildObjects(poleListObj);
 
         for(int i=0; i< Poles.Length; i++)
         {
-            Debug.Log(Poles[i].name);
+            //Debug.Log(Poles[i].name);
             if (i == Poles.Length / 2) continue; //skip corner pole for now
             //get a damages name that random choose
             string[] childrenNames = chooseDamageForPole(dEquip, Poles[i]);
-
+            foreach(string ch in childrenNames)
+            {
+                print("---children name = " + ch);
+            }
+            
             //get equipment gameobject
             Transform[] properEquips = getEquipmentToReplace(Poles[i]);
             List<Transform> finalList = new List<Transform>();
@@ -39,22 +46,24 @@ public class DamageGenerator : MonoBehaviour
                     break;
 
                 string objName = obj.GetComponent<Data>().equipmentName.Replace(" ", string.Empty);
+                //print("\ttobjName= " + objName);
                 if (childrenNames.Contains(objName) && !taken.Contains(objName) )
                 {
+                    
                     finalList.Add(obj);
                     count++;
                     taken.Add(objName);
                 }
                  
             }
-            foreach (Transform t in properEquips)
-            {
-                print("\t**" + t.name);
-            }
-            foreach (Transform t in finalList)
-            {
-                print("final**" + t.name);
-            }
+            //foreach (Transform t in properEquips)
+            //{
+            //    print("\t**" + t.name);
+            //}
+            //foreach (Transform t in finalList)
+            //{
+            //    print("final**" + t.name);
+            //}
             foreach (Transform obj in finalList)
             {
                 DamagesScript dScript = obj.GetComponent<DamagesScript>();
@@ -67,14 +76,6 @@ public class DamageGenerator : MonoBehaviour
                 int l = level;
                 if (level == -1)
                     l = Random.Range(1, dScript.Damages.Length+1);
-
-                print(transform + "---");
-                foreach(Transform t in obj)
-                {
-                    print("::"+t);
-                    foreach (Transform t2 in t)
-                        print("::"+t2);
-                }
 
                 //swap for damage equipment
                 dScript.setDamage(l);
@@ -115,10 +116,11 @@ public class DamageGenerator : MonoBehaviour
         for (int i =0; i< retArray.Length;i++)
         {
             retArray[i] = sanitizeName(retArray[i]);
-            //print("name** " + retArray[i]);
+            print("name** " + retArray[i]);
         }
         return retArray;
     }
+
     GameObject[] getChildObjects(GameObject parent)
     {
         List<GameObject> temp = new List<GameObject>();
@@ -153,6 +155,10 @@ public class DamageGenerator : MonoBehaviour
         else if (name.Equals("TransformerSingle") || name.Equals("TransformerDouble") || name.Equals("TransformerTriple"))
         {
             return "Transformer";
+        }
+        else if(name.Equals("OHFuseSwitchALS") || name.Equals("OHFuseSwitch"))
+        {
+            return "OHFuse";
         }
         else
             return name;

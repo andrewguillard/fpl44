@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 using System;
 
 public class SceneData : MonoBehaviour {
-    public static string framing= "C" ;
+    public static string framing;
     public static int damageLevel = -1;
     GameObject[] poles;
 
@@ -24,7 +24,7 @@ public class SceneData : MonoBehaviour {
     readonly string[] CROSSARM = { "Wooden Single", "Wooden Double" , "Concrete Single"};//, , "Concrete Pole"}; //done
     readonly string[] VEGETATION = {"Palm Tree", "Oak Tree"}; //done 
     readonly string[] OHTRANSFORMER = {"Transformer Single","Transformer Double","Transformer Triple"};//done
-    readonly string[] OHFUSE = { "OH Fuse Switch ALS" }; // "OH Fuse Switch",
+    readonly string[] OHFUSE = { "OH Fuse Switch ALS", "OH Fuse Switch" }; // , 
     readonly string[] CAPACITOR = {"Capacitor Bank"};
     readonly string[] RECLOSER = {"Recloser" }; //done
     readonly string[] CONNECTIONS = { "Splice"};//done
@@ -146,12 +146,11 @@ public class SceneData : MonoBehaviour {
             case "FCI":
                 addToList(new string[] { "FCI" }, equipments, damages);
                 break;
-            //--------------------
             case "OHFuse":
                 //not add fuse switch to damage , add OH-FSand ALS
                 addToList(OHFUSE, equipments);
+                damages.Add("OH Fuse Switch");
                 //add all to damage
-                addToList(new string[] { "FuseSwitch", "ALS"}, damages);
 
                 break;
             default:

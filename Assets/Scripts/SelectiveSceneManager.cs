@@ -21,8 +21,6 @@ public class SelectiveSceneManager : MonoBehaviour
         equipmentGenerate();
         wireGenerate();
 
-        //Prepare and Rearrange equipment before add damage
-
         //trigger damage generator
         if (GameObject.Find("DamageGenerator") == null)
         {
@@ -30,33 +28,12 @@ public class SelectiveSceneManager : MonoBehaviour
         }
         else
         {
-            //DamageGenerator damageGenerator = GameObject.Find("DamageGenerator").GetComponent<DamageGenerator>();
             damageGenerator.damageSet.SetActive(true);
             damageGenerator.generateDamage();
             damageGenerator.damageSet.SetActive(false);
         }
-            //}
 
-            //    //go throught list all call all neccessary functions
-            //    foreach (Transform pole in data.getPolesTransform())
-            //    {
-            //        foreach(Transform child in pole)
-            //        {
-            //            if(child.name == "CapacitorBank")
-            //            {
-            //                child.GetComponent<CapacitorBank2>().fillwire();
-            //            }
-            //            else if (child.name.Contains("Transformer")){
-            //                child.GetComponent<Transformer>().fillWire();
-            //            }
-            //        }
-            //    }
-
-
-
-
-            //CAF generator 
-            GameObject CAFs = new GameObject("CAFs");
+        GameObject CAFs = new GameObject("CAFs");
         GameObject[] poles = poleGenerator.getPoleList();
         foreach (GameObject pole in poles)
         {
