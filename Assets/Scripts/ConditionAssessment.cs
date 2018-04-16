@@ -2,13 +2,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 public class ConditionAssessment : MonoBehaviour
 {
     //Set default points to 5
     //If the user gets anything wrong, set points to 0
-    public static int points4quiz = 5;
+    int points4quiz = 5;
 
     //This array holds all the "included" Form structs the user has filled out
     ArrayList UserInputList = new ArrayList();
@@ -109,12 +108,6 @@ public class ConditionAssessment : MonoBehaviour
 
     void Start()
     {
-        // Create a temporary reference to the current scene.
-        Scene currentScene = SceneManager.GetActiveScene();
-
-        // Retrieve the name of this scene.
-        string sceneName = currentScene.name;
-        print("SCENE: " + sceneName);
 
         #region get all the components
         ICON_SELECTED_TXT = gameObject.transform.Find("ICON_SELECTED_TXT").GetComponent<Text>();
@@ -165,178 +158,59 @@ public class ConditionAssessment : MonoBehaviour
 
         resetToStart();
 
-        if(sceneName == "SelectiveTraining" && pole != null)
-            AnswerKeyTest = getDataFromSelectiveScence(pole);
-        if(sceneName == "RandomizedTraining" || sceneName == "Quiz")
-            AnswerKeyTest = getDataFromSelectiveScence(pole);
+        form.iconName = "RECLOSER";
+        form.DL1 = true;
+        form.DL3 = false;
+        form.DL5 = false;
+        form.phaseA = false;
+        form.phaseB = false;
+        form.phaseC = false;
+        AnswerKeyTest.Add(form);
+
+        form.iconName = "CAPACITOR";
+        form.DL1 = true;
+        form.DL3 = false;
+        form.DL5 = false;
+        form.phaseA = false;
+        form.phaseB = false;
+        form.phaseC = false;
+        AnswerKeyTest.Add(form);
+
+        form.iconName = "AFS";
+        form.DL1 = true;
+        form.DL3 = false;
+        form.DL5 = false;
+        form.phaseA = false;
+        form.phaseB = false;
+        form.phaseC = false;
+        AnswerKeyTest.Add(form);
+
+        if(pole != null)
+            getDataFromSelectiveScence(pole);
     }
 
-    //Get Answer Array from Selective Training Scene
-    public ArrayList getDataFromSelectiveScence(GameObject currentPole)
+    private Form[] getDataFromSelectiveScence(GameObject currentPole)
     {
-        //List<Form> ret = new List<Form>();
-        ArrayList ret = new ArrayList();
+        List<Form> ret = new List<Form>();
         Data[] pData = currentPole.GetComponent<PoleData>().getData();
         poleData = pData;
         //for each
         foreach(Data d in pData)
         {
             Form tempForm = new Form();
-
-            switch (d.equipmentName)
-            {
-                //case "OH Pothead Switch":   //UPDATE
-                //    d.equipmentName = "Disconnect Switch";
-                //    break;
-
-                case "OH Pothead Switch":   //UPDATE
-                    d.equipmentName = "Overhead Switch Pothead";
-                    break;
-
-                case "AFS":
-                    d.equipmentName = "AFS";
-                    break;
-
-                case "LightningArrester":   //UPDATE
-                    d.equipmentName = "Ceramic LA";
-                    break;
-
-                //case "LightningArrester":   //UPDATE
-                //    d.equipmentName = "Polymer LA";
-                //    break;
-
-                case "Insulator":            
-                    d.equipmentName = "Ceramic Insulator";
-                    break;
-
-                //case "Polymer Insulator":                      //UPDATE
-                //    d.equipmentName = "Polymer Insulator";
-                //    break;
-
-                //case "Deadend":
-                //    d.equipmentName = "Deadend Insulator";
-                //    break;
-
-                case "ConcretePole":
-                    d.equipmentName = "Concrete Pole";
-                    break;
-
-                case "WoodPole":
-                    d.equipmentName = "Wooden Pole";
-                    break;
-
-                //case "Wooden Single":
-                //    d.equipmentName = "Wooden Single";
-                //    break;
-
-                //case "Wooden Double":
-                //    d.equipmentName = "Wooden Double";
-                //    break;
-
-                //case "Concrete Single":
-                //    d.equipmentName = "Concrete Single";
-                //    break;
-
-                //case "Concrete Double":
-                //    d.equipmentName = "Concrete Double";
-                //    break;
-
-                case "Vegetation":      //UPDATE
-                    d.equipmentName = "Oak";
-                    break;
-
-                //case "Vegetation":      //UPDATE
-                //    d.equipmentName = "Palm";
-                //    break;
-
-                case "Transformer":     
-                    if(d.subName == "Transformer Single")
-                        d.equipmentName = "Single Transformer";
-                    else if(d.subName == "Transformer Double")
-                        d.equipmentName = "Double Transformer";
-                    else if(d.subName == "Transformer Triple")
-                        d.equipmentName = "Triple Transformer";
-                    break;
-
-                //case "Fuse Switch":
-                //    d.equipmentName = "Fuse Switch";
-                //    break;
-
-                case "OH Fuse Switch ALS":
-                    d.equipmentName = "ALS";
-                    break;
-
-                case "ObjectsOnWire":   //UPDATE
-                    d.equipmentName = "Balloon";
-                    break;
-
-                //case "ObjectsOnWire":   //UPDATE
-                    //d.equipmentName = "Kite";
-                    //break;
-
-                case "CapacitorBank":
-                    d.equipmentName = "CAPACITOR";
-                    break;
-
-                case "Recloser":
-                    d.equipmentName = "RECLOSER";
-                    break;
-
-                case "Splice":
-                    d.equipmentName = "CONNECTIONS_ON_FEEDER_CONDUCTOR";
-                    break;
-
-                case "Nest":
-                    d.equipmentName = "NEST";
-                    break;
-
-                case "DownGuy":         
-                    d.equipmentName = "DOWN_GUY";
-                    break;
-
-                case "FCI":
-                    d.equipmentName = "FAULT_CURRENT_INDICATOR";
-                    break;
-
-                default:
-                    print("Cuong to CAF Conversion incorrect");
-                    break;
-            }
-
+                
             //get name
-            tempForm.iconName = d.equipmentName;
+            tempForm.iconName = d.name;
             
             //getPhase
-            if (d.phase == 'A')
-            {
-                tempForm.phaseA = true;
-            }
-
-            if (d.phase == 'B')
-            {
-                tempForm.phaseB = true;
-            }
-
-            if (d.phase == 'C')
-            {
-                tempForm.phaseC = true;
-            }
+            if (d.phase == 'A') { tempForm.phaseA = true; }
+            else if (d.phase == 'B') { tempForm.phaseB = true; }
+            else { tempForm.phaseC = true; }
 
             //getLevel
-            if (d.level == 1)
-            {
-                tempForm.DL1 = true;
-            }
-
-            else if (d.level == 2)
-            {
-                tempForm.DL3 = true;
-            }
-
-            else if (d.level == 3)
-            {
-                tempForm.DL5 = true;
-            }
+            if (d.level == 1) { tempForm.DL1 = true; }
+            else if (d.level == 2) { tempForm.DL3 = true; }
+            else { tempForm.DL5 = true; }
 
             ret.Add(tempForm);
         }
@@ -344,59 +218,60 @@ public class ConditionAssessment : MonoBehaviour
         if (ret.Count == 0)
             return null;
         else
-            return ret;
+            return ret.ToArray();
     }
 
-    //Get Answer Array from Randomization Scene
-
-    //Get the option the user selected in the dropdown and highlight (or don't hightlight) accordingly
     private void myDropdownValueChangedHandler(Dropdown target)
     {
         Image IMAGE = OH_SWITCH_IMG;
         currentEquipmentName = EQUIPMENT_DROPDWN.options[EQUIPMENT_DROPDWN.value].text;
-        int flag = 0;
-        //for each form in the answerkey, check to see if we have clicked an icon that was in the answer list
-        foreach (Form la in AnswerKeyTest)
-        {
-            if (la.iconName == currentEquipmentName && HasBeenSubmitted)
-            {
-                print("got into has been submitted");
-                print("currentIconName: " + currentIconName);
-                if (currentIconName == "OH_SWITCH")
-                    IMAGE = OH_SWITCH_IMG;
-                if (currentIconName == "LIGHTNING_ARRESTER")
-                    IMAGE = LIGHTNING_ARRESTER_IMG;
-                if (currentIconName == "INSULATOR")
-                    IMAGE = INSULATOR_IMG;
-                if (currentIconName == "POLE")
-                    IMAGE = POLE_IMG;
-                if (currentIconName == "CROSS_ARM")
-                    IMAGE = CROSS_ARM_IMG;
-                if (currentIconName == "VEGETATION")
-                    IMAGE = VEGETATION_IMG;
-                if (currentIconName == "CONDUCTOR")
-                    IMAGE = CONDUCTOR_IMG;
-                if (currentIconName == "OH_TRANSFORMER")
-                    IMAGE = OH_TRANSFORMER_IMG;
-                if (currentIconName == "OH_FUSE_SWITCH")
-                    IMAGE = OH_FUSE_SWITCH_IMG;
-                if (currentIconName == "FOREIGN_OBJECT_IN_WIRE")
-                    IMAGE = FOREIGN_OBJECT_IN_WIRE_IMG;
+        print("currenteqname was just changed to: " + currentEquipmentName);
+        print("index" + target);
 
-                if (currentEquipmentName == la.iconName)
-                {
-                    fillFormPostSub(currentEquipmentName, IMAGE);
-                    flag = 1;
-                }              
-            }
-        }
         foreach (Form la in UserInputList)
         {
-            if (la.iconName == currentEquipmentName && !HasBeenSubmitted && flag == 0)
+            print("comparing: " + la.iconName + " and " + currentEquipmentName);
+
+            //if the userInputList has data for the current equipment name
+            if (la.iconName == currentEquipmentName)
             {
-                fillForm(currentEquipmentName, "active");
+                print("found = true");
+                found = true;
+
+                if (found && HasBeenSubmitted)
+                {
+                    if (currentIconName == "OH_SWITCH")
+                        IMAGE = OH_SWITCH_IMG;
+                    if (currentIconName == "LIGHTNING_ARRESTER")
+                        IMAGE = LIGHTNING_ARRESTER_IMG;
+                    if (currentIconName == "INSULATOR")
+                        IMAGE = INSULATOR_IMG;
+                    if (currentIconName == "POLE")
+                        IMAGE = POLE_IMG;
+                    if (currentIconName == "CROSS_ARM")
+                        IMAGE = CROSS_ARM_IMG;
+                    if (currentIconName == "VEGETATION")
+                        IMAGE = VEGETATION_IMG;
+                    if (currentIconName == "CONDUCTOR")
+                        IMAGE = CONDUCTOR_IMG;
+                    if (currentIconName == "OH_TRANSFORMER")
+                        IMAGE = OH_TRANSFORMER_IMG;
+                    if (currentIconName == "OH_FUSE_SWITCH")
+                        IMAGE = OH_FUSE_SWITCH_IMG;
+                    if (currentIconName == "FOREIGN_OBJECT_IN_WIRE")
+                        IMAGE = FOREIGN_OBJECT_IN_WIRE_IMG;
+
+                    if (currentEquipmentName == la.iconName)
+                        fillFormPostSub(currentEquipmentName, IMAGE);
+                }
+
+                if (found && !HasBeenSubmitted)
+                {
+                    fillForm(currentEquipmentName, "active");
+                    print("got into found");
+                }
             }
-            else if(la.iconName != currentIconName && flag == 0)
+            else
             {
                 highlight(LD_1_IMG, "removed");
                 highlight(LD_3_IMG, "removed");
@@ -405,7 +280,7 @@ public class ConditionAssessment : MonoBehaviour
                 highlight(PHASE_B_IMG, "removed");
                 highlight(PHASE_C_IMG, "removed");
             }
-        }                
+        }
     }
 
     //Highlights the icon image depending on the state
@@ -465,6 +340,7 @@ public class ConditionAssessment : MonoBehaviour
 
         foreach (Form la in UserInputList)
         {
+
             if (la.iconName == iconName)
             {
                 found = true;
@@ -675,7 +551,6 @@ public class ConditionAssessment : MonoBehaviour
         }
     }
 
-    //Highlight form buttons on click as active (grey)
     public void form_OnClick(string button)
     {
         switch (button)
@@ -743,7 +618,6 @@ public class ConditionAssessment : MonoBehaviour
         }
     }
 
-    //There are two different forms 
     #region Form Options
     public void severityForm(string iconName)
     {
@@ -928,10 +802,6 @@ public class ConditionAssessment : MonoBehaviour
         }
     }
 
-    //If the form has been submitted, highlight the form buttons accordingly
-    //grey for user selected (active)
-    //red for correct answer that the user did not select
-    //green for correct answer
     public void fillFormPostSub(string Equipment, Image IMG)
     {
         fillForm(Equipment, "active");
@@ -1078,12 +948,9 @@ public class ConditionAssessment : MonoBehaviour
         {
             print("USER INPUT:\t" + la.iconName + " :" + " \t DL1 = " + la.DL1 + "\t DL3 = " + la.DL3 + "\t DL5 = " + la.DL5 + "\t PHA = " + la.phaseA + "\t PHB = " + la.phaseB + "\t PHC = " + la.phaseC);
         }
-        if (AnswerKeyTest != null)
+        foreach (Form lo in AnswerKeyTest)
         {
-            foreach (Form lo in AnswerKeyTest)
-            {
-                print("ANSWER KEY:\t" + lo.iconName + " :" + " \t DL1 = " + lo.DL1 + "\t DL3 = " + lo.DL3 + "\t DL5 = " + lo.DL5 + "\t PHA = " + lo.phaseA + "\t PHB = " + lo.phaseB + "\t PHC = " + lo.phaseC);
-            }
+            print("ANSWER KEY:\t" + lo.iconName + " :" + " \t DL1 = " + lo.DL1 + "\t DL3 = " + lo.DL3 + "\t DL5 = " + lo.DL5 + "\t PHA = " + lo.phaseA + "\t PHB = " + lo.phaseB + "\t PHC = " + lo.phaseC);
         }
 
         foreach (Form la in UserInputList)
@@ -1093,6 +960,8 @@ public class ConditionAssessment : MonoBehaviour
             {
                 //Highlight icon in green
                 highlightAfterSubmit(la.iconName, "correct");
+
+                //Highlight correct answers in green
 
                 //Test print
                 print(la.iconName + "has been checked as correct");
@@ -1111,25 +980,21 @@ public class ConditionAssessment : MonoBehaviour
             }
         }
 
-        if (AnswerKeyTest != null)
+        foreach (Form lo in AnswerKeyTest)
         {
-            foreach (Form lo in AnswerKeyTest)
+            if (!UserInputList.Contains(lo))
             {
-                if (!UserInputList.Contains(lo))
-                {
-                    //Highlight icon in red
-                    highlightAfterSubmit(lo.iconName, "incorrect");
+                //Highlight icon in red
+                highlightAfterSubmit(lo.iconName, "incorrect");
 
-                    print(lo.iconName + "is in the answerkey but not in the userinput");
+                print(lo.iconName + "is in the answerkey but not in the userinput");
 
-                    points4quiz = 0;
-                }
+                points4quiz = 0;
             }
         }
         print("POINTS: " + points4quiz);
     }
 
-    //Highlight icons red or green depending on if the forms were incorrect or correct
     public void highlightAfterSubmit(string eqName, string state)
     {
         switch (eqName)
