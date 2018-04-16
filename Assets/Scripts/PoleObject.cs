@@ -57,7 +57,7 @@ public class PoleObject {
     private int equipmentType;
     private int transformerCount;
 
-    public List<string> listOfDamagedEquip;
+    public static List<string> listOfDamagedEquip;
 
     public PoleObject() {
 
@@ -387,6 +387,7 @@ public class PoleObject {
     public void setTransformerCount(int i) {
         this.transformerCount = i;
     }
+
     public int getTransformerCount() {
         return this.transformerCount;
     }
@@ -531,6 +532,11 @@ public class PoleObject {
         return listOfDamagedEquip;
     }
 
+    public string[] getDamagedArray()
+    {
+        return listOfDamagedEquip.ToArray();
+    }
+
     public void printDamagedList() {
         foreach (string i in listOfDamagedEquip)
         {
@@ -666,6 +672,7 @@ public class PoleObject {
                 setCapacitorBank(tempSev);
                 tempArray.Add("Capictorbank");
                 addToDamageList("Capictorbank");
+                addToDamageList(tempSev.ToString());
                 n++;
             }
             else if (tempEquipType == 1 && !tempArray.Contains("Fuseswitch"))
@@ -673,6 +680,7 @@ public class PoleObject {
                 setFuseSwitch(tempSev);
                 tempArray.Add("Fuseswitch");
                 addToDamageList("Fuseswitch");
+                addToDamageList(tempSev.ToString());
                 n++;
             }
             else if (tempEquipType == 2 )
@@ -694,6 +702,7 @@ public class PoleObject {
                     setFci(tempInt);
                     tempArray.Add("Fci");
                     addToDamageList("Fci");
+                    addToDamageList("true");
                     setFciSpawn(true);
                     n++;
                 }
@@ -702,6 +711,7 @@ public class PoleObject {
                     setSplice(true);
                     tempArray.Add("Splice");
                     addToDamageList("Splice");
+                    addToDamageList("true");
                     setSpliceSpawn(true);
                     n++;
                 }
@@ -710,6 +720,7 @@ public class PoleObject {
                     setBallon(true);
                     tempArray.Add("Balloon");
                     addToDamageList("Balloon");
+                    addToDamageList("true");
                     setBalloonSpawn(true);
                     n++;
                 }
@@ -718,6 +729,7 @@ public class PoleObject {
                     setPalm(tempInt);
                     tempArray.Add("Palm");
                     addToDamageList("Palm");
+                    addToDamageList("true");
                     setPalmSpawn(true);
                     n++;
                 }
@@ -726,6 +738,7 @@ public class PoleObject {
                     setNest(true);
                     tempArray.Add("Nest");
                     addToDamageList("Nest");
+                    addToDamageList("true");
                     setNestSpawn(true);
                     n++;
                 }
@@ -734,6 +747,7 @@ public class PoleObject {
                     setOak(tempInt);
                     tempArray.Add("Oak");
                     addToDamageList("Oak");
+                    addToDamageList("true");
                     setOakSpawn(true);
                     n++;
                 }
@@ -742,6 +756,7 @@ public class PoleObject {
                     setKite(true);
                     tempArray.Add("Kite");
                     addToDamageList("Kite");
+                    addToDamageList("true");
                     setKiteSpawn(true);
                     n++;
                 }
@@ -750,6 +765,7 @@ public class PoleObject {
                     setPoleDamage(tempInt);
                     tempArray.Add("Pole");
                     addToDamageList("Pole");
+                    addToDamageList(tempSev.ToString());
                     n++;
                 }
             }
@@ -772,6 +788,7 @@ public class PoleObject {
                 setTransformer(tempSev);
                 tempArray.Add("Transformer");
                 addToDamageList("Transformer");
+                addToDamageList(tempSev.ToString());
                 n++;
             }
             else if (tempEquipType == 1 && !tempArray.Contains("Fuseswitch"))
@@ -779,6 +796,7 @@ public class PoleObject {
                 setFuseSwitch(tempSev);
                 tempArray.Add("Fuseswitch");
                 addToDamageList("Fuseswitch");
+                addToDamageList(tempSev.ToString());
                 n++;
             }
             else if (tempEquipType == 2)
@@ -800,6 +818,7 @@ public class PoleObject {
                     setFci(tempInt);
                     tempArray.Add("Fci");
                     addToDamageList("Fci");
+                    addToDamageList("true");
                     setFciSpawn(true);
                     n++;
                 }
@@ -808,6 +827,7 @@ public class PoleObject {
                     setSplice(true);
                     tempArray.Add("Splice");
                     addToDamageList("Splice");
+                    addToDamageList("true");
                     setSpliceSpawn(true);
                     n++;
                 }
@@ -816,6 +836,7 @@ public class PoleObject {
                     setBallon(true);
                     tempArray.Add("Balloon");
                     addToDamageList("Balloon");
+                    addToDamageList("true");
                     setBalloonSpawn(true);
                     n++;
                 }
@@ -824,6 +845,7 @@ public class PoleObject {
                     setPalm(tempInt);
                     tempArray.Add("Palm");
                     addToDamageList("Palm");
+                    addToDamageList("true");
                     setPalmSpawn(true);
                     n++;
                 }
@@ -832,6 +854,7 @@ public class PoleObject {
                     setNest(true);
                     tempArray.Add("Nest");
                     addToDamageList("Nest");
+                    addToDamageList("true");
                     setNestSpawn(true);
                     n++;
                 }
@@ -840,6 +863,7 @@ public class PoleObject {
                     setOak(tempInt);
                     tempArray.Add("Oak");
                     addToDamageList("Oak");
+                    addToDamageList("true");
                     setOakSpawn(true);
                     n++;
                 }
@@ -848,6 +872,7 @@ public class PoleObject {
                     setKite(true);
                     tempArray.Add("Kite");
                     addToDamageList("Kite");
+                    addToDamageList("true");
                     setKiteSpawn(true);
                     n++;
                 }
@@ -856,6 +881,7 @@ public class PoleObject {
                     setPoleDamage(tempInt);
                     tempArray.Add("Pole");
                     addToDamageList("Pole");
+                    addToDamageList(tempSev.ToString());
                     n++;
                 }
             }
@@ -879,6 +905,7 @@ public class PoleObject {
                 setRecloser(tempSev);
                 tempArray.Add("Recloser");
                 addToDamageList("Recloser");
+                addToDamageList(tempSev.ToString());
                 n++;
             }
             else if (tempEquipType == 1)
@@ -900,6 +927,7 @@ public class PoleObject {
                     setFci(tempInt);
                     tempArray.Add("Fci");
                     addToDamageList("Fci");
+                    addToDamageList("true");
                     setFciSpawn(true);
                     n++;
                 }
@@ -908,6 +936,7 @@ public class PoleObject {
                     setSplice(true);
                     tempArray.Add("Splice");
                     addToDamageList("Splice");
+                    addToDamageList("true");
                     setSpliceSpawn(true);
                     n++;
                 }
@@ -916,6 +945,7 @@ public class PoleObject {
                     setBallon(true);
                     tempArray.Add("Balloon");
                     addToDamageList("Balloon");
+                    addToDamageList("true");
                     setBalloonSpawn(true);
                     n++;
                 }
@@ -924,6 +954,7 @@ public class PoleObject {
                     setPalm(tempInt);
                     tempArray.Add("Palm");
                     addToDamageList("Palm");
+                    addToDamageList("true");
                     setPalmSpawn(true);
                     n++;
                 }
@@ -932,6 +963,7 @@ public class PoleObject {
                     setNest(true);
                     tempArray.Add("Nest");
                     addToDamageList("Nest");
+                    addToDamageList("true");
                     setNestSpawn(true);
                     n++;
                 }
@@ -940,6 +972,7 @@ public class PoleObject {
                     setOak(tempInt);
                     tempArray.Add("Oak");
                     addToDamageList("Oak");
+                    addToDamageList("true");
                     setOakSpawn(true);
                     n++;
                 }
@@ -948,6 +981,7 @@ public class PoleObject {
                     setKite(true);
                     tempArray.Add("Kite");
                     addToDamageList("Kite");
+                    addToDamageList("true");
                     setKiteSpawn(true);
                     n++;
                 }
@@ -956,6 +990,7 @@ public class PoleObject {
                     setPoleDamage(tempInt);
                     tempArray.Add("Pole");
                     addToDamageList("Pole");
+                    addToDamageList(tempSev.ToString());
                     n++;
                 }
             }
@@ -978,6 +1013,7 @@ public class PoleObject {
                 setAfs(tempSev);
                 tempArray.Add("Afs");
                 addToDamageList("Afs");
+                addToDamageList(tempSev.ToString());
                 n++;
             }
             else if (tempEquipType == 1)
@@ -1055,6 +1091,7 @@ public class PoleObject {
                     setPoleDamage(tempInt);
                     tempArray.Add("Pole");
                     addToDamageList("Pole");
+                    addToDamageList(tempSev.ToString());
                     n++;
                 }
             }
@@ -1077,6 +1114,7 @@ public class PoleObject {
                 setPothead(tempSev);
                 tempArray.Add("Pothead");
                 addToDamageList("Pothead");
+                addToDamageList(tempSev.ToString());
                 n++;
             }
             else if(tempEquipType == 1 && !tempArray.Contains("Disconnectswitch"))
@@ -1084,6 +1122,7 @@ public class PoleObject {
                 setDisconnectSwitch(tempSev);
                 tempArray.Add("Disconnectswitch");
                 addToDamageList("Disconnectswitch");
+                addToDamageList(tempSev.ToString());
                 n++;
             }
             else if (tempEquipType == 2)
@@ -1161,6 +1200,7 @@ public class PoleObject {
                     setPoleDamage(tempInt);
                     tempArray.Add("Pole");
                     addToDamageList("Pole");
+                    addToDamageList(tempSev.ToString());
                     n++;
                 }
             }
@@ -1182,6 +1222,7 @@ public class PoleObject {
                 setAutomaticLineSwitch(tempSev);
                 tempArray.Add("Automaticlineswitch");
                 addToDamageList("Automaticlineswitch");
+                addToDamageList(tempSev.ToString());
                 n++;
             }
             else if (tempEquipType == 1)
@@ -1259,6 +1300,7 @@ public class PoleObject {
                     setPoleDamage(tempInt);
                     tempArray.Add("Pole");
                     addToDamageList("Pole");
+                    addToDamageList(tempSev.ToString());
                     n++;
                 }
             }
@@ -1280,6 +1322,7 @@ public class PoleObject {
             {
                 setAutomaticLineSwitch(tempSev);
                 tempArray.Add("Lightningarrestor");
+                addToDamageList(tempSev.ToString());
                 n++;
             }
             else if (tempEquipType == 1)
@@ -1357,6 +1400,7 @@ public class PoleObject {
                     setPoleDamage(tempInt);
                     tempArray.Add("Pole");
                     addToDamageList("Pole");
+                    addToDamageList(tempSev.ToString());
                     n++;
                 }
             }

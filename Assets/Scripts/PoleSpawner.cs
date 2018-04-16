@@ -90,6 +90,8 @@ public class PoleSpawner : MonoBehaviour
     public Transform[] spawnLaMiddle;
     public Transform[] spawnLaTop;
 
+    public PoleObject[] poleObjectArray = new PoleObject[21];
+
     private int randomInt;
 
     List<string> poleTypes = new List<string>(new string[] { "Vertical", "ModVertical", "Triangular", "Crossarm" });
@@ -101,8 +103,6 @@ public class PoleSpawner : MonoBehaviour
         randomInt = Random.Range(0, x);
         return randomInt;
     }
-
-    PoleObject[] poleObjectArray = new PoleObject[21];
 
     //
     // Insulator generation functions
@@ -1300,70 +1300,45 @@ public class PoleSpawner : MonoBehaviour
                 //Triangular: poles 15-19
                 else if ((shuffle[3].Equals(poleTypes[2])))
                 {
-
                     generateTriangularInsulators(i, loc, shuffle);
                 }
 
                 //Crossarm: poles 15-19
                 else if ((shuffle[3].Equals(poleTypes[3])))
                 {
-
                     generateCrossarmInsulators(i, loc, shuffle);
                 }
             }
-            //This randomizes equipment
-
-
-
-            //generateLa(i);
-
-            //generateBalloon(i);
-            //generateNest(i);
-            //generateTree(i, Random.Range(0, 4), Random.Range(0, 2));
-            //generateNest(i);
-            //generateAutomaticLineSwitch(i);
-            //generatePothead(i);
-            //generateDcSwitch(i);
-            //generateAfs(i);
-
-            //generateCapcitorBank(i);
-            //generateFuseSwitch(i);
-            //generateRecloser(i);
-
-            //spawnCAF(i);
+            
+            spawnCAF(i);
             
         }
         /*
-        for (int i = 0; i < 21; i++) {
-            Debug.Log(poleObjectArray[i].getInsulatorType());
-        }
-        for (int i = 0; i < 21; i++)
-        {
-            Debug.Log(poleObjectArray[i].getPoleMaterial());
-        }
-        */
         for (int i = 0; i < 21; i++)
         {
             Debug.Log("The equipment type is: "+poleObjectArray[i].getEquipmentType());
         }
-
+        */
+        /*
         for (int i = 0; i < 21; i++)
         {
             Debug.Log("The number of damaged items is: "+poleObjectArray[i].getNumberOfDamagedEquip() );
         }
+        */
         //printDamagedList();
         for (int i = 0; i < 21; i++)
         {
             Debug.Log("Damage list for pole #"+i+" with "+ poleObjectArray[i].getNumberOfDamagedEquip() + " dmg equipment:");
             poleObjectArray[i].printDamagedList();
         }
-
-        //Debug.Log("Number of pole objects: " + poleObjectArray.Length);
-
-        //spawnPoleLocation
-        //Debug.Log("Number of pole spawn locations: " + poleObjectArray.Length);
-        //foreach(var item in listOfDamagedEquip )
-
+        List<string> testing = new List<string>();
+        
+        for (int i = 0; i < 21; i++)
+        {
+           // testing.Add(poleObjectArray[i].getDamagedList());
+            Debug.Log("Damage list for pole #" + i + " with " + poleObjectArray[i].getNumberOfDamagedEquip() + " dmg equipment:");
+            poleObjectArray[i].printDamagedList();
+        }
     }
     void Update() {
 

@@ -2,6 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 
 public class ConditionAssessment : MonoBehaviour
 {
@@ -14,7 +16,7 @@ public class ConditionAssessment : MonoBehaviour
 
     //This is an array for test purposes that is the answer key
     ArrayList AnswerKeyTest = new ArrayList();
-
+    //public PoleSpawner poleSpawner;
     public GameObject pole;
     public Data[] poleData;
     public bool LD1;
@@ -185,8 +187,24 @@ public class ConditionAssessment : MonoBehaviour
         form.phaseC = false;
         AnswerKeyTest.Add(form);
 
-        if(pole != null)
+        Scene scene = SceneManager.GetActiveScene();
+
+        if(scene.name == "SelectiveTraining")
             getDataFromSelectiveScence(pole);
+        else if (scene.name == "RadomizedTraining")
+            getDataFromRandomizedScence(pole);
+    }
+
+    public Form[] getDataFromRandomizedScence(GameObject currentPole) {
+        List<Form> ret = new List<Form>();
+        string tmp;
+
+        for (int i = 0; i < 21; i++)
+        {
+           //transform.GetComponent<PoleSpawner>().poleObjectArray[i].printDamagedList();
+        }
+
+        return ret.ToArray();
     }
 
     private Form[] getDataFromSelectiveScence(GameObject currentPole)
