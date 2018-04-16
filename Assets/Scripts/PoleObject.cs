@@ -14,6 +14,7 @@ public class PoleObject {
     private bool insulatorB;
     private bool insulatorC;
     private int insulatorDamage;
+    //test
 
     private int deadendInsulator;
     private int capacitorBank;
