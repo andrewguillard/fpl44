@@ -7,45 +7,43 @@ public class FCIScript : MonoBehaviour {
     [SerializeField] private GameObject outPoint;
     [SerializeField] private PoleGeneration poleGenerator;
 
-    private PoleData pole;
     private readonly float DISTANCE = 4;
     // Use this for initialization
-    void Start () {
-        if (transform.parent.name != "EquipmentSet" && transform.parent.name != "DamageSet")
+    public void setFCI (PoleData pole, int phaseNum) {
+        if (poleGenerator == null) poleGenerator =  GameObject.Find("ListOfPoles").GetComponent<PoleGeneration>();
+
+        Vector3 loc = pole.wireOutPoints[phaseNum].transform.position;
+
+        if (pole.wireDirection.ToLower().Equals("x"))
         {
-            pole = transform.parent.GetComponent<PoleData>();
+            loc.x -= DISTANCE;
+        }
+        else
+        {
+            loc.y -= DISTANCE;
+        }
 
-            int phaseNum = Random.Range(0, 3);
-
-            Vector3 loc = pole.wireOutPoints[phaseNum].transform.position;
-
-            if (pole.wireDirection.ToLower().Equals("x"))
-            {
-                loc.x -= DISTANCE;
-            }
-            else
-            {
-                loc.y -= DISTANCE;
-            }
-
-            transform.position = loc;
-            //wire Connect
-            GameObject startPoint = pole.wireOutPoints[phaseNum];
-            GameObject endPoint;
-            if (startPoint.GetComponent<CableScript>() != null)
-            {
-                endPoint = startPoint.GetComponent<CableScript>().getEndPoint();
-                UtilityFunctions.AdjustineConnect(startPoint, endPoint, outPoint);
-            }
-            else
-            {
+        transform.position = loc;
+        //wire Connect
+        GameObject startPoint = pole.wireOutPoints[phaseNum];
+        GameObject endPoint;
+        if (startPoint.GetComponent<CableScript>() != null)
+        {
+            endPoint = startPoint.GetComponent<CableScript>().getEndPoint();
+            UtilityFunctions.AdjustineConnect(startPoint, endPoint, outPoint);
+        }
+        else
+        {
+            UtilityFunctions.lineConnect(startPoint, outPoint, 0.07f, 5, 0.1f);
+            if (pole.poleIndex < poleGenerator.getPoleList().Length-1) {
                 endPoint = poleGenerator.getPoleList()[pole.poleIndex + 1].GetComponent<PoleData>().wireInPoints[phaseNum];
-                UtilityFunctions.lineConnect(startPoint, outPoint, 0.07f, 5, 0.1f);
                 UtilityFunctions.lineConnect(outPoint, endPoint, 0.07f, 5, 0.2f);
 
             }
 
         }
+
+        
 
 
 

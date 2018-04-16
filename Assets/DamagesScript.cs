@@ -5,7 +5,7 @@ using UnityEngine;
 public class DamagesScript : MonoBehaviour {
     public GameObject[] Damages;
     public GameObject[] equipLocation;
-
+    public string[] nameObjectToReplace;
     public void setDamage(int level)
     {
         //print(transform + " is level" + level);
@@ -18,17 +18,20 @@ public class DamagesScript : MonoBehaviour {
             return;
         }
 
-        //if no equip location;
-        if (equipLocation == null || equipLocation.Length == 0)
+        GameObject newObj = null;
+        Data equipData;
+
+        //replace current gameobject
+        if (equipLocation.Length ==0 || nameObjectToReplace.Length == 0)
         {
             print(transform.parent.name + " Replace " + gameObject + " with " + Damages[level - 1]);
 
-            GameObject newObj = UtilityFunctions.replaceObject(gameObject, Damages[level - 1]);
+            newObj = UtilityFunctions.replaceObject(gameObject, Damages[level - 1]);
+            equipData = newObj.GetComponent<Data>();
 
-            Data equipData = newObj.GetComponent<Data>();
             if (equipData == null)
             {
-                Debug.LogError(newObj.transform.parent + "/" + newObj.name + " should have Datascript");
+                //Debug.LogError(newObj.transform.parent + "/" + newObj.name + " should have Datascript");
                 equipData = newObj.AddComponent<Data>();
             }
             else
@@ -44,14 +47,29 @@ public class DamagesScript : MonoBehaviour {
         }
         else
         {
+            //replace something else
             int numberOfDamages = Random.Range(1, equipLocation.Length);
-            for(int i=0; i< numberOfDamages; i++)
-            {
-                print("replace " + equipLocation[i] + "------" + Damages[level - 1]);
-                UtilityFunctions.replaceObject(equipLocation[i], Damages[level - 1]);
-            }
+            equipData = transform.GetComponent<Data>();
 
-            Data equipData = transform.GetComponent<Data>();
+            if (nameObjectToReplace.Length !=0 )
+                for (int i=0; i< numberOfDamages; i++)
+                {
+                    if(equipLocation[i] == null)
+                    {
+                        print("IN " + transform.parent);
+                        string name = nameObjectToReplace[numberOfDamages];
+                        print("need to find this name -" + name + "- gameobject is " + gameObject.name + " equips is " + Damages[numberOfDamages].name);
+                        print(UtilityFunctions.findInChild(transform, name));
+                        foreach(Transform t in transform)
+                        {
+                            print("--------t= "+ t);
+                        }
+                        equipLocation[i] = UtilityFunctions.findInChild(transform,name).gameObject;
+                    }
+                    print("replace " + equipLocation[i] + "------" + Damages[level - 1]);
+                    newObj=  UtilityFunctions.replaceObject(equipLocation[i], Damages[level - 1]);
+                }
+
             if (equipData == null)
             {
                 Debug.LogError(transform.parent + "/" + transform.name + " should have Datascript");
@@ -70,6 +88,6 @@ public class DamagesScript : MonoBehaviour {
             equipData.phase = equipPhase;
 
         }
-
+        print(newObj.transform.localScale);
     }
 }

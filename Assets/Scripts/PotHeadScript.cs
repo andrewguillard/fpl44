@@ -9,7 +9,8 @@ public class PotHeadScript : MonoBehaviour {
 
     // Use this for initialization
     void Start() {
-
+        //print(transform);
+        //print(transform.parent.parent.name + "/" + transform.parent.name + "/" + transform.name);
         if (transform.parent.name != "EquipmentSet")
         {
             pole = transform.parent.GetComponent<PoleData>();
@@ -26,13 +27,18 @@ public class PotHeadScript : MonoBehaviour {
             UtilityFunctions.lineConnect(PotheadPoints[i], DCSwitchs[i].bottom, 0.075f, 5, -0.25f);
 
             //extend about a meter
-            GameObject newPoint;
-            if(i!= 1)
-                newPoint = UtilityFunctions.extendPoint(pole.wireOutPoints[i], ("M_" + i),pole.wireDirection, 0.5f);
-            else
-                newPoint = UtilityFunctions.extendPoint(pole.wireOutPoints[i], ("M_" + i), pole.wireDirection, -0.5f);
+            if (i != 1)
+            {
+                GameObject newPoint = UtilityFunctions.extendPoint(pole.wireOutPoints[i], ("M_" + i), pole.wireDirection, 0.5f);
+                UtilityFunctions.AdjustineConnect(pole.wireInPoints[i], pole.wireOutPoints[i], newPoint);
 
-            UtilityFunctions.AdjustineConnect(pole.wireInPoints[i], pole.wireOutPoints[i], newPoint);
+            }
+            else {
+                GameObject newPoint = UtilityFunctions.extendPoint(pole.wireOutPoints[i], ("M_" + i), pole.wireDirection, -0.5f);
+                UtilityFunctions.AdjustineConnect(pole.wireInPoints[i], pole.wireOutPoints[i], newPoint);
+
+            }
+
 
             //connect dc to wire
             UtilityFunctions.lineConnect(DCSwitchs[i].top, pole.wireOutPoints[i], 0.03f, 5, -0.25f);

@@ -51,6 +51,8 @@ ModelImporter:
     100086: p22
     100088: P33
     100090: P22
+    100092: BezierCurve
+    100094: BezierCurve.001
     400000: BezierCurve.002
     400002: Bracket
     400004: Circle (Large)
@@ -97,9 +99,17 @@ ModelImporter:
     400086: p22
     400088: P33
     400090: P22
+    400092: BezierCurve
+    400094: BezierCurve.001
     2100000: No Name
     2100002: Wood
     2100004: Ceramic
+    2100006: Bracket
+    2100008: Tube
+    2100010: Insulator
+    2100012: Wire
+    2100014: DC Material
+    2100016: Material
     2300000: BezierCurve.002
     2300002: Bracket
     2300004: Circle (Large)
@@ -145,6 +155,9 @@ ModelImporter:
     2300084: p22
     2300086: P33
     2300088: P22
+    2300090: BezierCurve
+    2300092: BezierCurve.001
+    2300094: //RootNode
     3300000: BezierCurve.002
     3300002: Bracket
     3300004: Circle (Large)
@@ -190,6 +203,9 @@ ModelImporter:
     3300084: p22
     3300086: P33
     3300088: P22
+    3300090: BezierCurve
+    3300092: BezierCurve.001
+    3300094: //RootNode
     4300000: Bracket
     4300002: Small Wire 3
     4300004: Small Wire 2
@@ -235,7 +251,34 @@ ModelImporter:
     4300084: p22
     4300086: P11
     4300088: P22
-  externalObjects: {}
+    4300090: BezierCurve
+    4300092: BezierCurve.001
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Bracket
+    second: {fileID: 2100000, guid: afc36dd559bd61b4ba737a26cf727c4e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DC Material
+    second: {fileID: 2100000, guid: 138ec4445db9edd4abd207c16f212a6a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Insulator
+    second: {fileID: 2100000, guid: 138ec4445db9edd4abd207c16f212a6a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material
+    second: {fileID: 2100000, guid: c785265de29f1a14585908a558491438, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Tube
+    second: {fileID: 2100000, guid: 8af01415bff5c1e4f80cc5629f18a223, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

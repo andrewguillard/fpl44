@@ -12,14 +12,15 @@ public class SpliceScript : MonoBehaviour
     public int phaseNum;
     [SerializeField] private PoleGeneration poleGenerator;
     // Use this for initialization
+
     void Start()
     {
-        print("Splice");
         if (poleGenerator == null)
         {
             poleGenerator = GameObject.Find("PoleGenerator").GetComponent<PoleGeneration>();
         }
-        if (transform.parent.name != "EquipmentSet") {
+
+        if (transform.parent.name != "EquipmentSet" && transform.parent.name != "DamageSet") {
             pole = transform.parent.GetComponent<PoleData>();
             //print(transform.parent.name);
 
@@ -29,6 +30,20 @@ public class SpliceScript : MonoBehaviour
 
             int phaseNum = Random.Range(0, 3); //choose wire phase
             float distance = Random.Range(minDistance, maxDistance);
+
+            char phaseChar='N';
+            //Store phase data
+            switch (phaseNum)
+            {
+                case 0:
+                    phaseChar = 'A'; break;
+                case 1:
+                    phaseChar = 'B'; break;
+                case 2:
+                    phaseChar = 'C'; break;
+
+            }
+            transform.GetComponent<Data>().phase = phaseChar;
 
             //print(pole.wireOutPoints[rNum].transform);
             position = pole.wireOutPoints[phaseNum].transform.position;

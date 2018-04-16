@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 using System;
 
 public class SceneData : MonoBehaviour {
-    public static string framing ;
+    public static string framing= "C" ;
     public static int damageLevel = -1;
     GameObject[] poles;
 
@@ -21,7 +21,7 @@ public class SceneData : MonoBehaviour {
     readonly string[] LA = {"Lightning Arrester Polymer", "Lightning Arrester Ceramic"}; //done
     readonly string[] INSULATOR = {"HInsulator", "VInsulator", "LInsulator"};
     readonly string[] POLE = {"Wooden Pole", "Concrete Pole"};
-    readonly string[] CROSSARM = {"Wooden Pole Single Cross Arm", "Concrete Pole Single Cross Arm", "Wooden Pole Double Cross Arm", "Concrete Pole Double Cross Arm"}; //done
+    readonly string[] CROSSARM = { "Wooden Single", "Wooden Double" , "Concrete Single"};//, , "Concrete Pole"}; //done
     readonly string[] VEGETATION = {"Palm Tree", "Oak Tree"}; //done 
     readonly string[] OHTRANSFORMER = {"Transformer Single","Transformer Double","Transformer Triple"};//done
     readonly string[] OHFUSE = { "OH Fuse Switch ALS" }; // "OH Fuse Switch",
@@ -126,9 +126,13 @@ public class SceneData : MonoBehaviour {
             case "DownGuy":
                 addToList(DOWNGUY, equipments,damages);
                 break;
+            case "Connections":
+                addToList(CONNECTIONS, equipments,damages);
+                break;
             case "CrossArm":
                 //set framming is crossarm
                 setFraming("C");
+                addToList(CROSSARM, damages);
                 break;
             case "OHSwitch":
                 //add equipment to equipment list 
@@ -136,22 +140,19 @@ public class SceneData : MonoBehaviour {
                 //add equipment to generate damage
                 addToList(OHSWITCH, damages);
                 break;
+            case "AFS":
+                addToList(new string[] { "AFS" }, equipments, damages);
+                break;
+            case "FCI":
+                addToList(new string[] { "FCI" }, equipments, damages);
+                break;
+            //--------------------
             case "OHFuse":
                 //not add fuse switch to damage , add OH-FSand ALS
                 addToList(OHFUSE, equipments);
                 //add all to damage
                 addToList(new string[] { "FuseSwitch", "ALS"}, damages);
 
-                break;
-            case "Connections":
-                addToList(CONNECTIONS, equipments,damages);
-				//damage- T/F- more than 3 in 1 cable.
-                break;
-            case "AFS":
-                equipments.Add("AFS");
-                break;
-            case "FCI":
-                equipments.Add("FCI");
                 break;
             default:
                 Debug.LogError("Not a selection of equipment" + t);

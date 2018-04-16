@@ -126,7 +126,7 @@ public class UtilityFunctions : MonoBehaviour
 		DestroyImmediate (oldObject);
         //oldObject.SetActive(false);
 
-        print("In " + newObject.transform.parent.name + " replace with " + newObject.name );
+        print("In " + newObject.transform.parent.name + " replace with " + newObject.name + newObject.GetComponent<Data>().level );
 
         return newObject;
 	}

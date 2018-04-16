@@ -6,9 +6,11 @@ public class SpliceDamageScript : MonoBehaviour {
     [SerializeField] private GameObject[] connectionLeft;
     [SerializeField] private GameObject[] connectionRight;
 
-
     // Use this for initialization
     void Start () {
+        if (transform.parent.name == "DamageSet")
+            return;
+        else
         //align them 
         for(int i = 0; i < connectionLeft.Length; i++)
         {

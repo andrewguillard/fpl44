@@ -42,7 +42,22 @@ ModelImporter:
     4300006: VInsulator
     4300008: CrossArm
     4300010: Wood Pole
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Ceramic
+    second: {fileID: 2100012, guid: 5d19bb91dd10d644ca87c50ef3bc82d5, type: 3}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CroosArmWood
+    second: {fileID: 2100000, guid: 10127f9cf9cacd6449a5e73ab9f657c7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wood
+    second: {fileID: 2100000, guid: bf696a46812ebe043a479f77310316a1, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
