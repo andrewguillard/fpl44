@@ -8,7 +8,7 @@ public class ConditionAssessment : MonoBehaviour
 {
     //Set default points to 5
     //If the user gets anything wrong, set points to 0
-    int points4quiz = 5;
+    public static int points4quiz = 5;
 
     //This array holds all the "included" Form structs the user has filled out
     ArrayList UserInputList = new ArrayList();
@@ -114,7 +114,7 @@ public class ConditionAssessment : MonoBehaviour
 
         // Retrieve the name of this scene.
         string sceneName = currentScene.name;
-        print("SCENEEEEEEEEEEEEEEE" + sceneName);
+        print("SCENE: " + sceneName);
 
         #region get all the components
         ICON_SELECTED_TXT = gameObject.transform.Find("ICON_SELECTED_TXT").GetComponent<Text>();
@@ -167,8 +167,11 @@ public class ConditionAssessment : MonoBehaviour
 
         if(sceneName == "SelectiveTraining" && pole != null)
             AnswerKeyTest = getDataFromSelectiveScence(pole);
+        if(sceneName == "RandomizedTraining" || sceneName == "Quiz")
+            AnswerKeyTest = getDataFromSelectiveScence(pole);
     }
 
+    //Get Answer Array from Selective Training Scene
     public ArrayList getDataFromSelectiveScence(GameObject currentPole)
     {
         //List<Form> ret = new List<Form>();
@@ -182,13 +185,13 @@ public class ConditionAssessment : MonoBehaviour
 
             switch (d.equipmentName)
             {
-                case "OH Pothead Switch":   //UPDATE
-                    d.equipmentName = "Disconnect Switch";
-                    break;
-
                 //case "OH Pothead Switch":   //UPDATE
-                //    d.equipmentName = "Overhead Switch Pothead";
+                //    d.equipmentName = "Disconnect Switch";
                 //    break;
+
+                case "OH Pothead Switch":   //UPDATE
+                    d.equipmentName = "Overhead Switch Pothead";
+                    break;
 
                 case "AFS":
                     d.equipmentName = "AFS";
@@ -210,7 +213,7 @@ public class ConditionAssessment : MonoBehaviour
                 //    d.equipmentName = "Polymer Insulator";
                 //    break;
 
-                //case "":
+                //case "Deadend":
                 //    d.equipmentName = "Deadend Insulator";
                 //    break;
 
@@ -222,19 +225,19 @@ public class ConditionAssessment : MonoBehaviour
                     d.equipmentName = "Wooden Pole";
                     break;
 
-                //case "":
+                //case "Wooden Single":
                 //    d.equipmentName = "Wooden Single";
                 //    break;
 
-                //case "":
+                //case "Wooden Double":
                 //    d.equipmentName = "Wooden Double";
                 //    break;
 
-                //case "":
+                //case "Concrete Single":
                 //    d.equipmentName = "Concrete Single";
                 //    break;
 
-                //case "":
+                //case "Concrete Double":
                 //    d.equipmentName = "Concrete Double";
                 //    break;
 
@@ -255,7 +258,7 @@ public class ConditionAssessment : MonoBehaviour
                         d.equipmentName = "Triple Transformer";
                     break;
 
-                //case "":
+                //case "Fuse Switch":
                 //    d.equipmentName = "Fuse Switch";
                 //    break;
 
@@ -287,7 +290,7 @@ public class ConditionAssessment : MonoBehaviour
                     d.equipmentName = "NEST";
                     break;
 
-                case "Down Guy":
+                case "DownGuy":         
                     d.equipmentName = "DOWN_GUY";
                     break;
 
@@ -344,6 +347,9 @@ public class ConditionAssessment : MonoBehaviour
             return ret;
     }
 
+    //Get Answer Array from Randomization Scene
+
+    //Get the option the user selected in the dropdown and highlight (or don't hightlight) accordingly
     private void myDropdownValueChangedHandler(Dropdown target)
     {
         Image IMAGE = OH_SWITCH_IMG;
@@ -459,7 +465,6 @@ public class ConditionAssessment : MonoBehaviour
 
         foreach (Form la in UserInputList)
         {
-
             if (la.iconName == iconName)
             {
                 found = true;
@@ -670,6 +675,7 @@ public class ConditionAssessment : MonoBehaviour
         }
     }
 
+    //Highlight form buttons on click as active (grey)
     public void form_OnClick(string button)
     {
         switch (button)
@@ -737,6 +743,7 @@ public class ConditionAssessment : MonoBehaviour
         }
     }
 
+    //There are two different forms 
     #region Form Options
     public void severityForm(string iconName)
     {
@@ -921,6 +928,10 @@ public class ConditionAssessment : MonoBehaviour
         }
     }
 
+    //If the form has been submitted, highlight the form buttons accordingly
+    //grey for user selected (active)
+    //red for correct answer that the user did not select
+    //green for correct answer
     public void fillFormPostSub(string Equipment, Image IMG)
     {
         fillForm(Equipment, "active");
@@ -1075,7 +1086,6 @@ public class ConditionAssessment : MonoBehaviour
             }
         }
 
-
         foreach (Form la in UserInputList)
         {
             //Completely Correct
@@ -1119,6 +1129,7 @@ public class ConditionAssessment : MonoBehaviour
         print("POINTS: " + points4quiz);
     }
 
+    //Highlight icons red or green depending on if the forms were incorrect or correct
     public void highlightAfterSubmit(string eqName, string state)
     {
         switch (eqName)
