@@ -209,7 +209,7 @@ public class ConditionAssessment : MonoBehaviour
                 #endregion
 
 
-                case "Overhead Switch Pothead":   //WORKS
+                case "OH Pothead Switch":   //WORKS
                     d.equipmentName = "Overhead Switch Pothead";
                     break;
 
@@ -229,7 +229,7 @@ public class ConditionAssessment : MonoBehaviour
                     d.equipmentName = "Concrete Pole";
                     break;
 
-                case "WoodPole":    //Works
+                case "WoodenPole":    //Works
                     d.equipmentName = "Wooden Pole";
                     break;
 
@@ -270,11 +270,11 @@ public class ConditionAssessment : MonoBehaviour
                     d.equipmentName = "ALS";
                     break;
 
-                case "ForeignObject":   //UPDATE
-                    if (d.subName == "Kite")
+                case "ObjectsOnWire":   //UPDATE
+                    //if (d.subName == "Kite")
                         d.equipmentName = "Kite";
-                    else if (d.subName == "Balloon")
-                        d.equipmentName = "Balloon";
+                    //else if (d.subName == "Balloon")
+                    //    d.equipmentName = "Balloon";
                     break;
 
                 case "CapacitorBank":   //Works
@@ -1149,7 +1149,7 @@ public class ConditionAssessment : MonoBehaviour
                 highlight(OH_SWITCH_IMG, state);
                 break;
 
-            case "Disconnect Switch Pothead":
+            case "Overhead Switch Pothead":
                 highlight(OH_SWITCH_IMG, state);
                 break;
 
