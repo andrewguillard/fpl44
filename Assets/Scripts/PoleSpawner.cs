@@ -1166,6 +1166,8 @@ public class PoleSpawner : MonoBehaviour
             poleObjectArray[i].setDamageToItems();
             spawnEquipmentType(i);
             //spawnSecondaryEquip(i);
+
+            //ConditionAssessment.getDataFromRandomizeScence(poleObjectArray[i].getDamageToItems());
         }
 
 
