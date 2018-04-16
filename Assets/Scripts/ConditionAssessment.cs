@@ -165,9 +165,15 @@ public class ConditionAssessment : MonoBehaviour
 
         resetToStart();
 
+<<<<<<< HEAD
         if (sceneName == "SelectiveTraining" && pole != null)
             AnswerKeyTest = getDataFromSelectiveScence(pole);
         if (sceneName == "RandomizedTraining" || sceneName == "Quiz")
+=======
+        if(sceneName == "SelectiveTraining" && pole != null)
+            AnswerKeyTest = getDataFromSelectiveScence(pole);
+        if(sceneName == "RandomizedTraining" || sceneName == "Quiz")
+>>>>>>> parent of 2c774ea... Merge pull request #60 from andrewman986/BrantSunday
             AnswerKeyTest = getDataFromSelectiveScence(pole);
     }
 
@@ -205,7 +211,11 @@ public class ConditionAssessment : MonoBehaviour
                 //    d.equipmentName = "Polymer LA";
                 //    break;
 
+<<<<<<< HEAD
                 case "Insulator":
+=======
+                case "Insulator":            
+>>>>>>> parent of 2c774ea... Merge pull request #60 from andrewman986/BrantSunday
                     d.equipmentName = "Ceramic Insulator";
                     break;
 
@@ -249,12 +259,21 @@ public class ConditionAssessment : MonoBehaviour
                 //    d.equipmentName = "Palm";
                 //    break;
 
+<<<<<<< HEAD
                 case "Transformer":
                     if (d.subName == "Transformer Single")
                         d.equipmentName = "Single Transformer";
                     else if (d.subName == "Transformer Double")
                         d.equipmentName = "Double Transformer";
                     else if (d.subName == "Transformer Triple")
+=======
+                case "Transformer":     
+                    if(d.subName == "Transformer Single")
+                        d.equipmentName = "Single Transformer";
+                    else if(d.subName == "Transformer Double")
+                        d.equipmentName = "Double Transformer";
+                    else if(d.subName == "Transformer Triple")
+>>>>>>> parent of 2c774ea... Merge pull request #60 from andrewman986/BrantSunday
                         d.equipmentName = "Triple Transformer";
                     break;
 
@@ -271,8 +290,13 @@ public class ConditionAssessment : MonoBehaviour
                     break;
 
                 //case "ObjectsOnWire":   //UPDATE
+<<<<<<< HEAD
                 //d.equipmentName = "Kite";
                 //break;
+=======
+                    //d.equipmentName = "Kite";
+                    //break;
+>>>>>>> parent of 2c774ea... Merge pull request #60 from andrewman986/BrantSunday
 
                 case "CapacitorBank":
                     d.equipmentName = "CAPACITOR";
@@ -290,7 +314,11 @@ public class ConditionAssessment : MonoBehaviour
                     d.equipmentName = "NEST";
                     break;
 
+<<<<<<< HEAD
                 case "DownGuy":
+=======
+                case "DownGuy":         
+>>>>>>> parent of 2c774ea... Merge pull request #60 from andrewman986/BrantSunday
                     d.equipmentName = "DOWN_GUY";
                     break;
 
@@ -305,7 +333,11 @@ public class ConditionAssessment : MonoBehaviour
 
             //get name
             tempForm.iconName = d.equipmentName;
+<<<<<<< HEAD
 
+=======
+            
+>>>>>>> parent of 2c774ea... Merge pull request #60 from andrewman986/BrantSunday
             //getPhase
             if (d.phase == 'A')
             {
@@ -387,7 +419,11 @@ public class ConditionAssessment : MonoBehaviour
                 {
                     fillFormPostSub(currentEquipmentName, IMAGE);
                     flag = 1;
+<<<<<<< HEAD
                 }
+=======
+                }              
+>>>>>>> parent of 2c774ea... Merge pull request #60 from andrewman986/BrantSunday
             }
         }
         foreach (Form la in UserInputList)
@@ -396,7 +432,11 @@ public class ConditionAssessment : MonoBehaviour
             {
                 fillForm(currentEquipmentName, "active");
             }
+<<<<<<< HEAD
             else if (la.iconName != currentIconName && flag == 0)
+=======
+            else if(la.iconName != currentIconName && flag == 0)
+>>>>>>> parent of 2c774ea... Merge pull request #60 from andrewman986/BrantSunday
             {
                 highlight(LD_1_IMG, "removed");
                 highlight(LD_3_IMG, "removed");
@@ -405,7 +445,7 @@ public class ConditionAssessment : MonoBehaviour
                 highlight(PHASE_B_IMG, "removed");
                 highlight(PHASE_C_IMG, "removed");
             }
-        }
+        }                
     }
 
     //Highlights the icon image depending on the state
