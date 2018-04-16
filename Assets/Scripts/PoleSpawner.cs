@@ -348,12 +348,12 @@ public class PoleSpawner : MonoBehaviour
             poleObjectArray[i].setInsulatorType("SC");
 
             //this will spawn depending on if it's wood or concrete pole. 0 is wood
-            if (poleObjectArray[i].poleMaterial.Equals(0)) {
+            if (poleObjectArray[i].getPoleMaterial().Equals(0)) {
                 Instantiate(crossarmBackMaterial[0], crossWoodVec, rotatebackWood);
                 //Debug.Log("The pole material is: " + poleObjectArray[i].poleMaterial);
             }
             //1 is concrete
-            else if (poleObjectArray[i].poleMaterial.Equals(1)) {
+            else if (poleObjectArray[i].getPoleMaterial().Equals(1)) {
                 Instantiate(crossarmBackMaterial[1], crossConcreteVec, rotatebackConcrete);
                 //Debug.Log("The pole material is: " + poleObjectArray[i].poleMaterial);
             }

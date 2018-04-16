@@ -4,40 +4,57 @@ using UnityEngine;
 
 public class PoleObject {
 
-    public int numberOfDamagedEquip;
+    private int numberOfDamagedEquip;
 
-    public int poleMaterial;        //0 = wood, 1 = concrete
-    public string insulatorType;    //V, M, T, SC, DC   
-    public int insulatorMaterial;   //0 for ..., 1 for polymer
-    public bool insulatorA;
-    public bool insulatorB;
-    public bool insulatorC;
-    public int insulatorDamage;
+    private int poleMaterial;        //0 = wood, 1 = concrete
+    private int poleDamage;
+    private string insulatorType;    //V, M, T, SC, DC   
+    private int insulatorMaterial;   //0 for ..., 1 for polymer
+    private bool insulatorA;
+    private bool insulatorB;
+    private bool insulatorC;
+    private int insulatorDamage;
 
-    public int deadendInsulator;
+    private int deadendInsulator;
+    private int capacitorBank;
+    private int transformer;
+    private int fuseSwitch;
+    private int lightningArrester;
+    private int recloser;
+    private int afs;
+    private int automaticLineSwitch;
+    private int pothead;
+    private int disconnectSwitch;
+    private int palm;
+    private int oak;
+    private int downguy;
+    private int fci;
+    private bool splice;
+    private bool balloon;
+    private bool nest;
+    private bool kite;
 
+    private bool deadendInsulatorSpawn;
+    private bool capacitorBankSpawn;
+    private bool transformerSpawn;
+    private bool fuseSwitchSpawn;
+    private bool lightningArresterSpawn;
+    private bool recloserSpawn;
+    private bool afsSpawn;
+    private bool automaticLineSwitchSpawn;
+    private bool potheadSpawn;
+    private bool disconnectSwitchSpawn;
+    private bool palmSpawn;
+    private bool oakSpawn;
+    private bool downguySpawn;
+    private bool fciSpawn;
+    private bool spliceSpawn;
+    private bool balloonSpawn;
+    private bool nestSpawn;
+    private bool kiteSpawn;
 
-    public int capacitorBank;
-    public int transformer;
-    public int fuseSwitch;
-    public int lightningArrester;
-    public int recloser;
-    public int afs;
-    public int automaticLineSwitch;
-    public int pothead;
-    public int disconnectSwitch;
-    public int palm;
-    public int oak;
-    public int downguy;
-    public int fci;
-
-    public bool splice;
-    public bool balloon;
-    public bool nest;
-    public bool kite;
-
-    public int equipmentType;
-    public int transformerCount;
+    private int equipmentType;
+    private int transformerCount;
 
     public ArrayList listOfDamagedEquip = new ArrayList();
 
