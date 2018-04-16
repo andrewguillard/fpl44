@@ -8,7 +8,7 @@ public class ConditionAssessment : MonoBehaviour
 {
     //Set default points to 5
     //If the user gets anything wrong, set points to 0
-    public static int points4quiz = 5;
+    public int points4quiz = 5;
 
     //This array holds all the "included" Form structs the user has filled out
     ArrayList UserInputList = new ArrayList();
@@ -106,11 +106,16 @@ public class ConditionAssessment : MonoBehaviour
 
     //Create a new Form struct
     Form form = new Form();
-    private bool gotdata = false;
+    public bool gotdata = false;
+    void start(){
+            resetToStart();
+
+    }
+
 
     void update()
     {
-        if (!gotdata && pole !=null)
+        if(gotdata && pole !=null)
         {
             // Create a temporary reference to the current scene.
             Scene currentScene = SceneManager.GetActiveScene();
@@ -125,7 +130,6 @@ public class ConditionAssessment : MonoBehaviour
                 AnswerKeyTest = getDataFromSelectiveScence(pole);
 
             gotdata = true;
-            resetToStart();
         }
     }
 

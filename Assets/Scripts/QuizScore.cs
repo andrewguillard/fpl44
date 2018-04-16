@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class QuizScore : MonoBehaviour
 {
+    
     public static Button SubmitQuizBtn;
     public static Text ScoreTxt;
     public int finalscoreInt = 0;
@@ -14,16 +15,21 @@ public class QuizScore : MonoBehaviour
     void Start()
     {
         //Get Components on the Quiz Screen
-        ScoreTxt = gameObject.transform.Find("ScoreTxt").GetComponent<Text>();
-        SubmitQuizBtn = gameObject.transform.Find("SubmitQuizBtn").GetComponent<Button>();
+        ScoreTxt = GameObject.Find("ScoreTxt").GetComponent<Text>();
+        SubmitQuizBtn = GameObject.Find("SubmitQuizBtn").GetComponent<Button>();
     }
 
     public void SubmitQuizBtn_OnClick()
     {
-        //foreach ()
-        //{
-        finalscoreInt += ConditionAssessment.points4quiz;
-        //}
+        GameObject CAFs = GameObject.Find("CAFs");
+
+        foreach(Transform caf in CAFs.transform)
+        {
+            Transform form = transform.Find("CAF_CANVAS");
+
+            ConditionAssessment f = form.GetComponent<ConditionAssessment>() ;
+            finalscoreInt +=  f.points4quiz;
+        }
 
         print("clicked");
         string finalscoreString = finalscoreInt.ToString();
