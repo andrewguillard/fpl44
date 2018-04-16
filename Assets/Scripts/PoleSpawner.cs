@@ -677,7 +677,7 @@ public class PoleSpawner : MonoBehaviour
         else if (i > 9) {
             //Quaternion rotateRec = Quaternion.Euler(0, 90, 0);
             Vector3 recVec = new Vector3(spawnRecloser[i].transform.position.x, spawnRecloser[i].transform.position.y, spawnRecloser[i].transform.position.z);
-            Instantiate(recloserMaterial[poleObjectArray[i].getRecloser()w], recVec, Quaternion.identity);
+            Instantiate(recloserMaterial[poleObjectArray[i].getRecloser()], recVec, Quaternion.identity);
         }
     }
 
