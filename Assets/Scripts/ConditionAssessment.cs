@@ -106,69 +106,27 @@ public class ConditionAssessment : MonoBehaviour
 
     //Create a new Form struct
     Form form = new Form();
+    private bool gotdata = false;
 
-    void Start()
+    void update()
     {
-        // Create a temporary reference to the current scene.
-        Scene currentScene = SceneManager.GetActiveScene();
+        if (!gotdata && pole !=null)
+        {
+            // Create a temporary reference to the current scene.
+            Scene currentScene = SceneManager.GetActiveScene();
 
-        // Retrieve the name of this scene.
-        string sceneName = currentScene.name;
-        print("SCENE: " + sceneName);
+            // Retrieve the name of this scene.
+            string sceneName = currentScene.name;
+            print("SCENE: " + sceneName);
 
-        #region get all the components
-        ICON_SELECTED_TXT = gameObject.transform.Find("ICON_SELECTED_TXT").GetComponent<Text>();
-        EQUIPMENT_DROPDWN = gameObject.transform.Find("EQUIPMENT_DROPDWN").GetComponent<Dropdown>();
-        EQUIPMENT_DROPDWN.onValueChanged.AddListener(delegate { myDropdownValueChangedHandler(EQUIPMENT_DROPDWN); });
+            if (sceneName == "SelectiveTraining" && pole != null)
+                AnswerKeyTest = getDataFromSelectiveScence(pole);
+            if (sceneName == "RandomizedTraining" || sceneName == "Quiz")
+                AnswerKeyTest = getDataFromSelectiveScence(pole);
 
-        DEFAULT_TXT = gameObject.transform.Find("DEFAULT_TXT").GetComponent<Text>();
-
-        PHASE_TXT = gameObject.transform.Find("PHASE_TXT").GetComponent<Text>();
-        PHASE_A_BTN = gameObject.transform.Find("PHASE_A_BTN").GetComponent<Button>();
-        PHASE_A_IMG = gameObject.transform.Find("PHASE_A_BTN/PHASE_A_IMG").GetComponent<Image>();
-        PHASE_B_BTN = gameObject.transform.Find("PHASE_B_BTN").GetComponent<Button>();
-        PHASE_B_IMG = gameObject.transform.Find("PHASE_B_BTN/PHASE_B_IMG").GetComponent<Image>();
-        PHASE_C_BTN = gameObject.transform.Find("PHASE_C_BTN").GetComponent<Button>();
-        PHASE_C_IMG = gameObject.transform.Find("PHASE_C_BTN/PHASE_C_IMG").GetComponent<Image>();
-
-        LD_TXT = gameObject.transform.Find("LD_TXT").GetComponent<Text>();
-        LD_1_BTN = gameObject.transform.Find("LD_1_BTN").GetComponent<Button>();
-        LD_1_IMG = gameObject.transform.Find("LD_1_BTN/LD_1_IMG").GetComponent<Image>();
-        LD_3_BTN = gameObject.transform.Find("LD_3_BTN").GetComponent<Button>();
-        LD_3_IMG = gameObject.transform.Find("LD_3_BTN/LD_3_IMG").GetComponent<Image>();
-        LD_5_BTN = gameObject.transform.Find("LD_5_BTN").GetComponent<Button>();
-        LD_5_IMG = gameObject.transform.Find("LD_5_BTN/LD_5_IMG").GetComponent<Image>();
-
-
-        INCLUDE_BTN = gameObject.transform.Find("INCLUDE_BTN").GetComponent<Button>();
-        DISCARD_BTN = gameObject.transform.Find("DISCARD_BTN").GetComponent<Button>();
-
-        OH_SWITCH_IMG = gameObject.transform.Find("OH_SWITCH_BTN/OH_SWITCH_IMG").GetComponent<Image>();
-        LIGHTNING_ARRESTER_IMG = gameObject.transform.Find("LIGHTNING_ARRESTER_BTN/LIGHTNING_ARRESTER_IMG").GetComponent<Image>();
-        INSULATOR_IMG = gameObject.transform.Find("INSULATOR_BTN/INSULATOR_IMG").GetComponent<Image>();
-        POLE_IMG = gameObject.transform.Find("POLE_BTN/POLE_IMG").GetComponent<Image>();
-        CROSS_ARM_IMG = gameObject.transform.Find("CROSS_ARM_BTN/CROSS_ARM_IMG").GetComponent<Image>();
-        VEGETATION_IMG = gameObject.transform.Find("VEGETATION_BTN/VEGETATION_IMG").GetComponent<Image>();
-        CONDUCTOR_IMG = gameObject.transform.Find("CONDUCTOR_BTN/CONDUCTOR_IMG").GetComponent<Image>();
-        OH_TRANSFORMER_IMG = gameObject.transform.Find("OH_TRANSFORMER_BTN/OH_TRANSFORMER_IMG").GetComponent<Image>();
-        OH_FUSE_SWITCH_IMG = gameObject.transform.Find("OH_FUSE_SWITCH_BTN/OH_FUSE_SWITCH_IMG").GetComponent<Image>();
-        CAPACITOR_IMG = gameObject.transform.Find("CAPACITOR_BTN/CAPACITOR_IMG").GetComponent<Image>();
-        CONNECTIONS_ON_FEEDER_CONDUCTOR_IMG = gameObject.transform.Find("CONNECTIONS_ON_FEEDER_CONDUCTOR_BTN/CONNECTIONS_ON_FEEDER_CONDUCTOR_IMG").GetComponent<Image>();
-        NEST_IMG = gameObject.transform.Find("NEST_BTN/NEST_IMG").GetComponent<Image>();
-        DOWN_GUY_IMG = gameObject.transform.Find("DOWN_GUY_BTN/DOWN_GUY_IMG").GetComponent<Image>();
-        RISER_SHIELD_IMG = gameObject.transform.Find("RISER_SHIELD_BTN/RISER_SHIELD_IMG").GetComponent<Image>();
-        FOREIGN_OBJECT_IN_WIRE_IMG = gameObject.transform.Find("FOREIGN_OBJECT_IN_WIRE_BTN/FOREIGN_OBJECT_IN_WIRE_IMG").GetComponent<Image>();
-        REGULATOR_IMG = gameObject.transform.Find("REGULATOR_BTN/REGULATOR_IMG").GetComponent<Image>();
-        RECLOSER_IMG = gameObject.transform.Find("RECLOSER_BTN/RECLOSER_IMG").GetComponent<Image>();
-        FAULT_CURRENT_INDICATOR_IMG = gameObject.transform.Find("FAULT_CURRENT_INDICATOR_BTN/FAULT_CURRENT_INDICATOR_IMG").GetComponent<Image>();
-        #endregion
-
-        resetToStart();
-
-        if (sceneName == "SelectiveTraining" && pole != null)
-            AnswerKeyTest = getDataFromSelectiveScence(pole);
-        if (sceneName == "RandomizedTraining" || sceneName == "Quiz")
-            AnswerKeyTest = getDataFromSelectiveScence(pole);
+            gotdata = true;
+            resetToStart();
+        }
     }
 
     //Get Answer Array from Selective Training Scene

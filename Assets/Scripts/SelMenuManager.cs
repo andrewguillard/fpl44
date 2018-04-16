@@ -4,8 +4,15 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class SelMenuManager : MonoBehaviour {
-    public GameObject[] buttonList;
+    HashSet<string> selection;
     public readonly string[] nameList = { "" , ""};
+
+    private void Awake()
+    {
+        selection = new HashSet<string>();
+        clearEquipMenu();
+
+    }
 
     public void clearEquipMenu()
     {
@@ -26,8 +33,23 @@ public class SelMenuManager : MonoBehaviour {
         }
     }
 
-    //public void loadSceneClick(string name)
-    //{
-    //    if(buttonList[])
-    //}
+    public void equipButtonClick(string name)
+    {
+        if (!selection.Add(name))
+        {
+            selection.Remove(name);
+        }
+    }
+
+    public string[] getSelectionArray()
+    {
+        string[] newstring = new string[selection.Count];
+        selection.CopyTo(newstring);
+        return newstring;
+    }
+    
+    public void clearSelection()
+    {
+        selection.Clear();
+    }
 }

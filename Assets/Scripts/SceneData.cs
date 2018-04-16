@@ -7,29 +7,28 @@ using System;
 public class SceneData : MonoBehaviour {
     public static string framing;
     public static int damageLevel = -1;
-    GameObject[] poles;
-
-    //for debug
-    public string[] testingData;
-
     //data generate from user selection;
     private static List<string> equipments = new List<string>();
     private static List<string> damages = new List<string>();
 
+    GameObject[] poles;
+    public SelMenuManager subMenuManager;
+    public string[] testingData;
+
     //constant list
-    readonly string[] OHSWITCH = {"OH Pothead Switch " }; //done 
-    readonly string[] LA = {"Lightning Arrester Polymer", "Lightning Arrester Ceramic"}; //done
+    readonly string[] OHSWITCH = {"OH Pothead Switch " };
+    readonly string[] LA = {"Lightning Arrester Polymer", "Lightning Arrester Ceramic"}; 
     readonly string[] INSULATOR = {"HInsulator", "VInsulator", "LInsulator"};
     readonly string[] POLE = {"Wooden Pole", "Concrete Pole"};
-    readonly string[] CROSSARM = { "Wooden Single", "Wooden Double" , "Concrete Single"};//, , "Concrete Pole"}; //done
-    readonly string[] VEGETATION = {"Palm Tree", "Oak Tree"}; //done 
-    readonly string[] OHTRANSFORMER = {"Transformer Single","Transformer Double","Transformer Triple"};//done
-    readonly string[] OHFUSE = { "OH Fuse Switch ALS", "OH Fuse Switch" }; // , 
+    readonly string[] CROSSARM = { "Wooden Single", "Wooden Double", "Concrete Single" };
+    readonly string[] VEGETATION = {"Palm Tree", "Oak Tree"}; 
+    readonly string[] OHTRANSFORMER = {"Transformer Single","Transformer Double","Transformer Triple"};
+    readonly string[] OHFUSE = { "OH Fuse Switch ALS", "OH Fuse Switch" };  
     readonly string[] CAPACITOR = {"Capacitor Bank"};
-    readonly string[] RECLOSER = {"Recloser" }; //done
-    readonly string[] CONNECTIONS = { "Splice"};//done
+    readonly string[] RECLOSER = {"Recloser" }; 
+    readonly string[] CONNECTIONS = { "Splice"};
     readonly string[] NEST = { "Nest"};
-    readonly string[] DOWNGUY= {"Down Guy" };//done
+    readonly string[] DOWNGUY= {"Down Guy" };
     readonly string[] OBJECT=  { "Kite" ,"Ballon"}; 
     readonly string[] AFS = {"Automatic Feeder Switch" }; 
     readonly string[] FCI = { "FCI" }; 
@@ -135,9 +134,7 @@ public class SceneData : MonoBehaviour {
                 addToList(CROSSARM, damages);
                 break;
             case "OHSwitch":
-                //add equipment to equipment list 
                 equipments.Add("OHPotheadSwitch");
-                //add equipment to generate damage
                 addToList(OHSWITCH, damages);
                 break;
             case "AFS":
@@ -147,11 +144,8 @@ public class SceneData : MonoBehaviour {
                 addToList(new string[] { "FCI" }, equipments, damages);
                 break;
             case "OHFuse":
-                //not add fuse switch to damage , add OH-FSand ALS
                 addToList(OHFUSE, equipments);
                 damages.Add("OH Fuse Switch");
-                //add all to damage
-
                 break;
             default:
                 Debug.LogError("Not a selection of equipment" + t);
@@ -177,24 +171,31 @@ public class SceneData : MonoBehaviour {
     }
 
 
-    public void clearEquip()
-    {
-        if(damages != null )
-            damages.Clear();
-        if (equipments != null)
-            equipments.Clear();
-    }
-
-    private void submitSelection()
-    {
-        //go through all button and add equipment
-
-    }
-
 	public void setDamageLevel(int i){
         damageLevel = i;
 	}
+    public void RandomizeTrainingload(string name)
+    {
+        string[] listofselection = { "OHSwitch", "AFS", "Insulator", "Pole", "Vegetation", "OHTransformer", "Capacitor", "Connections", "Recloser", "Nest", "DownGuy" };
 
+        bool[] visited = new bool[listofselection.Length];
+        for (int i = 0; i < 5; i++)
+        {
+            int ran = UnityEngine.Random.Range(0, listofselection.Length);
+            while (visited[ran])
+            {
+                ran = UnityEngine.Random.Range(0, listofselection.Length);
+
+            }
+            visited[ran] = true;
+            addDamageEquipment(listofselection[ran]);
+            print(listofselection[ran]);
+        }
+
+        setDamageLevel(-1);
+
+        SceneManager.LoadScene(name);
+    }
     public void loadScene(string sceneName)
     {
         print("button click and  load scene " + sceneName);
@@ -225,6 +226,8 @@ public class SceneData : MonoBehaviour {
         #endif
     }
 
+    
+
     public void clearData()
     {
         framing = null;
@@ -232,4 +235,18 @@ public class SceneData : MonoBehaviour {
         equipments = null;
         damageLevel = -1;
     }
+
+    public void SelectiveLoad()
+    {
+        //get data
+        string[] temp = subMenuManager.getSelectionArray();
+        foreach(string t in temp)
+        {
+            addDamageEquipment(t);
+        }
+
+        SceneManager.LoadScene("SelectiveTraining");
+    }
+
+
 }

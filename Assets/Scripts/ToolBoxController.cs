@@ -4,8 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class ToolBoxController : MonoBehaviour {
-    public GameObject compass;
-    public GameObject Binocular;
+    [SerializeField] private GameObject compass;
+    [SerializeField] private GameObject Binocular;
 
     // Use this for initialization
     void Start () {
@@ -23,7 +23,9 @@ public class ToolBoxController : MonoBehaviour {
     }
     void binocularButton()
     {
+        print("Binocular is pressing");
         Binocular.SetActive(!Binocular.activeSelf);
+        print(Binocular.gameObject);
     }
 
 
