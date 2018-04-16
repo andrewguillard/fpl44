@@ -342,7 +342,7 @@ public class ConditionAssessment : MonoBehaviour
             }
 
             //if the equipment is not an Insulator, then set all phases to false
-            if (d.equipmentname != "Insulator" && d.equipmentname != "Insulator Polymer" && d.equipmentname != "Insulator Ceramic")
+            if (d.equipmentName != "Insulator" && d.equipmentName != "Insulator Polymer" && d.equipmentName != "Insulator Ceramic")
             {
                 tempForm.phaseA = false;
                 tempForm.phaseB = false;
