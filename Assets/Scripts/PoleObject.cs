@@ -14,7 +14,7 @@ public class PoleObject {
     private bool insulatorB;
     private bool insulatorC;
     private int insulatorDamage;
-    //test
+    //test if this was pushed
 
     private int deadendInsulator;
     private int capacitorBank;
