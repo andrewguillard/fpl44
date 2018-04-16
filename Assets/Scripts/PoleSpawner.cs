@@ -831,104 +831,192 @@ public class PoleSpawner : MonoBehaviour
             Instantiate(automaticLineSwitchMaterial[0], alsVec, rotateAls);
         }
     }
-    //spawnTreeLoc5;
-    //spawnTreeLoc3;
-    //spawnTreeLoc1;
-    //spawnTreeLoc0;
 
-    public void generateTree(int i, int severityLevel, int materialLevel) {
+    public void generateTree(int i) {
         //treeMaterial
         //spawnTree
-        if (severityLevel == 3)
-        {
-            if (i <= 9)
+        if (poleObjectArray[i].getOakSpawn() == false && poleObjectArray[i].getPalmSpawn() == false)
+            return;
+        if(poleObjectArray[i].getOakSpawn() == true) {
+            int severityLevel = poleObjectArray[i].getOak();
+            if (severityLevel == 3)
             {
-                //Quaternion rotateTranRight = Quaternion.Euler(0, -90, 0);
-                Vector3 treeVec = new Vector3(spawnTreeLoc5[i].transform.position.x, spawnTreeLoc5[i].transform.position.y, spawnTreeLoc5[i].transform.position.z);
-                Instantiate(treeMaterial[materialLevel], treeVec, Quaternion.identity);
+                if (i <= 9)
+                {
+                    //Quaternion rotateTranRight = Quaternion.Euler(0, -90, 0);
+                    Vector3 treeVec = new Vector3(spawnTreeLoc5[i].transform.position.x, spawnTreeLoc5[i].transform.position.y, spawnTreeLoc5[i].transform.position.z);
+                    Instantiate(treeMaterial[1], treeVec, Quaternion.identity);
+                }
+                else if (i > 9)
+                {
+                    //Quaternion rotateTranRight = Quaternion.Euler(0, -180, 0);
+                    Vector3 treeVec = new Vector3(spawnTreeLoc5[i].transform.position.x, spawnTreeLoc5[i].transform.position.y, spawnTreeLoc5[i].transform.position.z);
+                    Instantiate(treeMaterial[1], treeVec, Quaternion.identity);
+                }
             }
-            else if (i > 9)
+            else if (severityLevel == 2)
             {
-                //Quaternion rotateTranRight = Quaternion.Euler(0, -180, 0);
-                Vector3 treeVec = new Vector3(spawnTreeLoc5[i].transform.position.x, spawnTreeLoc5[i].transform.position.y, spawnTreeLoc5[i].transform.position.z);
-                Instantiate(treeMaterial[materialLevel], treeVec, Quaternion.identity);
+                if (i <= 9)
+                {
+                    //Quaternion rotateTranRight = Quaternion.Euler(0, -90, 0);
+                    Vector3 treeVec = new Vector3(spawnTreeLoc3[i].transform.position.x, spawnTreeLoc3[i].transform.position.y, spawnTreeLoc3[i].transform.position.z);
+                    Instantiate(treeMaterial[1], treeVec, Quaternion.identity);
+                }
+                else if (i > 9)
+                {
+                    //Quaternion rotateTranRight = Quaternion.Euler(0, -180, 0);
+                    Vector3 treeVec = new Vector3(spawnTreeLoc3[i].transform.position.x, spawnTreeLoc3[i].transform.position.y, spawnTreeLoc3[i].transform.position.z);
+                    Instantiate(treeMaterial[1], treeVec, Quaternion.identity);
+                }
+            }
+            else if (severityLevel == 1)
+            {
+                if (i <= 9)
+                {
+                    //Quaternion rotateTranRight = Quaternion.Euler(0, -90, 0);
+                    Vector3 treeVec = new Vector3(spawnTreeLoc1[i].transform.position.x, spawnTreeLoc1[i].transform.position.y, spawnTreeLoc1[i].transform.position.z);
+                    Instantiate(treeMaterial[1], treeVec, Quaternion.identity);
+                }
+                else if (i > 9)
+                {
+                    //Quaternion rotateTranRight = Quaternion.Euler(0, -180, 0);
+                    Vector3 treeVec = new Vector3(spawnTreeLoc1[i].transform.position.x, spawnTreeLoc1[i].transform.position.y, spawnTreeLoc1[i].transform.position.z);
+                    Instantiate(treeMaterial[1], treeVec, Quaternion.identity);
+                }
+            }
+            else if (severityLevel == 0)
+            {
+                if (i <= 9)
+                {
+                    //Quaternion rotateTranRight = Quaternion.Euler(0, -90, 0);
+                    Vector3 treeVec = new Vector3(spawnTreeLoc0[i].transform.position.x, spawnTreeLoc0[i].transform.position.y, spawnTreeLoc0[i].transform.position.z);
+                    Instantiate(treeMaterial[1], treeVec, Quaternion.identity);
+                }
+                else if (i > 9)
+                {
+                    //Quaternion rotateTranRight = Quaternion.Euler(0, -180, 0);
+                    Vector3 treeVec = new Vector3(spawnTreeLoc0[i].transform.position.x, spawnTreeLoc0[i].transform.position.y, spawnTreeLoc0[i].transform.position.z);
+                    Instantiate(treeMaterial[1], treeVec, Quaternion.identity);
+                }
             }
         }
-        else if (severityLevel == 2)
+        else if (poleObjectArray[i].getPalmSpawn() == true)
         {
-            if (i <= 9)
+            int severityLevel = poleObjectArray[i].getPalm();
+            if (severityLevel == 3)
             {
-                //Quaternion rotateTranRight = Quaternion.Euler(0, -90, 0);
-                Vector3 treeVec = new Vector3(spawnTreeLoc3[i].transform.position.x, spawnTreeLoc3[i].transform.position.y, spawnTreeLoc3[i].transform.position.z);
-                Instantiate(treeMaterial[materialLevel], treeVec, Quaternion.identity);
+                if (i <= 9)
+                {
+                    //Quaternion rotateTranRight = Quaternion.Euler(0, -90, 0);
+                    Vector3 treeVec = new Vector3(spawnTreeLoc5[i].transform.position.x, spawnTreeLoc5[i].transform.position.y, spawnTreeLoc5[i].transform.position.z);
+                    Instantiate(treeMaterial[0], treeVec, Quaternion.identity);
+                }
+                else if (i > 9)
+                {
+                    //Quaternion rotateTranRight = Quaternion.Euler(0, -180, 0);
+                    Vector3 treeVec = new Vector3(spawnTreeLoc5[i].transform.position.x, spawnTreeLoc5[i].transform.position.y, spawnTreeLoc5[i].transform.position.z);
+                    Instantiate(treeMaterial[0], treeVec, Quaternion.identity);
+                }
             }
-            else if (i > 9)
+            else if (severityLevel == 2)
             {
-                //Quaternion rotateTranRight = Quaternion.Euler(0, -180, 0);
-                Vector3 treeVec = new Vector3(spawnTreeLoc3[i].transform.position.x, spawnTreeLoc3[i].transform.position.y, spawnTreeLoc3[i].transform.position.z);
-                Instantiate(treeMaterial[materialLevel], treeVec, Quaternion.identity);
+                if (i <= 9)
+                {
+                    //Quaternion rotateTranRight = Quaternion.Euler(0, -90, 0);
+                    Vector3 treeVec = new Vector3(spawnTreeLoc3[i].transform.position.x, spawnTreeLoc3[i].transform.position.y, spawnTreeLoc3[i].transform.position.z);
+                    Instantiate(treeMaterial[0], treeVec, Quaternion.identity);
+                }
+                else if (i > 9)
+                {
+                    //Quaternion rotateTranRight = Quaternion.Euler(0, -180, 0);
+                    Vector3 treeVec = new Vector3(spawnTreeLoc3[i].transform.position.x, spawnTreeLoc3[i].transform.position.y, spawnTreeLoc3[i].transform.position.z);
+                    Instantiate(treeMaterial[0], treeVec, Quaternion.identity);
+                }
             }
-        }
-        else if (severityLevel == 1)
-        {
-            if (i <= 9)
+            else if (severityLevel == 1)
             {
-                //Quaternion rotateTranRight = Quaternion.Euler(0, -90, 0);
-                Vector3 treeVec = new Vector3(spawnTreeLoc1[i].transform.position.x, spawnTreeLoc1[i].transform.position.y, spawnTreeLoc1[i].transform.position.z);
-                Instantiate(treeMaterial[materialLevel], treeVec, Quaternion.identity);
+                if (i <= 9)
+                {
+                    //Quaternion rotateTranRight = Quaternion.Euler(0, -90, 0);
+                    Vector3 treeVec = new Vector3(spawnTreeLoc1[i].transform.position.x, spawnTreeLoc1[i].transform.position.y, spawnTreeLoc1[i].transform.position.z);
+                    Instantiate(treeMaterial[0], treeVec, Quaternion.identity);
+                }
+                else if (i > 9)
+                {
+                    //Quaternion rotateTranRight = Quaternion.Euler(0, -180, 0);
+                    Vector3 treeVec = new Vector3(spawnTreeLoc1[i].transform.position.x, spawnTreeLoc1[i].transform.position.y, spawnTreeLoc1[i].transform.position.z);
+                    Instantiate(treeMaterial[0], treeVec, Quaternion.identity);
+                }
             }
-            else if (i > 9)
+            else if (severityLevel == 0)
             {
-                //Quaternion rotateTranRight = Quaternion.Euler(0, -180, 0);
-                Vector3 treeVec = new Vector3(spawnTreeLoc1[i].transform.position.x, spawnTreeLoc1[i].transform.position.y, spawnTreeLoc1[i].transform.position.z);
-                Instantiate(treeMaterial[materialLevel], treeVec, Quaternion.identity);
-            }
-        }
-        else if (severityLevel == 0)
-        {
-            if (i <= 9)
-            {
-                //Quaternion rotateTranRight = Quaternion.Euler(0, -90, 0);
-                Vector3 treeVec = new Vector3(spawnTreeLoc0[i].transform.position.x, spawnTreeLoc0[i].transform.position.y, spawnTreeLoc0[i].transform.position.z);
-                Instantiate(treeMaterial[materialLevel], treeVec, Quaternion.identity);
-            }
-            else if (i > 9)
-            {
-                //Quaternion rotateTranRight = Quaternion.Euler(0, -180, 0);
-                Vector3 treeVec = new Vector3(spawnTreeLoc0[i].transform.position.x, spawnTreeLoc0[i].transform.position.y, spawnTreeLoc0[i].transform.position.z);
-                Instantiate(treeMaterial[materialLevel], treeVec, Quaternion.identity);
+                if (i <= 9)
+                {
+                    //Quaternion rotateTranRight = Quaternion.Euler(0, -90, 0);
+                    Vector3 treeVec = new Vector3(spawnTreeLoc0[i].transform.position.x, spawnTreeLoc0[i].transform.position.y, spawnTreeLoc0[i].transform.position.z);
+                    Instantiate(treeMaterial[0], treeVec, Quaternion.identity);
+                }
+                else if (i > 9)
+                {
+                    //Quaternion rotateTranRight = Quaternion.Euler(0, -180, 0);
+                    Vector3 treeVec = new Vector3(spawnTreeLoc0[i].transform.position.x, spawnTreeLoc0[i].transform.position.y, spawnTreeLoc0[i].transform.position.z);
+                    Instantiate(treeMaterial[0], treeVec, Quaternion.identity);
+                }
             }
         }
     }
 
     public void generateNest(int i) {
-        if (i <= 9)
+        if (poleObjectArray[i].getNestSpawn() == false) {
+            return;
+        }
+        else if (i <= 9 && poleObjectArray[i].getNestSpawn() == true)
         {
             Vector3 nestVec = new Vector3(spawnNest[i].transform.position.x, spawnNest[i].transform.position.y, spawnNest[i].transform.position.z);
             Instantiate(nestMaterial[0], nestVec, Quaternion.identity);
         }
-        else if (i > 9)
+        else if (i > 9 && poleObjectArray[i].getNestSpawn() == true)
         {
             Vector3 nestVec = new Vector3(spawnNest[i].transform.position.x, spawnNest[i].transform.position.y, spawnNest[i].transform.position.z);
             Instantiate(nestMaterial[0], nestVec, Quaternion.identity);
-        }
+        } 
     }
 
     //Balloon == 0 or Kite  == 1
     public void generateBalloon(int i)  {
-        if (i <= 9)
-        {
-            //Quaternion rotateTranRight = Quaternion.Euler(0, -90, 0);
-            Vector3 afsVec = new Vector3(spawnBalloon[i].transform.position.x, spawnBalloon[i].transform.position.y, spawnBalloon[i].transform.position.z);
-            Instantiate(balloonMaterial[1], afsVec, Quaternion.identity);
+        if (poleObjectArray[i].getBalloonSpawn() == false && poleObjectArray[i].getKiteSpawn() == false)
+            return;
+        if(poleObjectArray[i].getBalloonSpawn() == true) { 
+            if (i <= 9)
+            {
+                //Quaternion rotateTranRight = Quaternion.Euler(0, -90, 0);
+                Vector3 afsVec = new Vector3(spawnBalloon[i].transform.position.x, spawnBalloon[i].transform.position.y, spawnBalloon[i].transform.position.z);
+                Instantiate(balloonMaterial[0], afsVec, Quaternion.identity);
+            }
+            else if (i > 9)
+            {
+                Quaternion rotateBalloon = Quaternion.Euler(0, -90, 0);
+                Vector3 afsVec = new Vector3(spawnBalloon[i].transform.position.x, spawnBalloon[i].transform.position.y, spawnBalloon[i].transform.position.z);
+                Instantiate(balloonMaterial[0], afsVec, rotateBalloon);
+            }
         }
-        else if (i > 9)
+        else if (poleObjectArray[i].getKiteSpawn() == true)
         {
-            Quaternion rotateBalloon = Quaternion.Euler(0, -90, 0);
-            Vector3 afsVec = new Vector3(spawnBalloon[i].transform.position.x, spawnBalloon[i].transform.position.y, spawnBalloon[i].transform.position.z);
-            Instantiate(balloonMaterial[1], afsVec, rotateBalloon);
+            if (i <= 9)
+            {
+                //Quaternion rotateTranRight = Quaternion.Euler(0, -90, 0);
+                Vector3 afsVec = new Vector3(spawnBalloon[i].transform.position.x, spawnBalloon[i].transform.position.y, spawnBalloon[i].transform.position.z);
+                Instantiate(balloonMaterial[1], afsVec, Quaternion.identity);
+            }
+            else if (i > 9)
+            {
+                Quaternion rotateBalloon = Quaternion.Euler(0, -90, 0);
+                Vector3 afsVec = new Vector3(spawnBalloon[i].transform.position.x, spawnBalloon[i].transform.position.y, spawnBalloon[i].transform.position.z);
+                Instantiate(balloonMaterial[1], afsVec, rotateBalloon);
+            }
         }
     }
+
 
     //laMaterial;
     //spawnLa;
@@ -969,36 +1057,57 @@ public class PoleSpawner : MonoBehaviour
             Instantiate(laMaterial[0], la3Vec, rotateLa);
         }
     }
+    //int severityLevel, int materialLevel
 
+    //0 palm, 1 oak
     public void spawnEquipmentType(int i) {
-        if (poleObjectArray[i].getEquipmentType() == 0)
-            return;
-        else if (poleObjectArray[i].getEquipmentType() == 1) {
+        if (poleObjectArray[i].getEquipmentType() == 0) {
+            spawnSecondaryEquip(i);
+        }
+        else if (poleObjectArray[i].getEquipmentType() == 1)
+        {
             generateCapcitorBank(i);
             generateFuseSwitch(i);
             //spawnCapacitorWires(i);
+            spawnSecondaryEquip(i);
         }
         else if (poleObjectArray[i].getEquipmentType() == 2)
         {
             generateTransformer(i);
+            spawnSecondaryEquip(i);
         }
-        else if (poleObjectArray[i].getEquipmentType() == 3) {
+        else if (poleObjectArray[i].getEquipmentType() == 3)
+        {
             generateRecloser(i);
+            spawnSecondaryEquip(i);
         }
-        else if (poleObjectArray[i].getEquipmentType() == 4) {
+        else if (poleObjectArray[i].getEquipmentType() == 4)
+        {
             generateAfs(i);
+            spawnSecondaryEquip(i);
         }
-        else if (poleObjectArray[i].getEquipmentType() == 5) {
+        else if (poleObjectArray[i].getEquipmentType() == 5)
+        {
             generatePothead(i);
             generateDcSwitch(i);
+            spawnSecondaryEquip(i);
         }
-        else if (poleObjectArray[i].getEquipmentType() == 6) {
+        else if (poleObjectArray[i].getEquipmentType() == 6)
+        {
             generateAutomaticLineSwitch(i);
+            spawnSecondaryEquip(i);
         }
         else if (poleObjectArray[i].getEquipmentType() == 7)
         {
             generateLa(i);
+            spawnSecondaryEquip(i);
         }
+    }
+
+    public void spawnSecondaryEquip(int i) {
+        generateBalloon(i);
+        generateTree(i);
+        generateNest(i);
     }
 
     public void spawnCAF(int i) {
@@ -1034,8 +1143,10 @@ public class PoleSpawner : MonoBehaviour
         {
             poleObjectArray[i] = new PoleObject();
             poleObjectArray[i].setEquipmentType(getRandom(8));
-            poleObjectArray[i].setNumberOfDamagedEquip(Random.Range(0,2));
+            poleObjectArray[i].setNumberOfDamagedEquip(Random.Range(0,4));
             poleObjectArray[i].setDamageToItems();
+            spawnEquipmentType(i);
+            //spawnSecondaryEquip(i);
         }
 
 
@@ -1182,7 +1293,7 @@ public class PoleSpawner : MonoBehaviour
                 }
             }
             //This randomizes equipment
-            spawnEquipmentType(i);
+
 
 
             //generateLa(i);
@@ -1199,8 +1310,9 @@ public class PoleSpawner : MonoBehaviour
             //generateCapcitorBank(i);
             //generateFuseSwitch(i);
             //generateRecloser(i);
-            
+
             //spawnCAF(i);
+            
         }
         /*
         for (int i = 0; i < 21; i++) {
@@ -1219,6 +1331,12 @@ public class PoleSpawner : MonoBehaviour
         for (int i = 0; i < 21; i++)
         {
             Debug.Log("The number of damaged items is: "+poleObjectArray[i].getNumberOfDamagedEquip() );
+        }
+        //printDamagedList();
+        for (int i = 0; i < 21; i++)
+        {
+            Debug.Log("Damage list for pole #"+i+" with "+ poleObjectArray[i].getNumberOfDamagedEquip() + " dmg equipment:");
+            poleObjectArray[i].printDamagedList();
         }
 
         //Debug.Log("Number of pole objects: " + poleObjectArray.Length);
