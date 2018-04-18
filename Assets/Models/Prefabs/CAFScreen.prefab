@@ -1241,6 +1241,7 @@ GameObject:
   - component: {fileID: 223072507253991192}
   - component: {fileID: 114047660557553552}
   - component: {fileID: 114210870703191662}
+  - component: {fileID: 114108726838685574}
   - component: {fileID: 114906081770195604}
   - component: {fileID: 114400283585784926}
   m_Layer: 5
@@ -2741,6 +2742,19 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: VEGETATION
+--- !u!114 &114108726838685574
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1734032447417948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1518a5e598c7da244bc4850d3ae63354, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clickOnPointerCollision: 0
+  autoActivateWithinDistance: 0
 --- !u!114 &114110446062670686
 MonoBehaviour:
   m_ObjectHideFlags: 1

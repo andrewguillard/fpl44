@@ -160,7 +160,7 @@ public class ConditionAssessment : MonoBehaviour
     }
 
 
-    void update()
+    void Update()
     {
         if(gotdata && pole !=null)
         {
