@@ -162,7 +162,7 @@ public class ConditionAssessment : MonoBehaviour
 
     void Update()
     {
-        if(gotdata && pole !=null)
+        if(!gotdata && pole !=null)
         {
             // Create a temporary reference to the current scene.
             Scene currentScene = SceneManager.GetActiveScene();
