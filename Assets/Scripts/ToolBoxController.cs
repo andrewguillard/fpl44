@@ -6,19 +6,22 @@ using UnityEngine.UI;
 public class ToolBoxController : MonoBehaviour {
     [SerializeField] private GameObject compass;
     [SerializeField] private GameObject Binocular;
+    [SerializeField] private Button compassBtn;
+    [SerializeField] private Button binocularBtn;
+
 
     // Use this for initialization
     void Start () {
-        Button compassBtn = GameObject.Find("CompassBtn").GetComponent<Button>();
-        Button binocularBtn = GameObject.Find("BinocularBtn").GetComponent<Button>();
-
-        compassBtn.onClick.AddListener(CompassButton);
-        binocularBtn.onClick.AddListener(binocularButton);
+        if (compassBtn.gameObject.activeSelf)
+            compassBtn.onClick.AddListener(CompassButton);
+        if(binocularBtn.gameObject.activeSelf)
+            binocularBtn.onClick.AddListener(binocularButton);
 
     }
 
     void CompassButton()
     {
+        print("Compass btn is pressed");
         compass.SetActive(!compass.activeSelf);
     }
     void binocularButton()
