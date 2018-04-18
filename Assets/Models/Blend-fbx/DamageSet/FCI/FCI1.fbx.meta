@@ -1,31 +1,35 @@
 fileFormatVersion: 2
-guid: 59cfa743664ed4446b180e10667d1ee3
-timeCreated: 1523859190
+guid: e3ce25359d0c34c41835a375284f950f
+timeCreated: 1524080033
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: Cylinder
-    100002: //RootNode
-    100004: InPoint
-    100006: OutPoint
-    400000: Cylinder
-    400002: //RootNode
-    400004: InPoint
-    400006: OutPoint
-    2100000: No Name
-    2100002: RecPart
-    2100004: RoundPlate.002
-    2300000: Cylinder
+    100000: //RootNode
+    100002: InPoint
+    100004: OutPoint
+    400000: //RootNode
+    400002: InPoint
+    400004: OutPoint
+    2100000: RecPart
+    2100002: Burn
+    2100004: No Name
+    2100006: RoundPlate.002
+    2300000: //RootNode
     2300002: InPoint
     2300004: OutPoint
-    3300000: Cylinder
+    3300000: //RootNode
     3300002: InPoint
     3300004: OutPoint
-    4300000: OutPoint
+    4300000: Cylinder
     4300002: InPoint
-    4300004: Cylinder
+    4300004: OutPoint
   externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Burn
+    second: {fileID: 2100000, guid: d96504558c3f1af4c917a408f2644f44, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -36,11 +40,6 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: RecPart
     second: {fileID: 2100000, guid: cebfed158d0f63b49b2f8c142a5617a3, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: RoundPlate.002
-    second: {fileID: 2100000, guid: 8381d2a8dcce4804aa259e10def98c01, type: 3}
   materials:
     importMaterials: 1
     materialName: 0
