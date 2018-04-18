@@ -12,7 +12,7 @@ public class wireConnect2 : MonoBehaviour
 
     void Start()
     {
-
+        WireConnect();
     }
 
     // Use this for initialization

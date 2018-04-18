@@ -8,9 +8,9 @@ public class DamagesScript : MonoBehaviour {
     public string[] nameObjectToReplace;
     public void setDamage(int level)
     {
-        if(transform.GetComponent<Data>() != null)
+        if(transform.GetComponent<Data>() == null)
         {
-            Debug.Log("No Data for old " + transform.name + " to swap to damage");
+            Debug.Log("No Data for old " + transform.parent.name+"/"+transform.name + " to swap to damage");
         }
 
         Data oldData = transform.GetComponent<Data>();

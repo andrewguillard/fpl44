@@ -12,7 +12,15 @@ public class PoleGeneration : MonoBehaviour {
     private GameObject[] poleList;  //list of all poles that are instatiated
 
     private SceneData menuSelected;
-
+    [SerializeField] private GameObject poleSet;
+    void Start()
+    {
+        poleSet.SetActive(true);
+        startSpot.SetActive(true);
+        CornerPole.SetActive(true);
+        generatePoles();
+        GameObject.Find("SceneManager").GetComponent<SceneData>().setPoles(poleList);
+    }
     // Use this for initialization
     public void generatePoles()
     {

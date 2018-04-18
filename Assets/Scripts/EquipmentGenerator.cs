@@ -5,6 +5,14 @@ using UnityEngine;
 public class EquipmentGenerator : MonoBehaviour
 {
     public GameObject EquipmentSet;
+    public GameObject[] poleList;
+    void Start()
+    {
+        EquipmentSet.SetActive(true);
+        SceneData data = GameObject.Find("SceneManager").GetComponent<SceneData>();
+        poleList = data.getPoles();
+        generateEquipment(GameObject.Find("SceneManager").GetComponent<SceneData>());
+    }
 
     public void generateEquipment(SceneData data)
     {
@@ -16,7 +24,7 @@ public class EquipmentGenerator : MonoBehaviour
 
         EquipmentSet.SetActive(true);
         string[] equips = data.getEquipmentArray();
-        GameObject[] poleList = data.getPoles();
+        poleList = data.getPoles();
 
         //list of prefab to store and spawn
         HashSet<GameObject> listPrefab = new HashSet<GameObject>();
@@ -35,6 +43,10 @@ public class EquipmentGenerator : MonoBehaviour
             if (equip.Equals("Down Guy") || equip.Equals("DownGuy"))
             {
                 GameObject prefabDG = EquipmentSet.transform.Find("DownGuy").gameObject;
+                if(prefabDG == null)
+                {
+                    Debug.LogError("Can't find downguy");
+                }
                 Instantiate(prefabDG, poleList[10].transform);
                 continue;
             }
