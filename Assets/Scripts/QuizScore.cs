@@ -10,7 +10,8 @@ public class QuizScore : MonoBehaviour
     public static Button SubmitQuizBtn;
     public static Text ScoreTxt;
     public int finalscoreInt = 0;
-
+    private bool beenClicked = false;
+    [SerializeField] private GameObject CAFs;
     // Use this for initialization
     void Start()
     {
@@ -21,18 +22,40 @@ public class QuizScore : MonoBehaviour
 
     public void SubmitQuizBtn_OnClick()
     {
-        GameObject CAFs = GameObject.Find("CAFs");
-
-        foreach(Transform caf in CAFs.transform)
+        if (!beenClicked)
         {
-            Transform form = transform.Find("CAF_CANVAS");
+            if (CAFs == null)
+            {
+                CAFs = GameObject.Find("CAFs");
+            }
 
-            ConditionAssessment f = form.GetComponent<ConditionAssessment>() ;
-            finalscoreInt +=  f.points4quiz;
+            foreach (Transform caf in CAFs.transform)
+            {
+                Transform form = transform.Find("CAF_CANVAS");
+
+                ConditionAssessment f = null;
+                foreach (Transform childInCAF in caf)
+                {
+                    if (childInCAF.GetComponent<ConditionAssessment>() != null)
+                    {
+                        f = childInCAF.GetComponent<ConditionAssessment>();
+                        finalscoreInt += f.points4quiz;
+                        print(caf.name + "/" + childInCAF.name + ": " + f.points4quiz);
+                    }
+
+                }
+
+                if (f == null)
+                {
+                    Debug.LogError("Not found script");
+                }
+
+            }
+
+            string finalscoreString = finalscoreInt.ToString();
+            ScoreTxt.text = finalscoreString;
+            beenClicked = true;
         }
 
-        print("clicked");
-        string finalscoreString = finalscoreInt.ToString();
-        ScoreTxt.text = finalscoreString;
     }
 }

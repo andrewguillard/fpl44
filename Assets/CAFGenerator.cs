@@ -15,7 +15,7 @@ public class CAFGenerator : MonoBehaviour {
     {
         poles =  GameObject.Find("SceneManager").GetComponent<SceneData>().getPoles();
 
-        GameObject CAFs = new GameObject("CAFs");
+        GameObject CAFs = gameObject;
 
         foreach (GameObject pole in poles)
         {

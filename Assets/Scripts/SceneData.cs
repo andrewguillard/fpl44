@@ -176,10 +176,11 @@ public class SceneData : MonoBehaviour {
 	}
     public void RandomizeTrainingload(string name)
     {
-        string[] listofselection = { "OHSwitch", "AFS", "Insulator", "Pole", "Vegetation", "OHTransformer", "Capacitor", "Connections", "Recloser", "Nest", "DownGuy" };
+        string[] listofselection = { "OHSwitch", "AFS", "Insulator", "Pole", "Vegetation",
+            "OHTransformer", "Capacitor", "Connections", "Recloser", "Nest", "DownGuy" ,"FCI", "CrossArm","ForeignObject","LightningArrester"};
 
         bool[] visited = new bool[listofselection.Length];
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < listofselection.Length; i++)
         {
             int ran = UnityEngine.Random.Range(0, listofselection.Length);
             while (visited[ran])
