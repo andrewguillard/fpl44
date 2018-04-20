@@ -15,8 +15,11 @@ public class FCIsScript : MonoBehaviour {
         {
             FCIList[i] = Instantiate(FCI,transform);
             FCIList[i].transform.name = "FCI" + i;
+            FCIScript currentFCIScript = FCIList[i].GetComponent<FCIScript>();
+
             FCIList[i].transform.parent = transform;
-            FCIList[i].GetComponent<FCIScript>().setFCI(transform.parent.GetComponent<PoleData>(), i);
+            currentFCIScript.setFCI(transform.parent.GetComponent<PoleData>(), i);
+            currentFCIScript.fciObject.gameObject.name = "FCI" + i + i;
         }
 	}
 

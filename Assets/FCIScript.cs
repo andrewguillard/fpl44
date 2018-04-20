@@ -6,7 +6,7 @@ public class FCIScript : MonoBehaviour {
     [SerializeField] private GameObject inPoint;
     [SerializeField] private GameObject outPoint;
     [SerializeField] private PoleGeneration poleGenerator;
-
+    public GameObject fciObject;
     private readonly float DISTANCE = 4;
     // Use this for initialization
     public void setFCI (PoleData pole, int phaseNum) {
@@ -20,13 +20,13 @@ public class FCIScript : MonoBehaviour {
         }
         else
         {
-            loc.y -= DISTANCE;
+            loc.z -= DISTANCE;
         }
 
         transform.position = loc;
         //wire Connect
         GameObject startPoint = pole.wireOutPoints[phaseNum];
-        GameObject endPoint;
+        GameObject endPoint = null;
         if (startPoint.GetComponent<CableScript>() != null)
         {
             endPoint = startPoint.GetComponent<CableScript>().getEndPoint();
@@ -40,8 +40,8 @@ public class FCIScript : MonoBehaviour {
                 UtilityFunctions.lineConnect(outPoint, endPoint, 0.07f, 5, 0.2f);
 
             }
-
         }
+        pole.wireOutPoints[phaseNum] = outPoint;
     }
 
 }

@@ -67,8 +67,19 @@ public class DamagesScript : MonoBehaviour {
                 //GameObject oldObj = UtilityFunctions.findInChild(transform, tempName).gameObject;
                 if (transform.name == "AFS")
                     oldObj = transform.GetComponent<AFSScript>().equipment;
+                else if (tempName.Contains("FCI"))
+                {
+                    if (Random.Range(0, 2) == 1)
+                        return;
+                    oldObj = UtilityFunctions.findInChild(transform, tempName).gameObject;
+
+                }
                 else
-                    oldObj = transform.Find(tempName).gameObject;
+                {
+                    //print("Finding game object " + tempName);
+                    oldObj = UtilityFunctions.findInChild(transform, tempName).gameObject;
+                        //transform.Find(tempName).gameObject;
+                }
 
                 //
                 if (oldObj == null)
