@@ -1,11 +1,12 @@
 Virtual Reality Condition Assessment Application 
 (Group 44)
-Sponsored by: The Florida Power and Light Company
-  Eric Schwartz: Lead Project Manager for Smart Grid and Innovation at FPL
-  David Young: Product Engineer - Technical Services Line Team
-
+Sponsored by: The Florida Power and Light CompanY
+	Eric Schwartz: Lead Project Manager for Smart Grid and Innovation at FPL
+	David Young: Product Engineer - Technical Services Line Team
 Developed by:
-Andrew Guillard               
-Cuong Nguyen                 
-Brant Rieder
-Julia Galimidi
+	Julia Galimidi
+	Cuong Nguyen
+	Brant Rieder
+	Andrew Guillard
+	
+
