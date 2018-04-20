@@ -49,8 +49,8 @@ public class DamagesScript : MonoBehaviour {
                 else
                 {
                     //go to each location and swap 
-                    newObj = UtilityFunctions.replaceObject(equipLocation[i], Damages[level - 1]);
                     print("replacing " + equipLocation[i].name);
+                    newObj = UtilityFunctions.replaceObject(equipLocation[i], Damages[level - 1]);
 
                 }
 
